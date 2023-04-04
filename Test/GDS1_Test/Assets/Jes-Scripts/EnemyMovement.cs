@@ -7,9 +7,13 @@ public class EnemyMovement : MonoBehaviour
     Rigidbody rb;
     GameObject player;
     Transform playerTrans;
-    //float speed = 2.0f;
+   
     Vector3 moveDirection;
     bool canMove;
+    float currentCalmDown; //collision
+    public Collider collisionDetect; //collision
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,8 +34,10 @@ public class EnemyMovement : MonoBehaviour
             moveDirection = direction;
             transform.LookAt(playerTrans);
             transform.position += transform.forward * 1f * Time.deltaTime;
-          // }
         }
+      
+          
+       
     }
 
     public void SetCanMove(bool ifCanMove)
@@ -39,6 +45,40 @@ public class EnemyMovement : MonoBehaviour
         canMove = ifCanMove;
 
     }
+
+
+    public void OnTriggerEnter(Collider other) //collision
+    {
+        if (other.tag == "Player")
+        {
+            
+            currentCalmDown++;
+            if (currentCalmDown > 0)
+            {
+                SetCanMove(false);
+                Debug.Log("HIT");
+                collisionDetect.enabled = false;
+                StartCoroutine(waitforme());
+                
+
+
+            }
+            
+
+
+
+         
+
+
+
+        }
     }
+    IEnumerator waitforme() //collision
+    {
+        yield return new WaitForSeconds(4);
+        SetCanMove(true);
+        collisionDetect.enabled = true;
+    }    
+}
 
    
