@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class InventoryManager : MonoBehaviour
 {
+    [SerializeField] private List<CraftingRecipeClass> craftingRecipies = new List<CraftingRecipeClass>();
     [SerializeField] private GameObject itemCursor;
     [SerializeField] private GameObject slotHolder;
     [SerializeField] private SlotClass[] startingItems;
@@ -37,6 +38,32 @@ public class InventoryManager : MonoBehaviour
 
     private void Update()
     {
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            Craft(craftingRecipies[0]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            Craft(craftingRecipies[1]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            Craft(craftingRecipies[2]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            Craft(craftingRecipies[3]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            Craft(craftingRecipies[4]);
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            Craft(craftingRecipies[5]);
+        }
+
         itemCursor.SetActive(isMovingItem);
         itemCursor.transform.position = Input.mousePosition;
         if (isMovingItem)
@@ -147,6 +174,41 @@ public class InventoryManager : MonoBehaviour
         return true;
     }
 
+    public bool Remove(ItemClass item, int quantity)
+    {
+        SlotClass temp = Contains(item);
+        if (temp != null)
+        {
+            if (temp.GetQuantity() > 1)
+            {
+                temp.SubQuantity(quantity);
+            }
+            else
+            {
+                int slotToRemoveIndex = 0;
+
+                for (int i = 0; i < items.Length; i++)
+                {
+                    if (items[i].GetItem() == item)
+                    {
+                        slotToRemoveIndex = i;
+                        break;
+                    }
+                }
+
+                items[slotToRemoveIndex].Clear();
+            }
+        }
+        else
+        {
+           
+            return false;
+        }
+
+        RefreshUI();
+        return true;
+    }
+
     public SlotClass Contains(ItemClass item)
     {
         for (int i = 0; i < items.Length; i++)
@@ -157,6 +219,17 @@ public class InventoryManager : MonoBehaviour
             }
         }
         return null;
+    }
+    public bool Contains(ItemClass item, int quantity)
+    {
+        for (int i = 0; i < items.Length; i++)
+        {
+            if (items[i].GetItem() == item && items[i].GetQuantity() >= quantity)
+            {
+                return true;
+            }
+        }
+        return false;
     }
     #endregion
 
@@ -287,4 +360,28 @@ public class InventoryManager : MonoBehaviour
         return null;
     }
     #endregion
+
+    public bool isFull()
+    {
+        for(int i = 0; i < items.Length; i++)
+        {
+            if(items[i].GetItem() == null)
+            {
+                return false;
+            }
+        }
+        return true ;
+    }
+
+    private void Craft(CraftingRecipeClass recipe)
+    {
+        if (recipe.CanCraft(this))
+        {
+            recipe.Craft(this);
+        }
+        else
+        {
+            Debug.Log("Cannot craft that item");
+        }
+    }
 }
