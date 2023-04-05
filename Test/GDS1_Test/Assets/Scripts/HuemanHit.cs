@@ -6,11 +6,15 @@ public class HuemanHit : MonoBehaviour
 {
     AmmoSwitching ammoSwitch;
     string thisType;
+    [SerializeField]
+    Material white;
+    EnemyMovement enemyMovement;
     // Start is called before the first frame update
     void Start()
     {
         ammoSwitch = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoSwitching>();
         thisType = this.tag;
+        enemyMovement = this.GetComponent<EnemyMovement>();
     }
 
     // Update is called once per frame
@@ -25,28 +29,35 @@ public class HuemanHit : MonoBehaviour
         {
             if(thisType == "RedHueman" && ammoSwitch.GetAmmoType() == "Green")
             {
-                Destroy(this.gameObject);
+                Cured();
             }
             if (thisType == "OrangeHueman" && ammoSwitch.GetAmmoType() == "Blue")
             {
-                Destroy(this.gameObject);
+                Cured();
             }
             if (thisType == "YellowHueman" && ammoSwitch.GetAmmoType() == "Purple")
             {
-                Destroy(this.gameObject);
+                Cured();
             }
             if (thisType == "GreenHueman" && ammoSwitch.GetAmmoType() == "Red")
             {
-                Destroy(this.gameObject);
+                Cured();
             }
             if (thisType == "BlueHueman" && ammoSwitch.GetAmmoType() == "Orange")
             {
-                Destroy(this.gameObject);
+                Cured();
             }
             if (thisType == "PurpleHueman" && ammoSwitch.GetAmmoType() == "Yellow")
             {
-                Destroy(this.gameObject);
+                Cured();
             }
         }
+    }
+
+    private void Cured()
+    {
+        this.GetComponentInChildren<SkinnedMeshRenderer>().material = white;
+        this.GetComponent<EnemyMovement>().enabled = false;
+        enemyMovement.SetCured();
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterMovement : MonoBehaviour
 {
     float walkSpeed = 4.0f;
-    float rotationSpeed = 100.0f;
+    float rotationSpeed = 200.0f;
     Animator anim;
     float shootTimerLength = 1.5f;
     float shootTimer = 0;

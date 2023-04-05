@@ -12,6 +12,7 @@ public class EnemyMovement : MonoBehaviour
     bool canMove;
     float currentCalmDown; //collision
     public Collider collisionDetect; //collision
+    bool cured;
 
 
     // Start is called before the first frame update
@@ -21,6 +22,7 @@ public class EnemyMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerTrans = player.GetComponent<Transform>();
         canMove = true;
+        cured = false;
     }
 
     // Update is called once per frame
@@ -49,7 +51,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void OnTriggerEnter(Collider other) //collision
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && !cured)
         {
             
             currentCalmDown++;
@@ -79,6 +81,12 @@ public class EnemyMovement : MonoBehaviour
         SetCanMove(true);
         collisionDetect.enabled = true;
     }    
+
+    public void SetCured()
+    {
+        cured = true;
+    }
+
 }
 
    
