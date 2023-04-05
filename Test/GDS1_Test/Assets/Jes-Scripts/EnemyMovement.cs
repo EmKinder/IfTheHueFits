@@ -13,6 +13,7 @@ public class EnemyMovement : MonoBehaviour
     float currentCalmDown; //collision
     public Collider collisionDetect; //collision
     bool cured;
+    bool canHitPlayer;
 
 
     // Start is called before the first frame update
@@ -23,7 +24,9 @@ public class EnemyMovement : MonoBehaviour
         playerTrans = player.GetComponent<Transform>();
         canMove = true;
         cured = false;
+        canHitPlayer = true;
     }
+
 
     // Update is called once per frame
     void Update()
@@ -59,7 +62,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void OnTriggerEnter(Collider other) //collision
     {
-        if (other.tag == "Player" && !cured)
+        if (other.tag == "Player" && !cured && canHitPlayer)
         {
             
             currentCalmDown++;
@@ -67,7 +70,7 @@ public class EnemyMovement : MonoBehaviour
             {
                 SetCanMove(false);
                 Debug.Log("HIT");
-                collisionDetect.enabled = false;
+                canHitPlayer = false;
                 StartCoroutine(waitforme());
                 
 
@@ -87,7 +90,7 @@ public class EnemyMovement : MonoBehaviour
     {
         yield return new WaitForSeconds(4);
         SetCanMove(true);
-        collisionDetect.enabled = true;
+        canHitPlayer = true;
     }    
 
     public void SetCured()

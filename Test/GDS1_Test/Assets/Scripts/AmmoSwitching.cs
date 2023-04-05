@@ -26,14 +26,16 @@ public class AmmoSwitching : MonoBehaviour
 
     void Start()
     {
-        RedCheck.enabled = false;
-        OrangeCheck.enabled = false;
-        YellowCheck.enabled = false;
-        GreenCheck.enabled = false;
-        BlueCheck.enabled = false;
-        PurpleCheck.enabled = false;
+ 
+            RedCheck.enabled = false;
+            OrangeCheck.enabled = false;
+            YellowCheck.enabled = false;
+            GreenCheck.enabled = false;
+            BlueCheck.enabled = false;
+            PurpleCheck.enabled = false;
 
-        SelectAmmo(selectedAmmo);
+            SelectAmmo(selectedAmmo);
+
 
     }
 
@@ -87,7 +89,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             RedCheck.enabled = false;
             OrangeCheck.enabled = true;
-            OrangeCheck.text = ammoQuantity.ToString();
+            OrangeCheck.text = ammoCount.getAmmoCount("Orange").ToString();
             YellowCheck.enabled = false;
 
             return "Orange";
@@ -96,7 +98,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             OrangeCheck.enabled = false;
             YellowCheck.enabled = true;
-            YellowCheck.text = ammoQuantity.ToString();
+            YellowCheck.text = ammoCount.getAmmoCount("Yellow").ToString();
             GreenCheck.enabled = false;
             return "Yellow";
         }
@@ -104,7 +106,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             YellowCheck.enabled = false;
             GreenCheck.enabled = true;
-            GreenCheck.text = ammoQuantity.ToString();
+            GreenCheck.text = ammoCount.getAmmoCount("Green").ToString();
             BlueCheck.enabled = false;
             return "Green";
         }
@@ -112,7 +114,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             GreenCheck.enabled = false;
             BlueCheck.enabled = true;
-            BlueCheck.text = ammoQuantity.ToString();
+            BlueCheck.text = ammoCount.getAmmoCount("Blue").ToString();
             PurpleCheck.enabled = false;
             return "Blue";
         }
@@ -120,7 +122,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             BlueCheck.enabled = false;
             PurpleCheck.enabled = true;
-            PurpleCheck.text = ammoQuantity.ToString();
+            PurpleCheck.text = ammoCount.getAmmoCount("Purple").ToString();
             RedCheck.enabled = false;
 
             return "Purple";
@@ -132,4 +134,6 @@ public class AmmoSwitching : MonoBehaviour
     {
         return ammoString;
     }
+    
+
 }

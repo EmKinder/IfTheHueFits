@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class HuemanHit : MonoBehaviour
 {
@@ -9,10 +10,11 @@ public class HuemanHit : MonoBehaviour
     [SerializeField]
     Material white;
     EnemyMovement enemyMovement;
+    bool managersFound;
     // Start is called before the first frame update
     void Start()
     {
-        ammoSwitch = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoSwitching>();
+        managersFound = false;
         thisType = this.tag;
         enemyMovement = this.GetComponent<EnemyMovement>();
     }
@@ -20,7 +22,11 @@ public class HuemanHit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1) && !managersFound)
+        {
+            ammoSwitch = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoSwitching>();
+            managersFound = true;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -30,18 +36,22 @@ public class HuemanHit : MonoBehaviour
             if(thisType == "RedHueman" && ammoSwitch.GetAmmoType() == "Green")
             {
                 Cured();
+                
             }
             if (thisType == "OrangeHueman" && ammoSwitch.GetAmmoType() == "Blue")
             {
                 Cured();
+                Debug.Log("OrangeHuemanHit");
             }
             if (thisType == "YellowHueman" && ammoSwitch.GetAmmoType() == "Purple")
             {
                 Cured();
+                Debug.Log("YellownHuemanHit");
             }
             if (thisType == "GreenHueman" && ammoSwitch.GetAmmoType() == "Red")
             {
                 Cured();
+                Debug.Log("GreenHuemanHit");
             }
             if (thisType == "BlueHueman" && ammoSwitch.GetAmmoType() == "Orange")
             {
@@ -51,6 +61,7 @@ public class HuemanHit : MonoBehaviour
             {
                 Cured();
             }
+            Destroy(other.gameObject);
         }
     }
 

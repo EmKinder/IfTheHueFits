@@ -5,8 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
-    float walkSpeed = 4.0f;
-    float rotationSpeed = 200.0f;
+    float walkSpeed = 6.0f;
+    float rotationSpeed = 300.0f;
     Animator anim;
     float shootTimerLength = 1.5f;
     float shootTimer = 0;
@@ -15,34 +15,58 @@ public class CharacterMovement : MonoBehaviour
     public AmmoCount ac;
     public AmmoSwitching asw;
     string currentPaintShooting;
+    bool managersFound;
+    // drag in your player object here via the Inspector
+    [SerializeField] private Transform _player;
+
+    // If possible already drag your camera in here via the Inspector
+    [SerializeField] private Camera _camera;
+
+    private Plane plane;
     //public InventoryManager inventory;
-    
-   
-   // public AmmoSwitching ammo;
+
+
+    // public AmmoSwitching ammo;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         canShoot = true;
-        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1)) { 
-            ac = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoCount>();
-            asw = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoSwitching>();
-        }
+        managersFound = false;
+
+        // create a mathematical plane where the ground would be
+        // e.g. laying flat in XZ axis and at Y=0
+        // if your ground is placed differently you'ld have to adjust this here
+        plane = new Plane(Vector3.up, Vector3.zero);
+
+        // as a fallback use the main camera
+        if (!_camera) _camera = Camera.main;
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1) && !managersFound)
+        {
+            ac = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoCount>();
+            asw = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoSwitching>();
+            managersFound = true;
+        }
+
         float trans = Input.GetAxis("Vertical") * walkSpeed;
         trans *= Time.deltaTime;
         transform.Translate(0, 0, trans);
 
+
         float rot = Input.GetAxis("Horizontal") * rotationSpeed;
         rot *= Time.deltaTime;
         transform.Rotate(0, rot, 0);
+        
 
-        if (trans != 0)
+            if (trans != 0)
         {
             anim.SetBool("isWalking", true);
             if (trans > 0)
@@ -64,10 +88,9 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canShoot == true)
+        if (Input.GetMouseButtonDown(0) && canShoot == true && SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-            if (asw != null && ac != null)
-            {
+         //   ) { 
                 if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
                     || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
                     || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
@@ -92,7 +115,7 @@ public class CharacterMovement : MonoBehaviour
                     canShoot = true;
                     Debug.Log("Should be able to shoot now");
                     shootTimer = 0;
-                }
+              //  }
             }
         }
     }

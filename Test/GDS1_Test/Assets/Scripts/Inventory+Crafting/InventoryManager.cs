@@ -16,7 +16,8 @@ public class InventoryManager : MonoBehaviour
     private SlotClass originalSlot;
     bool isMovingItem;
     public AmmoCount ammoCount;
-    public ItemClass testAmmoRed;
+    public ItemClass onStartRedResource;
+    public ItemClass onStartBlueResource;
 
     private void Start()
     {
@@ -38,7 +39,8 @@ public class InventoryManager : MonoBehaviour
                 slots[i] = slotHolder.transform.GetChild(i).gameObject;
             }
 
-            Add(testAmmoRed, 4);
+            Add(onStartRedResource, 10);
+            Add(onStartBlueResource, 10);
             RefreshUI();
         }
 

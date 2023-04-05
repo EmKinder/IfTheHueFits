@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Shooting : MonoBehaviour
 {
@@ -8,18 +9,24 @@ public class Shooting : MonoBehaviour
     public Transform paintPos;
     public InventoryManager inventory;
     AmmoCount ammoCount;
+    bool managersFound;
+   
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        managersFound = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1) && !managersFound)
+        {
+            inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
+            managersFound = true;
+        }
     }
 
     IEnumerator CanShootPaint()

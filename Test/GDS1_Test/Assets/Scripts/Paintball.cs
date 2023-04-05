@@ -14,11 +14,12 @@ public class Paintball : MonoBehaviour
     public Material blue;
     public Material purple;
     public InventoryManager inventory;
+    //bool managerFound;
 
     // Start is called before the first frame update
     void Start()
     {
-        ammoSwitch = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoSwitching>();
+        ammoSwitch = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoSwitching>();
 
 
         if (ammoSwitch.GetAmmoType() == "Red")

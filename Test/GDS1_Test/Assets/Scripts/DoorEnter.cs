@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DoorEnter : MonoBehaviour
 {
@@ -19,6 +20,7 @@ public class DoorEnter : MonoBehaviour
             if (enterDoor)
             {
                 Debug.Log("Door Entered");
+                SceneManager.LoadScene(1);
                 enterDoor = false;
             }
         }
