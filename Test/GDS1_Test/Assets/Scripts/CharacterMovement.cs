@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -24,8 +25,10 @@ public class CharacterMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         canShoot = true;
-        ac = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoCount>();
-        asw = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoSwitching>();
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1)) { 
+            ac = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoCount>();
+            asw = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoSwitching>();
+        }
     }
 
     // Update is called once per frame
@@ -63,30 +66,33 @@ public class CharacterMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && canShoot == true)
         {
-            if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
-                || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
-                || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
-                || asw.GetAmmoType() == "Green" && ac.getAmmoCount("Green") > 0
-                || asw.GetAmmoType() == "Blue" && ac.getAmmoCount("Blue") > 0
-                || asw.GetAmmoType() == "Purple" && ac.getAmmoCount("Purple") > 0)
+            if (asw != null && ac != null)
             {
-                currentPaintShooting = asw.GetAmmoType();
-                ac.subAmmoCount(currentPaintShooting, 1);
-                anim.SetTrigger("isAttacking");
-                shooting.ShootPaint();
-                canShoot = false;
-                Debug.Log("Should Not be able to shoot now");
+                if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
+                    || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
+                    || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
+                    || asw.GetAmmoType() == "Green" && ac.getAmmoCount("Green") > 0
+                    || asw.GetAmmoType() == "Blue" && ac.getAmmoCount("Blue") > 0
+                    || asw.GetAmmoType() == "Purple" && ac.getAmmoCount("Purple") > 0)
+                {
+                    currentPaintShooting = asw.GetAmmoType();
+                    ac.subAmmoCount(currentPaintShooting, 1);
+                    anim.SetTrigger("isAttacking");
+                    shooting.ShootPaint();
+                    canShoot = false;
+                    Debug.Log("Should Not be able to shoot now");
 
+                }
             }
-        }
-        if (canShoot == false)
-        {
-            shootTimer += Time.deltaTime;
-            if (shootTimer >= shootTimerLength)
+            if (canShoot == false)
             {
-                canShoot = true;
-                Debug.Log("Should be able to shoot now");
-                shootTimer = 0;
+                shootTimer += Time.deltaTime;
+                if (shootTimer >= shootTimerLength)
+                {
+                    canShoot = true;
+                    Debug.Log("Should be able to shoot now");
+                    shootTimer = 0;
+                }
             }
         }
     }
