@@ -324,7 +324,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 1
     m_VerticalOverflow: 1
     m_LineSpacing: 1
-  m_Text: "Press 'E' near the table \nto open/close your inventory\nand craft ammo"
+  m_Text: "Press 'E' near the table \nto open your inventory\nand craft ammo"
 --- !u!222 &551495784
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2493,6 +2493,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1234051520}
     m_Modifications:
+    - target: {fileID: 7582353308963153077, guid: a3a8b0111dc2f5c4a9649fe135474461, type: 3}
+      propertyPath: m_Text
+      value: Click key down to make (1-6)
+      objectReference: {fileID: 0}
     - target: {fileID: 7582353309207291540, guid: a3a8b0111dc2f5c4a9649fe135474461, type: 3}
       propertyPath: m_UiScaleMode
       value: 1

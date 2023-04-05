@@ -29,15 +29,23 @@ public class TriggerCraftingTable : MonoBehaviour
                 Debug.Log("Inventory open");
                 inventoryCanvas.enabled = true;
                 inventoryOpen = true;
-               
+
             }
-            else if (inventoryOpen)
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.Log("Inventory close");
+            inventoryCanvas.enabled = false;
+            inventoryOpen = false;
+        }
+            
+           /* else if (inventoryOpen)
             {
                 Debug.Log("Inventory close");
                 inventoryCanvas.enabled = false;
                 inventoryOpen = false;
-            }
-        }
+            }*/
+        
     }
 
     private void OnTriggerEnter(Collider other)

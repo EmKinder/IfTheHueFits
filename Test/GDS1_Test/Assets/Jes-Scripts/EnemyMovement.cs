@@ -46,7 +46,7 @@ public class EnemyMovement : MonoBehaviour
             if (distance < 15.0f)
             {
                 transform.LookAt(playerTrans);
-                transform.position += transform.forward * 5f * Time.deltaTime;
+                transform.position += transform.forward * 3f * Time.deltaTime;
             }
           
         }
