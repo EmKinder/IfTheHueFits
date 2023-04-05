@@ -14,6 +14,7 @@ public class EnemyMovement : MonoBehaviour
     public Collider collisionDetect; //collision
     bool cured;
     bool canHitPlayer;
+    PlayerHealth playerHealth;
 
 
     // Start is called before the first frame update
@@ -25,10 +26,11 @@ public class EnemyMovement : MonoBehaviour
         canMove = true;
         cured = false;
         canHitPlayer = true;
+        playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
     }
 
 
-    // Update is called once per frame
+    // Update is called once per frames
     void Update()
     {  
         if (canMove)
@@ -64,26 +66,16 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.tag == "Player" && !cured && canHitPlayer)
         {
-            
+            playerHealth.DealDamage(10.0f);
             currentCalmDown++;
             if (currentCalmDown > 0)
             {
                 SetCanMove(false);
-                Debug.Log("HIT");
+                
                 canHitPlayer = false;
                 StartCoroutine(waitforme());
-                
-
 
             }
-            
-
-
-
-         
-
-
-
         }
     }
     IEnumerator waitforme() //collision

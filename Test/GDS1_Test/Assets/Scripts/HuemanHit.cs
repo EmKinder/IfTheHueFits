@@ -11,12 +11,14 @@ public class HuemanHit : MonoBehaviour
     Material white;
     EnemyMovement enemyMovement;
     bool managersFound;
+    EnemyCounter enemyCounter;
     // Start is called before the first frame update
     void Start()
     {
         managersFound = false;
         thisType = this.tag;
         enemyMovement = this.GetComponent<EnemyMovement>();
+        enemyCounter = GameObject.FindGameObjectWithTag("EnemyCounter").GetComponent<EnemyCounter>();
     }
 
     // Update is called once per frame
@@ -36,6 +38,7 @@ public class HuemanHit : MonoBehaviour
             if(thisType == "RedHueman" && ammoSwitch.GetAmmoType() == "Green")
             {
                 Cured();
+               
                 
             }
             if (thisType == "OrangeHueman" && ammoSwitch.GetAmmoType() == "Blue")
@@ -70,5 +73,6 @@ public class HuemanHit : MonoBehaviour
         this.GetComponentInChildren<SkinnedMeshRenderer>().material = white;
         this.GetComponent<EnemyMovement>().enabled = false;
         enemyMovement.SetCured();
+        enemyCounter.EnemyCured();
     }
 }

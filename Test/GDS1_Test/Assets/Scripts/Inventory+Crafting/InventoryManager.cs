@@ -9,7 +9,7 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private GameObject itemCursor;
     [SerializeField] private GameObject slotHolder;
     [SerializeField] private SlotClass[] startingItems;
-    private SlotClass[] items;
+    [SerializeField] private SlotClass[] items;
     private GameObject[] slots;
     private SlotClass movingSlot;
     private SlotClass tempSlot;
