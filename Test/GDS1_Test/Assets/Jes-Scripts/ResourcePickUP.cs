@@ -5,11 +5,14 @@ using UnityEngine;
 public class ResourcePickUP : MonoBehaviour
 {
     public int resource;
-    
+    InventoryManager inventory;
+
+   
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
     }
 
     // Update is called once per frame
@@ -19,10 +22,13 @@ public class ResourcePickUP : MonoBehaviour
     }
 
 
-    public void AddResourceSystem(int pickup)
+    public void AddResourceSystem(int pickup, ItemClass item)
     {
         resource = resource + pickup;
         //addtoInventory()
+            inventory.Add(item, 1);
+
+
     }
 
 

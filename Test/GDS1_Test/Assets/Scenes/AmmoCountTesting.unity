@@ -571,6 +571,7 @@ MonoBehaviour:
   pickup: 1
   resourcePickUP: {fileID: 266484669}
   gem: {fileID: 581612344}
+  redResource: {fileID: 0}
 --- !u!65 &581612346
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1739,12 +1740,20 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2589580932088876740, guid: fe1961dc800cea34c885b95a960ba29d, type: 3}
+      propertyPath: redResource
+      value: 
+      objectReference: {fileID: 11400000, guid: 3443c250ca306fc4a8dca661dfd94a08, type: 2}
+    - target: {fileID: 2589580932088876740, guid: fe1961dc800cea34c885b95a960ba29d, type: 3}
       propertyPath: resourcePickUP
       value: 
       objectReference: {fileID: 266484669}
     - target: {fileID: 2590563341604924423, guid: fe1961dc800cea34c885b95a960ba29d, type: 3}
       propertyPath: m_Name
       value: SphereGemSmall
+      objectReference: {fileID: 0}
+    - target: {fileID: 2590563341604924423, guid: fe1961dc800cea34c885b95a960ba29d, type: 3}
+      propertyPath: m_TagString
+      value: RedResource
       objectReference: {fileID: 0}
     - target: {fileID: 2593580659293553691, guid: fe1961dc800cea34c885b95a960ba29d, type: 3}
       propertyPath: m_RootOrder
