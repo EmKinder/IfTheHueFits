@@ -13,7 +13,8 @@ public class AmmoSwitching : MonoBehaviour
     public Image GreenCheck;
     public Image BlueCheck;
     public Image PurpleCheck;
- 
+
+
     void Start()
     {
         RedCheck.enabled = false;

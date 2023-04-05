@@ -11,6 +11,9 @@ public class CharacterMovement : MonoBehaviour
     float shootTimer = 0;
     bool canShoot;
     public Shooting shooting;
+    //public InventoryManager inventory;
+   // public AmmoSwitching ammo;
+
     // Start is called before the first frame update
     void Start()
     {
