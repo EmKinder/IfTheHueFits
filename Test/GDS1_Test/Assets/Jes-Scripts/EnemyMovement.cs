@@ -34,8 +34,16 @@ public class EnemyMovement : MonoBehaviour
             Vector3 direction = playerTrans.position - transform.position;
             direction.Normalize();
             moveDirection = direction;
-            transform.LookAt(playerTrans);
-            transform.position += transform.forward * 1f * Time.deltaTime;
+            float distance = Vector3.Distance(transform.position, player.transform.position);
+            // Debug.Log(distance);
+
+
+            if (distance < 15.0f)
+            {
+                transform.LookAt(playerTrans);
+                transform.position += transform.forward * 5f * Time.deltaTime;
+            }
+          
         }
       
           
