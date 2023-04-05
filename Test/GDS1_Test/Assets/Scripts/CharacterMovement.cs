@@ -16,32 +16,14 @@ public class CharacterMovement : MonoBehaviour
     public AmmoSwitching asw;
     string currentPaintShooting;
     bool managersFound;
-    // drag in your player object here via the Inspector
-    [SerializeField] private Transform _player;
-
-    // If possible already drag your camera in here via the Inspector
-    [SerializeField] private Camera _camera;
-
-    private Plane plane;
-    //public InventoryManager inventory;
 
 
-    // public AmmoSwitching ammo;
-
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
         canShoot = true;
         managersFound = false;
 
-        // create a mathematical plane where the ground would be
-        // e.g. laying flat in XZ axis and at Y=0
-        // if your ground is placed differently you'ld have to adjust this here
-        plane = new Plane(Vector3.up, Vector3.zero);
-
-        // as a fallback use the main camera
-        if (!_camera) _camera = Camera.main;
 
     }
 
@@ -58,7 +40,9 @@ public class CharacterMovement : MonoBehaviour
 
         float trans = Input.GetAxis("Vertical") * walkSpeed;
         trans *= Time.deltaTime;
-        transform.Translate(0, 0, trans);
+          transform.Translate(0, 0, trans);
+        //rb.MovePosition(rb.gameObject.transform.forward * walkSpeed);
+    
 
 
         float rot = Input.GetAxis("Horizontal") * rotationSpeed;
