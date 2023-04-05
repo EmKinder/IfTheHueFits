@@ -15,25 +15,34 @@ public class InventoryManager : MonoBehaviour
     private SlotClass tempSlot;
     private SlotClass originalSlot;
     bool isMovingItem;
+    public AmmoCount ammoCount;
+    public ItemClass testAmmoRed;
 
     private void Start()
     {
-        slots = new GameObject[slotHolder.transform.childCount];
-        items = new SlotClass[slots.Length];
-        for (int i = 0; i < items.Length; i++)
+        if (slotHolder != null)
         {
-            items[i] = new SlotClass();
+            slots = new GameObject[slotHolder.transform.childCount];
+            items = new SlotClass[slots.Length];
+            for (int i = 0; i < items.Length; i++)
+            {
+                items[i] = new SlotClass();
+            }
+            for (int i = 0; i < startingItems.Length; i++)
+            {
+                items[i] = startingItems[i];
+            }
+            //set all the slots 
+            for (int i = 0; i < slotHolder.transform.childCount; i++)
+            {
+                slots[i] = slotHolder.transform.GetChild(i).gameObject;
+            }
+
+            Add(testAmmoRed, 4);
+            RefreshUI();
         }
-        for (int i = 0; i < startingItems.Length; i++)
-        {
-            items[i] = startingItems[i];
-        }
-        //set all the slots 
-        for (int i = 0; i < slotHolder.transform.childCount; i++)
-        {
-            slots[i] = slotHolder.transform.GetChild(i).gameObject;
-        }
-        RefreshUI();
+
+
     }
 
     private void Update()
@@ -64,10 +73,13 @@ public class InventoryManager : MonoBehaviour
             Craft(craftingRecipies[5]);
         }
 
-        itemCursor.SetActive(isMovingItem);
-        itemCursor.transform.position = Input.mousePosition;
-        if (isMovingItem)
-            itemCursor.GetComponent<Image>().sprite = movingSlot.GetItem().itemIcon;
+        if (itemCursor != null)
+        {
+            itemCursor.SetActive(isMovingItem);
+            itemCursor.transform.position = Input.mousePosition;
+            if (isMovingItem)
+                itemCursor.GetComponent<Image>().sprite = movingSlot.GetItem().itemIcon;
+        }
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -123,7 +135,41 @@ public class InventoryManager : MonoBehaviour
         SlotClass slot = Contains(item);
         if (slot != null && slot.GetItem().isStackable)
         {
-            slot.AddQuantity(1);
+            slot.AddQuantity(quantity);
+            if (ammoCount != null)
+            {
+                
+                if (slot.GetItem().itemName == "RedAmmo")
+                {
+                    ammoCount.addAmmoCount("Red", quantity);
+                    Debug.Log(ammoCount.getAmmoCount("Red"));
+                }
+                if (slot.GetItem().itemName == "OrangeAmmo")
+                {
+                    ammoCount.addAmmoCount("Orange", quantity);
+                    Debug.Log(ammoCount.getAmmoCount("Orange"));
+                }
+                if (slot.GetItem().itemName == "YellowAmmo")
+                {
+                    ammoCount.addAmmoCount("Yellow", quantity);
+                    Debug.Log(ammoCount.getAmmoCount("Yellow"));
+                }
+                if (slot.GetItem().itemName == "GreenAmmo")
+                {
+                    ammoCount.addAmmoCount("Green", quantity);
+                    Debug.Log(ammoCount.getAmmoCount("Green"));
+                }
+                if (slot.GetItem().itemName == "BlueAmmo")
+                {
+                    ammoCount.addAmmoCount("Blue", quantity);
+                    Debug.Log(ammoCount.getAmmoCount("Blue"));
+                }
+                if (slot.GetItem().itemName == "PurpleAmmo")
+                {
+                    ammoCount.addAmmoCount("Purple", quantity);
+                    Debug.Log(ammoCount.getAmmoCount("Purple"));
+                }
+            }
         }
         else
         {
@@ -132,6 +178,36 @@ public class InventoryManager : MonoBehaviour
                 if (items[i].GetItem() == null)
                 {
                     items[i].AddItem(item, quantity);
+                    if (item.GetItem().itemName == "RedAmmo")
+                    {
+                        ammoCount.addAmmoCount("Red", quantity);
+                        Debug.Log(ammoCount.getAmmoCount("Red"));
+                    }
+                    if (item.GetItem().itemName == "OrangeAmmo")
+                    {
+                        ammoCount.addAmmoCount("Orange", quantity);
+                        Debug.Log(ammoCount.getAmmoCount("Orange"));
+                    }
+                    if (item.GetItem().itemName == "YellowAmmo")
+                    {
+                        ammoCount.addAmmoCount("Yellow", quantity);
+                        Debug.Log(ammoCount.getAmmoCount("Yellow"));
+                    }
+                    if (item.GetItem().itemName == "GreenAmmo")
+                    {
+                        ammoCount.addAmmoCount("Green", quantity);
+                        Debug.Log(ammoCount.getAmmoCount("Green"));
+                    }
+                    if (item.GetItem().itemName == "BlueAmmo")
+                    {
+                        ammoCount.addAmmoCount("Blue", quantity);
+                        Debug.Log(ammoCount.getAmmoCount("Blue"));
+                    }
+                    if (item.GetItem().itemName == "PurpleAmmo")
+                    {
+                        ammoCount.addAmmoCount("Purple", quantity);
+                        Debug.Log(ammoCount.getAmmoCount("Purple"));
+                    }
                     break;
                 }
             }
@@ -201,7 +277,7 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
-           
+
             return false;
         }
 
@@ -211,6 +287,10 @@ public class InventoryManager : MonoBehaviour
 
     public SlotClass Contains(ItemClass item)
     {
+        if (slotHolder != null)
+        {
+
+        
         for (int i = 0; i < items.Length; i++)
         {
             if (items[i].GetItem() == item)
@@ -218,6 +298,7 @@ public class InventoryManager : MonoBehaviour
                 return items[i];
             }
         }
+    }
         return null;
     }
     public bool Contains(ItemClass item, int quantity)
@@ -257,7 +338,7 @@ public class InventoryManager : MonoBehaviour
         }
         movingSlot = new SlotClass(originalSlot.GetItem(), Mathf.CeilToInt(originalSlot.GetQuantity() / 2f));
         originalSlot.SubQuantity(Mathf.CeilToInt(originalSlot.GetQuantity() / 2f));
-        if(originalSlot.GetQuantity() == 0)
+        if (originalSlot.GetQuantity() == 0)
         {
             originalSlot.Clear();
         }
@@ -314,34 +395,38 @@ public class InventoryManager : MonoBehaviour
 
     private bool EndItemMove_Single()
     {
-        originalSlot = GetClosestSlot();
-        if (originalSlot == null)
+        if (slotHolder != null)
         {
-            return false;
-        }
-        if(originalSlot.GetItem() != null && originalSlot.GetItem() != movingSlot.GetItem())
-        {
-            return false;
-        }
-        movingSlot.SubQuantity(1);
-        if(originalSlot.GetItem() != null && originalSlot.GetItem() == movingSlot.GetItem())
-        {
-            originalSlot.AddQuantity(1);
-        }
-        else
-        {
-            originalSlot.AddItem(movingSlot.GetItem(), 1);
-        }
-        
+            originalSlot = GetClosestSlot();
+            if (originalSlot == null)
+            {
+                return false;
+            }
+            if (originalSlot.GetItem() != null && originalSlot.GetItem() != movingSlot.GetItem())
+            {
+                return false;
+            }
+            movingSlot.SubQuantity(1);
+            if (originalSlot.GetItem() != null && originalSlot.GetItem() == movingSlot.GetItem())
+            {
+                originalSlot.AddQuantity(1);
+            }
+            else
+            {
+                originalSlot.AddItem(movingSlot.GetItem(), 1);
+            }
 
-        if(movingSlot.GetQuantity() < 1)
-        {
-            isMovingItem = false;
-            movingSlot.Clear();
-        }
-        else 
-        {
-            isMovingItem = true;
+
+            if (movingSlot.GetQuantity() < 1)
+            {
+                isMovingItem = false;
+                movingSlot.Clear();
+            }
+            else
+            {
+                isMovingItem = true;
+            }
+
         }
         RefreshUI();
         return true;
@@ -349,11 +434,14 @@ public class InventoryManager : MonoBehaviour
 
     private SlotClass GetClosestSlot()
     {
-        for(int i = 0; i < slots.Length; i++)
+        if (slotHolder != null)
         {
-            if(Vector2.Distance(slots[i].transform.position, Input.mousePosition) <= 32)
+            for (int i = 0; i < slots.Length; i++)
             {
-                return items[i];
+                if (Vector2.Distance(slots[i].transform.position, Input.mousePosition) <= 32)
+                {
+                    return items[i];
+                }
             }
         }
 
@@ -363,14 +451,14 @@ public class InventoryManager : MonoBehaviour
 
     public bool isFull()
     {
-        for(int i = 0; i < items.Length; i++)
+        for (int i = 0; i < items.Length; i++)
         {
-            if(items[i].GetItem() == null)
+            if (items[i].GetItem() == null)
             {
                 return false;
             }
         }
-        return true ;
+        return true;
     }
 
     private void Craft(CraftingRecipeClass recipe)
@@ -384,4 +472,6 @@ public class InventoryManager : MonoBehaviour
             Debug.Log("Cannot craft that item");
         }
     }
+
+ 
 }

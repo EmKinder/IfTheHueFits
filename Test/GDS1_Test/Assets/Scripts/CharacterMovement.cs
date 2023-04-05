@@ -11,7 +11,12 @@ public class CharacterMovement : MonoBehaviour
     float shootTimer = 0;
     bool canShoot;
     public Shooting shooting;
+    public AmmoCount ac;
+    public AmmoSwitching asw;
+    string currentPaintShooting;
     //public InventoryManager inventory;
+    
+   
    // public AmmoSwitching ammo;
 
     // Start is called before the first frame update
@@ -19,6 +24,8 @@ public class CharacterMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         canShoot = true;
+        ac = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoCount>();
+        asw = GameObject.FindGameObjectWithTag("Manager").GetComponent<AmmoSwitching>();
     }
 
     // Update is called once per frame
@@ -38,9 +45,9 @@ public class CharacterMovement : MonoBehaviour
             if (trans > 0)
             {
 
-                    anim.SetFloat("AnimSpeed", 1.0f);
-                
-                
+                anim.SetFloat("AnimSpeed", 1.0f);
+
+
             }
             else
             {
@@ -54,13 +61,23 @@ public class CharacterMovement : MonoBehaviour
 
 
 
-        if (Input.GetKeyDown(KeyCode.LeftShift) && canShoot == true) 
+        if (Input.GetKeyDown(KeyCode.LeftShift) && canShoot == true)
         {
-            anim.SetTrigger("isAttacking");
-            shooting.ShootPaint();
-            canShoot = false;
-            Debug.Log("Should Not be able to shoot now");
-           
+            if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
+                || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
+                || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
+                || asw.GetAmmoType() == "Green" && ac.getAmmoCount("Green") > 0
+                || asw.GetAmmoType() == "Blue" && ac.getAmmoCount("Blue") > 0
+                || asw.GetAmmoType() == "Purple" && ac.getAmmoCount("Purple") > 0)
+            {
+                currentPaintShooting = asw.GetAmmoType();
+                ac.subAmmoCount(currentPaintShooting, 1);
+                anim.SetTrigger("isAttacking");
+                shooting.ShootPaint();
+                canShoot = false;
+                Debug.Log("Should Not be able to shoot now");
+
+            }
         }
         if (canShoot == false)
         {

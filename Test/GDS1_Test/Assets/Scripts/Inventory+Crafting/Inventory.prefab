@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4486430414267458320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4486430414267458322}
+  - component: {fileID: 4486430414267458321}
+  m_Layer: 0
+  m_Name: Inventory
+  m_TagString: Inventory
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4486430414267458322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4486430414267458320}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4486430414267458321
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4486430414267458320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 567059b0d9335ba40b9b1bb512809eac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  craftingRecipies:
+  - {fileID: 11400000, guid: 306f3fd3ee448dc4bb03499102156cda, type: 2}
+  - {fileID: 11400000, guid: d7b016d421c72d24ba3eac845745d097, type: 2}
+  - {fileID: 11400000, guid: bc8967109e74f2042b0c3a93ebfd02d8, type: 2}
+  - {fileID: 11400000, guid: 75219c6601014144e91e208de96b6125, type: 2}
+  - {fileID: 11400000, guid: bcb936064bdef60458f5c4475354c9d3, type: 2}
+  - {fileID: 11400000, guid: 931e76b80d9026d4f8fec43dc4fddbb4, type: 2}
+  itemCursor: {fileID: 0}
+  slotHolder: {fileID: 0}
+  startingItems:
+  - item: {fileID: 11400000, guid: 3443c250ca306fc4a8dca661dfd94a08, type: 2}
+    quantity: 4
+  - item: {fileID: 11400000, guid: d7622b5ea6f272046b76523a4a2c76d9, type: 2}
+    quantity: 4
+  - item: {fileID: 11400000, guid: d7622b5ea6f272046b76523a4a2c76d9, type: 2}
+    quantity: 4

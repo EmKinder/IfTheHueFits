@@ -21,4 +21,9 @@ public class ItemClass  : ScriptableObject
     {
         return null;
     }
+
+    public virtual void Use(Paintball pb)
+    {
+
+    }
 }

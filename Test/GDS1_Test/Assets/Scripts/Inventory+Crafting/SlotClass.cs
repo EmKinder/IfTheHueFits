@@ -20,6 +20,12 @@ public class SlotClass
         quantity = _quantity;
     }
 
+    public SlotClass(ItemClass _item)
+    {
+        item = _item;
+       
+    }
+
     public SlotClass(SlotClass slot)
     {
         this.item = slot.GetItem();

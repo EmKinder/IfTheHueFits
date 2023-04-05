@@ -7,12 +7,21 @@ public class AmmoSwitching : MonoBehaviour
 {
     public int selectedAmmo = 0;
     string ammoString;
-    public Image RedCheck;
-    public Image OrangeCheck;
-    public Image YellowCheck;
-    public Image GreenCheck;
-    public Image BlueCheck;
-    public Image PurpleCheck;
+    public Text RedCheck;
+    public Text OrangeCheck;
+    public Text YellowCheck;
+    public Text GreenCheck;
+    public Text BlueCheck;
+    public Text PurpleCheck;
+    int ammoQuantity;
+    public AmmoClass redAmmo;
+    public AmmoClass orangeAmmo;
+    public AmmoClass yellowAmmo;
+    public AmmoClass greenAmmo;
+    public AmmoClass blueAmmo;
+    public AmmoClass purpleAmmo;
+    public InventoryManager inventory;
+    public AmmoCount ammoCount;
 
 
     void Start()
@@ -32,6 +41,7 @@ public class AmmoSwitching : MonoBehaviour
     void Update()
     {
         
+        
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if (selectedAmmo >= 5)
@@ -43,7 +53,7 @@ public class AmmoSwitching : MonoBehaviour
             {
                 selectedAmmo++;
             }
-            Debug.Log("Current Ammo: " + SelectAmmo(selectedAmmo));
+         //   Debug.Log("Current Ammo: " + SelectAmmo(selectedAmmo));
         
         }
         if (Input.GetAxis("Mouse ScrollWheel") < 0)
@@ -57,7 +67,7 @@ public class AmmoSwitching : MonoBehaviour
             {
                 selectedAmmo--;
             }
-            Debug.Log("Current Ammo: " + SelectAmmo(selectedAmmo));
+          //  Debug.Log("Current Ammo: " + SelectAmmo(selectedAmmo));
             
         }
         ammoString = SelectAmmo(selectedAmmo);
@@ -69,6 +79,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             PurpleCheck.enabled = false;
             RedCheck.enabled = true;
+            RedCheck.text = ammoCount.getAmmoCount("Red").ToString();
             OrangeCheck.enabled = false;
             return "Red";
         }
@@ -76,6 +87,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             RedCheck.enabled = false;
             OrangeCheck.enabled = true;
+            OrangeCheck.text = ammoQuantity.ToString();
             YellowCheck.enabled = false;
 
             return "Orange";
@@ -84,6 +96,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             OrangeCheck.enabled = false;
             YellowCheck.enabled = true;
+            YellowCheck.text = ammoQuantity.ToString();
             GreenCheck.enabled = false;
             return "Yellow";
         }
@@ -91,6 +104,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             YellowCheck.enabled = false;
             GreenCheck.enabled = true;
+            GreenCheck.text = ammoQuantity.ToString();
             BlueCheck.enabled = false;
             return "Green";
         }
@@ -98,6 +112,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             GreenCheck.enabled = false;
             BlueCheck.enabled = true;
+            BlueCheck.text = ammoQuantity.ToString();
             PurpleCheck.enabled = false;
             return "Blue";
         }
@@ -105,6 +120,7 @@ public class AmmoSwitching : MonoBehaviour
         {
             BlueCheck.enabled = false;
             PurpleCheck.enabled = true;
+            PurpleCheck.text = ammoQuantity.ToString();
             RedCheck.enabled = false;
 
             return "Purple";

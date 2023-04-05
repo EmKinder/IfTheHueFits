@@ -8,6 +8,7 @@ public class CraftingRecipeClass : ScriptableObject
     [Header("Crafting Recipe")]
     public SlotClass[] inputItems;
     public SlotClass outputItem;
+    public AmmoCount ammoCount;
 
     public bool CanCraft(InventoryManager inventory)
     {
@@ -34,5 +35,8 @@ public class CraftingRecipeClass : ScriptableObject
         }
         //add the output item to the inventory 
         inventory.Add(outputItem.GetItem(), outputItem.GetQuantity());
+
+
+
     }
 }

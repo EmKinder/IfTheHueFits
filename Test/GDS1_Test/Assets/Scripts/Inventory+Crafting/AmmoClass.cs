@@ -19,4 +19,10 @@ public class AmmoClass : ItemClass
 
     public override AmmoClass GetAmmo() { return this; }
 
+    public override void Use(Paintball pb)
+    {
+        base.Use(pb);
+        pb.inventory.Remove(this);
+    }
+
 }

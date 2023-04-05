@@ -6,6 +6,8 @@ public class Shooting : MonoBehaviour
 {
     public GameObject paintball;
     public Transform paintPos;
+    public InventoryManager inventory;
+    AmmoCount ammoCount;
 
 
     // Start is called before the first frame update
@@ -28,6 +30,7 @@ public class Shooting : MonoBehaviour
 
     public void ShootPaint()
     {
+      //  inventory.selectedItem.Use(this);
         //  Instantiate(paintball, transform.position, Quaternion.identity);
         //  paintball.transform.forward = transform.forward;
         StartCoroutine(CanShootPaint());
