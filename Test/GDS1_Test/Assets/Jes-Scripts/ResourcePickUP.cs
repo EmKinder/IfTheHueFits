@@ -15,25 +15,20 @@ public class ResourcePickUP : MonoBehaviour
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    
 
     public void AddResourceSystem(int pickup, ItemClass item)
     {
         resource = resource + pickup;
         //addtoInventory()
-            inventory.Add(item, 1);
-
+        inventory.Add(item, 1);
+        Debug.Log(resource);
 
     }
 
 
-    public void addToInventory()
-    {
+ //   public void addToInventory()
+ //   {
         /*need to use resource here to make them add up. In the previous game we did I had placed a
         
          void ScoreText(){
@@ -45,5 +40,5 @@ public class ResourcePickUP : MonoBehaviour
         However im not to sure how it would work with the inventory.
         */
 
-    }
+  //  }
 }
