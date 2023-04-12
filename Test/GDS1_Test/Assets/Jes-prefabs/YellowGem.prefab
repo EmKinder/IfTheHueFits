@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2100879499722977747}
   - component: {fileID: 2100879499722977756}
   - component: {fileID: 2100879499722977746}
+  - component: {fileID: 6049950869666655424}
   m_Layer: 0
   m_Name: YellowGem
   m_TagString: Untagged
@@ -145,3 +146,16 @@ MonoBehaviour:
   resourcePickUP: {fileID: 0}
   gem: {fileID: 2099908084928734889}
   yellowResource: {fileID: 11400000, guid: 24ca03fd0ac1698438fae2b9333d77c1, type: 2}
+--- !u!114 &6049950869666655424
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2099908084928734889}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20340d6b9b2db8549a071a66971f065e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100

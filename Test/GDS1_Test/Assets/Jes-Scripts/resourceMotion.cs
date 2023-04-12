@@ -6,25 +6,35 @@ public class resourceMotion : MonoBehaviour
 {
     public int rotationSpeed = 100;
     private Vector3 scales;
-    public Vector3 startPosition;
-    public Vector3 endPosition;
-    public float timing;
     bool canMove;
+    bool canDisappear;
+   
     // Start is called before the first frame update
     void Start()
     {
        
         canMove = false;
-   
+        canDisappear = false;
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Rotate(rotationSpeed * Time.deltaTime, 0, 0);
-       if(canMove == true)
+        gameObject.transform.Rotate(rotationSpeed * Time.deltaTime, 0f, 0f);
+        if (canMove == true)
         {
-            gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime*2, transform.position.z);
+            if (canDisappear == false)
+
+                if(transform.position.y < 4f)
+            {
+                gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime *10f, transform.position.z);
+                    
+                            }
+            if (canDisappear == true)
+            {
+                gameObject.transform.localScale =  Vector3.Lerp(transform.localScale, scales, Time.deltaTime *10f);
+            }
 
         }
     }
@@ -38,7 +48,8 @@ public class resourceMotion : MonoBehaviour
         {
           
             setcanMove(true);
-           // StartCoroutine(waitforme());
+            StartCoroutine(waitforme());
+
         }
     }
 
@@ -46,8 +57,8 @@ public class resourceMotion : MonoBehaviour
 
     IEnumerator waitforme()
     {
-        yield return new WaitForSeconds(1);
-        setcanMove(true);
+        yield return new WaitForSeconds(0.3f);
+        SetCanDisappear(true);
 
         
     }
@@ -56,4 +67,10 @@ public class resourceMotion : MonoBehaviour
     {
         canMove = moveIt;
     }
+
+    public void SetCanDisappear(bool disappear)
+    {
+        canDisappear = disappear;
+    }
 }
+
