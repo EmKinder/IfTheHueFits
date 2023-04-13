@@ -13,7 +13,7 @@ public class ResourcePickUP : MonoBehaviour
     public int Br;
     public Text BrText;
 
-    //  public  InventoryManager inventory;
+     public  InventoryManager inventory;
 
     void Start()
     {
@@ -31,8 +31,8 @@ public class ResourcePickUP : MonoBehaviour
     {
         resource = resource + pickup;
 
-        //  inventory.Add(item, 1);
-        // Debug.Log(resource);
+          inventory.Add(item, 1);
+         Debug.Log(resource);
         
 
     }
