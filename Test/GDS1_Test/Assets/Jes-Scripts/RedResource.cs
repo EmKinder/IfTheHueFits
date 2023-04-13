@@ -15,6 +15,7 @@ public class RedResource : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             resourcePickUP.AddResourceSystem(pickup, redResource);
+            resourcePickUP.AddToRedResource(pickup);
            // Destroy(gem);
           //  Debug.Log(pickup);
         }
