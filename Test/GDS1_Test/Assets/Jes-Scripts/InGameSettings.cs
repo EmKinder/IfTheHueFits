@@ -7,11 +7,12 @@ using UnityEngine.UI;
 
 public class InGameSettings : MonoBehaviour
 {
-    ManagingSceneChanges scene;
+   public  ManagingSceneChanges scene;
     public Canvas SettingsIcon;
     public Canvas gameSettings;
     public Button RB;
     public Button BB;
+    public Button EB;
     public Button Paused;
     public bool GamePaused;
     private void Awake()
@@ -21,26 +22,19 @@ public class InGameSettings : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        GamePaused = false;
+       // GamePaused = false;
+     /*   Button resetB = RB.GetComponent<Button>();
+        resetB.onClick.AddListener(RestartButton);
+        Button backB = BB.GetComponent<Button>();
+        backB.onClick.AddListener(backButton);
+        Button pausedB = Paused.GetComponent<Button>();
+        pausedB.onClick.AddListener(SettingsButton);
+     */
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameSettings.enabled = false;
-        if (Paused == true)
-        {
-            GamePuased(true);
-            SettingsButton();
-            RestartButton();
-            backButton();
-        }
-        {
-
-        }
-       
-      //  RestartButton();
-     //   backButton();
     }
 
 
@@ -58,6 +52,7 @@ public class InGameSettings : MonoBehaviour
     {
         if(RB == true)
         {
+            gameSettings.enabled = false;
             scene.Restartlevel(); 
         }
     }
@@ -67,10 +62,17 @@ public class InGameSettings : MonoBehaviour
         if(BB == true)
         {
             gameSettings.enabled = false;
-            scene.Restartlevel();
+            scene.ResumeLevel();
             GamePuased(false);
 
         }
+    }
+
+
+    public void ExitButton()
+    {
+        gameSettings.enabled = false;
+        scene.ExitScene();
     }
 
     public void GamePuased(bool gameisPaused)

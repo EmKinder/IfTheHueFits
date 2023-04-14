@@ -26,7 +26,8 @@ public class ManagingSceneChanges : MonoBehaviour
 
     public void Restartlevel()
     {
-        SceneManager.LoadScene(2);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
 
@@ -43,6 +44,7 @@ public class ManagingSceneChanges : MonoBehaviour
 
     public void ExitScene()
     {
-        SceneManager.LoadScene(1);
+        Time.timeScale = 1f;
+        SceneManager.LoadScene("InventoryAndCrafting");
     }
 }
