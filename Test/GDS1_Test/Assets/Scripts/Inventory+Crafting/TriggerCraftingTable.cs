@@ -31,12 +31,12 @@ public class TriggerCraftingTable : MonoBehaviour
                 inventoryOpen = true;
 
             }
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Debug.Log("Inventory close");
-            inventoryCanvas.enabled = false;
-            inventoryOpen = false;
+            else if (inventoryOpen)
+            {
+                Debug.Log("Inventory close");
+                inventoryCanvas.enabled = false;
+                inventoryOpen = false;
+            }
         }
             
            /* else if (inventoryOpen)
