@@ -45,9 +45,9 @@ public class CharacterMovement : MonoBehaviour
     
 
 
-        float rot = Input.GetAxis("Horizontal") * rotationSpeed;
-        rot *= Time.deltaTime;
-        transform.Rotate(0, rot, 0);
+    //    float rot = Input.GetAxis("Horizontal") * rotationSpeed;
+   //     rot *= Time.deltaTime;
+ //       transform.Rotate(0, rot, 0);
         
 
             if (trans != 0)
@@ -102,5 +102,15 @@ public class CharacterMovement : MonoBehaviour
               //  }
             }
         }
+
+        Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
+        Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
+        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
+        transform.rotation = Quaternion.Euler(new Vector3(0f, -angle, 0f));
+    }
+
+    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
+    {
+        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 }
