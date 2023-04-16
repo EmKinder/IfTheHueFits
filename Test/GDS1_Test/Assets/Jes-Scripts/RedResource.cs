@@ -8,25 +8,16 @@ public class RedResource : MonoBehaviour
    public ResourcePickUP resourcePickUP;
     public GameObject gem;
     public ItemClass redResource;
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+   
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        if(other.CompareTag("Player"))
         {
             resourcePickUP.AddResourceSystem(pickup, redResource);
-            Destroy(gem);
-            Debug.Log(pickup);
+            resourcePickUP.AddToRedResource(pickup);
+           // Destroy(gem);
+          //  Debug.Log(pickup);
         }
     }
 }

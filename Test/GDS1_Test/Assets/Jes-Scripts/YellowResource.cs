@@ -25,7 +25,8 @@ public class YellowResource : MonoBehaviour
         if(other.tag == "Player")
         {
             resourcePickUP.AddResourceSystem(pickup, yellowResource);
-            Destroy(gem);
+            // Destroy(gem);
+            resourcePickUP.AddToYellowResource(pickup);
             Debug.Log(pickup);
         }
     }
