@@ -47,4 +47,9 @@ public class ManagingSceneChanges : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("InventoryAndCrafting");
     }
+    public void GoBackToCrafting()
+    {
+        SceneManager.LoadScene("InventoryAndCrafting");
+    }
+
 }
