@@ -47,9 +47,38 @@ public class ManagingSceneChanges : MonoBehaviour
         Time.timeScale = 1f;
         SceneManager.LoadScene("InventoryAndCrafting");
     }
+
     public void GoBackToCrafting()
     {
         SceneManager.LoadScene("InventoryAndCrafting");
     }
 
+    public void FirstLevelLoad()
+    {
+        SceneManager.LoadScene("Jes-SampleScene");
+    }
+
+    public void SecondLevelLoad()
+    {
+        SceneManager.LoadScene("Jes-Level2");
+    }
+
+    public void ThirdLevelLoad()
+    {
+        SceneManager.LoadScene("Jes-Level3");
+    }
+    public void ForthLevelLoad()
+    {
+        SceneManager.LoadScene("Jes-Level4");
+    }
+
+    public void FifthLevelLoad()
+    {
+        SceneManager.LoadScene("Jes-Level5");
+    }
+
+    public void SixthLevelLoad()
+    {
+        SceneManager.LoadScene("Jes-Level6");
+    }
 }
