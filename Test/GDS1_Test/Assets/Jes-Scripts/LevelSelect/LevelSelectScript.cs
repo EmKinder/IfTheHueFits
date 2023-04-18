@@ -59,4 +59,10 @@ public class LevelSelectScript : MonoBehaviour
         scene.SixthLevelLoad();
     }
 
+
+   public void newbutton()
+    {
+        PlayerPrefs.DeleteAll();
+    }
+
 }
