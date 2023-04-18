@@ -6,9 +6,15 @@ using UnityEngine.UI;
 public class LockedLevels : MonoBehaviour
 {
     public Button[] buttonlevel;
+    private void Awake()
+    {
+       
+    }
     // Start is called before the first frame update
     void Start()
     {
+      
+
         int currentPosition = PlayerPrefs.GetInt("Current", 4);
         for (int i = 0; i < buttonlevel.Length; i++)
         {
@@ -17,6 +23,8 @@ public class LockedLevels : MonoBehaviour
                 buttonlevel[i].interactable = false;
             }
         }
+
+        
         
     }
 
