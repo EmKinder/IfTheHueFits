@@ -8,6 +8,7 @@ public class LevelSelectScript : MonoBehaviour
 {
    public ManagingSceneChanges scene;
    
+   
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +29,7 @@ public class LevelSelectScript : MonoBehaviour
    public void Level1Button()
     {
         scene.FirstLevelLoad();
+       
     }
 
     public void Level2Button()
