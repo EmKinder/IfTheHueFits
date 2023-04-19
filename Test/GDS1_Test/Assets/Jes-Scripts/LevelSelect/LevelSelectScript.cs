@@ -28,7 +28,7 @@ public class LevelSelectScript : MonoBehaviour
 
    public void Level1Button()
     {
-    //    scene.FirstLevelLoad();
+        scene.FirstLevelLoad();
     
 
     }
