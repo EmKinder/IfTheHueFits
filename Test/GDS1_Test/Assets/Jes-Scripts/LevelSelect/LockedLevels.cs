@@ -8,7 +8,7 @@ public class LockedLevels : MonoBehaviour
 {
     public Button[] buttonlevel;
     public int Current;
-    public SceneManager scene;
+
   //  public int currentPosition;
     private void Awake()
     {
@@ -21,16 +21,21 @@ public class LockedLevels : MonoBehaviour
        Current = PlayerPrefs.GetInt("Current", 1);
         for (int i = 0; i < buttonlevel.Length; i++)
         {
-            if(i  > Current -1)
+            if (i > Current - 1)
             {
                 buttonlevel[i].interactable = false;
+               
             }
+
         }
 
         
     }
 
     // Update is called once per frame
+   
+
+    
     void Update()
     {
         
