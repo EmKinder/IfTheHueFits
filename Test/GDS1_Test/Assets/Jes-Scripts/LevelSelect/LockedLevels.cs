@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class LockedLevels : MonoBehaviour
 {
     public Button[] buttonlevel;
+    public Image[] images;
     public int Current;
 
   //  public int currentPosition;
@@ -21,14 +22,24 @@ public class LockedLevels : MonoBehaviour
        Current = PlayerPrefs.GetInt("Current", 3);
         for (int i = 0; i < buttonlevel.Length; i++)
         {
-            if (i > Current - 5)
+            if (i > Current - 3)
             {
                 buttonlevel[i].interactable = false;
                
             }
 
         }
-
+        for(int j = 0; j < images.Length; j++)
+        {
+            if (j > Current - 4)
+            {
+                images[j].enabled = true;
+            }
+            else
+            {
+                images[j].enabled = false;
+            }
+        }
         
     }
 
