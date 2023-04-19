@@ -81,4 +81,9 @@ public class ManagingSceneChanges : MonoBehaviour
     {
         SceneManager.LoadScene("Jes-Level6");
     }
+
+    public void LevelSelectLoad()
+    {
+        SceneManager.LoadScene("LevelSelect");
+    }
 }
