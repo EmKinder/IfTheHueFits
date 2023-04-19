@@ -19,6 +19,13 @@ public class InventoryManager : MonoBehaviour
     public ItemClass onStartRedResource;
     public ItemClass onStartBlueResource;
 
+    public Button RedCraftButton;
+    public Button OrangeCraftButton;
+    public Button YellowCraftButton;
+    public Button GreenCraftButton;
+    public Button BlueCraftButton;
+    public Button PurpleCraftButton;
+
     private void Start()
     {
         if (slotHolder != null)
@@ -44,36 +51,17 @@ public class InventoryManager : MonoBehaviour
             RefreshUI();
         }
 
+        RedCraftButton.onClick.AddListener(RedCraftClick);
+        OrangeCraftButton.onClick.AddListener(OrangeCraftClick);
+        YellowCraftButton.onClick.AddListener(YellowCraftClick);
+        GreenCraftButton.onClick.AddListener(GreenCraftClick);
+        BlueCraftButton.onClick.AddListener(BlueCraftClick);
+        PurpleCraftButton.onClick.AddListener(PurpleCraftClick);
 
     }
 
     private void Update()
     {
-
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            Craft(craftingRecipies[0]);
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            Craft(craftingRecipies[1]);
-        }
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            Craft(craftingRecipies[2]);
-        }
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            Craft(craftingRecipies[3]);
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            Craft(craftingRecipies[4]);
-        }
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            Craft(craftingRecipies[5]);
-        }
 
         if (itemCursor != null)
         {
@@ -107,6 +95,32 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+    #region Crafting
+    void RedCraftClick()
+    {
+        Craft(craftingRecipies[0]);
+    }
+    void YellowCraftClick()
+    {
+        Craft(craftingRecipies[1]);
+    }
+    void BlueCraftClick()
+    {
+        Craft(craftingRecipies[2]);
+    }
+    void OrangeCraftClick()
+    {
+        Craft(craftingRecipies[3]);
+    }
+    void GreenCraftClick()
+    {
+        Craft(craftingRecipies[4]);
+    }
+    void PurpleCraftClick()
+    {
+        Craft(craftingRecipies[5]);
+    }
+    #endregion
 
     #region Inventory Utils
     public void RefreshUI()
