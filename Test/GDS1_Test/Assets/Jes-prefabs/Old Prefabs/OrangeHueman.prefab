@@ -1147,6 +1147,7 @@ GameObject:
   - component: {fileID: 7843866388467268375}
   - component: {fileID: 7733168292139072159}
   - component: {fileID: 7733168292139072156}
+  - component: {fileID: 1427238537077556363}
   - component: {fileID: 7733168292139072144}
   - component: {fileID: 7733168292139072157}
   - component: {fileID: 2087963978421722878}
@@ -1188,7 +1189,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!136 &7733168292139072156
 CapsuleCollider:
@@ -1199,11 +1200,25 @@ CapsuleCollider:
   m_GameObject: {fileID: 7462695786758267309}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 0.19
   m_Height: 1.02
   m_Direction: 1
   m_Center: {x: 0, y: 0.42, z: 0.07}
+--- !u!64 &1427238537077556363
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7462695786758267309}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -239278828255297897, guid: b8d0c2984475cf94dbd297fb92d49d20, type: 3}
 --- !u!95 &7733168292139072144
 Animator:
   serializedVersion: 4
@@ -1236,6 +1251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81fb85dc65fd144824af6200b85a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  white: {fileID: 0}
 --- !u!114 &2087963978421722878
 MonoBehaviour:
   m_ObjectHideFlags: 0
