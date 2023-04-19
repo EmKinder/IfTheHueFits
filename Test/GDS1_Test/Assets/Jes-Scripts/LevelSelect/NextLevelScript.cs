@@ -24,12 +24,8 @@ public class NextLevelScript : MonoBehaviour
     {
 
         sceneload = SceneManager.GetActiveScene().buildIndex +1;
-        if (sceneload > PlayerPrefs.GetInt("Current"))
-        {
-            PlayerPrefs.SetInt("Current", sceneload);
-          
-        }
-       SceneManager.LoadScene("LevelSelect");
+        PlayerPrefs.SetInt("Current", sceneload);
+        SceneManager.LoadScene("LevelSelect");
       
        
     }
