@@ -26,6 +26,9 @@ public class InventoryManager : MonoBehaviour
     public Button BlueCraftButton;
     public Button PurpleCraftButton;
 
+    public Text popUp;
+   
+
     private void Start()
     {
         if (slotHolder != null)
@@ -57,6 +60,7 @@ public class InventoryManager : MonoBehaviour
         GreenCraftButton.onClick.AddListener(GreenCraftClick);
         BlueCraftButton.onClick.AddListener(BlueCraftClick);
         PurpleCraftButton.onClick.AddListener(PurpleCraftClick);
+        popUp.enabled = false;
 
     }
 
@@ -482,12 +486,20 @@ public class InventoryManager : MonoBehaviour
         if (recipe.CanCraft(this))
         {
             recipe.Craft(this);
+            StartCoroutine(ShowMessage("Ammo Crafted", 2));
         }
         else
         {
             Debug.Log("Cannot craft that item");
+            StartCoroutine(ShowMessage("Not Enough Resources", 2));
         }
     }
 
- 
+    IEnumerator ShowMessage(string message, float delay)
+    {
+        popUp.text = message;
+        popUp.enabled = true;
+        yield return new WaitForSeconds(delay);
+        popUp.enabled = false;
+    }
 }
