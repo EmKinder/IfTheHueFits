@@ -18,10 +18,10 @@ public class LockedLevels : MonoBehaviour
     void Start()
     {
        Current = 0;
-       Current = PlayerPrefs.GetInt("Current", 1);
+       Current = PlayerPrefs.GetInt("Current", 3);
         for (int i = 0; i < buttonlevel.Length; i++)
         {
-            if (i > Current - 1)
+            if (i > Current - 5)
             {
                 buttonlevel[i].interactable = false;
                
