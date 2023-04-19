@@ -72,6 +72,30 @@ public class AmmoSwitching : MonoBehaviour
           //  Debug.Log("Current Ammo: " + SelectAmmo(selectedAmmo));
             
         }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            selectedAmmo = 0;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            selectedAmmo = 1;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha3))
+        {
+            selectedAmmo = 2;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha4))
+        {
+            selectedAmmo = 3;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha5))
+        {
+            selectedAmmo = 4;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha6))
+        {
+            selectedAmmo = 5;
+        }
         ammoString = SelectAmmo(selectedAmmo);
     }
 
@@ -83,6 +107,10 @@ public class AmmoSwitching : MonoBehaviour
             RedCheck.enabled = true;
             RedCheck.text = ammoCount.getAmmoCount("Red").ToString();
             OrangeCheck.enabled = false;
+            YellowCheck.enabled = false;
+            GreenCheck.enabled = false;
+            BlueCheck.enabled = false;
+            PurpleCheck.enabled = false;
             return "Red";
         }
         if (selectedAmmo == 1)
@@ -91,27 +119,40 @@ public class AmmoSwitching : MonoBehaviour
             OrangeCheck.enabled = true;
             OrangeCheck.text = ammoCount.getAmmoCount("Orange").ToString();
             YellowCheck.enabled = false;
+            GreenCheck.enabled = false;
+            BlueCheck.enabled = false;
+            PurpleCheck.enabled = false;
+
 
             return "Orange";
         }
         if (selectedAmmo == 2)
         {
+            RedCheck.enabled = false;
             OrangeCheck.enabled = false;
             YellowCheck.enabled = true;
             YellowCheck.text = ammoCount.getAmmoCount("Yellow").ToString();
             GreenCheck.enabled = false;
+            BlueCheck.enabled = false;
+            PurpleCheck.enabled = false;
             return "Yellow";
         }
         if (selectedAmmo == 3)
         {
+            RedCheck.enabled = false;
+            OrangeCheck.enabled = false;
             YellowCheck.enabled = false;
             GreenCheck.enabled = true;
             GreenCheck.text = ammoCount.getAmmoCount("Green").ToString();
             BlueCheck.enabled = false;
+            PurpleCheck.enabled = false;
             return "Green";
         }
         if (selectedAmmo == 4)
         {
+            RedCheck.enabled = false;
+            OrangeCheck.enabled = false;
+            YellowCheck.enabled = false;
             GreenCheck.enabled = false;
             BlueCheck.enabled = true;
             BlueCheck.text = ammoCount.getAmmoCount("Blue").ToString();
@@ -120,6 +161,9 @@ public class AmmoSwitching : MonoBehaviour
         }
         if (selectedAmmo == 5)
         {
+            OrangeCheck.enabled = false;
+            YellowCheck.enabled = false;
+            GreenCheck.enabled = false;
             BlueCheck.enabled = false;
             PurpleCheck.enabled = true;
             PurpleCheck.text = ammoCount.getAmmoCount("Purple").ToString();
