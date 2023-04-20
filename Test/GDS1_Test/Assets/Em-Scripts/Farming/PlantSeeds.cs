@@ -8,25 +8,40 @@ public class PlantSeeds : MonoBehaviour
     InventoryManager inventory;
     public SlotClass[] inputItems;
     bool canPlant;
-    GameObject redFarmButton;
-    GameObject yellowFarmButton;
-    GameObject blueFarmButton;
+    public Button redFarmButton;
+    public Button yellowFarmButton;
+    public Button blueFarmButton;
     public GameObject growing;
     float timer;
     bool timerActive;
     bool plantGrown;
-    GameObject grown;
-    ItemClass redResource;
-    ItemClass yellowResource;
-    ItemClass blueResource;
+    public GameObject grown;
+    public ItemClass redResource;
+    public ItemClass yellowResource;
+    public ItemClass blueResource;
     string currentGrowingItemName;
+    bool plantGrowing;
+    public Image timerUI;
+    public Text timerText;
 
     // Start is called before the first frame update
     void Start()
     {
-        redFarmButton = GameObject.FindGameObjectWithTag("RedFarmButton");
-        yellowFarmButton = GameObject.FindGameObjectWithTag("YellowFarmButton");
-        blueFarmButton = GameObject.FindGameObjectWithTag("BlueFarmButton");
+
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
+        // redFarmButton = GameObject.FindGameObjectWithTag("RedFarmButton");
+        //yellowFarmButton = GameObject.FindGameObjectWithTag("YellowFarmButton");
+        //  blueFarmButton = GameObject.FindGameObjectWithTag("BlueFarmButton");
+        redFarmButton.gameObject.SetActive(false);
+        yellowFarmButton.gameObject.SetActive(false);
+        blueFarmButton.gameObject.SetActive(false);
+        grown.SetActive(false);
+        growing.SetActive(false);
+        timerUI.gameObject.SetActive(false);
+        canPlant = false;
+        plantGrown = false;
+        timerActive = false;
+        plantGrowing = false;
     }
 
     // Update is called once per frame
@@ -34,7 +49,9 @@ public class PlantSeeds : MonoBehaviour
     {
         if (timerActive)
         {
+            timerUI.gameObject.SetActive(true);
             timer += Time.deltaTime;
+            timerText.text = (30 - timer).ToString("f0");
             if(timer >= 30)
             {
                 plantGrown = true;
@@ -42,6 +59,7 @@ public class PlantSeeds : MonoBehaviour
                 grown.SetActive(true);
                 timer = 0;
                 timerActive = false;
+                timerUI.gameObject.SetActive(false);
             }
         }
     }
@@ -62,19 +80,18 @@ public class PlantSeeds : MonoBehaviour
         return true;
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E) && !canPlant)
+        if(other.tag == "Player") {
+        Debug.Log("Farmland stepped on");
+        if (Input.GetKeyDown(KeyCode.E) && !plantGrowing)
         {
-            if(redFarmButton != null)
-            {
-                redFarmButton.SetActive(true);
-                yellowFarmButton.SetActive(true);
-                blueFarmButton.SetActive(true);
+                Debug.Log("Button Found");
+                redFarmButton.gameObject.SetActive(true);
+                yellowFarmButton.gameObject.SetActive(true);
+                blueFarmButton.gameObject.SetActive(true);
             }
-            canPlant = true;
-        }
-        if (Input.GetKeyDown(KeyCode.E) && canPlant)
+       /* if (Input.GetKeyDown(KeyCode.E) && canPlant)
         {
             if (redFarmButton != null)
             {
@@ -83,7 +100,7 @@ public class PlantSeeds : MonoBehaviour
                 blueFarmButton.SetActive(false);
             }
             canPlant = false;
-        }
+        }*/
 
         if (Input.GetKeyDown(KeyCode.E) && plantGrown)
         {
@@ -101,6 +118,9 @@ public class PlantSeeds : MonoBehaviour
             }
 
             grown.SetActive(false);
+            plantGrown = false;
+                plantGrowing = false;
+        }
         }
     }
 
@@ -109,57 +129,53 @@ public class PlantSeeds : MonoBehaviour
 
         if (redFarmButton != null)
         {
-            redFarmButton.SetActive(false);
-            yellowFarmButton.SetActive(false);
-            blueFarmButton.SetActive(false);
+            redFarmButton.gameObject.SetActive(false);
+            yellowFarmButton.gameObject.SetActive(false);
+            blueFarmButton.gameObject.SetActive(false);
         }
         canPlant = false;
     }
 
     public void PlantRed()
     {
-        if (canPlant && !timerActive)
-        {
-            if (EnoughSeeds(inventory))
-            {
-                currentGrowingItemName = "Red";
-                growing.SetActive(true);
-                inventory.Remove(redResource, 1);
-                timerActive = true;
-                canPlant = false;
-            }
-        }
+
+        plantGrowing = true;
+        currentGrowingItemName = "Red";
+        growing.SetActive(true);
+        inventory.Remove(redResource, 1);
+        timerActive = true;
+        canPlant = false;
+        redFarmButton.gameObject.SetActive(false);
+        yellowFarmButton.gameObject.SetActive(false);
+        blueFarmButton.gameObject.SetActive(false);
+
     }
 
     public void PlantYellow()
     {
-        if (canPlant && !timerActive)
-        {
-            if (EnoughSeeds(inventory))
-            {
-                currentGrowingItemName = "Yellow";
-                growing.SetActive(true);
-                inventory.Remove(yellowResource, 1);
-                timerActive = true;
-                canPlant = false;
-            }
-        }
+        plantGrowing = true;
+        currentGrowingItemName = "Yellow";
+        growing.SetActive(true);
+        inventory.Remove(yellowResource, 1);
+        timerActive = true;
+        canPlant = false;
+        redFarmButton.gameObject.SetActive(false);
+        yellowFarmButton.gameObject.SetActive(false);
+        blueFarmButton.gameObject.SetActive(false);
 
     }
 
     public void PlantBlue()
     {
-        if (canPlant && !timerActive)
-        {
-            if (EnoughSeeds(inventory))
-            {
-                currentGrowingItemName = "Blue";
-                growing.SetActive(true);
-                inventory.Remove(blueResource, 1);
-                timerActive = true;
-                canPlant = false;
-            }
-        }
+        plantGrowing = true;
+        currentGrowingItemName = "Blue";
+        growing.SetActive(true);
+        inventory.Remove(blueResource, 1);
+        timerActive = true;
+        canPlant = false;
+        redFarmButton.gameObject.SetActive(false);
+        yellowFarmButton.gameObject.SetActive(false);
+        blueFarmButton.gameObject.SetActive(false);
 
     }
 }
