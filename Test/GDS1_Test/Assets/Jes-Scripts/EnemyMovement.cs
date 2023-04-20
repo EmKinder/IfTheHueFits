@@ -16,7 +16,6 @@ public class EnemyMovement : MonoBehaviour
     bool canHitPlayer;
     PlayerHealth playerHealth;
 
-
     // Start is called before the first frame update
     void Start()
     {
