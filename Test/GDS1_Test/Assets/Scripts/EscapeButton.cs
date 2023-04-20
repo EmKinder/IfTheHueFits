@@ -10,6 +10,6 @@ public class EscapeButton : MonoBehaviour
 
     public void NewGameButton()
     {
-        SceneManager.LoadScene("InventoryAndCrafting");
+        SceneManager.LoadScene("Jes-SampleScene");
     }
 }
