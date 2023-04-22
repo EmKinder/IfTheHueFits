@@ -25,8 +25,9 @@ public class NextLevelScript : MonoBehaviour
 
         sceneload = SceneManager.GetActiveScene().buildIndex +1;
         PlayerPrefs.SetInt("Current", sceneload);
-        SceneManager.LoadScene("LevelSelect");
+        SceneManager.LoadScene("InventoryandCrafting");
       
        
     }
+
 }
