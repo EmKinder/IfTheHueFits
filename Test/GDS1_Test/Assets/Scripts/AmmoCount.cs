@@ -17,7 +17,7 @@ public class AmmoCount : MonoBehaviour
     public ItemClass greenAmmo;
     public ItemClass blueAmmo;
     public ItemClass purpleAmmo;
-
+    [SerializeField] private int _maxAmmo = 10;
     // Start is called before the first frame update
     void Start()
     {
@@ -130,6 +130,5 @@ public class AmmoCount : MonoBehaviour
         }
 
     }
-
 
 }
