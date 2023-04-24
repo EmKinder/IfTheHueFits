@@ -14,9 +14,11 @@ public class PlantSeeds : MonoBehaviour
     public GameObject grown;
     string currentGrowingItemName;
     bool plantGrowing;
+
+    //UI
     public Image timerUI;
     public Text timerText;
-    
+    public Text noResources;
 
     //Buttons
     public Button redFarmButton;
@@ -48,6 +50,7 @@ public class PlantSeeds : MonoBehaviour
         plantGrown = false;
         timerActive = false;
         plantGrowing = false;
+        noResources.enabled = false;
     }
 
     // Update is called once per frame
@@ -89,7 +92,16 @@ public class PlantSeeds : MonoBehaviour
         {
             return true;
         }
+        StopAllCoroutines();
+        StartCoroutine(ResourceText());
         return false;
+    }
+
+    IEnumerator ResourceText()
+    {
+        noResources.enabled = true;
+        yield return new WaitForSeconds(1.5f);
+        noResources.enabled = false;
     }
 
     private void OnTriggerStay(Collider other)
@@ -141,17 +153,19 @@ public class PlantSeeds : MonoBehaviour
 
     public void PlantRed()
     {
-        if(redResource)
-        plantGrowing = true;
-        currentGrowingItemName = "Red";
-        growing.SetActive(true);
-        ChangeMaterial(growing, redMat);
-        inventory.Remove(redResource, 1);
-        timerActive = true;
-        canPlant = false;
-        redFarmButton.gameObject.SetActive(false);
-        yellowFarmButton.gameObject.SetActive(false);
-        blueFarmButton.gameObject.SetActive(false);
+        if (EnoughSeeds(redResource))
+        {
+            plantGrowing = true;
+            currentGrowingItemName = "Red";
+            growing.SetActive(true);
+            ChangeMaterial(growing, redMat);
+            inventory.Remove(redResource, 1);
+            timerActive = true;
+            canPlant = false;
+            redFarmButton.gameObject.SetActive(false);
+            yellowFarmButton.gameObject.SetActive(false);
+            blueFarmButton.gameObject.SetActive(false);
+        }
 
     }
 
@@ -174,17 +188,19 @@ public class PlantSeeds : MonoBehaviour
 
     public void PlantBlue()
     {
-        plantGrowing = true;
-        currentGrowingItemName = "Blue";
-        growing.SetActive(true);
-        ChangeMaterial(growing, blueMat);
-        inventory.Remove(blueResource, 1);
-        timerActive = true;
-        canPlant = false;
-        redFarmButton.gameObject.SetActive(false);
-        yellowFarmButton.gameObject.SetActive(false);
-        blueFarmButton.gameObject.SetActive(false);
-
+        if (EnoughSeeds(blueResource))
+        {
+            plantGrowing = true;
+            currentGrowingItemName = "Blue";
+            growing.SetActive(true);
+            ChangeMaterial(growing, blueMat);
+            inventory.Remove(blueResource, 1);
+            timerActive = true;
+            canPlant = false;
+            redFarmButton.gameObject.SetActive(false);
+            yellowFarmButton.gameObject.SetActive(false);
+            blueFarmButton.gameObject.SetActive(false);
+        }
     }
 
     public void ChangeMaterial(GameObject gm, Material mat)
