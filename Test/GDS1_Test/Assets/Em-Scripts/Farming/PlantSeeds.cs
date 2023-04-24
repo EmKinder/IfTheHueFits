@@ -8,30 +8,36 @@ public class PlantSeeds : MonoBehaviour
     InventoryManager inventory;
     public SlotClass[] inputItems;
     bool canPlant;
-    public Button redFarmButton;
-    public Button yellowFarmButton;
-    public Button blueFarmButton;
     public GameObject growing;
     float timer;
     bool timerActive;
     bool plantGrown;
     public GameObject grown;
-    public ItemClass redResource;
-    public ItemClass yellowResource;
-    public ItemClass blueResource;
     string currentGrowingItemName;
     bool plantGrowing;
     public Image timerUI;
     public Text timerText;
+
+    //Buttons
+    public Button redFarmButton;
+    public Button yellowFarmButton;
+    public Button blueFarmButton;
+
+    //Items
+    public ItemClass redResource;
+    public ItemClass yellowResource;
+    public ItemClass blueResource;
+
+    //Materials
+    public Material redMat;
+    public Material yellowMat;
+    public Material blueMat;
 
     // Start is called before the first frame update
     void Start()
     {
 
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
-        // redFarmButton = GameObject.FindGameObjectWithTag("RedFarmButton");
-        //yellowFarmButton = GameObject.FindGameObjectWithTag("YellowFarmButton");
-        //  blueFarmButton = GameObject.FindGameObjectWithTag("BlueFarmButton");
         redFarmButton.gameObject.SetActive(false);
         yellowFarmButton.gameObject.SetActive(false);
         blueFarmButton.gameObject.SetActive(false);
@@ -57,6 +63,18 @@ public class PlantSeeds : MonoBehaviour
                 plantGrown = true;
                 growing.SetActive(false);
                 grown.SetActive(true);
+                if(currentGrowingItemName == "Red")
+                {
+                    ChangeMaterial(grown, redMat);
+                }
+                if (currentGrowingItemName == "Yellow")
+                {
+                    ChangeMaterial(grown, yellowMat);
+                }
+                if (currentGrowingItemName == "Blue")
+                {
+                    ChangeMaterial(grown, blueMat);
+                }
                 timer = 0;
                 timerActive = false;
                 timerUI.gameObject.SetActive(false);
@@ -91,16 +109,7 @@ public class PlantSeeds : MonoBehaviour
                 yellowFarmButton.gameObject.SetActive(true);
                 blueFarmButton.gameObject.SetActive(true);
             }
-       /* if (Input.GetKeyDown(KeyCode.E) && canPlant)
-        {
-            if (redFarmButton != null)
-            {
-                redFarmButton.SetActive(false);
-                yellowFarmButton.SetActive(false);
-                blueFarmButton.SetActive(false);
-            }
-            canPlant = false;
-        }*/
+
 
         if (Input.GetKeyDown(KeyCode.E) && plantGrown)
         {
@@ -138,10 +147,11 @@ public class PlantSeeds : MonoBehaviour
 
     public void PlantRed()
     {
-
+        if(redResource)
         plantGrowing = true;
         currentGrowingItemName = "Red";
         growing.SetActive(true);
+        ChangeMaterial(growing, redMat);
         inventory.Remove(redResource, 1);
         timerActive = true;
         canPlant = false;
@@ -156,6 +166,7 @@ public class PlantSeeds : MonoBehaviour
         plantGrowing = true;
         currentGrowingItemName = "Yellow";
         growing.SetActive(true);
+        ChangeMaterial(growing, yellowMat);
         inventory.Remove(yellowResource, 1);
         timerActive = true;
         canPlant = false;
@@ -170,6 +181,7 @@ public class PlantSeeds : MonoBehaviour
         plantGrowing = true;
         currentGrowingItemName = "Blue";
         growing.SetActive(true);
+        ChangeMaterial(growing, blueMat);
         inventory.Remove(blueResource, 1);
         timerActive = true;
         canPlant = false;
@@ -177,5 +189,15 @@ public class PlantSeeds : MonoBehaviour
         yellowFarmButton.gameObject.SetActive(false);
         blueFarmButton.gameObject.SetActive(false);
 
+    }
+
+    public void ChangeMaterial(GameObject gm, Material mat)
+    {
+        Renderer[] children;
+        children = gm.GetComponentsInChildren<Renderer>();
+        for (int i = 0; i < 4; i++)
+        {
+            children[i].material = mat;
+        }
     }
 }
