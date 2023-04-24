@@ -20,8 +20,9 @@ public class EnemyCounter : MonoBehaviour
         if(enemiesCured == 15)
         {
             Debug.Log("You Win!");
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene("WinScene");
         }
+        
     }
 
     public void EnemyCured()
