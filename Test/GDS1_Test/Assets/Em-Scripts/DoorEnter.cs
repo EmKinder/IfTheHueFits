@@ -6,31 +6,47 @@ using UnityEngine.SceneManagement;
 public class DoorEnter : MonoBehaviour
 {
     bool enterDoor;
+    int add; 
+    
+   
+    
+
+    
+    //  public int Current;
     // Start is called before the first frame update
     void Start()
     {
         enterDoor = false;
+       
+        
     }
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (Input.GetKeyDown(KeyCode.E))
         {
             if (enterDoor)
             {
                 Debug.Log("Door Entered");
-                SceneManager.LoadScene(1);
+              
+                SceneManager.LoadScene(add);
                 enterDoor = false;
+                
             }
         }
+
+       
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
+            
             enterDoor = true;
+            add++;
+            
         }
     }
 
@@ -41,4 +57,7 @@ public class DoorEnter : MonoBehaviour
             enterDoor = false;
         }
     }
+
+
+   
 }
