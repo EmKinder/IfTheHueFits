@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class PlantSeeds : MonoBehaviour
 {
     InventoryManager inventory;
-    public SlotClass[] inputItems;
     bool canPlant;
     public GameObject growing;
     float timer;
@@ -17,6 +16,7 @@ public class PlantSeeds : MonoBehaviour
     bool plantGrowing;
     public Image timerUI;
     public Text timerText;
+    
 
     //Buttons
     public Button redFarmButton;
@@ -82,20 +82,14 @@ public class PlantSeeds : MonoBehaviour
         }
     }
 
-    public bool EnoughSeeds(InventoryManager inventory)
+    public bool EnoughSeeds(ItemClass item)
     {
-        if (inventory.isFull())
+        SlotClass temp = inventory.Contains(item);
+        if(temp != null)
         {
-            return false;
+            return true;
         }
-        for (int i = 0; i < inputItems.Length; i++)
-        {
-            if (!inventory.Contains(inputItems[i].GetItem(), inputItems[i].GetQuantity()))
-            {
-                return false;
-            }
-        }
-        return true;
+        return false;
     }
 
     private void OnTriggerStay(Collider other)
@@ -163,17 +157,19 @@ public class PlantSeeds : MonoBehaviour
 
     public void PlantYellow()
     {
-        plantGrowing = true;
-        currentGrowingItemName = "Yellow";
-        growing.SetActive(true);
-        ChangeMaterial(growing, yellowMat);
-        inventory.Remove(yellowResource, 1);
-        timerActive = true;
-        canPlant = false;
-        redFarmButton.gameObject.SetActive(false);
-        yellowFarmButton.gameObject.SetActive(false);
-        blueFarmButton.gameObject.SetActive(false);
-
+        if (EnoughSeeds(yellowResource))
+        {
+            plantGrowing = true;
+            currentGrowingItemName = "Yellow";
+            growing.SetActive(true);
+            ChangeMaterial(growing, yellowMat);
+            inventory.Remove(yellowResource, 1);
+            timerActive = true;
+            canPlant = false;
+            redFarmButton.gameObject.SetActive(false);
+            yellowFarmButton.gameObject.SetActive(false);
+            blueFarmButton.gameObject.SetActive(false);
+        }
     }
 
     public void PlantBlue()
