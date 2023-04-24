@@ -55,7 +55,7 @@ public class ManagingSceneChanges : MonoBehaviour
 
     public void FirstLevelLoad()
     {
-        SceneManager.LoadScene("Jes-SampleScene");
+        SceneManager.LoadScene("Jes-Level1");
     }
 
     public void SecondLevelLoad()
