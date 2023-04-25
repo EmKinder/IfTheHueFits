@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 public class DoorEnter : MonoBehaviour
 {
     bool enterDoor;
-    int add = 1;
-    public Door door;
+  public  int add;
+   // public Door door;
+   int sceneload;
+   //public NextLevelScript script;
     
    
     
@@ -18,8 +20,8 @@ public class DoorEnter : MonoBehaviour
     void Start()
     {
         enterDoor = false;
-        //add++;
-       
+          add = 1;
+     //   sceneload = 6;
         
     }
 
@@ -31,9 +33,18 @@ public class DoorEnter : MonoBehaviour
             if (enterDoor)
             {
                 Debug.Log("Door Entered");
-               add++;
-              //  Debug.Log(add);
-               SceneManager.LoadSceneAsync(add);
+                                //  Debug.Log(add);
+               //    sceneload = SceneManager.GetActiveScene().buildIndex + add;
+                //    PlayerPrefs.SetInt("Current", sceneload);
+                //   SceneManager.LoadScene(sceneload);
+                //   PlayerPrefs.SetInt("Current", sceneload);
+                //   SceneManager.GetSceneByBuildIndex(add +1);
+                sceneload = PlayerPrefs.GetInt("Current", add);
+                SceneManager.LoadScene(sceneload);
+                //  SceneManager.LoadScene(scene)
+                // PlayerPrefs.SetInt("Current", sceneload);
+              //  SceneManager.LoadScene(script.sceneload +1);
+
                 enterDoor = false;
                 
             }
@@ -48,7 +59,7 @@ public class DoorEnter : MonoBehaviour
         {
             
             enterDoor = true;
-          //  add++;
+            add++;
             
 
         }
@@ -59,6 +70,7 @@ public class DoorEnter : MonoBehaviour
         if (other.tag == "Player")
         {
             enterDoor = false;
+         //   add = add + 1;
         }
     }
 
