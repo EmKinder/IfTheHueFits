@@ -26,7 +26,7 @@ public class HuemanHit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1) && !managersFound)
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0) && !managersFound)
         {
             ammoSwitch = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoSwitching>();
             managersFound = true;
@@ -111,5 +111,6 @@ public class HuemanHit : MonoBehaviour
         this.GetComponent<EnemyMovement>().enabled = false;
         enemyMovement.SetCured();
         enemyCounter.EnemyCured();
+        Destroy(this.gameObject);
     }
 }

@@ -38,7 +38,7 @@ public class CharacterMovement : MonoBehaviour
     void Update()
     {
 
-        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1) && !managersFound)
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0) && !managersFound)
         {
             ac = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoCount>();
             asw = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoSwitching>();
@@ -67,7 +67,7 @@ public class CharacterMovement : MonoBehaviour
 
 
         //Right click to long range attack
-        if (Input.GetMouseButtonDown(1) && canShoot == true && SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+        if (Input.GetMouseButtonDown(1) && canShoot == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
         {
                 if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
                     || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
@@ -87,7 +87,7 @@ public class CharacterMovement : MonoBehaviour
             }
 
             //left click melee attack
-            if (Input.GetMouseButtonDown(0) && canHit == true && SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+            if (Input.GetMouseButtonDown(0) && canHit == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
             {
                 if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
                     || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
