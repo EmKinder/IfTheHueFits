@@ -11,7 +11,7 @@ public class BlueResource : MonoBehaviour
         public ResourcePickUP resourcePickUP;
         public GameObject gem;
         public ItemClass blueResource;
-    public int sceneload;
+   // public int sceneload;
     // Start is called before the first frame update
     void Start()
         {
@@ -32,7 +32,7 @@ public class BlueResource : MonoBehaviour
                 // Destroy(gem);
                 resourcePickUP.AddToBlueResource(pickup);
                 Debug.Log(pickup);
-                SceneManager.LoadScene("WinScene");
+             //   SceneManager.LoadScene("WinScene");
             }
         }
 

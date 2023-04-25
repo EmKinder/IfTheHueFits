@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class DoorEnter : MonoBehaviour
 {
     bool enterDoor;
-    int add;
+    int add = 1;
     public Door door;
     
    
@@ -18,7 +18,7 @@ public class DoorEnter : MonoBehaviour
     void Start()
     {
         enterDoor = false;
-      //  add++;
+        //add++;
        
         
     }
