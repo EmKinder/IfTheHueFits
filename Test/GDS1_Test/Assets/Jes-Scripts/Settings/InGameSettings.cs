@@ -14,10 +14,13 @@ public class InGameSettings : MonoBehaviour
     public Button BB;
     public Button EB;
     public Button Paused;
-    public bool GamePaused;
+    public static bool GamePaused = false;
+    CharacterMovement movement;
     private void Awake()
     {
         gameSettings.enabled = false;
+       movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
+        movement.enabled = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -44,6 +47,7 @@ public class InGameSettings : MonoBehaviour
         {
             gameSettings.enabled = true;
            scene.PauseLevel();
+           movement.enabled = false;
             
         }
     }
@@ -53,7 +57,8 @@ public class InGameSettings : MonoBehaviour
         if(RB == true)
         {
             gameSettings.enabled = false;
-            scene.Restartlevel(); 
+            scene.Restartlevel();
+            movement.enabled = true;
         }
     }
 
@@ -64,6 +69,7 @@ public class InGameSettings : MonoBehaviour
             gameSettings.enabled = false;
             scene.ResumeLevel();
             GamePuased(false);
+            movement.enabled = true;
 
         }
     }
@@ -73,6 +79,7 @@ public class InGameSettings : MonoBehaviour
     {
         gameSettings.enabled = false;
         scene.ExitScene();
+        movement.enabled = true;
     }
 
     public void GamePuased(bool gameisPaused)
