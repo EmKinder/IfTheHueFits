@@ -9,19 +9,26 @@ public class CharacterMovement : MonoBehaviour
     float rotationSpeed = 300.0f;
     Animator anim;
     float shootTimerLength = 1.5f;
+    float hitTimerLength = 1f;
+
     float shootTimer = 0;
+    float hitTimer = 0;
     bool canShoot;
+    bool canHit;
     public Shooting shooting;
     public AmmoCount ac;
     public AmmoSwitching asw;
     string currentPaintShooting;
     bool managersFound;
 
+    public float attackRange = 0.5f;
+
 
     void Start()
     {
         anim = GetComponent<Animator>();
         canShoot = true;
+        canHit = true;
         managersFound = false;
 
 
@@ -40,25 +47,13 @@ public class CharacterMovement : MonoBehaviour
 
         float trans = Input.GetAxis("Vertical") * walkSpeed;
         trans *= Time.deltaTime;
-          transform.Translate(0, 0, trans);
-        //rb.MovePosition(rb.gameObject.transform.forward * walkSpeed);
-    
-
-
-    //    float rot = Input.GetAxis("Horizontal") * rotationSpeed;
-   //     rot *= Time.deltaTime;
- //       transform.Rotate(0, rot, 0);
-        
-
-            if (trans != 0)
-        {
+        transform.Translate(0, 0, trans);
+        if (trans != 0)
+            {
             anim.SetBool("isWalking", true);
             if (trans > 0)
             {
-
                 anim.SetFloat("AnimSpeed", 1.0f);
-
-
             }
             else
             {
@@ -71,10 +66,9 @@ public class CharacterMovement : MonoBehaviour
         }
 
 
-
-        if (Input.GetMouseButtonDown(0) && canShoot == true && SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
+        //Right click to long range attack
+        if (Input.GetMouseButtonDown(1) && canShoot == true && SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
-         //   ) { 
                 if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
                     || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
                     || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
@@ -91,15 +85,44 @@ public class CharacterMovement : MonoBehaviour
 
                 }
             }
-            if (canShoot == false)
+
+            //left click melee attack
+            if (Input.GetMouseButtonDown(0) && canHit == true && SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
             {
-                shootTimer += Time.deltaTime;
-                if (shootTimer >= shootTimerLength)
+                if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
+                    || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
+                    || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
+                    || asw.GetAmmoType() == "Green" && ac.getAmmoCount("Green") > 0
+                    || asw.GetAmmoType() == "Blue" && ac.getAmmoCount("Blue") > 0
+                    || asw.GetAmmoType() == "Purple" && ac.getAmmoCount("Purple") > 0)
                 {
-                    canShoot = true;
-                    Debug.Log("Should be able to shoot now");
-                    shootTimer = 0;
-              //  }
+                    currentPaintShooting = asw.GetAmmoType();
+                    ac.subAmmoCount(currentPaintShooting, 1);
+                    anim.SetTrigger("isMeleeAttacking");
+                    //shooting.ShootPaint();
+                    canHit = false;
+                    Debug.Log("Should Not be able to shoot now");
+
+                }
+            }
+        if (canShoot == false)
+        {
+            shootTimer += Time.deltaTime;
+            if (shootTimer >= shootTimerLength)
+            {
+                canShoot = true;
+                Debug.Log("Should be able to shoot now");
+                shootTimer = 0;
+            }
+        }
+        if (canHit == false)
+        {
+            hitTimer += Time.deltaTime;
+            if (hitTimer >= hitTimerLength)
+            {
+                canHit = true;
+                Debug.Log("Should be able to hit now");
+                hitTimer = 0;
             }
         }
 
@@ -113,4 +136,11 @@ public class CharacterMovement : MonoBehaviour
     {
         return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
+
+    public bool IsHitting()
+    {
+        return canHit;
+    }
+
+    
 }
