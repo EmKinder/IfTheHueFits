@@ -17,6 +17,7 @@ public class DoorEnter : MonoBehaviour
     void Start()
     {
         enterDoor = false;
+        add = 1;
        
         
     }
