@@ -30,8 +30,8 @@ public class DoorEnter : MonoBehaviour
             if (enterDoor)
             {
                 Debug.Log("Door Entered");
-              
-                SceneManager.LoadScene(add);
+                add++;
+                SceneManager.LoadSceneAsync(add);
                 enterDoor = false;
                 
             }
@@ -46,7 +46,7 @@ public class DoorEnter : MonoBehaviour
         {
             
             enterDoor = true;
-            add++;
+            //add++;
             
         }
     }

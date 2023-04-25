@@ -19,10 +19,10 @@ public class LockedLevels : MonoBehaviour
     void Start()
     {
        Current = 0;
-       Current = PlayerPrefs.GetInt("Current", 3);
+       Current = PlayerPrefs.GetInt("Current", 1);
         for (int i = 0; i < buttonlevel.Length; i++)
         {
-            if (i > Current - 3)
+            if (i > Current-2)
             {
                 buttonlevel[i].interactable = false;
                
@@ -31,7 +31,7 @@ public class LockedLevels : MonoBehaviour
         }
         for(int j = 0; j < images.Length; j++)
         {
-            if (j > Current - 4)
+            if (j > Current - 3)
             {
                 images[j].enabled = true;
             }

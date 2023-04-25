@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class BlueResource : MonoBehaviour
 {
@@ -9,15 +11,16 @@ public class BlueResource : MonoBehaviour
         public ResourcePickUP resourcePickUP;
         public GameObject gem;
         public ItemClass blueResource;
-        // Start is called before the first frame update
-        void Start()
+    public int sceneload;
+    // Start is called before the first frame update
+    void Start()
         {
         }
 
         // Update is called once per frame
         void Update()
         {
-
+            
         }
 
 
@@ -29,7 +32,10 @@ public class BlueResource : MonoBehaviour
                 // Destroy(gem);
                 resourcePickUP.AddToBlueResource(pickup);
                 Debug.Log(pickup);
+                SceneManager.LoadScene("WinScene");
             }
         }
-   
+
+
+
 }
