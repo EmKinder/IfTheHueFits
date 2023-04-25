@@ -2,15 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class ReturnButton : MonoBehaviour
 {
-   // [SerializeField] private string returnBack = "InventoryAndCrafting";
+    [SerializeField] private string returnBack = "AmmoCountTesting";
 
     public void NewGameButton()
     {
-        SceneManager.LoadScene("InventoryAndCrafting");
+        SceneManager.LoadScene(returnBack);
     }
 
 }
