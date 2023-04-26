@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ManagingSceneChanges : MonoBehaviour
 {
-
+    public Canvas InventoryCanvas;
     private void Awake()
     {
        // DontDestroyOnLoad(this.gameObject);
@@ -84,11 +84,14 @@ public class ManagingSceneChanges : MonoBehaviour
 
     public void LevelSelectLoad()
     {
+        InventoryCanvas.enabled = false;
         SceneManager.LoadScene("LevelSelect");
     }
 
     public void JaimiesLevelSelect()
+
     {
+        InventoryCanvas.enabled = false;
         SceneManager.LoadScene("LevelSelect 1");
     }
 }

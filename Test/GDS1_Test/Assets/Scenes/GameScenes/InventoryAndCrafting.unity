@@ -954,6 +954,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelSelectManager
       objectReference: {fileID: 0}
+    - target: {fileID: 8890444374771415175, guid: 6781f16f08499dc4191e5bae2aaea949, type: 3}
+      propertyPath: InventoryCanvas
+      value: 
+      objectReference: {fileID: 983371532}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6781f16f08499dc4191e5bae2aaea949, type: 3}
 --- !u!4 &96329308 stripped
@@ -3119,6 +3123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   add: 0
+  canvas: {fileID: 0}
 --- !u!114 &370865538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8602,6 +8607,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   add: 0
+  canvas: {fileID: 983371532}
 --- !u!1 &910743023
 GameObject:
   m_ObjectHideFlags: 0
@@ -14361,6 +14367,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   button: {fileID: 0}
+  redPage: {fileID: 0}
+  orangePage: {fileID: 0}
+  yellowPage: {fileID: 0}
+  greenPage: {fileID: 0}
+  bluePage: {fileID: 0}
+  purplePage: {fileID: 0}
+  coverPage: {fileID: 0}
 --- !u!1 &1593960510
 GameObject:
   m_ObjectHideFlags: 0
@@ -19439,7 +19452,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: LS
+  m_Text: 'Level Select
+
+'
 --- !u!1001 &4486430415588295692
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class DoorEnter : MonoBehaviour
 {
     bool enterDoor;
   public  int add;
+    public Canvas canvas;
    // public Door door;
    int sceneload;
    //public NextLevelScript script;
@@ -33,12 +34,13 @@ public class DoorEnter : MonoBehaviour
             if (enterDoor)
             {
                 Debug.Log("Door Entered");
-                                //  Debug.Log(add);
-               //    sceneload = SceneManager.GetActiveScene().buildIndex + add;
+                //  Debug.Log(add);
+                //    sceneload = SceneManager.GetActiveScene().buildIndex + add;
                 //    PlayerPrefs.SetInt("Current", sceneload);
                 //   SceneManager.LoadScene(sceneload);
                 //   PlayerPrefs.SetInt("Current", sceneload);
                 //   SceneManager.GetSceneByBuildIndex(add +1);
+                canvas.enabled = false;
                 sceneload = PlayerPrefs.GetInt("Current", add);
                 SceneManager.LoadScene(sceneload);
                 //  SceneManager.LoadScene(scene)
