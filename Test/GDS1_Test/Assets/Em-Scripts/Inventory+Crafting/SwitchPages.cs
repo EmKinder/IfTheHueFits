@@ -6,25 +6,25 @@ using UnityEngine.UI;
 public class SwitchPages : MonoBehaviour
 {
     public Button button;
-    GameObject redPage;
-    GameObject orangePage;
-    GameObject yellowPage;
-    GameObject greenPage;
-    GameObject bluePage;
-    GameObject purplePage;
-    GameObject coverPage;
+    public GameObject redPage;
+    public GameObject orangePage;
+    public GameObject yellowPage;
+    public GameObject greenPage;
+    public GameObject bluePage;
+    public GameObject purplePage;
+    public GameObject coverPage;
     // Start is called before the first frame update
     void Start()
     {
       //  button.onClick.AddListener(OnButtonClick);
 
-        redPage = GameObject.FindGameObjectWithTag("RedPage");
+      /*  redPage = GameObject.FindGameObjectWithTag("RedPage");
         orangePage = GameObject.FindGameObjectWithTag("OrangePage");
         yellowPage = GameObject.FindGameObjectWithTag("YellowPage");
         greenPage = GameObject.FindGameObjectWithTag("GreenPage");
         bluePage = GameObject.FindGameObjectWithTag("BluePage");
         purplePage = GameObject.FindGameObjectWithTag("PurplePage");
-        coverPage = GameObject.FindGameObjectWithTag("CoverPage");
+        coverPage = GameObject.FindGameObjectWithTag("CoverPage");*/
 
         redPage.SetActive(false);
         orangePage.SetActive(false);
