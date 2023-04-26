@@ -9,7 +9,6 @@ public class EnemyMovement : MonoBehaviour
     GameObject player;
     Transform playerTrans;
    
-    Vector3 moveDirection;
     bool canMove;
     float currentCalmDown; //collision
     public Collider collisionDetect; //collision
@@ -18,13 +17,13 @@ public class EnemyMovement : MonoBehaviour
     PlayerHealth playerHealth;
 
     NavMeshAgent agent;
-    Transform patrolPointOrigin;
-    float wanderingTimer;
+    public float wanderingTimer;
     public float wanderingRadius;
-    private float timer;
+    float timer;
     LayerMask navLayerMask;
     float lineOfSightRadius;
     bool canFollow;
+    Transform savedPoint;
 
     // Start is called before the first frame update
     void Start()
@@ -37,17 +36,14 @@ public class EnemyMovement : MonoBehaviour
         cured = false;
         canHitPlayer = true;
         playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
-        agent = this.GetComponent<NavMeshAgent>();
+        agent = gameObject.GetComponent<NavMeshAgent>();
+        wanderingTimer = Random.Range(2.0f, 5.0f);
         timer = wanderingTimer;
         lineOfSightRadius = 15.0f;
         canFollow = false;
-    }
-
-    private void Awake()
-    {
-        patrolPointOrigin = this.transform;
         navLayerMask = LayerMask.GetMask("Enemys", "Collectables");
         navLayerMask = ~navLayerMask;
+        savedPoint = transform;
     }
 
 
@@ -56,19 +52,20 @@ public class EnemyMovement : MonoBehaviour
     {  
         if(canMove)
         {
-            while (!canFollow)
+            if(!canFollow)
             {
                 timer += Time.deltaTime;
 
                 if (timer >= wanderingTimer)
                 {
-                    patrolPointOrigin.position = this.transform.position;
-                    Vector3 newWander = NavigationArea(patrolPointOrigin.position, wanderingRadius, navLayerMask);
+                    Debug.Log("SavedPosition = " + savedPoint.position);
+                    Vector3 newWander = NavigationArea(savedPoint.position, wanderingRadius, navLayerMask);
+                    Debug.Log("New Wander Position = " + newWander);
                     agent.SetDestination(newWander);
                     timer = 0;
                 }
 
-                LineOfSight(lineOfSightRadius);
+                LineOfSight();
 
             }
 
@@ -83,7 +80,6 @@ public class EnemyMovement : MonoBehaviour
                 else
                 {
                     SetCanFollow(false);
-                    patrolPointOrigin.position = this.transform.position;
                 }
 
             }
@@ -93,11 +89,9 @@ public class EnemyMovement : MonoBehaviour
        
     }
     
-    public static Vector3 NavigationArea(Vector3 origin, float dist, int layermask)
+    public Vector3 NavigationArea(Vector3 origin, float dist, int layermask)
     {
-        Vector3 randomDirection = Random.insideUnitSphere * dist;
-
-        randomDirection += origin;
+        Vector3 randomDirection = Random.insideUnitSphere * dist + origin;
 
         NavMeshHit navHit;
 
@@ -106,22 +100,21 @@ public class EnemyMovement : MonoBehaviour
         return navHit.position;
     }
 
-    public void LineOfSight(float maxDistrance)
+    public void LineOfSight()
     {
-        RaycastHit hit;
-        Vector3 rayDirection = player.transform.position - this.transform.position;
-        if (Physics.Raycast(transform.position, rayDirection, out hit, maxDistrance, navLayerMask))
+
+
+        if (Vector3.Distance(player.transform.position, transform.position) <= lineOfSightRadius)
         {
-            if(hit.transform == player.transform)
-            {
-                SetCanFollow(true);
-            }
+            SetCanFollow(true);
+            Debug.Log("Player in Sight of " + gameObject.name.ToString());
+
         }
     }
 
     public bool WithinRange()
     {
-        float playerEscapeDistance = Vector3.Distance(player.transform.position, this.transform.position);
+        float playerEscapeDistance = Vector3.Distance(player.transform.position, transform.position);
         if (playerEscapeDistance > lineOfSightRadius * 2)
         {
             return false;
