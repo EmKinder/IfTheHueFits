@@ -6,14 +6,14 @@ using UnityEngine.UI;
 public class TriggerCraftingTable : MonoBehaviour
 {
 
-    public Canvas inventoryCanvas;
+    private Canvas inventoryCanvas;
     bool inventoryOpen;
     bool standingAtDesk;
 
     // Start is called before the first frame update
     void Start()
     {
-   //     inventoryCanvas = GameObject.Find("InventoryCanvas").GetComponent<Canvas>();
+        inventoryCanvas = GameObject.FindWithTag("InventoryCanvas").GetComponent<Canvas>();
         inventoryCanvas.enabled = false;
         inventoryOpen = false;
     }
