@@ -106,15 +106,22 @@ public class PlantSeeds : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if(other.tag == "Player") {
-        Debug.Log("Farmland stepped on");
-        if (Input.GetKeyDown(KeyCode.E) && !plantGrowing)
-        {
-                Debug.Log("Button Found");
-                redFarmButton.gameObject.SetActive(true);
-                yellowFarmButton.gameObject.SetActive(true);
-                blueFarmButton.gameObject.SetActive(true);
+        if (other.tag == "Player") {
+            Debug.Log("Farmland stepped on");
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                Debug.Log("Farming E Pressed");
+                if (!plantGrowing)
+                {
+                    Debug.Log("Buttons Appear");
+                    redFarmButton.gameObject.SetActive(true);
+                    yellowFarmButton.gameObject.SetActive(true);
+                    blueFarmButton.gameObject.SetActive(true);
+                }
             }
+
+        }
+    
 
 
         if (Input.GetKeyDown(KeyCode.E) && plantGrown)
@@ -135,7 +142,7 @@ public class PlantSeeds : MonoBehaviour
             grown.SetActive(false);
             plantGrown = false;
                 plantGrowing = false;
-        }
+        
         }
     }
 
