@@ -86,4 +86,9 @@ public class ManagingSceneChanges : MonoBehaviour
     {
         SceneManager.LoadScene("LevelSelect");
     }
+
+    public void JaimiesLevelSelect()
+    {
+        SceneManager.LoadScene("LevelSelect 1");
+    }
 }
