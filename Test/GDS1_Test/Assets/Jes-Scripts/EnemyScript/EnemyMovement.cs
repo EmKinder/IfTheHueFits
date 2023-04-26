@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMovement : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class EnemyMovement : MonoBehaviour
     bool canHitPlayer;
     PlayerHealth playerHealth;
 
+    NavMeshAgent agent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
         cured = false;
         canHitPlayer = true;
         playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
+        agent = this.GetComponent<NavMeshAgent>();
     }
 
 
@@ -34,19 +38,25 @@ public class EnemyMovement : MonoBehaviour
     {  
         if (canMove)
         {
-         
-            Vector3 direction = playerTrans.position - transform.position;
-            direction.Normalize();
-            moveDirection = direction;
-            float distance = Vector3.Distance(transform.position, player.transform.position);
-            // Debug.Log(distance);
+            /*
+               Vector3 direction = playerTrans.position - transform.position;
+               direction.Normalize();
+               moveDirection = direction;
+               float distance = Vector3.Distance(transform.position, player.transform.position);
+               // Debug.Log(distance);
 
 
-            if (distance < 15.0f)
-            {
-                transform.LookAt(playerTrans);
-                transform.position += transform.forward * 3f * Time.deltaTime;
-            }
+               if (distance < 15.0f)
+               {
+                   transform.LookAt(playerTrans);
+                   transform.position += transform.forward * 3f * Time.deltaTime;
+               }
+
+               */
+
+            agent.SetDestination(playerTrans.position);
+
+
           
         }
       

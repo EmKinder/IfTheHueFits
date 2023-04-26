@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5836704056579907940}
   - component: {fileID: 8567205640732546478}
   - component: {fileID: 4642269709617059087}
+  - component: {fileID: 4528213126964239039}
   m_Layer: 0
   m_Name: gas_sign
   m_TagString: Untagged
@@ -102,3 +103,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 2945123041031012585, guid: c791b879793981440890a3ba80114869, type: 3}
+--- !u!114 &4528213126964239039
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7918498384241603707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e3fdca004f2d45fe8abbed571a8abd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_OverrideArea: 1
+  m_Area: 1
+  m_IgnoreFromBuild: 0
+  m_AffectedAgents: ffffffff
