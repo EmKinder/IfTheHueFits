@@ -18,6 +18,13 @@ public class EnemyMovement : MonoBehaviour
     PlayerHealth playerHealth;
 
     NavMeshAgent agent;
+    Transform patrolPointOrigin;
+    float wanderingTimer;
+    public float wanderingRadius;
+    private float timer;
+    LayerMask navLayerMask;
+    float lineOfSightRadius;
+    bool canFollow;
 
     // Start is called before the first frame update
     void Start()
@@ -26,42 +33,109 @@ public class EnemyMovement : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player");
         playerTrans = player.GetComponent<Transform>();
         canMove = true;
+        canMove = true;
         cured = false;
         canHitPlayer = true;
         playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
         agent = this.GetComponent<NavMeshAgent>();
+        timer = wanderingTimer;
+        lineOfSightRadius = 15.0f;
+        canFollow = false;
+    }
+
+    private void Awake()
+    {
+        patrolPointOrigin = this.transform;
+        navLayerMask = LayerMask.GetMask("Enemys", "Collectables");
+        navLayerMask = ~navLayerMask;
     }
 
 
     // Update is called once per frames
     void Update()
     {  
-        if (canMove)
+        if(canMove)
         {
-            /*
-               Vector3 direction = playerTrans.position - transform.position;
-               direction.Normalize();
-               moveDirection = direction;
-               float distance = Vector3.Distance(transform.position, player.transform.position);
-               // Debug.Log(distance);
+            while (!canFollow)
+            {
+                timer += Time.deltaTime;
+
+                if (timer >= wanderingTimer)
+                {
+                    patrolPointOrigin.position = this.transform.position;
+                    Vector3 newWander = NavigationArea(patrolPointOrigin.position, wanderingRadius, navLayerMask);
+                    agent.SetDestination(newWander);
+                    timer = 0;
+                }
+
+                LineOfSight(lineOfSightRadius);
+
+            }
 
 
-               if (distance < 15.0f)
-               {
-                   transform.LookAt(playerTrans);
-                   transform.position += transform.forward * 3f * Time.deltaTime;
-               }
 
-               */
+            if (canFollow)
+            {
+                if (WithinRange())
+                {
+                    agent.SetDestination(playerTrans.position);
+                }
+                else
+                {
+                    SetCanFollow(false);
+                    patrolPointOrigin.position = this.transform.position;
+                }
 
-            agent.SetDestination(playerTrans.position);
-
-
-          
+            }
         }
       
           
        
+    }
+    
+    public static Vector3 NavigationArea(Vector3 origin, float dist, int layermask)
+    {
+        Vector3 randomDirection = Random.insideUnitSphere * dist;
+
+        randomDirection += origin;
+
+        NavMeshHit navHit;
+
+        NavMesh.SamplePosition(randomDirection, out navHit, dist, layermask);
+
+        return navHit.position;
+    }
+
+    public void LineOfSight(float maxDistrance)
+    {
+        RaycastHit hit;
+        Vector3 rayDirection = player.transform.position - this.transform.position;
+        if (Physics.Raycast(transform.position, rayDirection, out hit, maxDistrance, navLayerMask))
+        {
+            if(hit.transform == player.transform)
+            {
+                SetCanFollow(true);
+            }
+        }
+    }
+
+    public bool WithinRange()
+    {
+        float playerEscapeDistance = Vector3.Distance(player.transform.position, this.transform.position);
+        if (playerEscapeDistance > lineOfSightRadius * 2)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    public void SetCanFollow(bool ifCanFollow)
+    {
+        canFollow = ifCanFollow;
+
     }
 
     public void SetCanMove(bool ifCanMove)

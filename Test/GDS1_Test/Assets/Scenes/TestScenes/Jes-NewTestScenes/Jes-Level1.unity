@@ -1057,7 +1057,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 34425231}
+  wanderingRadius: 15
 --- !u!54 &34425230
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1511,6 +1512,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
@@ -2906,7 +2911,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 71289800}
+  wanderingRadius: 15
 --- !u!54 &71289799
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3280,7 +3286,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 78040112}
+  wanderingRadius: 15
 --- !u!54 &78040111
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -6059,7 +6066,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 157251691}
+  wanderingRadius: 15
 --- !u!54 &157251690
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -9333,6 +9341,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
@@ -14262,6 +14274,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
       value: GreenHueman
       objectReference: {fileID: 0}
@@ -16554,6 +16570,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
       value: GreenHueman
       objectReference: {fileID: 0}
@@ -16767,7 +16787,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 419495523}
+  wanderingRadius: 15
 --- !u!54 &419495522
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -17664,6 +17685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionDetect: {fileID: 441200616}
+  wanderingRadius: 15
 --- !u!114 &441200613
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21226,6 +21248,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
@@ -32322,7 +32348,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 871663537}
+  wanderingRadius: 15
 --- !u!54 &871663536
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -32904,7 +32931,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 885947323}
+  wanderingRadius: 15
 --- !u!54 &885947322
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -35937,6 +35965,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
       value: GreenHueman
       objectReference: {fileID: 0}
@@ -36626,6 +36658,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
@@ -40614,6 +40650,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
       value: GreenHueman
       objectReference: {fileID: 0}
@@ -42542,7 +42582,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 1145489376}
+  wanderingRadius: 15
 --- !u!54 &1145489375
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -47620,6 +47661,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
       value: GreenHueman
       objectReference: {fileID: 0}
@@ -47951,7 +47996,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 1305522993}
+  wanderingRadius: 15
 --- !u!54 &1305522992
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -48718,7 +48764,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 1327501125}
+  wanderingRadius: 15
 --- !u!54 &1327501124
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51307,7 +51354,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 1393339734}
+  wanderingRadius: 15
 --- !u!54 &1393339733
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -51848,6 +51896,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
@@ -53177,6 +53229,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_Layer
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
@@ -59874,7 +59930,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 1677680045}
+  wanderingRadius: 15
 --- !u!54 &1677680044
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -66789,6 +66846,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
       value: GreenHueman
       objectReference: {fileID: 0}
@@ -67421,7 +67482,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1902509238
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -73773,6 +73834,10 @@ PrefabInstance:
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: aaa0870340090eb479caff6f87552b82, type: 3}
       propertyPath: m_TagString
       value: GreenHueman
       objectReference: {fileID: 0}
@@ -75625,7 +75690,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collisionDetect: {fileID: 0}
+  collisionDetect: {fileID: 2134529188}
+  wanderingRadius: 15
 --- !u!54 &2134529187
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -76156,6 +76222,10 @@ PrefabInstance:
     - target: {fileID: 2758950288799124979, guid: 9a78f9027d721ad49a0933d5b5a4259b, type: 3}
       propertyPath: m_Name
       value: ClaudeMonet_Test
+      objectReference: {fileID: 0}
+    - target: {fileID: 2758950288799124979, guid: 9a78f9027d721ad49a0933d5b5a4259b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3064888088658997466, guid: 9a78f9027d721ad49a0933d5b5a4259b, type: 3}
       propertyPath: m_Height
