@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3123,7 +3123,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   add: 0
-  canvas: {fileID: 0}
 --- !u!114 &370865538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7410,14 +7409,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833076613}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: -0}
   m_LocalPosition: {x: 7.5612946, y: 1.496172, z: -14.953182}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1560565919}
   m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: -180, z: 0}
 --- !u!65 &833076615
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8352,7 +8351,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   add: 0
-  canvas: {fileID: 983371532}
 --- !u!1 &910743023
 GameObject:
   m_ObjectHideFlags: 0
@@ -9993,14 +9991,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1106582895}
-  m_LocalRotation: {x: -0, y: -0.7071068, z: 0.7071068, w: 0}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0.7071068, w: -0}
   m_LocalPosition: {x: 11.979923, y: 1.496172, z: -14.953182}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1560565919}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 90, y: -180, z: 0}
+  m_LocalEulerAnglesHint: {x: 270, y: -180, z: 0}
 --- !u!65 &1106582897
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -11012,7 +11010,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &1191391761
@@ -14863,6 +14861,34 @@ PrefabInstance:
       propertyPath: rb
       value: 
       objectReference: {fileID: 1026165571}
+    - target: {fileID: 6287081514138810104, guid: e5975a7093a9be543b004f1da385abf2, type: 3}
+      propertyPath: m_Height
+      value: 0.00001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287081514138810104, guid: e5975a7093a9be543b004f1da385abf2, type: 3}
+      propertyPath: m_Radius
+      value: 0.06
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287081514138810104, guid: e5975a7093a9be543b004f1da385abf2, type: 3}
+      propertyPath: m_AutoRepath
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287081514138810104, guid: e5975a7093a9be543b004f1da385abf2, type: 3}
+      propertyPath: m_AutoBraking
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287081514138810104, guid: e5975a7093a9be543b004f1da385abf2, type: 3}
+      propertyPath: m_WalkableMask
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287081514138810104, guid: e5975a7093a9be543b004f1da385abf2, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6287081514138810104, guid: e5975a7093a9be543b004f1da385abf2, type: 3}
+      propertyPath: m_AutoTraverseOffMeshLink
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e5975a7093a9be543b004f1da385abf2, type: 3}
 --- !u!1 &1662894380

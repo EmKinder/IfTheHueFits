@@ -7,15 +7,19 @@ public class DoorEnter : MonoBehaviour
 {
     bool enterDoor;
   public  int add;
-    public Canvas canvas;
+    Canvas canvas;
    // public Door door;
    int sceneload;
-   //public NextLevelScript script;
-    
-   
-    
+    //public NextLevelScript script;
 
-    
+    private void Awake()
+    {
+        // enterDoor = true;
+        canvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
+    }
+
+
+
     //  public int Current;
     // Start is called before the first frame update
     void Start()
