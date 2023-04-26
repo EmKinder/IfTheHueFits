@@ -8,8 +8,8 @@ using UnityEngine.UI;
 public class ManagingSceneChanges : MonoBehaviour
 {
     public Canvas InventoryCanvas;
-    public Canvas LevelSelectCanvas;
-    public Canvas JLevelSelectCanvas;
+  //  public Canvas LevelSelectCanvas;
+  //  public Canvas JLevelSelectCanvas;
     private void Awake()
     {
        // DontDestroyOnLoad(this.gameObject);
@@ -17,8 +17,8 @@ public class ManagingSceneChanges : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        LevelSelectCanvas.enabled = false;
-        JLevelSelectCanvas.enabled = false;
+     //  LevelSelectCanvas.enabled = false;
+    //   JLevelSelectCanvas.enabled = false;
     }
 
     // Update is called once per frame
@@ -88,23 +88,24 @@ public class ManagingSceneChanges : MonoBehaviour
     public void LevelSelectLoad()
     {
         InventoryCanvas.enabled = false;
-        LevelSelectCanvas.enabled = true;
+     //   LevelSelectCanvas.enabled = true;
 
-        // SceneManager.LoadScene("LevelSelect");
+         SceneManager.LoadScene("LevelSelect");
     }
 
     public void JaimiesLevelSelect()
 
     {
-        InventoryCanvas.enabled = false;
-        JLevelSelectCanvas.enabled = true;
-       
+           InventoryCanvas.enabled = false;
+          
+        SceneManager.LoadScene("JLevelSelect");
+
     }
 
     public void returnbutton()
     {
-        InventoryCanvas.enabled = false;
-        JLevelSelectCanvas.enabled = false;
-        LevelSelectCanvas.enabled = false;
+   //   InventoryCanvas.enabled = false;
+    //    JLevelSelectCanvas.enabled = false;
+    //    LevelSelectCanvas.enabled = false;
     }
 }

@@ -5,11 +5,14 @@ using UnityEngine;
 public class RedResource : MonoBehaviour
 {
    public int pickup;
-   public ResourcePickUP resourcePickUP;
+  public  ResourcePickUP resourcePickUP;
     public GameObject gem;
     public ItemClass redResource;
-   
 
+    private void Start()
+    {
+     //   resourcePickUP = GameObject.FindGameObjectWithTag("RedResource").GetComponent<ResourcePickUP>();
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))

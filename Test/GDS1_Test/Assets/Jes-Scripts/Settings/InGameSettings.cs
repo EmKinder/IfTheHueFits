@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class InGameSettings : MonoBehaviour
 {
-   public  INGameSelect scene;
+   public  ManagingSceneChanges scene;
     public Canvas SettingsIcon;
     public Canvas gameSettings;
     public Button RB;
@@ -15,12 +15,12 @@ public class InGameSettings : MonoBehaviour
     public Button EB;
     public Button Paused;
     public static bool GamePaused = false;
-    CharacterMovement movement;
+   // CharacterMovement movement;
     private void Awake()
     {
         gameSettings.enabled = false;
-       movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
-        movement.enabled = true;
+      // movement = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
+      //  movement.enabled = true;
     }
     // Start is called before the first frame update
     void Start()
@@ -47,7 +47,7 @@ public class InGameSettings : MonoBehaviour
         {
             gameSettings.enabled = true;
            scene.PauseLevel();
-           movement.enabled = false;
+     //      movement.enabled = false;
             
         }
     }
@@ -58,7 +58,7 @@ public class InGameSettings : MonoBehaviour
         {
             gameSettings.enabled = false;
             scene.Restartlevel();
-            movement.enabled = true;
+       //     movement.enabled = true;
         }
     }
 
@@ -69,7 +69,7 @@ public class InGameSettings : MonoBehaviour
             gameSettings.enabled = false;
             scene.ResumeLevel();
             GamePuased(false);
-            movement.enabled = true;
+        //    movement.enabled = true;
 
         }
     }
@@ -79,7 +79,10 @@ public class InGameSettings : MonoBehaviour
     {
         gameSettings.enabled = false;
         scene.ExitScene();
-        movement.enabled = true;
+       // if (movement != null)
+      ////  {
+       //     movement.enabled = true;
+       // }
     }
 
     public void GamePuased(bool gameisPaused)
