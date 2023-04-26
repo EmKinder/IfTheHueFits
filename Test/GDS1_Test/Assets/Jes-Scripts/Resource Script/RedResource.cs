@@ -6,7 +6,7 @@ public class RedResource : MonoBehaviour
 {
    public int pickup;
   public  ResourcePickUP resourcePickUP;
-    public GameObject gem;
+   // public GameObject gem;
     public ItemClass redResource;
 
     private void Start()
