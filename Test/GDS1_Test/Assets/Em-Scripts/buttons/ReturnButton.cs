@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class ReturnButton : MonoBehaviour
 {
-    [SerializeField] private string returnBack = "AmmoCountTesting";
 
     public void NewGameButton()
     {
-        SceneManager.LoadScene(returnBack);
+        SceneManager.LoadScene("InventoryAndCrafting");
     }
 
 }
