@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class InGameSettings : MonoBehaviour
 {
-   public  ManagingSceneChanges scene;
+   public  INGameSelect scene;
     public Canvas SettingsIcon;
     public Canvas gameSettings;
     public Button RB;

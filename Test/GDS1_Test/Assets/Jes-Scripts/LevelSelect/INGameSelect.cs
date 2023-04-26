@@ -2,23 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
-
-public class ManagingSceneChanges : MonoBehaviour
+public class INGameSelect : MonoBehaviour
 {
-    public Canvas InventoryCanvas;
-    public Canvas LevelSelectCanvas;
-    public Canvas JLevelSelectCanvas;
-    private void Awake()
-    {
-       // DontDestroyOnLoad(this.gameObject);
-    }
     // Start is called before the first frame update
     void Start()
     {
-        LevelSelectCanvas.enabled = false;
-        JLevelSelectCanvas.enabled = false;
+        
     }
 
     // Update is called once per frame
@@ -26,7 +16,6 @@ public class ManagingSceneChanges : MonoBehaviour
     {
         
     }
-
     public void Restartlevel()
     {
         Time.timeScale = 1f;
@@ -37,7 +26,7 @@ public class ManagingSceneChanges : MonoBehaviour
     public void PauseLevel()
     {
         Time.timeScale = 0f;
-        
+
     }
 
     public void ResumeLevel()
@@ -83,28 +72,5 @@ public class ManagingSceneChanges : MonoBehaviour
     public void SixthLevelLoad()
     {
         SceneManager.LoadScene("Jes-Level6");
-    }
-
-    public void LevelSelectLoad()
-    {
-        InventoryCanvas.enabled = false;
-        LevelSelectCanvas.enabled = true;
-
-        // SceneManager.LoadScene("LevelSelect");
-    }
-
-    public void JaimiesLevelSelect()
-
-    {
-        InventoryCanvas.enabled = false;
-        JLevelSelectCanvas.enabled = true;
-       
-    }
-
-    public void returnbutton()
-    {
-        InventoryCanvas.enabled = false;
-        JLevelSelectCanvas.enabled = false;
-        LevelSelectCanvas.enabled = false;
     }
 }
