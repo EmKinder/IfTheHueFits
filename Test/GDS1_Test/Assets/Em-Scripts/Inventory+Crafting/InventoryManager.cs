@@ -25,6 +25,8 @@ public class InventoryManager : MonoBehaviour
     public Button GreenCraftButton;
     public Button BlueCraftButton;
     public Button PurpleCraftButton;
+    AudioSource audio;
+    public AudioClip craftedSound;
 
     private void Start()
     {
@@ -57,6 +59,8 @@ public class InventoryManager : MonoBehaviour
         GreenCraftButton.onClick.AddListener(GreenCraftClick);
         BlueCraftButton.onClick.AddListener(BlueCraftClick);
         PurpleCraftButton.onClick.AddListener(PurpleCraftClick);
+
+        audio = this.GetComponent<AudioSource>();
 
     }
 
@@ -99,26 +103,32 @@ public class InventoryManager : MonoBehaviour
     void RedCraftClick()
     {
         Craft(craftingRecipies[0]);
+
     }
     void YellowCraftClick()
     {
         Craft(craftingRecipies[1]);
+
     }
     void BlueCraftClick()
     {
         Craft(craftingRecipies[2]);
+
     }
     void OrangeCraftClick()
     {
         Craft(craftingRecipies[3]);
+
     }
     void GreenCraftClick()
     {
         Craft(craftingRecipies[4]);
+
     }
     void PurpleCraftClick()
     {
         Craft(craftingRecipies[5]);
+
     }
     #endregion
 
@@ -482,6 +492,8 @@ public class InventoryManager : MonoBehaviour
         if (recipe.CanCraft(this))
         {
             recipe.Craft(this);
+            audio.clip = craftedSound;
+            audio.Play();
         }
         else
         {

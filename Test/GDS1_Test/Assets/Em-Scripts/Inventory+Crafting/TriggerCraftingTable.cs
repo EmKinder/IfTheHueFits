@@ -38,6 +38,11 @@ public class TriggerCraftingTable : MonoBehaviour
                 inventoryOpen = false;
             }
         }
+        if (!standingAtDesk)
+        {
+            inventoryCanvas.enabled = false;
+            inventoryOpen = false;
+        }
             
            /* else if (inventoryOpen)
             {
