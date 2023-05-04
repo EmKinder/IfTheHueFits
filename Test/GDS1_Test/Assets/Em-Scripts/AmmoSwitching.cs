@@ -22,6 +22,13 @@ public class AmmoSwitching : MonoBehaviour
     public AmmoClass purpleAmmo;
     public InventoryManager inventory;
     public AmmoCount ammoCount;
+    public Image ammoBackground;
+    public Sprite redBackground;
+    public Sprite orangeBackground;
+    public Sprite yellowBackground;
+    public Sprite greenBackground;
+    public Sprite blueBackground;
+    public Sprite purpleBackground;
 
 
     void Start()
@@ -103,6 +110,7 @@ public class AmmoSwitching : MonoBehaviour
     {
         if (selectedAmmo == 0)
         {
+            ammoBackground.sprite = redBackground;
             PurpleCheck.enabled = false;
             RedCheck.enabled = true;
             RedCheck.text = ammoCount.getAmmoCount("Red").ToString();
@@ -115,6 +123,7 @@ public class AmmoSwitching : MonoBehaviour
         }
         if (selectedAmmo == 1)
         {
+            ammoBackground.sprite = orangeBackground;
             RedCheck.enabled = false;
             OrangeCheck.enabled = true;
             OrangeCheck.text = ammoCount.getAmmoCount("Orange").ToString();
@@ -128,6 +137,7 @@ public class AmmoSwitching : MonoBehaviour
         }
         if (selectedAmmo == 2)
         {
+            ammoBackground.sprite = yellowBackground;
             RedCheck.enabled = false;
             OrangeCheck.enabled = false;
             YellowCheck.enabled = true;
@@ -139,6 +149,7 @@ public class AmmoSwitching : MonoBehaviour
         }
         if (selectedAmmo == 3)
         {
+            ammoBackground.sprite = greenBackground;
             RedCheck.enabled = false;
             OrangeCheck.enabled = false;
             YellowCheck.enabled = false;
@@ -150,6 +161,7 @@ public class AmmoSwitching : MonoBehaviour
         }
         if (selectedAmmo == 4)
         {
+            ammoBackground.sprite = blueBackground;
             RedCheck.enabled = false;
             OrangeCheck.enabled = false;
             YellowCheck.enabled = false;
@@ -161,6 +173,7 @@ public class AmmoSwitching : MonoBehaviour
         }
         if (selectedAmmo == 5)
         {
+            ammoBackground.sprite = purpleBackground;
             OrangeCheck.enabled = false;
             YellowCheck.enabled = false;
             GreenCheck.enabled = false;
