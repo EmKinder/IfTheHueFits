@@ -7,18 +7,22 @@ using UnityEngine.UI;
 
 public class ManagingSceneChanges : MonoBehaviour
 {
-    public Canvas InventoryCanvas;
+   Canvas InventoryCanvas;
   //  public Canvas LevelSelectCanvas;
   //  public Canvas JLevelSelectCanvas;
     private void Awake()
     {
-       // DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
+        
+
+
     }
     // Start is called before the first frame update
     void Start()
     {
-     //  LevelSelectCanvas.enabled = false;
-    //   JLevelSelectCanvas.enabled = false;
+        //  LevelSelectCanvas.enabled = false;
+        //   JLevelSelectCanvas.enabled = false;
+        InventoryCanvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
     }
 
     // Update is called once per frame

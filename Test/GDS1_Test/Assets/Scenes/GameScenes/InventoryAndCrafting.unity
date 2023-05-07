@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -500,7 +500,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 65754225574578910}
+    m_TransformParent: {fileID: 1234051520}
     m_Modifications:
     - target: {fileID: 8890444374771415168, guid: 6781f16f08499dc4191e5bae2aaea949, type: 3}
       propertyPath: InventoryCanvas
@@ -516,19 +516,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8890444374771415169, guid: 6781f16f08499dc4191e5bae2aaea949, type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8890444374771415169, guid: 6781f16f08499dc4191e5bae2aaea949, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.069275
+      value: 922.09515
       objectReference: {fileID: 0}
     - target: {fileID: 8890444374771415169, guid: 6781f16f08499dc4191e5bae2aaea949, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 92.73126
+      value: 640.9438
       objectReference: {fileID: 0}
     - target: {fileID: 8890444374771415169, guid: 6781f16f08499dc4191e5bae2aaea949, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -32.84424
+      value: -7.7217293
       objectReference: {fileID: 0}
     - target: {fileID: 8890444374771415169, guid: 6781f16f08499dc4191e5bae2aaea949, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4577,7 +4577,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 65754225574578910}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -7056,7 +7056,7 @@ Transform:
   - {fileID: 1745293858}
   - {fileID: 370865536}
   - {fileID: 1124445687}
-  - {fileID: 65754225574578910}
+  - {fileID: 1698303186}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10766,7 +10766,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 459ee4fdc342d474d8dffafb570708ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  InventoryCanvas: {fileID: 983371532}
 --- !u!1001 &1814362837
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13041,7 +13040,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 65754225574578910}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
@@ -13224,11 +13223,10 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1698303186}
   - {fileID: 65754225534090292}
   - {fileID: 851452236}
-  m_Father: {fileID: 1234051520}
-  m_RootOrder: 8
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
