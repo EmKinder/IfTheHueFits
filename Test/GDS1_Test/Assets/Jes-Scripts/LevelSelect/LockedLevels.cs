@@ -8,6 +8,7 @@ public class LockedLevels : MonoBehaviour
 {
     public Button[] buttonlevel;
     public Image[] images;
+    public Button[] frames;
     public int Current;
 
   //  public int currentPosition;
@@ -38,6 +39,18 @@ public class LockedLevels : MonoBehaviour
             else
             {
                 images[j].enabled = false;
+            }
+        }
+
+        for (int k = 0; k < frames.Length; k++)
+        {
+            if (k > Current - 2)
+            {
+                frames[k].enabled = true;
+            }
+            else
+            {
+                frames[k].enabled = false;
             }
         }
         

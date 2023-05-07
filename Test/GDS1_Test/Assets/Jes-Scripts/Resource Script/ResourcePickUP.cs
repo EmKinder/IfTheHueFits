@@ -32,7 +32,7 @@ public class ResourcePickUP : MonoBehaviour
     {
         resource = resource + pickup;
 
-          inventory.Add(item, 1);
+         inventory.Add(item, 1);
          Debug.Log(resource);
         
 
@@ -44,7 +44,7 @@ public class ResourcePickUP : MonoBehaviour
     public void AddToRedResource(int redResourceScore)
     {
         Rr = Rr + redResourceScore;
-        inventory.Add(redResource, 1);
+       // inventory.Add(redResource, 1);
         RrText.text = Rr.ToString();
     }
 
