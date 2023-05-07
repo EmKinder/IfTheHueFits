@@ -30,6 +30,11 @@ public class PlantSeeds : MonoBehaviour
     public ItemClass yellowResource;
     public ItemClass blueResource;
 
+    //Seeds
+    public ItemClass redSeed;
+    public ItemClass yellowSeed;
+    public ItemClass blueSeed;
+
     //Materials
     public Material redMat;
     public Material yellowMat;
@@ -160,13 +165,13 @@ public class PlantSeeds : MonoBehaviour
 
     public void PlantRed()
     {
-        if (EnoughSeeds(redResource))
+        if (EnoughSeeds(redSeed))
         {
             plantGrowing = true;
             currentGrowingItemName = "Red";
             growing.SetActive(true);
             ChangeMaterial(growing, redMat);
-            inventory.Remove(redResource, 1);
+            inventory.Remove(redSeed, 1);
             timerActive = true;
             canPlant = false;
             redFarmButton.gameObject.SetActive(false);
@@ -178,13 +183,13 @@ public class PlantSeeds : MonoBehaviour
 
     public void PlantYellow()
     {
-        if (EnoughSeeds(yellowResource))
+        if (EnoughSeeds(yellowSeed))
         {
             plantGrowing = true;
             currentGrowingItemName = "Yellow";
             growing.SetActive(true);
             ChangeMaterial(growing, yellowMat);
-            inventory.Remove(yellowResource, 1);
+            inventory.Remove(yellowSeed, 1);
             timerActive = true;
             canPlant = false;
             redFarmButton.gameObject.SetActive(false);
@@ -195,13 +200,13 @@ public class PlantSeeds : MonoBehaviour
 
     public void PlantBlue()
     {
-        if (EnoughSeeds(blueResource))
+        if (EnoughSeeds(blueSeed))
         {
             plantGrowing = true;
             currentGrowingItemName = "Blue";
             growing.SetActive(true);
             ChangeMaterial(growing, blueMat);
-            inventory.Remove(blueResource, 1);
+            inventory.Remove(blueSeed, 1);
             timerActive = true;
             canPlant = false;
             redFarmButton.gameObject.SetActive(false);

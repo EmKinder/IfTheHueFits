@@ -48,8 +48,8 @@ public class InventoryManager : MonoBehaviour
                 slots[i] = slotHolder.transform.GetChild(i).gameObject;
             }
 
-            Add(onStartRedResource, 10);
-            Add(onStartBlueResource, 10);
+            Add(onStartRedResource, 2);
+            Add(onStartBlueResource, 2);
             RefreshUI();
         }
 
