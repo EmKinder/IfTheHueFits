@@ -10,10 +10,11 @@ public class PlantSeeds : MonoBehaviour
     public GameObject growing;
     float timer;
     bool timerActive;
-    bool plantGrown;
+    public bool plantGrown;
     public GameObject grown;
     string currentGrowingItemName;
     bool plantGrowing;
+    public bool plantHarvested;
 
     //UI
     public Image timerUI;
@@ -56,6 +57,7 @@ public class PlantSeeds : MonoBehaviour
         timerActive = false;
         plantGrowing = false;
         noResources.enabled = false;
+        plantHarvested = false;
     }
 
     // Update is called once per frame
@@ -65,8 +67,8 @@ public class PlantSeeds : MonoBehaviour
         {
             timerUI.gameObject.SetActive(true);
             timer += Time.deltaTime;
-            timerText.text = (30 - timer).ToString("f0");
-            if(timer >= 30)
+            timerText.text = (15 - timer).ToString("f0");
+            if(timer >= 15)
             {
                 plantGrown = true;
                 growing.SetActive(false);
@@ -143,10 +145,10 @@ public class PlantSeeds : MonoBehaviour
             {
                 inventory.Add(blueResource, 4);
             }
-
+            plantHarvested = true;
             grown.SetActive(false);
             plantGrown = false;
-                plantGrowing = false;
+            plantGrowing = false;
         
         }
     }
