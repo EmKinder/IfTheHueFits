@@ -7,7 +7,7 @@ public class TriggerCraftingTable : MonoBehaviour
 {
 
     private Canvas inventoryCanvas;
-    bool inventoryOpen;
+    public bool inventoryOpen;
     bool standingAtDesk;
 
     // Start is called before the first frame update
