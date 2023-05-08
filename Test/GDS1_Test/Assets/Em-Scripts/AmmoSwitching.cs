@@ -37,7 +37,7 @@ public class AmmoSwitching : MonoBehaviour
     public Material blueMat;
     public Material purpleMat;
 
-    public MeshRenderer paintTip;
+    MeshRenderer paintTip;
 
 
     void Start()
@@ -52,7 +52,7 @@ public class AmmoSwitching : MonoBehaviour
 
             SelectAmmo(selectedAmmo);
 
-            paintTip = GameObject.FindGameObjectWithTag("PlayerAttackPoint").GetComponent<MeshRenderer>();
+
 
 
     }
@@ -60,8 +60,14 @@ public class AmmoSwitching : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
-        
+        if (paintTip == null) { 
+            paintTip = GameObject.FindGameObjectWithTag("PlayerAttackPoint").GetComponent<MeshRenderer>();
+            if (paintTip) { 
+                Debug.Log("Paint Tip Found");
+                }
+            }
+
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if (selectedAmmo >= 5)
