@@ -107,7 +107,7 @@ public class HuemanHit : MonoBehaviour
 
     private void Cured()
     {
-        this.GetComponentInChildren<SkinnedMeshRenderer>().material = white;
+        //this.GetComponentInChildren<SkinnedMeshRenderer>().material = white;
         this.GetComponent<EnemyMovement>().enabled = false;
         enemyMovement.SetCured();
         enemyCounter.EnemyCured();
