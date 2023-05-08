@@ -18,6 +18,8 @@ public class InventoryManager : MonoBehaviour
     public AmmoCount ammoCount;
     public ItemClass onStartRedResource;
     public ItemClass onStartBlueResource;
+    public bool blueCrafted;
+    public bool redCrafted;
 
     public Button RedCraftButton;
     public Button OrangeCraftButton;
@@ -25,6 +27,8 @@ public class InventoryManager : MonoBehaviour
     public Button GreenCraftButton;
     public Button BlueCraftButton;
     public Button PurpleCraftButton;
+    AudioSource audio;
+    public AudioClip craftedSound;
 
     private void Start()
     {
@@ -46,8 +50,8 @@ public class InventoryManager : MonoBehaviour
                 slots[i] = slotHolder.transform.GetChild(i).gameObject;
             }
 
-            Add(onStartRedResource, 10);
-            Add(onStartBlueResource, 10);
+            Add(onStartRedResource, 2);
+            Add(onStartBlueResource, 2);
             RefreshUI();
         }
 
@@ -57,6 +61,11 @@ public class InventoryManager : MonoBehaviour
         GreenCraftButton.onClick.AddListener(GreenCraftClick);
         BlueCraftButton.onClick.AddListener(BlueCraftClick);
         PurpleCraftButton.onClick.AddListener(PurpleCraftClick);
+
+        audio = this.GetComponent<AudioSource>();
+
+        redCrafted = false;
+        blueCrafted = false;
 
     }
 
@@ -99,26 +108,32 @@ public class InventoryManager : MonoBehaviour
     void RedCraftClick()
     {
         Craft(craftingRecipies[0]);
+
     }
     void YellowCraftClick()
     {
         Craft(craftingRecipies[1]);
+
     }
     void BlueCraftClick()
     {
         Craft(craftingRecipies[2]);
+
     }
     void OrangeCraftClick()
     {
         Craft(craftingRecipies[3]);
+
     }
     void GreenCraftClick()
     {
         Craft(craftingRecipies[4]);
+
     }
     void PurpleCraftClick()
     {
         Craft(craftingRecipies[5]);
+
     }
     #endregion
 
@@ -482,6 +497,17 @@ public class InventoryManager : MonoBehaviour
         if (recipe.CanCraft(this))
         {
             recipe.Craft(this);
+            audio.clip = craftedSound;
+            audio.Play();
+            if(recipe == craftingRecipies[0])
+            {
+                redCrafted = true;
+            }
+            if(recipe == craftingRecipies[2])
+            {
+                blueCrafted = true;
+            }
+            
         }
         else
         {

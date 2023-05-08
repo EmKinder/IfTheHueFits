@@ -7,15 +7,22 @@ using UnityEngine.UI;
 
 public class ManagingSceneChanges : MonoBehaviour
 {
-
+   Canvas InventoryCanvas;
+  //  public Canvas LevelSelectCanvas;
+  //  public Canvas JLevelSelectCanvas;
     private void Awake()
     {
-       // DontDestroyOnLoad(this.gameObject);
+        // DontDestroyOnLoad(this.gameObject);
+        
+
+
     }
     // Start is called before the first frame update
     void Start()
     {
-        
+        //  LevelSelectCanvas.enabled = false;
+        //   JLevelSelectCanvas.enabled = false;
+        InventoryCanvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
     }
 
     // Update is called once per frame
@@ -84,6 +91,25 @@ public class ManagingSceneChanges : MonoBehaviour
 
     public void LevelSelectLoad()
     {
-        SceneManager.LoadScene("LevelSelect");
+        InventoryCanvas.enabled = false;
+     //   LevelSelectCanvas.enabled = true;
+
+         SceneManager.LoadScene("LevelSelect");
+    }
+
+    public void JaimiesLevelSelect()
+
+    {
+           InventoryCanvas.enabled = false;
+          
+        SceneManager.LoadScene("JLevelSelect");
+
+    }
+
+    public void returnbutton()
+    {
+   //   InventoryCanvas.enabled = false;
+    //    JLevelSelectCanvas.enabled = false;
+    //    LevelSelectCanvas.enabled = false;
     }
 }

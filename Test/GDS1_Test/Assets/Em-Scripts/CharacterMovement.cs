@@ -5,11 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
-    float walkSpeed = 6.0f;
-    float rotationSpeed = 300.0f;
     Animator anim;
-    float shootTimerLength = 1.5f;
-    float hitTimerLength = 1f;
+    float shootTimerLength = 1f;
+    float hitTimerLength = 0.5f;
 
     float shootTimer = 0;
     float hitTimer = 0;
@@ -21,7 +19,8 @@ public class CharacterMovement : MonoBehaviour
     string currentPaintShooting;
     bool managersFound;
 
-    public float attackRange = 0.5f;
+    [SerializeField] float moveSpeed;
+    [SerializeField] float rotationSpeed = 720f;
 
 
     void Start()
@@ -30,7 +29,7 @@ public class CharacterMovement : MonoBehaviour
         canShoot = true;
         canHit = true;
         managersFound = false;
-
+        moveSpeed = 7f;
 
     }
 
@@ -45,20 +44,27 @@ public class CharacterMovement : MonoBehaviour
             managersFound = true;
         }
 
-        float trans = Input.GetAxis("Vertical") * walkSpeed;
-        trans *= Time.deltaTime;
-        transform.Translate(0, 0, trans);
-        if (trans != 0)
+        float horizontalInput = Input.GetAxis("Horizontal");
+        float verticalInput = Input.GetAxis("Vertical");
+
+
+
+        if (canHit && canShoot)
+        {
+            Vector3 moveVector = new Vector3(verticalInput, 0.0f, -horizontalInput);
+            moveVector.Normalize();
+            transform.position += moveVector * moveSpeed * Time.deltaTime;
+            if (moveVector != Vector3.zero)
             {
+                Quaternion toRotation = Quaternion.LookRotation(moveVector, Vector3.up);
+                transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            }
+        }
+
+        if (horizontalInput != 0 || verticalInput != 0)
+        {
             anim.SetBool("isWalking", true);
-            if (trans > 0)
-            {
-                anim.SetFloat("AnimSpeed", 1.0f);
-            }
-            else
-            {
-                anim.SetFloat("AnimSpeed", -1.0f);
-            }
+            anim.SetFloat("AnimSpeed", 1.0f);
         }
         else
         {
@@ -69,42 +75,73 @@ public class CharacterMovement : MonoBehaviour
         //Right click to long range attack
         if (Input.GetMouseButtonDown(1) && canShoot == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
         {
-                if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
-                    || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
-                    || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
-                    || asw.GetAmmoType() == "Green" && ac.getAmmoCount("Green") > 0
-                    || asw.GetAmmoType() == "Blue" && ac.getAmmoCount("Blue") > 0
-                    || asw.GetAmmoType() == "Purple" && ac.getAmmoCount("Purple") > 0)
-                {
-                    currentPaintShooting = asw.GetAmmoType();
-                    ac.subAmmoCount(currentPaintShooting, 1);
-                    anim.SetTrigger("isAttacking");
-                    shooting.ShootPaint();
-                    canShoot = false;
-                    Debug.Log("Should Not be able to shoot now");
-
-                }
-            }
-
-            //left click melee attack
-            if (Input.GetMouseButtonDown(0) && canHit == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
+            if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
+                || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
+                || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
+                || asw.GetAmmoType() == "Green" && ac.getAmmoCount("Green") > 0
+                || asw.GetAmmoType() == "Blue" && ac.getAmmoCount("Blue") > 0
+                || asw.GetAmmoType() == "Purple" && ac.getAmmoCount("Purple") > 0)
             {
-                if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
-                    || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
-                    || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
-                    || asw.GetAmmoType() == "Green" && ac.getAmmoCount("Green") > 0
-                    || asw.GetAmmoType() == "Blue" && ac.getAmmoCount("Blue") > 0
-                    || asw.GetAmmoType() == "Purple" && ac.getAmmoCount("Purple") > 0)
-                {
-                    currentPaintShooting = asw.GetAmmoType();
-                    ac.subAmmoCount(currentPaintShooting, 1);
-                    anim.SetTrigger("isMeleeAttacking");
-                    //shooting.ShootPaint();
-                    canHit = false;
-                    Debug.Log("Should Not be able to shoot now");
+                var moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+                var moveVelocity = moveInput * moveSpeed;
 
+                Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+                float rayLength;
+
+                if (groundPlane.Raycast(cameraRay, out rayLength))
+                {
+                    Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+                    Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
+
+                    transform.LookAt(new Vector3(pointToLook.x, 0.0f, pointToLook.z));
                 }
+
+                currentPaintShooting = asw.GetAmmoType();
+                ac.subAmmoCount(currentPaintShooting, 1);
+                anim.ResetTrigger("isAttacking");
+                anim.SetTrigger("isAttacking");
+                shooting.ShootPaint();
+                canShoot = false;
+                Debug.Log("Should Not be able to shoot now");
+
             }
+        }
+
+        //left click melee attack
+        if (Input.GetMouseButtonDown(0) && canHit == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
+        {
+            if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
+                || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
+                || asw.GetAmmoType() == "Yellow" && ac.getAmmoCount("Yellow") > 0
+                || asw.GetAmmoType() == "Green" && ac.getAmmoCount("Green") > 0
+                || asw.GetAmmoType() == "Blue" && ac.getAmmoCount("Blue") > 0
+                || asw.GetAmmoType() == "Purple" && ac.getAmmoCount("Purple") > 0)
+            {
+                var moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
+                var moveVelocity = moveInput * moveSpeed;
+
+                Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+                Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
+                float rayLength;
+
+                if (groundPlane.Raycast(cameraRay, out rayLength))
+                {
+                    Vector3 pointToLook = cameraRay.GetPoint(rayLength);
+                    Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
+
+                    transform.LookAt(new Vector3(pointToLook.x, 0.0f, pointToLook.z));
+                }
+
+                currentPaintShooting = asw.GetAmmoType();
+                ac.subAmmoCount(currentPaintShooting, 1);
+                anim.ResetTrigger("isAttacking");
+                anim.SetTrigger("isAttacking");
+                canHit = false;
+                Debug.Log("Should Not be able to shoot now");
+
+            }
+        }
         if (canShoot == false)
         {
             shootTimer += Time.deltaTime;
@@ -125,22 +162,10 @@ public class CharacterMovement : MonoBehaviour
                 hitTimer = 0;
             }
         }
-
-        Vector2 positionOnScreen = Camera.main.WorldToViewportPoint(transform.position);
-        Vector2 mouseOnScreen = (Vector2)Camera.main.ScreenToViewportPoint(Input.mousePosition);
-        float angle = AngleBetweenTwoPoints(positionOnScreen, mouseOnScreen);
-        transform.rotation = Quaternion.Euler(new Vector3(0f, -angle, 0f));
-    }
-
-    float AngleBetweenTwoPoints(Vector3 a, Vector3 b)
-    {
-        return Mathf.Atan2(a.y - b.y, a.x - b.x) * Mathf.Rad2Deg;
     }
 
     public bool IsHitting()
     {
         return canHit;
     }
-
-    
 }

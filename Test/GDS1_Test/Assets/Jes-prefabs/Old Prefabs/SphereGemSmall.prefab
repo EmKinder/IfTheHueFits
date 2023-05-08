@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 2593580659293553691}
   - component: {fileID: 2559512939391257815}
   - component: {fileID: 2567540247997554177}
-  - component: {fileID: 2478396292329126975}
   - component: {fileID: 2589580932088876747}
   - component: {fileID: 2589580932088876746}
-  - component: {fileID: 2589580932088876740}
+  - component: {fileID: 945904085811236925}
+  - component: {fileID: 4700272493922266516}
   m_Layer: 0
   m_Name: SphereGemSmall
   m_TagString: Untagged
@@ -87,30 +87,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!114 &2478396292329126975
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2590563341604924423}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9ff967b7ed48f2441bcf509edf6b889a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isAnimated: 1
-  isRotating: 1
-  isFloating: 1
-  isScaling: 1
-  rotationAngle: {x: 0, y: 0, z: 10}
-  rotationSpeed: 10
-  floatSpeed: 0.04
-  floatRate: 0.5
-  startScale: {x: 0.5, y: 0.5, z: 0.5}
-  endScale: {x: 0.5, y: 0.5, z: 0.5}
-  scaleSpeed: 1
-  scaleRate: 0.5
 --- !u!54 &2589580932088876747
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,7 +116,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.7888497, y: 1.7012801, z: 2.0000002}
   m_Center: {x: -0.0000005960464, y: 0, z: 0}
---- !u!114 &2589580932088876740
+--- !u!114 &945904085811236925
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,9 +125,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 2590563341604924423}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d37808cf91bc5504590cc3ac14120aa3, type: 3}
+  m_Script: {fileID: 11500000, guid: 3753f3083d9d966468167178e9ce8163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pickup: 1
-  resourcePickUP: {fileID: 0}
-  gem: {fileID: 2590563341604924423}
+--- !u!114 &4700272493922266516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2590563341604924423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20340d6b9b2db8549a071a66971f065e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100

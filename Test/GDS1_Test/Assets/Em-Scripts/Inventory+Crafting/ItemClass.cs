@@ -26,4 +26,8 @@ public class ItemClass  : ScriptableObject
     {
 
     }
+
+    public virtual SeedClass GetSeed() {
+        return null;
+    }
 }

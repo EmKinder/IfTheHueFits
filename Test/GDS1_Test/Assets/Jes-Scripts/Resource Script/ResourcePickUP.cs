@@ -12,8 +12,8 @@ public class ResourcePickUP : MonoBehaviour
     public Text YrText;
     public int Br;
     public Text BrText;
-
-     public  InventoryManager inventory;
+    public ItemClass redResource;
+    InventoryManager inventory;
 
     void Start()
     {
@@ -22,6 +22,7 @@ public class ResourcePickUP : MonoBehaviour
         redResourceText();
         BlueResourceText();
         YellowResourceText();
+        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
 
     }
 
@@ -31,7 +32,7 @@ public class ResourcePickUP : MonoBehaviour
     {
         resource = resource + pickup;
 
-          inventory.Add(item, 1);
+         inventory.Add(item, 1);
          Debug.Log(resource);
         
 
@@ -43,6 +44,7 @@ public class ResourcePickUP : MonoBehaviour
     public void AddToRedResource(int redResourceScore)
     {
         Rr = Rr + redResourceScore;
+       // inventory.Add(redResource, 1);
         RrText.text = Rr.ToString();
     }
 

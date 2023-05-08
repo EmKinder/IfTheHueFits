@@ -22,6 +22,22 @@ public class AmmoSwitching : MonoBehaviour
     public AmmoClass purpleAmmo;
     public InventoryManager inventory;
     public AmmoCount ammoCount;
+    public Image ammoBackground;
+    public Sprite redBackground;
+    public Sprite orangeBackground;
+    public Sprite yellowBackground;
+    public Sprite greenBackground;
+    public Sprite blueBackground;
+    public Sprite purpleBackground;
+
+    public Material redMat;
+    public Material orangeMat;
+    public Material yellowMat;
+    public Material greenMat;
+    public Material blueMat;
+    public Material purpleMat;
+
+    MeshRenderer paintTip;
 
 
     void Start()
@@ -37,13 +53,21 @@ public class AmmoSwitching : MonoBehaviour
             SelectAmmo(selectedAmmo);
 
 
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        
+        if (paintTip == null) { 
+            paintTip = GameObject.FindGameObjectWithTag("PlayerAttackPoint").GetComponent<MeshRenderer>();
+            if (paintTip) { 
+                Debug.Log("Paint Tip Found");
+                }
+            }
+
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if (selectedAmmo >= 5)
@@ -103,6 +127,7 @@ public class AmmoSwitching : MonoBehaviour
     {
         if (selectedAmmo == 0)
         {
+            ammoBackground.sprite = redBackground;
             PurpleCheck.enabled = false;
             RedCheck.enabled = true;
             RedCheck.text = ammoCount.getAmmoCount("Red").ToString();
@@ -111,10 +136,12 @@ public class AmmoSwitching : MonoBehaviour
             GreenCheck.enabled = false;
             BlueCheck.enabled = false;
             PurpleCheck.enabled = false;
+            paintTip.material = redMat;
             return "Red";
         }
         if (selectedAmmo == 1)
         {
+            ammoBackground.sprite = orangeBackground;
             RedCheck.enabled = false;
             OrangeCheck.enabled = true;
             OrangeCheck.text = ammoCount.getAmmoCount("Orange").ToString();
@@ -122,12 +149,14 @@ public class AmmoSwitching : MonoBehaviour
             GreenCheck.enabled = false;
             BlueCheck.enabled = false;
             PurpleCheck.enabled = false;
+            paintTip.material = orangeMat;
 
 
             return "Orange";
         }
         if (selectedAmmo == 2)
         {
+            ammoBackground.sprite = yellowBackground;
             RedCheck.enabled = false;
             OrangeCheck.enabled = false;
             YellowCheck.enabled = true;
@@ -135,10 +164,12 @@ public class AmmoSwitching : MonoBehaviour
             GreenCheck.enabled = false;
             BlueCheck.enabled = false;
             PurpleCheck.enabled = false;
+            paintTip.material = yellowMat;
             return "Yellow";
         }
         if (selectedAmmo == 3)
         {
+            ammoBackground.sprite = greenBackground;
             RedCheck.enabled = false;
             OrangeCheck.enabled = false;
             YellowCheck.enabled = false;
@@ -146,10 +177,12 @@ public class AmmoSwitching : MonoBehaviour
             GreenCheck.text = ammoCount.getAmmoCount("Green").ToString();
             BlueCheck.enabled = false;
             PurpleCheck.enabled = false;
+            paintTip.material = greenMat;
             return "Green";
         }
         if (selectedAmmo == 4)
         {
+            ammoBackground.sprite = blueBackground;
             RedCheck.enabled = false;
             OrangeCheck.enabled = false;
             YellowCheck.enabled = false;
@@ -157,10 +190,12 @@ public class AmmoSwitching : MonoBehaviour
             BlueCheck.enabled = true;
             BlueCheck.text = ammoCount.getAmmoCount("Blue").ToString();
             PurpleCheck.enabled = false;
+            paintTip.material = blueMat;
             return "Blue";
         }
         if (selectedAmmo == 5)
         {
+            ammoBackground.sprite = purpleBackground;
             OrangeCheck.enabled = false;
             YellowCheck.enabled = false;
             GreenCheck.enabled = false;
@@ -168,7 +203,7 @@ public class AmmoSwitching : MonoBehaviour
             PurpleCheck.enabled = true;
             PurpleCheck.text = ammoCount.getAmmoCount("Purple").ToString();
             RedCheck.enabled = false;
-
+            paintTip.material = purpleMat;
             return "Purple";
         }
         return null;

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1515208494105464362}
   - component: {fileID: 8832561940779926691}
   - component: {fileID: 7681504037484738118}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: B1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8653309248050962415}
   - component: {fileID: 6039717929351061330}
   - component: {fileID: 2475768963280046321}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eye_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -177,7 +177,7 @@ GameObject:
   - component: {fileID: 7487067770337266502}
   - component: {fileID: 1527376022787283614}
   - component: {fileID: 8219065004465033215}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pants
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -260,7 +260,7 @@ GameObject:
   - component: {fileID: 3271352393002149870}
   - component: {fileID: 6237776498246322032}
   - component: {fileID: 3538774163034904894}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Collar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   - component: {fileID: 3253546289352373130}
   - component: {fileID: 8254501744217206837}
   - component: {fileID: 4878742078964583808}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shirt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 2772022953695927497}
   - component: {fileID: 7968083128857108191}
   - component: {fileID: 1672385438924761016}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shoe_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -507,7 +507,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4940513527864885149}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Top_GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -543,7 +543,7 @@ GameObject:
   - component: {fileID: 5164804966469213958}
   - component: {fileID: 4150030868885625181}
   - component: {fileID: 4900099523351450723}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: B4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -626,7 +626,7 @@ GameObject:
   - component: {fileID: 5113910626753092858}
   - component: {fileID: 1254711402026158164}
   - component: {fileID: 7472763974914986788}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ear_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -709,7 +709,7 @@ GameObject:
   - component: {fileID: 200698662041470793}
   - component: {fileID: 8503687089418864459}
   - component: {fileID: 6388610217446866739}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: B2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -792,7 +792,7 @@ GameObject:
   - component: {fileID: 1624047134636271672}
   - component: {fileID: 1653307808667651498}
   - component: {fileID: 7912727162182290549}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: pCylinder5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -875,7 +875,7 @@ GameObject:
   - component: {fileID: 7653898482478891936}
   - component: {fileID: 221221406785873528}
   - component: {fileID: 8089026486119841468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -956,7 +956,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 962247469815868269}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coat_GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -995,7 +995,8 @@ GameObject:
   - component: {fileID: 6047555707456309639}
   - component: {fileID: 6047555707456309636}
   - component: {fileID: 6504181631382126426}
-  m_Layer: 0
+  - component: {fileID: 7998680439933439238}
+  m_Layer: 6
   m_Name: VG
   m_TagString: OrangeHueman
   m_Icon: {fileID: 0}
@@ -1052,12 +1053,12 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6857946552701088971}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.08265591
-  m_Height: 0.18442737
+  m_Radius: 0.04
+  m_Height: 0.19
   m_Direction: 1
-  m_Center: {x: -0.0031858445, y: 0.08920331, z: 0}
+  m_Center: {x: 0.0007152557, y: 0.08779418, z: 0}
 --- !u!136 &6047555707456309638
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1068,10 +1069,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.08175965
-  m_Height: 0.19023131
+  m_Radius: 0.039
+  m_Height: 0.19
   m_Direction: 1
-  m_Center: {x: 0.0031110763, y: 0.09019629, z: 0.003783989}
+  m_Center: {x: 0.0007152557, y: 0.08779418, z: 0}
 --- !u!114 &6047555707456309639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1098,6 +1099,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionDetect: {fileID: 6047555707456309638}
+  wanderingTimer: 0
+  wanderingRadius: 0
 --- !u!137 &6504181631382126426
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -1151,6 +1154,28 @@ SkinnedMeshRenderer:
     m_Center: {x: 0, y: 0, z: 0}
     m_Extent: {x: 0, y: 0, z: 0}
   m_DirtyAABB: 0
+--- !u!195 &7998680439933439238
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6857946552701088971}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.035
+  m_Speed: 4.04
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.0195
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.18
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &7683803928406280724
 GameObject:
   m_ObjectHideFlags: 0
@@ -1162,7 +1187,7 @@ GameObject:
   - component: {fileID: 4116072911469802855}
   - component: {fileID: 5135569084039316644}
   - component: {fileID: 120085606130891045}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Coat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1245,7 +1270,7 @@ GameObject:
   - component: {fileID: 1401215338579056762}
   - component: {fileID: 4496519870986529292}
   - component: {fileID: 5555213631579534558}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Eye_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1326,7 +1351,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2769820319555882397}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Buttons_GRP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1364,7 +1389,7 @@ GameObject:
   - component: {fileID: 2284208868439051295}
   - component: {fileID: 2496538814094381581}
   - component: {fileID: 9133145316288667198}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ear_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1447,7 +1472,7 @@ GameObject:
   - component: {fileID: 8648608032920269464}
   - component: {fileID: 4330784991392966312}
   - component: {fileID: 7475206234423155242}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Hair
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1530,7 +1555,7 @@ GameObject:
   - component: {fileID: 532878944185812337}
   - component: {fileID: 5701159041676762181}
   - component: {fileID: 1255037427571867882}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Shoe_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1613,7 +1638,7 @@ GameObject:
   - component: {fileID: 5009057310641942705}
   - component: {fileID: 2162234510043241919}
   - component: {fileID: 8603051671941146121}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: B3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1696,7 +1721,7 @@ GameObject:
   - component: {fileID: 6711327074452160084}
   - component: {fileID: 1388781228974379755}
   - component: {fileID: 5921520505307780731}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Beard
   m_TagString: Untagged
   m_Icon: {fileID: 0}
