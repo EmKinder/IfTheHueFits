@@ -367,7 +367,7 @@ Transform:
   - {fileID: 1376257702}
   - {fileID: 1182877295}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &20242887
 PrefabInstance:
@@ -2404,7 +2404,7 @@ GameObject:
   - component: {fileID: 285618540}
   m_Layer: 0
   m_Name: Image
-  m_TagString: Untagged
+  m_TagString: InstructionalUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7074,13 +7074,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 788415141}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 808.05334, y: 48.03022, z: -170.41472}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 751.0792, y: 56.24273, z: -145.2922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_Father: {fileID: 1234051520}
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &788546859
 PrefabInstance:
@@ -10877,6 +10877,7 @@ MonoBehaviour:
   complementaryUI: {fileID: 21300000, guid: 9b36ca757c0152a44ba5de73337f88bc, type: 3}
   doorUI: {fileID: 21300000, guid: 2f0aa7018914ff34f93a80781ecd9eb7, type: 3}
   controlsUI: {fileID: 21300000, guid: 3cd1c5c225430b748b8f971eaa94e0c5, type: 3}
+  purpleUI: {fileID: 21300000, guid: 09b8145327bc5f147a3a93b4914082f8, type: 3}
   varietyUI: {fileID: 21300000, guid: d80ea51f4f8dfb74e9f54eeecce42707, type: 3}
   yellowUI: {fileID: 21300000, guid: 5ef74053066dcb44bb8cb0dc2ec8dd59, type: 3}
   orangeGreenUI: {fileID: 21300000, guid: d52ff616a1d6e574697792aac3a0dd72, type: 3}
@@ -12076,6 +12077,8 @@ Transform:
   - {fileID: 370865536}
   - {fileID: 1124445687}
   - {fileID: 1698303186}
+  - {fileID: 788415143}
+  - {fileID: 65754225574578910}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19776,8 +19779,8 @@ RectTransform:
   m_Children:
   - {fileID: 65754225534090292}
   - {fileID: 851452236}
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_Father: {fileID: 1234051520}
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -20203,7 +20206,7 @@ Transform:
   - {fileID: 6255004241681345497}
   - {fileID: 3098777784692296936}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -94.46, z: 0}
 --- !u!23 &557798577811226547
 MeshRenderer:

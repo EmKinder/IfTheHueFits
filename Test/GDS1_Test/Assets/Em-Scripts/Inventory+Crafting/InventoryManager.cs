@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour
     public ItemClass onStartBlueResource;
     public bool blueCrafted;
     public bool redCrafted;
+    public bool purpleCrafted;
 
     public Button RedCraftButton;
     public Button OrangeCraftButton;
@@ -507,7 +508,11 @@ public class InventoryManager : MonoBehaviour
             {
                 blueCrafted = true;
             }
-            
+            if (recipe == craftingRecipies[5])
+            {
+                purpleCrafted = true;
+            }
+
         }
         else
         {

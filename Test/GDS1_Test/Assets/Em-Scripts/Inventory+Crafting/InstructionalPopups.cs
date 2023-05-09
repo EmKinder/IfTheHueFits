@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class InstructionalPopups : MonoBehaviour
 {
@@ -23,7 +24,13 @@ public class InstructionalPopups : MonoBehaviour
     bool firstPlantHasBeenHarvested;
     bool firstTimeRedCrafted;
     bool firstTimeBlueCrafted;
+    bool firstTimePurpleCrafted;
     bool complementaryTutorialFinished;
+    bool firstLevelOpen;
+    bool firstResourceSeen;
+    bool firstLevelComplete;
+    bool secondLevelComplete;
+    bool thirdLevelComplete;
 
     public Sprite plantingUI;
     public Sprite grownUI;
@@ -33,6 +40,7 @@ public class InstructionalPopups : MonoBehaviour
     public Sprite complementaryUI;
     public Sprite doorUI;
     public Sprite controlsUI;
+    public Sprite purpleUI;
     public Sprite varietyUI;
     public Sprite yellowUI;
     public Sprite orangeGreenUI;
@@ -43,7 +51,12 @@ public class InstructionalPopups : MonoBehaviour
     {
         firstPlantHasBeenHarvested = false;
         firstPlantHasBeenGrown = false;
+        firstLevelOpen = false;
         complementaryTutorialFinished = false;
+        firstLevelComplete = false;
+        secondLevelComplete = false;
+        thirdLevelComplete = false;
+        firstTimePurpleCrafted = false;
         image.sprite = plantingUI;
         Time.timeScale = 0;
         
@@ -110,6 +123,46 @@ public class InstructionalPopups : MonoBehaviour
             firstTimeBlueCrafted = true;
             image.enabled = true;
             image.sprite = complementaryUI;
+            Time.timeScale = 0;
+        }
+
+        if(SceneManager.GetActiveScene().buildIndex == 2 && !firstLevelOpen)
+        {
+            firstLevelOpen = true;
+            image.enabled = true;
+            image.sprite = controlsUI;
+            Time.timeScale = 0;
+        }
+
+        if(SceneManager.GetActiveScene().buildIndex == 0 && !firstLevelComplete && nextLevelScript.sceneload == 3)
+        {
+            firstLevelComplete = true;
+            image.enabled = true;
+            image.sprite = purpleUI;
+            Time.timeScale = 0;
+        }
+
+        if (!firstTimePurpleCrafted && im.purpleCrafted && nextLevelScript.sceneload == 3)
+        {
+            firstTimePurpleCrafted = true;
+            image.enabled = true;
+            image.sprite = purpleUI;
+            Time.timeScale = 0;
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 0 && !secondLevelComplete && nextLevelScript.sceneload == 4)
+        {
+            secondLevelComplete = true;
+            image.enabled = true;
+            image.sprite = yellowUI;
+            Time.timeScale = 0;
+        }
+
+        if (SceneManager.GetActiveScene().buildIndex == 0 && !thirdLevelComplete && nextLevelScript.sceneload == 5)
+        {
+            thirdLevelComplete = true;
+            image.enabled = true;
+            image.sprite = orangeGreenUI;
             Time.timeScale = 0;
         }
     }
