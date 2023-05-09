@@ -21,7 +21,7 @@ public class resourceMotion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.Rotate(rotationSpeed * Time.deltaTime, 0f, 0f);
+        gameObject.transform.Rotate(0f, rotationSpeed * Time.deltaTime, 0f);
         if (canMove == true)
         {
             if (canDisappear == false)
