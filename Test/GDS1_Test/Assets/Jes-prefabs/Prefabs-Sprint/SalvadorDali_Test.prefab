@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 1020652971107842888}
   - component: {fileID: 3117891551383706060}
   - component: {fileID: 3098856455514668584}
+  - component: {fileID: 368900422786812664}
   m_Layer: 0
   m_Name: SalvadorDali_Test
   m_TagString: YellowHueman
@@ -229,9 +230,9 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1134777425799301480}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_Mass: 3
+  m_Drag: 13.58
+  m_AngularDrag: 50
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
@@ -247,10 +248,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.082565114
-  m_Height: 0.20050822
+  m_Radius: 0.04
+  m_Height: 0.19
   m_Direction: 1
-  m_Center: {x: 0.0013936997, y: 0.08801837, z: 0.00000019073487}
+  m_Center: {x: 0.0007152557, y: 0.08779418, z: 0}
 --- !u!136 &7829283760369051264
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -261,10 +262,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1
+  m_Radius: 0.039
+  m_Height: 0.19
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0.0007152557, y: 0.08779418, z: 0}
 --- !u!137 &1020652971107842888
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0
@@ -344,6 +345,30 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collisionDetect: {fileID: 4273217410582676580}
+  wanderingTimer: 5
+  wanderingRadius: 4
+--- !u!195 &368900422786812664
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134777425799301480}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.035
+  m_Speed: 4.04
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.0195
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.18
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
 --- !u!1 &1344644181415210784
 GameObject:
   m_ObjectHideFlags: 0
