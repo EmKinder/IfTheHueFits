@@ -78,6 +78,7 @@ public class AmmoSwitching : MonoBehaviour
             }
 
 
+
         if (Input.GetAxis("Mouse ScrollWheel") > 0)
         {
             if (selectedAmmo >= 5)

@@ -41,18 +41,6 @@ public class LockedLevels : MonoBehaviour
                 images[j].enabled = false;
             }
         }
-
-        for (int k = 0; k < frames.Length; k++)
-        {
-            if (k > Current - 2)
-            {
-                frames[k].enabled = true;
-            }
-            else
-            {
-                frames[k].enabled = false;
-            }
-        }
         
     }
 
