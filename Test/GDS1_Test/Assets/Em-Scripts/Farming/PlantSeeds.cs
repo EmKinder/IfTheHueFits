@@ -80,6 +80,18 @@ public class PlantSeeds : MonoBehaviour
         if (timerActive)
         {
             timerText.enabled = true;
+            if(currentGrowingItemName == "Red")
+            {
+                timerText.color = Color.red;
+            }
+            else if(currentGrowingItemName == "Yellow")
+            {
+                timerText.color = Color.yellow;
+            }
+            else if(currentGrowingItemName == "Blue")
+            {
+                timerText.color = Color.blue;
+            }
             // timerUI.gameObject.SetActive(true);
             timer += Time.deltaTime;
             timerText.text = (15 - timer).ToString("f0");
