@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerFollow : MonoBehaviour
 {
@@ -19,7 +20,17 @@ public class PlayerFollow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector3 newPos = playerTransform.position + cameraOffset;
-        transform.position = Vector3.Slerp(transform.position, newPos, SmoothFactor);
+        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+        {
+
+            Vector3 newPos = new Vector3(-42.4f, playerTransform.position.y, playerTransform.position.z) + cameraOffset;
+            transform.position = Vector3.Slerp(transform.position, newPos, SmoothFactor);
+        }
+        else
+        {
+            Vector3 newPos = playerTransform.position + cameraOffset;
+            transform.position = Vector3.Slerp(transform.position, newPos, SmoothFactor);
+        }
+
     }
 }

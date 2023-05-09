@@ -52,6 +52,16 @@ public class AmmoSwitching : MonoBehaviour
 
             SelectAmmo(selectedAmmo);
 
+        if (paintTip == null)
+        {
+            paintTip = GameObject.FindGameObjectWithTag("PlayerAttackPoint").GetComponent<MeshRenderer>();
+            if (paintTip)
+            {
+                Debug.Log("Paint Tip Found");
+                paintTip.material = redMat;
+            }
+        }
+
 
 
 
@@ -136,7 +146,7 @@ public class AmmoSwitching : MonoBehaviour
             GreenCheck.enabled = false;
             BlueCheck.enabled = false;
             PurpleCheck.enabled = false;
-            paintTip.material = redMat;
+        //    paintTip.material = redMat;
             return "Red";
         }
         if (selectedAmmo == 1)

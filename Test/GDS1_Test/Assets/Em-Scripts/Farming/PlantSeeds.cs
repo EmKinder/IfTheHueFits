@@ -7,17 +7,22 @@ public class PlantSeeds : MonoBehaviour
 {
     InventoryManager inventory;
     bool canPlant;
-    public GameObject growing;
+  //  public GameObject growing;
     float timer;
     bool timerActive;
     public bool plantGrown;
-    public GameObject grown;
+  //  public GameObject grown;
     string currentGrowingItemName;
     bool plantGrowing;
     public bool plantHarvested;
+    public GameObject pots;
+
+    public Material emmisive;
+    public Material normal;
+
 
     //UI
-    public Image timerUI;
+    //public Image timerUI;
     public Text timerText;
     public Text noResources;
 
@@ -49,15 +54,16 @@ public class PlantSeeds : MonoBehaviour
         redFarmButton.gameObject.SetActive(false);
         yellowFarmButton.gameObject.SetActive(false);
         blueFarmButton.gameObject.SetActive(false);
-        grown.SetActive(false);
-        growing.SetActive(false);
-        timerUI.gameObject.SetActive(false);
+      //  grown.SetActive(false);
+      //  growing.SetActive(false);
+      //  timerUI.gameObject.SetActive(false);
         canPlant = false;
         plantGrown = false;
         timerActive = false;
         plantGrowing = false;
         noResources.enabled = false;
         plantHarvested = false;
+        timerText.enabled = false;
     }
 
     // Update is called once per frame
@@ -65,29 +71,31 @@ public class PlantSeeds : MonoBehaviour
     {
         if (timerActive)
         {
-            timerUI.gameObject.SetActive(true);
+            timerText.enabled = true;
+            // timerUI.gameObject.SetActive(true);
             timer += Time.deltaTime;
             timerText.text = (15 - timer).ToString("f0");
             if(timer >= 15)
             {
                 plantGrown = true;
-                growing.SetActive(false);
-                grown.SetActive(true);
+             //   growing.SetActive(false);
+           //     grown.SetActive(true);
                 if(currentGrowingItemName == "Red")
                 {
-                    ChangeMaterial(grown, redMat);
+               //     ChangeMaterial(grown, redMat);
                 }
                 if (currentGrowingItemName == "Yellow")
                 {
-                    ChangeMaterial(grown, yellowMat);
+              //      ChangeMaterial(grown, yellowMat);
                 }
                 if (currentGrowingItemName == "Blue")
                 {
-                    ChangeMaterial(grown, blueMat);
+               //     ChangeMaterial(grown, blueMat);
                 }
                 timer = 0;
                 timerActive = false;
-                timerUI.gameObject.SetActive(false);
+                timerText.enabled = false;
+              //  timerUI.gameObject.SetActive(false);
             }
         }
     }
@@ -115,6 +123,7 @@ public class PlantSeeds : MonoBehaviour
     {
         if (other.tag == "Player") {
             Debug.Log("Farmland stepped on");
+            ChangeMaterial(pots, emmisive);
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Debug.Log("Farming E Pressed");
@@ -146,7 +155,7 @@ public class PlantSeeds : MonoBehaviour
                 inventory.Add(blueResource, 4);
             }
             plantHarvested = true;
-            grown.SetActive(false);
+           // grown.SetActive(false);
             plantGrown = false;
             plantGrowing = false;
         
@@ -163,6 +172,7 @@ public class PlantSeeds : MonoBehaviour
             blueFarmButton.gameObject.SetActive(false);
         }
         canPlant = false;
+        ChangeMaterial(pots, normal);
     }
 
     public void PlantRed()
@@ -171,8 +181,8 @@ public class PlantSeeds : MonoBehaviour
         {
             plantGrowing = true;
             currentGrowingItemName = "Red";
-            growing.SetActive(true);
-            ChangeMaterial(growing, redMat);
+           // growing.SetActive(true);
+          //  ChangeMaterial(growing, redMat);
             inventory.Remove(redSeed, 1);
             timerActive = true;
             canPlant = false;
@@ -189,8 +199,8 @@ public class PlantSeeds : MonoBehaviour
         {
             plantGrowing = true;
             currentGrowingItemName = "Yellow";
-            growing.SetActive(true);
-            ChangeMaterial(growing, yellowMat);
+         //   growing.SetActive(true);
+          //  ChangeMaterial(growing, yellowMat);
             inventory.Remove(yellowSeed, 1);
             timerActive = true;
             canPlant = false;
@@ -206,8 +216,8 @@ public class PlantSeeds : MonoBehaviour
         {
             plantGrowing = true;
             currentGrowingItemName = "Blue";
-            growing.SetActive(true);
-            ChangeMaterial(growing, blueMat);
+          //  growing.SetActive(true);
+         //   ChangeMaterial(growing, blueMat);
             inventory.Remove(blueSeed, 1);
             timerActive = true;
             canPlant = false;
@@ -221,7 +231,7 @@ public class PlantSeeds : MonoBehaviour
     {
         Renderer[] children;
         children = gm.GetComponentsInChildren<Renderer>();
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < children.Length; i++)
         {
             children[i].material = mat;
         }

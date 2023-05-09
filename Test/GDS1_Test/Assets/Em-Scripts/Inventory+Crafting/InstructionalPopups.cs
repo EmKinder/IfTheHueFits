@@ -11,6 +11,8 @@ public class InstructionalPopups : MonoBehaviour
     public PlantSeeds ps2;
     public PlantSeeds ps3;
     public PlantSeeds ps4;
+    public PlantSeeds ps5;
+
     public TriggerCraftingTable ct;
     public InventoryManager im;
 
@@ -68,7 +70,7 @@ public class InstructionalPopups : MonoBehaviour
             complementaryTutorialFinished = false;
         }
 
-        if((ps1.plantGrown || ps2.plantGrown || ps3.plantGrown || ps4.plantGrown) && !firstPlantHasBeenGrown)
+        if((ps1.plantGrown || ps2.plantGrown || ps3.plantGrown || ps4.plantGrown || ps5.plantGrown) && !firstPlantHasBeenGrown)
         {
            
             firstPlantHasBeenGrown = true;
@@ -77,7 +79,7 @@ public class InstructionalPopups : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if ((ps1.plantHarvested || ps2.plantHarvested || ps3.plantHarvested || ps4.plantHarvested) && !firstPlantHasBeenHarvested)
+        if ((ps1.plantHarvested || ps2.plantHarvested || ps3.plantHarvested || ps4.plantHarvested || ps5.plantHarvested) && !firstPlantHasBeenHarvested)
         {
 
             firstPlantHasBeenHarvested = true;
