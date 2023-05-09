@@ -46,6 +46,10 @@ public class PlantSeeds : MonoBehaviour
     public Material yellowMat;
     public Material blueMat;
 
+    public GameObject redFlowers;
+    public GameObject yellowFlowers;
+    public GameObject blueFlowers;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -64,6 +68,10 @@ public class PlantSeeds : MonoBehaviour
         noResources.enabled = false;
         plantHarvested = false;
         timerText.enabled = false;
+
+        redFlowers.SetActive(false);
+        yellowFlowers.SetActive(false);
+        blueFlowers.SetActive(false);
     }
 
     // Update is called once per frame
@@ -82,15 +90,15 @@ public class PlantSeeds : MonoBehaviour
            //     grown.SetActive(true);
                 if(currentGrowingItemName == "Red")
                 {
-               //     ChangeMaterial(grown, redMat);
+                    redFlowers.SetActive(true);
                 }
                 if (currentGrowingItemName == "Yellow")
                 {
-              //      ChangeMaterial(grown, yellowMat);
+                    yellowFlowers.SetActive(true);
                 }
                 if (currentGrowingItemName == "Blue")
                 {
-               //     ChangeMaterial(grown, blueMat);
+                    blueFlowers.SetActive(true);
                 }
                 timer = 0;
                 timerActive = false;
@@ -145,14 +153,18 @@ public class PlantSeeds : MonoBehaviour
             if(currentGrowingItemName == "Red")
             {
                 inventory.Add(redResource, 4);
+                redFlowers.SetActive(false);
+                
             }
             if (currentGrowingItemName == "Yellow")
             {
                 inventory.Add(yellowResource, 4);
+                yellowFlowers.SetActive(false);
             }
             if (currentGrowingItemName == "Blue")
             {
                 inventory.Add(blueResource, 4);
+                blueFlowers.SetActive(false);
             }
             plantHarvested = true;
            // grown.SetActive(false);
