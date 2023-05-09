@@ -165,6 +165,8 @@ public class CharacterMovement : MonoBehaviour
         }
     }
 
+
+
     public bool IsHitting()
     {
         return canHit;
