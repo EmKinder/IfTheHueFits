@@ -23,7 +23,7 @@ public class PlayerFollow : MonoBehaviour
         if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
         {
 
-            Vector3 newPos = new Vector3(-42.4f, playerTransform.position.y, playerTransform.position.z) + cameraOffset;
+            Vector3 newPos = new Vector3(-39.4f, playerTransform.position.y, playerTransform.position.z) + cameraOffset;
             transform.position = Vector3.Slerp(transform.position, newPos, SmoothFactor);
         }
         else
