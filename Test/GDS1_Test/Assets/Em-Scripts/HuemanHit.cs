@@ -75,7 +75,7 @@ public class HuemanHit : MonoBehaviour
                 if (thisType == "RedHueman" && ammoSwitch.GetAmmoType() == "Green")
                 {
                     Cured();
-
+                    Debug.Log("RedHuemanHit");
 
                 }
                 if (thisType == "OrangeHueman" && ammoSwitch.GetAmmoType() == "Blue")
