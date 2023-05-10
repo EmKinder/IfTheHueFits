@@ -7,8 +7,6 @@ public class HuemanHit : MonoBehaviour
 {
     AmmoSwitching ammoSwitch;
     string thisType;
-    float meleeDamage;
-    float paintballDamage;
     [SerializeField]
     Material white;
     EnemyMovement enemyMovement;
@@ -20,8 +18,6 @@ public class HuemanHit : MonoBehaviour
     {
         managersFound = false;
         thisType = this.tag;
-        meleeDamage = 10.0f;
-        paintballDamage = 5.0f;
         enemyMovement = this.GetComponent<EnemyMovement>();
      //   if (enemyCounter == null)
       //  {
@@ -49,33 +45,32 @@ public class HuemanHit : MonoBehaviour
         {
             if(thisType == "RedHueman" && ammoSwitch.GetAmmoType() == "Green")
             {
-                EnemyHit(paintballDamage);
-                Debug.Log("RedHuemanHitPaintball");
+                Cured();
+               
+                
             }
             if (thisType == "OrangeHueman" && ammoSwitch.GetAmmoType() == "Blue")
             {
-                EnemyHit(paintballDamage);
-                Debug.Log("OrangeHuemanHitPaintball");
+                Cured();
+                Debug.Log("OrangeHuemanHit");
             }
             if (thisType == "YellowHueman" && ammoSwitch.GetAmmoType() == "Purple")
             {
-                EnemyHit(paintballDamage);
-                Debug.Log("YellownHuemanHitPaintball");
+                Cured();
+                Debug.Log("YellownHuemanHit");
             }
             if (thisType == "GreenHueman" && ammoSwitch.GetAmmoType() == "Red")
             {
-                EnemyHit(paintballDamage);
-                Debug.Log("GreenHuemanHitPaintball");
+                Cured();
+                Debug.Log("GreenHuemanHit");
             }
             if (thisType == "BlueHueman" && ammoSwitch.GetAmmoType() == "Orange")
             {
-                EnemyHit(paintballDamage);
-                Debug.Log("BlueHuemanHitPaintball");
+                Cured();
             }
             if (thisType == "PurpleHueman" && ammoSwitch.GetAmmoType() == "Yellow")
             {
-                EnemyHit(paintballDamage);
-                Debug.Log("PurpleHuemanHitPaintball");
+                Cured();
             }
             Destroy(other.gameObject);
         }
@@ -85,64 +80,43 @@ public class HuemanHit : MonoBehaviour
                 {
                 if (thisType == "RedHueman" && ammoSwitch.GetAmmoType() == "Green")
                 {
-                    EnemyHit(meleeDamage);
-                    Debug.Log("RedHuemanHitMelee");
+                    Cured();
+                    Debug.Log("RedHuemanHit");
 
                 }
                 if (thisType == "OrangeHueman" && ammoSwitch.GetAmmoType() == "Blue")
                 {
-                    EnemyHit(meleeDamage);
-                    Debug.Log("OrangeHuemanHitMelee");
+                    Cured();
+                    Debug.Log("OrangeHuemanHit");
                 }
                 if (thisType == "YellowHueman" && ammoSwitch.GetAmmoType() == "Purple")
                 {
-                    EnemyHit(meleeDamage);
-                    Debug.Log("YellownHuemanHitMelee");
+                    Cured();
+                    Debug.Log("YellownHuemanHit");
                 }
                 if (thisType == "GreenHueman" && ammoSwitch.GetAmmoType() == "Red")
                 {
-                    EnemyHit(meleeDamage);
-                    Debug.Log("GreenHuemanHitMelee");
+                    Cured();
+                    Debug.Log("GreenHuemanHit");
                 }
                 if (thisType == "BlueHueman" && ammoSwitch.GetAmmoType() == "Orange")
                 {
-                    EnemyHit(meleeDamage);
-                    Debug.Log("BlueHuemanHitMelee");
+                    Cured();
                 }
                 if (thisType == "PurpleHueman" && ammoSwitch.GetAmmoType() == "Yellow")
                 {
-                    EnemyHit(meleeDamage);
-                    Debug.Log("PurpleHuemanHitMelee");
+                    Cured();
                 }
             }
-        }
-    }
-
-    private void EnemyHit(float damage)
-    {
-        bool enemHit = this.GetComponent<EnemyMovement>().EnemyHealth(damage);
-        if (!enemHit)
-        {
-            Debug.Log("Hit, should be dead Dead");
-            Cured();
-        }
-        else
-        {
-            Debug.Log("Hit, not Dead");
         }
     }
 
     private void Cured()
     {
         //this.GetComponentInChildren<SkinnedMeshRenderer>().material = white;
-        MeshRenderer[] meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
-        for (int i = 0; i < meshRenderers.Length; i++)
-        {
-            meshRenderers[i].material = white;
-        }
         this.GetComponent<EnemyMovement>().enabled = false;
         enemyMovement.SetCured();
        // enemyCounter.EnemyCured();
-        Destroy(this.gameObject, 2.5f);
+        Destroy(this.gameObject);
     }
 }
