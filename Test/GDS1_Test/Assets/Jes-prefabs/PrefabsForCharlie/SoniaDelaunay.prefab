@@ -844,6 +844,8 @@ GameObject:
   - component: {fileID: 1502351658635637102}
   - component: {fileID: 5518057617525260396}
   - component: {fileID: 7254015874141743994}
+  - component: {fileID: 5046409557644810122}
+  - component: {fileID: 1098062830881206703}
   m_Layer: 6
   m_Name: SoniaDelaunay
   m_TagString: RedHueman
@@ -1001,6 +1003,34 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 1
   m_ObstacleAvoidanceType: 4
+--- !u!114 &5046409557644810122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343453369124590325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDetect: {fileID: 8771633664839968093}
+  wanderingTimer: 0
+  wanderingRadius: 0
+--- !u!114 &1098062830881206703
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3343453369124590325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af81fb85dc65fd144824af6200b85a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  white: {fileID: 2100000, guid: 8a429d5302040a545880eeae3e3b294a, type: 2}
 --- !u!1 &5015566607590794844
 GameObject:
   m_ObjectHideFlags: 0
