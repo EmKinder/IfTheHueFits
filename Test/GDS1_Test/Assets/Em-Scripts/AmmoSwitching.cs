@@ -50,6 +50,7 @@ public class AmmoSwitching : MonoBehaviour
             BlueCheck.enabled = false;
             PurpleCheck.enabled = false;
 
+       // selectedAmmo = 0;
          //   SelectAmmo(selectedAmmo);
 
         if (paintTip == null)

@@ -11,7 +11,7 @@ public class HuemanHit : MonoBehaviour
     Material white;
     EnemyMovement enemyMovement;
     bool managersFound;
-    EnemyCounter enemyCounter;
+  //  EnemyCounter enemyCounter;
     GameObject player;
     // Start is called before the first frame update
     void Start()
@@ -19,8 +19,14 @@ public class HuemanHit : MonoBehaviour
         managersFound = false;
         thisType = this.tag;
         enemyMovement = this.GetComponent<EnemyMovement>();
-        enemyCounter = GameObject.FindGameObjectWithTag("EnemyCounter").GetComponent<EnemyCounter>();
-        player = GameObject.FindGameObjectWithTag("Player");
+     //   if (enemyCounter == null)
+      //  {
+      //      enemyCounter = GameObject.FindGameObjectWithTag("EnemyCounter").GetComponent<EnemyCounter>();
+      //  }
+        if (player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
     // Update is called once per frame
@@ -110,7 +116,7 @@ public class HuemanHit : MonoBehaviour
         //this.GetComponentInChildren<SkinnedMeshRenderer>().material = white;
         this.GetComponent<EnemyMovement>().enabled = false;
         enemyMovement.SetCured();
-        enemyCounter.EnemyCured();
+       // enemyCounter.EnemyCured();
         Destroy(this.gameObject);
     }
 }
