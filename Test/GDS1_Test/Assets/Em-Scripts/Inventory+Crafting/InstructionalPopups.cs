@@ -134,23 +134,23 @@ public class InstructionalPopups : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if(SceneManager.GetActiveScene().buildIndex == 0 && !firstLevelComplete && nextLevelScript.sceneload == 3)
+        if(SceneManager.GetActiveScene().buildIndex == 0 && !firstLevelComplete && PlayerPrefs.GetInt("Current") == 3)
         {
-            firstLevelComplete = true;
-            image.enabled = true;
-            image.sprite = purpleUI;
-            Time.timeScale = 0;
+                firstLevelComplete = true;
+                image.enabled = true;
+                image.sprite = purpleUI;
+                Time.timeScale = 0;
         }
 
-        if (!firstTimePurpleCrafted && im.purpleCrafted && nextLevelScript.sceneload == 3)
+        if (!firstTimePurpleCrafted && im.purpleCrafted && PlayerPrefs.GetInt("Current") == 3)
         {
             firstTimePurpleCrafted = true;
             image.enabled = true;
-            image.sprite = purpleUI;
+            image.sprite = varietyUI;
             Time.timeScale = 0;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 0 && !secondLevelComplete && nextLevelScript.sceneload == 4)
+        if (SceneManager.GetActiveScene().buildIndex == 0 && !secondLevelComplete && PlayerPrefs.GetInt("Current") == 4)
         {
             secondLevelComplete = true;
             image.enabled = true;
@@ -158,7 +158,7 @@ public class InstructionalPopups : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 0 && !thirdLevelComplete && nextLevelScript.sceneload == 5)
+        if (SceneManager.GetActiveScene().buildIndex == 0 && !thirdLevelComplete && PlayerPrefs.GetInt("Current") == 5)
         {
             thirdLevelComplete = true;
             image.enabled = true;

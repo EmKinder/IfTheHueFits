@@ -9,6 +9,9 @@ public class TriggerCraftingTable : MonoBehaviour
     private Canvas inventoryCanvas;
     public bool inventoryOpen;
     bool standingAtDesk;
+    public Material emmisive;
+    public Material normal;
+    public GameObject desk;
 
     // Start is called before the first frame update
     void Start()
@@ -57,6 +60,7 @@ public class TriggerCraftingTable : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            desk.GetComponent<MeshRenderer>().material = emmisive;
             standingAtDesk = true;
             Debug.Log("Triggering Desk");
         }
@@ -66,6 +70,7 @@ public class TriggerCraftingTable : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            desk.GetComponent<MeshRenderer>().material = normal;
             standingAtDesk = false;
             //Debug.Log("Triggering Desk");
         }

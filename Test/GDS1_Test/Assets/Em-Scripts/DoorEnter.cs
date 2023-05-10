@@ -11,6 +11,9 @@ public class DoorEnter : MonoBehaviour
    // public Door door;
    int sceneload;
     //public NextLevelScript script;
+    public Material emmisive;
+    public Material normal;
+    public GameObject door;
 
     private void Awake()
     {
@@ -38,19 +41,9 @@ public class DoorEnter : MonoBehaviour
             if (enterDoor)
             {
                 Debug.Log("Door Entered");
-                //  Debug.Log(add);
-                //    sceneload = SceneManager.GetActiveScene().buildIndex + add;
-                //    PlayerPrefs.SetInt("Current", sceneload);
-                //   SceneManager.LoadScene(sceneload);
-                //   PlayerPrefs.SetInt("Current", sceneload);
-                //   SceneManager.GetSceneByBuildIndex(add +1);
                 canvas.enabled = false;
                 sceneload = PlayerPrefs.GetInt("Current", add);
                 SceneManager.LoadScene(sceneload);
-                //  SceneManager.LoadScene(scene)
-                // PlayerPrefs.SetInt("Current", sceneload);
-              //  SceneManager.LoadScene(script.sceneload +1);
-
                 enterDoor = false;
                 
             }
@@ -63,7 +56,7 @@ public class DoorEnter : MonoBehaviour
     {
         if(other.tag == "Player")
         {
-            
+            door.GetComponent<MeshRenderer>().material = emmisive;
             enterDoor = true;
             add++;
             
@@ -75,6 +68,7 @@ public class DoorEnter : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            door.GetComponent<MeshRenderer>().material = normal;
             enterDoor = false;
          //   add = add + 1;
         }

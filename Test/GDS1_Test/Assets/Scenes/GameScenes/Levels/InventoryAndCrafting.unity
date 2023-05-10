@@ -1512,7 +1512,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &168956850
 Canvas:
   m_ObjectHideFlags: 0
@@ -3218,6 +3218,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   add: 0
+  emmisive: {fileID: 0}
+  normal: {fileID: 0}
+  door: {fileID: 0}
 --- !u!114 &370865538
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8038,7 +8041,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904219884}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.097355, y: -0.136132, z: -0.7328906}
+  m_LocalPosition: {x: 9.097355, y: -0.136132, z: -1.46}
   m_LocalScale: {x: 2.61, y: 3.9899998, z: 1.99}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -8121,6 +8124,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   add: 0
+  emmisive: {fileID: 2100000, guid: a910de23b7322d34385a33b8f5cc4802, type: 2}
+  normal: {fileID: 2100000, guid: ca2e3a5c31907584abb1059e27ccd198, type: 2}
+  door: {fileID: 6427182184076629512}
 --- !u!1001 &910406667
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13033,6 +13039,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   inventoryOpen: 0
+  emmisive: {fileID: 2100000, guid: 2e5ae51af123050498221e689eb3daab, type: 2}
+  normal: {fileID: 2100000, guid: 277b790c2b362f34e8121f1e89c448ca, type: 2}
+  desk: {fileID: 8765263012233329474}
 --- !u!1 &1340132169
 GameObject:
   m_ObjectHideFlags: 0
@@ -16694,6 +16703,18 @@ PrefabInstance:
     - target: {fileID: 5855954237792657311, guid: 6afe42be662f7ea4995e00b97c13d256, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6531923638241951703, guid: 6afe42be662f7ea4995e00b97c13d256, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 6531923638241951703, guid: 6afe42be662f7ea4995e00b97c13d256, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 6531923638241951703, guid: 6afe42be662f7ea4995e00b97c13d256, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -308
       objectReference: {fileID: 0}
     - target: {fileID: 7304094976245234514, guid: 6afe42be662f7ea4995e00b97c13d256, type: 3}
       propertyPath: m_RootOrder
@@ -24637,7 +24658,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3707872701207551898, guid: b5cb6ff6e157ee74491864e8f4c5cad4, type: 3}
       propertyPath: m_Constraints
-      value: 94
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5000085860801645593, guid: b5cb6ff6e157ee74491864e8f4c5cad4, type: 3}
       propertyPath: m_RootOrder
