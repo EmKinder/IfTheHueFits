@@ -33,7 +33,7 @@ public class EnemyCounter : MonoBehaviour
     public void EnemyCured()
     {
         enemiesCured += 1;
-        enemyCounter.text = enemiesCured.ToString() + "/15";
+      //  enemyCounter.text = enemiesCured.ToString() + "/15";
     }
 
     public void NextButton()
