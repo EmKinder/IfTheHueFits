@@ -1518,7 +1518,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2678944359070648399}
-  m_RootOrder: 8
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &3627074159185816520
@@ -1602,7 +1601,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2678944359070648399}
-  m_RootOrder: 0
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2796111182374520263
@@ -1686,7 +1684,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2678944359070648399}
-  m_RootOrder: 13
   m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &9057962957301286407
@@ -1853,7 +1850,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 2678944359070648399}
-  m_RootOrder: 9
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &6274518692618428906
@@ -1999,6 +1995,10 @@ PrefabInstance:
     - target: {fileID: 508490478236085825, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
       propertyPath: m_Name
       value: HealthBar
+      objectReference: {fileID: 0}
+    - target: {fileID: 2310239207065853643, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
+      propertyPath: m_FillAmount
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9030404126522285409, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
       propertyPath: m_Pivot.x

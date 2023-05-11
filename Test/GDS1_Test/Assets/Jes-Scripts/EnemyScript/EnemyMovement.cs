@@ -2,19 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class EnemyMovement : MonoBehaviour
 {
     Rigidbody rb;
     GameObject player;
     Transform playerTrans;
-   
+
     bool canMove;
     float currentCalmDown; //collision
     public Collider collisionDetect; //collision
     bool cured;
     bool canHitPlayer;
     PlayerHealth playerHealth;
+    float enemyHealth;
+    float OriginalHealth;
 
     NavMeshAgent agent;
     public float wanderingTimer;
@@ -24,6 +27,11 @@ public class EnemyMovement : MonoBehaviour
     float lineOfSightRadius;
     bool canFollow;
     Transform savedPoint;
+    public Canvas healthBarCanvas;
+    public GameObject rotHealthBar;
+    public Image healthBar;
+    GameObject mainCamera;
+
 
     // Start is called before the first frame update
     void Start()
@@ -44,23 +52,48 @@ public class EnemyMovement : MonoBehaviour
         navLayerMask = LayerMask.GetMask("Enemys", "Collectables");
         navLayerMask = ~navLayerMask;
         savedPoint = transform;
+
+        if (gameObject.CompareTag("GreenHueman"))
+        {
+            enemyHealth = 10.0f;
+        }
+        else if (gameObject.CompareTag("OrangeHueman"))
+        {
+            enemyHealth = 20.0f;
+        }
+        else if (gameObject.CompareTag("YellowHueman"))
+        {
+            enemyHealth = 30.0f;
+        }
+        else if (gameObject.CompareTag("PurpleHueman"))
+        {
+            enemyHealth = 40.0f;
+        }
+        else if (gameObject.CompareTag("RedHueman"))
+        {
+            enemyHealth = 50.0f;
+        }
+        OriginalHealth = enemyHealth;
+        mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
+        healthBarCanvas.worldCamera = Camera.main;
+        healthBar.fillAmount = enemyHealth / OriginalHealth;
     }
 
 
     // Update is called once per frames
     void Update()
-    {  
-        if(canMove)
+    {
+        healthBar.fillAmount = enemyHealth / OriginalHealth;
+        rotHealthBar.transform.LookAt(mainCamera.transform);
+        if (canMove)
         {
-            if(!canFollow)
+            if (!canFollow)
             {
                 timer += Time.deltaTime;
 
                 if (timer >= wanderingTimer)
                 {
-                    Debug.Log("SavedPosition = " + savedPoint.position);
                     Vector3 newWander = NavigationArea(savedPoint.position, wanderingRadius, navLayerMask);
-                    Debug.Log("New Wander Position = " + newWander);
                     agent.SetDestination(newWander);
                     timer = 0;
                 }
@@ -84,11 +117,11 @@ public class EnemyMovement : MonoBehaviour
 
             }
         }
-      
-          
-       
+
+
+
     }
-    
+
     public Vector3 NavigationArea(Vector3 origin, float dist, int layermask)
     {
         Vector3 randomDirection = Random.insideUnitSphere * dist + origin;
@@ -147,7 +180,7 @@ public class EnemyMovement : MonoBehaviour
             if (currentCalmDown > 0)
             {
                 SetCanMove(false);
-                
+
                 canHitPlayer = false;
                 StartCoroutine(waitforme());
 
@@ -159,7 +192,30 @@ public class EnemyMovement : MonoBehaviour
         yield return new WaitForSeconds(4);
         SetCanMove(true);
         canHitPlayer = true;
-    }    
+    }
+
+    public bool EnemyHealth(float hitDamage)
+    {
+        SetCanMove(false);
+        canHitPlayer = false;
+        enemyHealth -= hitDamage;
+        StartCoroutine(damageDisplay());
+        if (enemyHealth <= 0.0f)
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
+
+    IEnumerator damageDisplay()
+    {
+        yield return new WaitForSeconds(2);
+        SetCanMove(true);
+        canHitPlayer = true;
+    }
 
     public void SetCured()
     {
@@ -168,4 +224,4 @@ public class EnemyMovement : MonoBehaviour
 
 }
 
-   
+
