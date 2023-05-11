@@ -134,6 +134,7 @@ public class HuemanHit : MonoBehaviour
 
     private void Cured()
     {
+        enemyMovement.healthBar.fillAmount = 0.0f;
         //this.GetComponentInChildren<SkinnedMeshRenderer>().material = white;
         MeshRenderer[] meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
         for (int i = 0; i < meshRenderers.Length; i++)
