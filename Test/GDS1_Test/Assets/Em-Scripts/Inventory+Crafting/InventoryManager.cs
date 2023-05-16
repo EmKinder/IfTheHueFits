@@ -31,6 +31,8 @@ public class InventoryManager : MonoBehaviour
     AudioSource audio;
     public AudioClip craftedSound;
 
+ 
+
     private void Start()
     {
         if (slotHolder != null)
@@ -113,7 +115,10 @@ public class InventoryManager : MonoBehaviour
     }
     void YellowCraftClick()
     {
-        Craft(craftingRecipies[1]);
+        if (PlayerPrefs.GetInt("Current") >= 4)
+        {
+            Craft(craftingRecipies[1]);
+        }
 
     }
     void BlueCraftClick()
@@ -123,17 +128,23 @@ public class InventoryManager : MonoBehaviour
     }
     void OrangeCraftClick()
     {
-        Craft(craftingRecipies[3]);
-
+        if (PlayerPrefs.GetInt("Current") >= 5)
+        {
+            Craft(craftingRecipies[3]);
+        }
     }
     void GreenCraftClick()
     {
-        Craft(craftingRecipies[4]);
-
+        if (PlayerPrefs.GetInt("Current") >= 5)
+        {
+            Craft(craftingRecipies[4]);
+        }
     }
     void PurpleCraftClick()
     {
-        Craft(craftingRecipies[5]);
+        if(PlayerPrefs.GetInt("Current") >= 3) { 
+            Craft(craftingRecipies[5]);
+        }
 
     }
     #endregion
