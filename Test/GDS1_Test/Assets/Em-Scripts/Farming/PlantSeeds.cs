@@ -94,8 +94,8 @@ public class PlantSeeds : MonoBehaviour
             }
             // timerUI.gameObject.SetActive(true);
             timer += Time.deltaTime;
-            timerText.text = (15 - timer).ToString("f0");
-            if(timer >= 15)
+            timerText.text = (5 - timer).ToString("f0");
+            if(timer >= 5)
             {
                 plantGrown = true;
              //   growing.SetActive(false);
