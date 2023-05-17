@@ -1445,7 +1445,6 @@ GameObject:
   - component: {fileID: 5483135684002298937}
   - component: {fileID: 4344170347452896820}
   - component: {fileID: 2146848170375775100}
-  - component: {fileID: 7441865218761120590}
   m_Layer: 0
   m_Name: VanGogh_Model
   m_TagString: OrangeHueman
@@ -1460,7 +1459,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7441865218761120591}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.02, y: 0.108, z: 26.3}
   m_LocalScale: {x: 6.2945, y: 6.2945, z: 6.2945}
   m_ConstrainProportionsScale: 0
@@ -1476,7 +1475,7 @@ Transform:
   - {fileID: 4544035684892060405}
   - {fileID: 2166995316477129549}
   - {fileID: 9005712794220122137}
-  - {fileID: 7987671683641675113}
+  - {fileID: 3570484724661127585}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1552,31 +1551,9 @@ MonoBehaviour:
   collisionDetect: {fileID: 1716640895270447367}
   wanderingTimer: 5
   wanderingRadius: 4
-  healthBarCanvas: {fileID: 602681548768707228}
-  rotHealthBar: {fileID: 1478619676649176649}
-  healthBar: {fileID: 3712100753740566211}
---- !u!195 &7441865218761120590
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7441865218761120591}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.035
-  m_Speed: 4.04
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 120
-  m_StoppingDistance: 0.0195
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 0.18
-  m_BaseOffset: 0
-  m_WalkableMask: 1
-  m_ObstacleAvoidanceType: 4
+  healthBarCanvas: {fileID: 0}
+  rotHealthBar: {fileID: 0}
+  healthBar: {fileID: 0}
 --- !u!1 &7553295178877443431
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,7 +1720,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!1001 &1408388248312320008
+--- !u!1001 &5539032016566588608
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -1824,7 +1801,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9030404126522285409, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.20300293
+      value: 0.107
       objectReference: {fileID: 0}
     - target: {fileID: 9030404126522285409, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -1840,29 +1817,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
---- !u!223 &602681548768707228 stripped
-Canvas:
-  m_CorrespondingSourceObject: {fileID: 2005999637243564692, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
-  m_PrefabInstance: {fileID: 1408388248312320008}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1478619676649176649 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 508490478236085825, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
-  m_PrefabInstance: {fileID: 1408388248312320008}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3712100753740566211 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2310239207065853643, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
-  m_PrefabInstance: {fileID: 1408388248312320008}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!224 &7987671683641675113 stripped
+--- !u!224 &3570484724661127585 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9030404126522285409, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
-  m_PrefabInstance: {fileID: 1408388248312320008}
+  m_PrefabInstance: {fileID: 5539032016566588608}
   m_PrefabAsset: {fileID: 0}
