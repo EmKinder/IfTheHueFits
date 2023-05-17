@@ -131,7 +131,9 @@ public class CharacterMovement : MonoBehaviour
                     Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
 
                     transform.LookAt(new Vector3(pointToLook.x, 0.0f, pointToLook.z));
-                    transform.Rotate(new Vector3(0.0f, this.gameObject.transform.rotation.y, this.gameObject.transform.position.z));
+                    Transform rotTransform = transform;
+                    transform.rotation.Set(0.0f, rotTransform.rotation.y, rotTransform.rotation.w, rotTransform.rotation.w);
+                    transform.Rotate(new Vector3(0.0f, this.gameObject.transform.position.y, 0.0f));
                 }
 
                 currentPaintShooting = asw.GetAmmoType();

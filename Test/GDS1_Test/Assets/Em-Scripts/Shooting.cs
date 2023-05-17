@@ -32,7 +32,8 @@ public class Shooting : MonoBehaviour
     IEnumerator CanShootPaint()
     {
         yield return new WaitForSeconds(0.5f);
-        Instantiate(paintball, paintPos.position + 1.0f * transform.forward, transform.rotation);
+        GameObject paintballClone = Instantiate(paintball, paintPos.position + 1.0f * transform.forward, transform.rotation);
+        Destroy(paintballClone, 2);
     }
 
     public void ShootPaint()
