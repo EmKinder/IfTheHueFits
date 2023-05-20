@@ -28,7 +28,7 @@ public class DoorEnter : MonoBehaviour
     void Start()
     {
         enterDoor = false;
-          add = 1;
+        //  add = 1;
      //   sceneload = 6;
         
     }
@@ -42,8 +42,9 @@ public class DoorEnter : MonoBehaviour
             {
                 Debug.Log("Door Entered");
                 canvas.enabled = false;
-                sceneload = PlayerPrefs.GetInt("Current", add);
-                SceneManager.LoadScene(sceneload);
+                // sceneload = PlayerPrefs.GetInt("Current", add);
+                // SceneManager.LoadScene(sceneload);
+                SceneManager.LoadScene("LevelSelect");
                 enterDoor = false;
                 
             }
@@ -58,7 +59,7 @@ public class DoorEnter : MonoBehaviour
         {
             door.GetComponent<MeshRenderer>().material = emmisive;
             enterDoor = true;
-            add++;
+          //  add++;
             
 
         }
