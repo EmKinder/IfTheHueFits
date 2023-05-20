@@ -31,6 +31,7 @@ public class EnemyMovement : MonoBehaviour
     public GameObject rotHealthBar;
     public Image healthBar;
     GameObject mainCamera;
+    public Animator anim;
 
 
     // Start is called before the first frame update
@@ -87,6 +88,7 @@ public class EnemyMovement : MonoBehaviour
         rotHealthBar.transform.LookAt(mainCamera.transform);
         if (canMove)
         {
+            anim.SetBool("isWalking", true);
             if (!canFollow)
             {
                 timer += Time.deltaTime;
@@ -116,6 +118,10 @@ public class EnemyMovement : MonoBehaviour
                 }
 
             }
+        }
+        else
+        {
+            anim.SetBool("isWalking", false);
         }
 
 

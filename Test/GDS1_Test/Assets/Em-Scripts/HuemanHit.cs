@@ -14,6 +14,7 @@ public class HuemanHit : MonoBehaviour
     bool managersFound;
     //  EnemyCounter enemyCounter;
     GameObject player;
+    public Animator anim;
     // Start is called before the first frame update
 
     //CHARACTER MESH 
@@ -139,6 +140,7 @@ public class HuemanHit : MonoBehaviour
     private void EnemyHit(float damage)
     {
         bool enemHit = this.GetComponent<EnemyMovement>().EnemyHealth(damage);
+        anim.SetTrigger("isHit");
         if (!enemHit)
         {
             Debug.Log("Hit, should be dead Dead");
