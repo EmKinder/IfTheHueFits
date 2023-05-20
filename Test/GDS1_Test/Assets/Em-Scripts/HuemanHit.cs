@@ -9,13 +9,31 @@ public class HuemanHit : MonoBehaviour
     string thisType;
     float meleeDamage;
     float paintballDamage;
-    [SerializeField]
-    Material white;
+   [SerializeField]
     EnemyMovement enemyMovement;
     bool managersFound;
     //  EnemyCounter enemyCounter;
     GameObject player;
     // Start is called before the first frame update
+
+    //CHARACTER MESH 
+    //general
+    public Material bodyMat;
+    public Material clothesMat;
+    public SkinnedMeshRenderer[] bodyArray;
+    public SkinnedMeshRenderer[] clothesArray;
+    //kahlo 
+    public Material flowerMat;
+    public Material hairMat;
+    public SkinnedMeshRenderer[] flowerArray;
+    public SkinnedMeshRenderer[] hairArray;
+    //dali
+    public Material innerClothesMat;
+    public Material outerClothesMat;
+    public SkinnedMeshRenderer[] innerClothesArray;
+    public SkinnedMeshRenderer[] outerClothesArray;
+
+
     void Start()
     {
         managersFound = false;
@@ -135,15 +153,59 @@ public class HuemanHit : MonoBehaviour
     private void Cured()
     {
         enemyMovement.healthBar.fillAmount = 0.0f;
-        //this.GetComponentInChildren<SkinnedMeshRenderer>().material = white;
-        MeshRenderer[] meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
-        for (int i = 0; i < meshRenderers.Length; i++)
+
+        if(thisType == "PurpleHueman")
         {
-            meshRenderers[i].material = white;
+            for(int i = 0; i < bodyArray.Length; i++)
+            {
+                bodyArray[i].material = bodyMat;
+            }
+            for(int i = 0; i < flowerArray.Length; i++)
+            {
+                flowerArray[i].material = flowerMat;
+            }
+            for (int i = 0; i < hairArray.Length; i++)
+            {
+                hairArray[i].material = flowerMat;
+            }
         }
+        else if(thisType == "OrangeHueman")
+        {
+            for(int i = 0; i < bodyArray.Length; i++)
+            {
+                bodyArray[i].material = bodyMat;
+            }
+            for(int i = 0; i < innerClothesArray.Length; i++)
+            {
+                innerClothesArray[i].material = innerClothesMat;
+            }
+            for(int i = 0; i < outerClothesArray.Length; i++)
+            {
+                outerClothesArray[i].material = outerClothesMat;
+            }
+        }
+        else
+        {
+            for(int i = 0; i < bodyArray.Length; i++)
+            {
+                bodyArray[i].material = bodyMat;
+            }
+            for(int i = 0; i < clothesArray.Length; i++)
+            {
+                clothesArray[i].material = clothesMat;
+            }
+        }
+
         this.GetComponent<EnemyMovement>().enabled = false;
         enemyMovement.SetCured();
         // enemyCounter.EnemyCured();
         Destroy(this.gameObject, 2.5f);
     }
 }
+
+
+/*        MeshRenderer[] meshRenderers = gameObject.GetComponentsInChildren<MeshRenderer>();
+        for (int i = 0; i < meshRenderers.Length; i++)
+        {
+            meshRenderers[i].material = white;
+        }*/

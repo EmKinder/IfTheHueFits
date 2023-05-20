@@ -5992,6 +5992,12 @@ GameObject:
   m_Component:
   - component: {fileID: 7322940115173653418}
   - component: {fileID: 3693061546572767696}
+  - component: {fileID: 8065769141850423014}
+  - component: {fileID: 735857775783258528}
+  - component: {fileID: 7926809076782952399}
+  - component: {fileID: -102422506636067174}
+  - component: {fileID: -8077476579951764015}
+  - component: {fileID: 855741001482093921}
   m_Layer: 0
   m_Name: FridaKahlo
   m_TagString: PurpleHueman
@@ -6036,6 +6042,168 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &8065769141850423014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992657408529948944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af81fb85dc65fd144824af6200b85a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMovement: {fileID: 0}
+  bodyMat: {fileID: 2100000, guid: 678376903af1a554da48270e115a6834, type: 2}
+  clothesMat: {fileID: 0}
+  bodyArray:
+  - {fileID: 4580134092232223121}
+  - {fileID: 162900381689665216}
+  - {fileID: 386520981924181502}
+  - {fileID: 2559952421741353471}
+  - {fileID: 4542032700825416083}
+  - {fileID: 2065117125275577953}
+  - {fileID: 6493699518456253744}
+  - {fileID: 596707770538323634}
+  - {fileID: 4360627196740171798}
+  clothesArray: []
+  flowerMat: {fileID: 2100000, guid: 4d5639ec545fc124b9e9526eddddd1d1, type: 2}
+  hairMat: {fileID: 2100000, guid: 883a9b82a2cfb6445976c110a70c08a9, type: 2}
+  flowerArray:
+  - {fileID: 5788255517356329112}
+  - {fileID: 2972077929334917195}
+  - {fileID: 2279409391181181004}
+  - {fileID: 3961507606102240121}
+  - {fileID: 7434827064243775428}
+  - {fileID: 3473278931487661629}
+  - {fileID: 7601529547605949302}
+  - {fileID: 520239921686392264}
+  - {fileID: 4550292066923144559}
+  - {fileID: 9159843567327386546}
+  - {fileID: 2602233511481451025}
+  - {fileID: 4545347008171076328}
+  - {fileID: 4398162806337788746}
+  - {fileID: 1514599646016855114}
+  - {fileID: 2682719956502797300}
+  - {fileID: 6412896136637416569}
+  - {fileID: 7965225107500484108}
+  - {fileID: 2692860444716617250}
+  - {fileID: 5304362580727741466}
+  - {fileID: 303118618941743052}
+  - {fileID: 3844352910497935792}
+  - {fileID: 6562906384207628413}
+  - {fileID: 8241528272159814280}
+  - {fileID: 6194691264072692080}
+  - {fileID: 96443789101193898}
+  - {fileID: 716835457453992579}
+  - {fileID: 6688887605305571262}
+  - {fileID: 6272411688259148918}
+  - {fileID: 4854760851518589830}
+  - {fileID: 1046050594568129852}
+  - {fileID: 2897646333591324570}
+  - {fileID: 1751894295013640513}
+  - {fileID: 4297226604111212023}
+  - {fileID: 2323946558568822068}
+  - {fileID: 4928354391453913080}
+  - {fileID: 570095534224207570}
+  - {fileID: 5251629732625298890}
+  - {fileID: 6625679790177477092}
+  - {fileID: 48745504204412419}
+  hairArray:
+  - {fileID: 4958876849353678935}
+  - {fileID: 2841981825488578960}
+  - {fileID: 5143697657199213753}
+  - {fileID: 5831377974787044641}
+  - {fileID: 6028716119904937089}
+  innerClothesMat: {fileID: 0}
+  outerClothesMat: {fileID: 0}
+  innerClothesArray: []
+  outerClothesArray: []
+--- !u!54 &735857775783258528
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992657408529948944}
+  serializedVersion: 2
+  m_Mass: 3
+  m_Drag: 13.5
+  m_AngularDrag: 50
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &7926809076782952399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992657408529948944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDetect: {fileID: -8077476579951764015}
+  wanderingTimer: 5
+  wanderingRadius: 4
+  healthBarCanvas: {fileID: 0}
+  rotHealthBar: {fileID: 508490478236085825, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
+  healthBar: {fileID: 0}
+--- !u!195 &-102422506636067174
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992657408529948944}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.035
+  m_Speed: 4
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.02
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.18
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
+--- !u!136 &-8077476579951764015
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992657408529948944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.22
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.09, z: 0}
+--- !u!136 &855741001482093921
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7992657408529948944}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.22
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.09, z: 0}
 --- !u!1 &8113333956068765648
 GameObject:
   m_ObjectHideFlags: 0
@@ -6415,7 +6583,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8824648462203136028}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

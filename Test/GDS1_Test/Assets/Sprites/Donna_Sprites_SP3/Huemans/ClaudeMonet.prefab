@@ -1935,6 +1935,12 @@ GameObject:
   m_Component:
   - component: {fileID: 5065726312192568563}
   - component: {fileID: 4739944327523535642}
+  - component: {fileID: -6126965707485571955}
+  - component: {fileID: 450623772567741819}
+  - component: {fileID: 2150609559157380262}
+  - component: {fileID: -6518858592743630126}
+  - component: {fileID: 6871963458897624752}
+  - component: {fileID: 2282073055550393139}
   m_Layer: 0
   m_Name: ClaudeMonet
   m_TagString: GreenHueman
@@ -1979,6 +1985,135 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &-6126965707485571955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550338619612739145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af81fb85dc65fd144824af6200b85a30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyMovement: {fileID: 0}
+  bodyMat: {fileID: 2100000, guid: 09bd9e07b2b51ce47b852f315eaf9574, type: 2}
+  clothesMat: {fileID: 2100000, guid: 04cf512a7ff4c0a4ba6c4b8c03b3aae7, type: 2}
+  bodyArray:
+  - {fileID: 3475498031718592216}
+  - {fileID: 8618568961516789148}
+  - {fileID: 1017670119473168276}
+  - {fileID: 8242027375306762207}
+  - {fileID: 3778072477130971166}
+  - {fileID: 3194928042432546449}
+  - {fileID: 8043895994966541341}
+  - {fileID: 5448587258163145724}
+  - {fileID: 547889122274998838}
+  clothesArray:
+  - {fileID: 7302741766042875}
+  - {fileID: 5781944632464100951}
+  - {fileID: 2512526666463555048}
+  - {fileID: 1720878406795438795}
+  - {fileID: 7640215419558135667}
+  - {fileID: 2444632068208056476}
+  - {fileID: 2544022046683781558}
+  - {fileID: 6667916523003525185}
+  - {fileID: 8012720040078837293}
+  - {fileID: 5774054416807736730}
+  - {fileID: 7057428581374911850}
+  flowerMat: {fileID: 0}
+  hairMat: {fileID: 0}
+  flowerArray: []
+  hairArray: []
+  innerClothesMat: {fileID: 0}
+  outerClothesMat: {fileID: 0}
+  innerClothesArray: []
+  outerClothesArray: []
+--- !u!54 &450623772567741819
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550338619612739145}
+  serializedVersion: 2
+  m_Mass: 3
+  m_Drag: 13.5
+  m_AngularDrag: 50
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &2150609559157380262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550338619612739145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ae824e44d1a61f46ac73dea0877dbac, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  collisionDetect: {fileID: 6871963458897624752}
+  wanderingTimer: 5
+  wanderingRadius: 4
+  healthBarCanvas: {fileID: 0}
+  rotHealthBar: {fileID: 508490478236085825, guid: ed23e418d9b485246b1a44bdc4182052, type: 3}
+  healthBar: {fileID: 0}
+--- !u!195 &-6518858592743630126
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550338619612739145}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.035
+  m_Speed: 4
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0.02
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 0.18
+  m_BaseOffset: 0
+  m_WalkableMask: 1
+  m_ObstacleAvoidanceType: 4
+--- !u!136 &6871963458897624752
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550338619612739145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.22
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.09, z: 0}
+--- !u!136 &2282073055550393139
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5550338619612739145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.08
+  m_Height: 0.22
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.09, z: 0}
 --- !u!1 &5675286342599693586
 GameObject:
   m_ObjectHideFlags: 0
