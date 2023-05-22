@@ -23,4 +23,6 @@ public class CarMovement3 : MonoBehaviour
             Debug.Log("carVisible");
         }
     }
+
+    
 }

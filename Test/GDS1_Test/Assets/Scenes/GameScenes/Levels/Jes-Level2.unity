@@ -6490,6 +6490,65 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -3197283204084411258, guid: 1b74af686560d35408dab5752952d4d2, type: 3}
+--- !u!1 &1726792034
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1726792037}
+  - component: {fileID: 1726792036}
+  - component: {fileID: 1726792035}
+  m_Layer: 0
+  m_Name: CarTrigger
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1726792035
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726792034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 14.438961}
+  m_Center: {x: 0, y: 0, z: -1.2099152}
+--- !u!114 &1726792036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726792034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: edb2a15e2d4338543bc11c3a174a8ee5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  carSpeed: 5
+--- !u!4 &1726792037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1726792034}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.59964234, y: -0.9436743, z: 29.20239}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 30
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1749802362
 GameObject:
   m_ObjectHideFlags: 0
@@ -8062,6 +8121,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 152225103581233249, guid: 2cc0de5c8503f844489b1a53af1ae22b, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 402639584630286222, guid: 2cc0de5c8503f844489b1a53af1ae22b, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -8112,6 +8175,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2cc0de5c8503f844489b1a53af1ae22b, type: 3}
+--- !u!1 &152225103942032733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1071195068327951668, guid: 2cc0de5c8503f844489b1a53af1ae22b, type: 3}
+  m_PrefabInstance: {fileID: 152225103942032732}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &152225103942032734
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 152225103942032733}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 596562628354395215, guid: 975fc14820d2c72409adbdad3e6c2edc, type: 3}
 --- !u!1001 &3207384524700507186
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8224,7 +8306,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: sportcar1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8201954155214434800, guid: cd71d7843958017458787f6e34147c57, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: cd71d7843958017458787f6e34147c57, type: 3}
 --- !u!1001 &5690257649451493955
 PrefabInstance:
@@ -8281,7 +8364,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8553973307274728426, guid: 9b946bf28d6426542a5c89f1f06f37b0, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9b946bf28d6426542a5c89f1f06f37b0, type: 3}
 --- !u!1001 &7224640310344854277
 PrefabInstance:

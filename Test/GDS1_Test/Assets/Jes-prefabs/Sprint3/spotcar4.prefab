@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3207384525313104864}
   - component: {fileID: 3207384525313104867}
   - component: {fileID: 3207384525313104893}
-  - component: {fileID: 1562635165356025913}
+  - component: {fileID: 206698858161366598}
   m_Layer: 0
   m_Name: spotcar4
   m_TagString: Untagged
@@ -139,7 +139,7 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.62700003, z: 0.011000001}
   m_TimeToStationary: 0.5
---- !u!114 &1562635165356025913
+--- !u!114 &206698858161366598
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -148,9 +148,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2324845776826689199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 241014cf8cbeb5848a01693bfc40791f, type: 3}
+  m_Script: {fileID: 11500000, guid: 8efc641c1a1f5a94ea6709d6430e6cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 3207384525313104864}
-  carSpeed: 2
-  rend: {fileID: 4270396074452961146}
