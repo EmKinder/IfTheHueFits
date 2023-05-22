@@ -6,9 +6,6 @@ public class LighTimer : MonoBehaviour
 {
     public float timerCounter;
     public bool timerCounterOn = false;
-    private float tMinutes = 0;
-    private float tSeconds = 0;
-    private float tMSeconds = 0;
     Light lightobj;
 
     // Start is called before the first frame update
