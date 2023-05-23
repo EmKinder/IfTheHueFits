@@ -29,7 +29,7 @@ public class CharacterMovement : MonoBehaviour
         canShoot = true;
         canHit = true;
         managersFound = false;
-        moveSpeed = 7f;
+        moveSpeed = 1f;
 
     }
 
