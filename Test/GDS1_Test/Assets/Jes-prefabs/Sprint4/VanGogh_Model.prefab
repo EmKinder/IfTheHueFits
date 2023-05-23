@@ -1461,7 +1461,7 @@ Transform:
   m_GameObject: {fileID: 7441865218761120591}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -13.02, y: 0.108, z: 26.3}
-  m_LocalScale: {x: 6.2945, y: 6.2945, z: 6.2945}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7298627009224446416}
@@ -1535,7 +1535,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81fb85dc65fd144824af6200b85a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  white: {fileID: 2100000, guid: 8a429d5302040a545880eeae3e3b294a, type: 2}
+  enemyMovement: {fileID: 0}
+  anim: {fileID: 0}
+  bodyMat: {fileID: 0}
+  clothesMat: {fileID: 0}
+  bodyArray: []
+  clothesArray: []
+  flowerMat: {fileID: 0}
+  hairMat: {fileID: 0}
+  flowerArray: []
+  hairArray: []
+  innerClothesMat: {fileID: 0}
+  outerClothesMat: {fileID: 0}
+  innerClothesArray: []
+  outerClothesArray: []
 --- !u!114 &2146848170375775100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1554,6 +1567,7 @@ MonoBehaviour:
   healthBarCanvas: {fileID: 0}
   rotHealthBar: {fileID: 0}
   healthBar: {fileID: 0}
+  anim: {fileID: 0}
 --- !u!1 &7553295178877443431
 GameObject:
   m_ObjectHideFlags: 0
