@@ -9,7 +9,7 @@ public class OutsideWorkshopTrigger : MonoBehaviour
     int enemiesRemaining;
     public Canvas winscene;
     bool doorUnlocked;
-    public Image huemansRemainingUI;
+    public Canvas huemansRemainingUI;
     bool doorLockedTimerBool;
     float timer;
     
@@ -19,7 +19,7 @@ public class OutsideWorkshopTrigger : MonoBehaviour
         winscene.enabled = false;
         enemiesRemaining = enemiesInLevel;
         doorUnlocked = false;
-        huemansRemainingUI.enabled = false;
+        huemansRemainingUI.gameObject.SetActive(false);
         doorLockedTimerBool = false;
       //  doorLockedTimer = 1.5f;
     }
@@ -29,12 +29,13 @@ public class OutsideWorkshopTrigger : MonoBehaviour
     {
         if (doorLockedTimerBool)
         {
-            huemansRemainingUI.enabled = true;
+            Debug.Log("Should be popping up");
+            huemansRemainingUI.gameObject.SetActive(true);
             timer += Time.deltaTime;
             if(timer >= 1.5f)
             {
-                huemansRemainingUI.enabled = false;
-                timer = 0;
+                huemansRemainingUI.gameObject.SetActive(false);
+                timer = 0; 
                 doorLockedTimerBool = false;
             }
         }
@@ -56,12 +57,15 @@ public class OutsideWorkshopTrigger : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            Debug.Log("House triggered");
             if (doorUnlocked)
             {
+                Debug.Log("Huemans cured");
                 winscene.enabled = true;
             }
             else
             {
+                Debug.Log("Huemans not cured");
                 //play door locked sound
                 doorLockedTimerBool = true;
             }

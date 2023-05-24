@@ -84,8 +84,8 @@ public class EnemyMovement : MonoBehaviour
     // Update is called once per frames
     void Update()
     {
-        healthBar.fillAmount = enemyHealth / OriginalHealth;
-        rotHealthBar.transform.LookAt(mainCamera.transform);
+      //  healthBar.fillAmount = enemyHealth / OriginalHealth;
+     //   rotHealthBar.transform.LookAt(mainCamera.transform);
         if (canMove)
         {
             anim.SetBool("isWalking", true);

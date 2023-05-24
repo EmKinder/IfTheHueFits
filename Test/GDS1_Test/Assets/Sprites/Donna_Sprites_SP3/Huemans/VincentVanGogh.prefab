@@ -208,7 +208,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: fa0c29c088e378a408c516bf76590a80, type: 2}
   m_CullingMode: 1
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
   m_WarningMessage: 
@@ -268,7 +268,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 181046984932019492}
   serializedVersion: 2
-  m_Mass: 3
+  m_Mass: 1
   m_Drag: 13.5
   m_AngularDrag: 50
   m_UseGravity: 1
@@ -305,8 +305,8 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.035
-  m_Speed: 4
-  m_Acceleration: 8
+  m_Speed: 0.2
+  m_Acceleration: 0.2
   avoidancePriority: 50
   m_AngularSpeed: 120
   m_StoppingDistance: 0.02
