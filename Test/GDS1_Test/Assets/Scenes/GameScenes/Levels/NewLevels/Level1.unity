@@ -174,6 +174,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2066980206607656608, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
+      propertyPath: m_Constraints
+      value: 116
+      objectReference: {fileID: 0}
     - target: {fileID: 2096422218721160352, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
       propertyPath: m_Name
       value: Level_01_Design
@@ -202,4 +206,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca859608f29fb67449e929bb27037921, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemiesInLevel: 0
   winscene: {fileID: 1285378808383441220}
+  huemansRemainingUI: {fileID: 0}
