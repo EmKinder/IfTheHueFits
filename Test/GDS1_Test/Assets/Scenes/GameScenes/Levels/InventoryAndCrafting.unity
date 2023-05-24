@@ -11324,11 +11324,13 @@ MonoBehaviour:
   ps5: {fileID: 1376257698}
   ct: {fileID: 1339396191}
   im: {fileID: 1798290138}
+  sp: {fileID: 1592372291}
   image: {fileID: 285618540}
   plantingUI: {fileID: 21300000, guid: f32aae9f72188c047bfbdf106b697055, type: 3}
   grownUI: {fileID: 21300000, guid: f4b2900734bd8ee4db506bb91c3ee2e0, type: 3}
   inventoryUI: {fileID: 21300000, guid: adb8ab0fa10a0cb41888c07341b030fc, type: 3}
   redPaintUI: {fileID: 21300000, guid: 7972a3975d9151141a9ff0d3207e6032, type: 3}
+  mixPaintUI: {fileID: 21300000, guid: d3dc2b1d7f30b7b4aae86845004376f4, type: 3}
   bluePaintUI: {fileID: 21300000, guid: 9e1f9c95c8f773a43b4db53d93e6be20, type: 3}
   complementaryUI: {fileID: 21300000, guid: 400d2446a2fbf244ebf88aa0e56a4979, type: 3}
   doorUI: {fileID: 21300000, guid: ccefbf7c48181f844ae53c1b40ec7ace, type: 3}
@@ -11425,6 +11427,8 @@ GameObject:
   - component: {fileID: 1146823279}
   - component: {fileID: 1146823278}
   - component: {fileID: 1146823277}
+  - component: {fileID: 1146823280}
+  - component: {fileID: 1146823281}
   m_Layer: 5
   m_Name: BackButton (2)
   m_TagString: CoverForward
@@ -11546,6 +11550,42 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146823275}
   m_CullTransparentMesh: 1
+--- !u!111 &1146823280
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146823275}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 391e510695caff2468d3cb87d6df40da, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 391e510695caff2468d3cb87d6df40da, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &1146823281
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1146823275}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 855fe763626ca814a898399d577bdaae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1151221233
 GameObject:
   m_ObjectHideFlags: 0
@@ -15822,6 +15862,7 @@ MonoBehaviour:
   yellowLock: {fileID: 929678482}
   orangeLock: {fileID: 1145660922}
   greenLock: {fileID: 1361445083}
+  firstTimeRedPage: 0
 --- !u!1001 &1604365090
 PrefabInstance:
   m_ObjectHideFlags: 0

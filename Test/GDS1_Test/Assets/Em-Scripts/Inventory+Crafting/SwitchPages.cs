@@ -20,6 +20,7 @@ public class SwitchPages : MonoBehaviour
     public Image greenLock;
 
     string currentPage;
+    public bool firstTimeRedPage;
 
     // Start is called before the first frame update
     void Start()
@@ -46,6 +47,7 @@ public class SwitchPages : MonoBehaviour
         orangeLock.enabled = false;
         orangeLock.enabled = false;
         currentPage = "Cover";
+        firstTimeRedPage = false;
     }
 
     // Update is called once per frame
@@ -74,6 +76,7 @@ public class SwitchPages : MonoBehaviour
         coverPage.SetActive(false);
         redPage.SetActive(true);
         currentPage = "Red";
+        firstTimeRedPage = true;
        
     }
     public void RedBack()

@@ -16,6 +16,7 @@ public class InstructionalPopups : MonoBehaviour
 
     public TriggerCraftingTable ct;
     public InventoryManager im;
+    public SwitchPages sp;
 
     public Image image;
     bool instructionsOpen;
@@ -31,11 +32,13 @@ public class InstructionalPopups : MonoBehaviour
     bool firstLevelComplete;
     bool secondLevelComplete;
     bool thirdLevelComplete;
+    bool redPageFirstSeen;
 
     public Sprite plantingUI;
     public Sprite grownUI;
     public Sprite inventoryUI;
     public Sprite redPaintUI;
+    public Sprite mixPaintUI;
     public Sprite bluePaintUI;
     public Sprite complementaryUI;
     public Sprite doorUI;
@@ -57,6 +60,7 @@ public class InstructionalPopups : MonoBehaviour
         secondLevelComplete = false;
         thirdLevelComplete = false;
         firstTimePurpleCrafted = false;
+        redPageFirstSeen = false;
         image.sprite = plantingUI;
         Time.timeScale = 0;
         
@@ -98,6 +102,14 @@ public class InstructionalPopups : MonoBehaviour
             firstPlantHasBeenHarvested = true;
             image.enabled = true;
             image.sprite = inventoryUI;
+            Time.timeScale = 0;
+        }
+
+        if(sp.firstTimeRedPage && !redPageFirstSeen)
+        {
+            redPageFirstSeen = true;
+            image.enabled = true;
+            image.sprite = mixPaintUI;
             Time.timeScale = 0;
         }
 
