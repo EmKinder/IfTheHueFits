@@ -11427,8 +11427,6 @@ GameObject:
   - component: {fileID: 1146823279}
   - component: {fileID: 1146823278}
   - component: {fileID: 1146823277}
-  - component: {fileID: 1146823280}
-  - component: {fileID: 1146823281}
   m_Layer: 5
   m_Name: BackButton (2)
   m_TagString: CoverForward
@@ -11550,42 +11548,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1146823275}
   m_CullTransparentMesh: 1
---- !u!111 &1146823280
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1146823275}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 391e510695caff2468d3cb87d6df40da, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 391e510695caff2468d3cb87d6df40da, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
---- !u!95 &1146823281
-Animator:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1146823275}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 855fe763626ca814a898399d577bdaae, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 2
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1151221233
 GameObject:
   m_ObjectHideFlags: 0
@@ -15863,6 +15825,9 @@ MonoBehaviour:
   orangeLock: {fileID: 1145660922}
   greenLock: {fileID: 1361445083}
   firstTimeRedPage: 0
+  coverButton: {fileID: 1146823278}
+  whiteSprite: {fileID: 21300000, guid: 6bb19036a599b314b823358c1991b1cc, type: 3}
+  blackSprite: {fileID: 21300000, guid: 699645270379f1e48813599bf61b6707, type: 3}
 --- !u!1001 &1604365090
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -22,6 +22,14 @@ public class SwitchPages : MonoBehaviour
     string currentPage;
     public bool firstTimeRedPage;
 
+    bool whiteSpriteEnabled;
+    bool blackSpriteEnabled;
+
+    public Image coverButton;
+    public Sprite whiteSprite;
+    public Sprite blackSprite;
+    float timer;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -48,6 +56,9 @@ public class SwitchPages : MonoBehaviour
         orangeLock.enabled = false;
         currentPage = "Cover";
         firstTimeRedPage = false;
+        whiteSpriteEnabled = false;
+        blackSpriteEnabled = true;
+
     }
 
     // Update is called once per frame
@@ -68,6 +79,30 @@ public class SwitchPages : MonoBehaviour
         if (currentPage == "Yellow")
         {
             YellowLocked();
+        }
+
+        if(!firstTimeRedPage && currentPage == "Cover")
+        {
+            timer += Time.deltaTime;
+            if(timer >= 0.5)
+            {
+                Debug.Log("Timer done");
+                if (blackSpriteEnabled == true)
+                {
+                    Debug.Log("White");
+                    coverButton.sprite = whiteSprite;
+                    blackSpriteEnabled = false;
+                    whiteSpriteEnabled = true;
+                }
+                else if (whiteSpriteEnabled == true)
+                {
+                    Debug.Log("Black");
+                    coverButton.sprite = blackSprite;
+                    blackSpriteEnabled = true;
+                    whiteSpriteEnabled = false;
+                }
+                timer = 0;
+            }
         }
     }
 
