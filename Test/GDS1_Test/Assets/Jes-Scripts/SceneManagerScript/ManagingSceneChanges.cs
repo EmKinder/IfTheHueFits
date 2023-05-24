@@ -67,7 +67,7 @@ public class ManagingSceneChanges : MonoBehaviour
 
     public void SecondLevelLoad()
     {
-        SceneManager.LoadScene("Jes-Level2");
+        SceneManager.LoadScene("Level2");
     }
 
     public void ThirdLevelLoad()
