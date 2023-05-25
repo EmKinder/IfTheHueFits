@@ -52,7 +52,8 @@ public class ManagingSceneChanges : MonoBehaviour
     public void ExitScene()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("InventoryAndCrafting");
+        //   SceneManager.LoadScene("InventoryAndCrafting");
+        SceneManager.LoadScene("MainMenu");
     }
 
     public void GoBackToCrafting()
@@ -111,5 +112,11 @@ public class ManagingSceneChanges : MonoBehaviour
    //   InventoryCanvas.enabled = false;
     //    JLevelSelectCanvas.enabled = false;
     //    LevelSelectCanvas.enabled = false;
+    }
+
+    public void newGame()
+    {
+        PlayerPrefs.DeleteAll();
+        SceneManager.LoadScene("InventoryAndCrafting");
     }
 }
