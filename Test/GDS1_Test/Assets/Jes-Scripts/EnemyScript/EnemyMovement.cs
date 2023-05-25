@@ -21,10 +21,10 @@ public class EnemyMovement : MonoBehaviour
 
     NavMeshAgent agent;
     public float wanderingTimer;
-    public float wanderingRadius = 5.0f;
+    public float wanderingRadius;
     float timer;
     LayerMask navLayerMask;
-    float lineOfSightRadius;
+   public float lineOfSightRadius;
     bool canFollow;
     Transform savedPoint;
     public Canvas healthBarCanvas;
@@ -48,7 +48,7 @@ public class EnemyMovement : MonoBehaviour
         agent = gameObject.GetComponent<NavMeshAgent>();
         wanderingTimer = Random.Range(2.0f, 5.0f);
         timer = wanderingTimer;
-        lineOfSightRadius = 5.0f;
+       // lineOfSightRadius = 0.5f;
         canFollow = false;
         navLayerMask = LayerMask.GetMask("Enemys", "Collectables");
         navLayerMask = ~navLayerMask;

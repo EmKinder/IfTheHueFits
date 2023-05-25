@@ -46,10 +46,7 @@ public class car : MonoBehaviour
             moving = true;
             // playerHealth.DealDamage(5.0f);
         }
-        if(other.tag == "Wall")
-        {
-            car1.transform.Rotate(0f, 90f, 0f);
-        }
+      
     }
 
 }
