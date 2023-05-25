@@ -1,0 +1,100 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &4267049317127413590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4267049317127413588}
+  - component: {fileID: 4267049317127413589}
+  - component: {fileID: 4267049317127413587}
+  m_Layer: 0
+  m_Name: Ammo
+  m_TagString: AmmoManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4267049317127413588
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267049317127413590}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3607.4834, y: 961.1299, z: 5300.107}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4267049317127413589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267049317127413590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6af9f622a247f44a4f9ce2cd5ba96a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orangeAmmoCount: 0
+  redAmmoCount: 0
+  yellowAmmoCount: 0
+  greenAmmoCount: 0
+  blueAmmoCount: 0
+  purpleAmmoCount: 0
+  inventory: {fileID: 0}
+  redAmmo: {fileID: 11400000, guid: 9aaf31b0eb8791841accec1e260e09ef, type: 2}
+  orangeAmmo: {fileID: 11400000, guid: 50335250cde2c824cac2b0d42a19b2e4, type: 2}
+  yellowAmmo: {fileID: 11400000, guid: 3674492525f1b4840885ed51bfda175f, type: 2}
+  greenAmmo: {fileID: 11400000, guid: 9557272f7ce740a428066485b16bab84, type: 2}
+  blueAmmo: {fileID: 11400000, guid: c996b2e4fa9a18b4eb0f358c7573a775, type: 2}
+  purpleAmmo: {fileID: 11400000, guid: 0dd763529e1b82048b101dc41819f343, type: 2}
+--- !u!114 &4267049317127413587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4267049317127413590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb125a46aa7c08446a88ae150bb58537, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedAmmo: 0
+  RedCheck: {fileID: 0}
+  OrangeCheck: {fileID: 0}
+  YellowCheck: {fileID: 0}
+  GreenCheck: {fileID: 0}
+  BlueCheck: {fileID: 0}
+  PurpleCheck: {fileID: 0}
+  redAmmo: {fileID: 11400000, guid: 9aaf31b0eb8791841accec1e260e09ef, type: 2}
+  orangeAmmo: {fileID: 11400000, guid: 50335250cde2c824cac2b0d42a19b2e4, type: 2}
+  yellowAmmo: {fileID: 11400000, guid: 3674492525f1b4840885ed51bfda175f, type: 2}
+  greenAmmo: {fileID: 11400000, guid: 9557272f7ce740a428066485b16bab84, type: 2}
+  blueAmmo: {fileID: 11400000, guid: c996b2e4fa9a18b4eb0f358c7573a775, type: 2}
+  purpleAmmo: {fileID: 11400000, guid: 0dd763529e1b82048b101dc41819f343, type: 2}
+  inventory: {fileID: 0}
+  ammoCount: {fileID: 4267049317127413589}
+  ammoBackground: {fileID: 0}
+  redBackground: {fileID: 21300000, guid: 69058b7a1b2e33c4c985bb2f870198dc, type: 3}
+  orangeBackground: {fileID: 21300000, guid: afc225dd3f5eff8428225059b7c08202, type: 3}
+  yellowBackground: {fileID: 21300000, guid: 708db714e78b36c47be66c3282cc0378, type: 3}
+  greenBackground: {fileID: 21300000, guid: 2308df873a7ee0b4097044e5f9f5cb4c, type: 3}
+  blueBackground: {fileID: 21300000, guid: 6f8b4c3e154471249b5cb1d9c47e2f6f, type: 3}
+  purpleBackground: {fileID: 21300000, guid: 382e6d3dfd5abb249b134498b58a15b6, type: 3}
+  redMat: {fileID: -2875383987281306003, guid: bb314d9955a2d7542baf9e7cadfbb547, type: 3}
+  orangeMat: {fileID: -8471269965800106355, guid: 1613aba18a7a8fd40b15b750c2defea7, type: 3}
+  yellowMat: {fileID: -4342098480810758187, guid: 81cdb6a48f780dd41ab02899c9b7d92b, type: 3}
+  greenMat: {fileID: 5072972769271621297, guid: e66e514df70ea4f468de40ca5cb9be89, type: 3}
+  blueMat: {fileID: -2277978616004721354, guid: ad8f88d0249617046b7ae8172d04c2e0, type: 3}
+  purpleMat: {fileID: -6432877887988187580, guid: dfb1d68ab4dc69047adb24bae5e343ed, type: 3}

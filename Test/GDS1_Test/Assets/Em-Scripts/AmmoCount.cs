@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AmmoCount : MonoBehaviour
 {
@@ -22,12 +23,26 @@ public class AmmoCount : MonoBehaviour
     void Start()
     {
 
-        orangeAmmoCount = 0;
-        redAmmoCount = 0;
-        yellowAmmoCount = 0;
-        greenAmmoCount = 0;
-        blueAmmoCount = 0;
-        purpleAmmoCount = 0;
+        if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(14))
+        {
+            orangeAmmoCount = 100;
+            redAmmoCount = 100;
+            yellowAmmoCount = 100;
+            greenAmmoCount = 100;
+            blueAmmoCount = 100;
+            purpleAmmoCount = 100;
+        }
+        else
+        {
+            orangeAmmoCount = 0;
+            redAmmoCount = 0;
+            yellowAmmoCount = 0;
+            greenAmmoCount = 0;
+            blueAmmoCount = 0;
+            purpleAmmoCount = 0;
+        }
+
+     
 
     }
 

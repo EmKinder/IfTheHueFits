@@ -5,7 +5,7 @@ using UnityEngine;
 public class Paintball : MonoBehaviour
 {
     Rigidbody rb;
-    public float force = 10;
+    public float force = 0.000005f;
     AmmoSwitching ammoSwitch;
     public Material red;
     public Material orange;
