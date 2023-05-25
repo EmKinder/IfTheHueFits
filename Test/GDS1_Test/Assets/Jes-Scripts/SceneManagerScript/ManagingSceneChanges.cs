@@ -77,7 +77,7 @@ public class ManagingSceneChanges : MonoBehaviour
     }
     public void ForthLevelLoad()
     {
-        SceneManager.LoadScene("Jes-Level4");
+        SceneManager.LoadScene("Level4");
     }
 
     public void FifthLevelLoad()
