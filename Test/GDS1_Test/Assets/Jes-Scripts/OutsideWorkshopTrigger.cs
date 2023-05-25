@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class OutsideWorkshopTrigger : MonoBehaviour
 {
     public int enemiesInLevel;
-    int enemiesRemaining;
+   public int enemiesRemaining;
     public Canvas winscene;
     bool doorUnlocked;
     public Canvas huemansRemainingUI;
@@ -45,7 +45,7 @@ public class OutsideWorkshopTrigger : MonoBehaviour
     public void EnemyCuredCount()
     {
         enemiesRemaining -= 1;
-        if (enemiesRemaining == 0)
+        if (enemiesRemaining <= 0)
         {
             doorUnlocked = true;
             //door unlocked sound

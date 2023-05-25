@@ -76,8 +76,8 @@ public class EnemyMovement : MonoBehaviour
         }
         OriginalHealth = enemyHealth;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-        healthBarCanvas.worldCamera = Camera.main;
-        healthBar.fillAmount = enemyHealth / OriginalHealth;
+      //  healthBarCanvas.worldCamera = Camera.main;
+     //   healthBar.fillAmount = enemyHealth / OriginalHealth;
     }
 
 
@@ -181,6 +181,7 @@ public class EnemyMovement : MonoBehaviour
     {
         if (other.tag == "Player" && !cured && canHitPlayer)
         {
+            anim.SetTrigger("isAttacking");
             playerHealth.DealDamage(10.0f);
             currentCalmDown++;
             if (currentCalmDown > 0)

@@ -15,6 +15,7 @@ public class HuemanHit : MonoBehaviour
     //  EnemyCounter enemyCounter;
     GameObject player;
     public Animator anim;
+    OutsideWorkshopTrigger outsideWorkshop;
     // Start is called before the first frame update
 
     //CHARACTER MESH 
@@ -50,6 +51,7 @@ public class HuemanHit : MonoBehaviour
         {
             player = GameObject.FindGameObjectWithTag("Player");
         }
+        outsideWorkshop = GameObject.FindGameObjectWithTag("finish").GetComponent<OutsideWorkshopTrigger>();
     }
 
     // Update is called once per frame
@@ -154,7 +156,7 @@ public class HuemanHit : MonoBehaviour
 
     private void Cured()
     {
-        enemyMovement.healthBar.fillAmount = 0.0f;
+       // enemyMovement.healthBar.fillAmount = 0.0f;
 
         if(thisType == "PurpleHueman")
         {
@@ -200,6 +202,7 @@ public class HuemanHit : MonoBehaviour
 
         this.GetComponent<EnemyMovement>().enabled = false;
         enemyMovement.SetCured();
+        outsideWorkshop.EnemyCuredCount();
         // enemyCounter.EnemyCured();
         Destroy(this.gameObject, 2.5f);
     }
