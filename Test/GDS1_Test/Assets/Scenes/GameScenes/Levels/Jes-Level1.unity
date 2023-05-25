@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657838, g: 0.49641234, b: 0.57481676, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1848,6 +1848,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5359581511448779602, guid: f249718a849b907468eb78ca7505874b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 191.38306
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359581511448779602, guid: f249718a849b907468eb78ca7505874b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -22.24585
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359581511695163833, guid: f249718a849b907468eb78ca7505874b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 17.14209
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359581511702467213, guid: f249718a849b907468eb78ca7505874b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 105.49512
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359581511702467213, guid: f249718a849b907468eb78ca7505874b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -22.24585
+      objectReference: {fileID: 0}
     - target: {fileID: 5359581512129845767, guid: f249718a849b907468eb78ca7505874b, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -1947,6 +1967,22 @@ PrefabInstance:
     - target: {fileID: 5359581512129845771, guid: f249718a849b907468eb78ca7505874b, type: 3}
       propertyPath: m_Name
       value: J-Canvas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359581512739253690, guid: f249718a849b907468eb78ca7505874b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 131.8999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359581512739253690, guid: f249718a849b907468eb78ca7505874b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -47.19995
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359581513450230466, guid: f249718a849b907468eb78ca7505874b, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 24.699951
+      objectReference: {fileID: 0}
+    - target: {fileID: 5359581513450230466, guid: f249718a849b907468eb78ca7505874b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -22.24585
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f249718a849b907468eb78ca7505874b, type: 3}
@@ -2398,7 +2434,7 @@ MonoBehaviour:
   m_OverrideTileSize: 0
   m_TileSize: 256
   m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.06333333
+  m_VoxelSize: 0.02
   m_MinRegionArea: 2
   m_NavMeshData: {fileID: 23800000, guid: 88b2a66af0feac64ab38916e4cf88a80, type: 2}
   m_BuildHeightMesh: 0
@@ -4636,9 +4672,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0490e4bcd9837405d82d94ecdf10d97b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: d1dbf08b3be8d4158b317fe4c5d19487, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.7
+  m_Volume: 0.432
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -4734,7 +4770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67d12a2403e816345936885b9ad925f3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 2106877723}
+  playerTransform: {fileID: 0}
   SmoothFactor: 0.5
 --- !u!81 &1539825252
 AudioListener:
@@ -6315,6 +6351,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -8242459396093022285, guid: b5cb6ff6e157ee74491864e8f4c5cad4, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1406235024179910243, guid: b5cb6ff6e157ee74491864e8f4c5cad4, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -6393,11 +6433,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b5cb6ff6e157ee74491864e8f4c5cad4, type: 3}
---- !u!4 &2106877723 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5000085860801645593, guid: b5cb6ff6e157ee74491864e8f4c5cad4, type: 3}
-  m_PrefabInstance: {fileID: 2106877722}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2107248427
 GameObject:
   m_ObjectHideFlags: 0
