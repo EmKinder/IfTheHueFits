@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7747223615056449351}
   - component: {fileID: 1624914019303111898}
   - component: {fileID: 702276665065821600}
+  - component: {fileID: 3309309586551631982}
   m_Layer: 0
   m_Name: PaintPuddle_01
   m_TagString: Untagged
@@ -91,8 +92,21 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1921532802209367940}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c496434ec91f74ef58d8355179d1df4c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &3309309586551631982
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1921532802209367940}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17650478, y: 0.027997818, z: 0.19836272}
+  m_Center: {x: 0, y: 0, z: 0}

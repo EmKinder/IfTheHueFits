@@ -31,7 +31,7 @@ public class CharacterMovement : MonoBehaviour
         canShoot = true;
         canHit = true;
         managersFound = false;
-       if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(0))
+       if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
             moveSpeed = 5f;
         }
