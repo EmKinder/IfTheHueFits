@@ -7,14 +7,15 @@ public class columntrigger : MonoBehaviour
     // Start is called before the first frame update
     PlayerHealth playerHealth;
     Animator CTrigger;
-    GameObject col;
+    public GameObject col;
     Collider collid;
     bool timerCounterOn = false;
     float timerCounter;
     bool hasfallen = false;
+    
     void Start()
     {
-        col = GameObject.FindWithTag("COL");
+       // col = GameObject.FindWithTag("COL");
         CTrigger = col.GetComponent<Animator>();
         collid = col.GetComponent<Collider>();
 

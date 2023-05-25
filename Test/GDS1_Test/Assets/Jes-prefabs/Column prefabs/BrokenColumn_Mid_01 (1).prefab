@@ -293,6 +293,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4153474180866998086}
   - component: {fileID: 8564446799859191296}
+  - component: {fileID: 8825616039627896464}
   m_Layer: 0
   m_Name: BrokenColumn_Mid_01 (1)
   m_TagString: Untagged
@@ -307,7 +308,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5477119573425674753}
-  m_LocalRotation: {x: -0, y: -0.3109422, z: -0, w: 0.95042884}
+  m_LocalRotation: {x: 0, y: -0.31094193, z: 0, w: 0.95042896}
   m_LocalPosition: {x: 2.21402, y: 1.7966025, z: -0.61587334}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -333,6 +334,19 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 0
   m_Center: {x: 0, y: -0.014, z: 0}
   m_TimeToStationary: 0.26
+--- !u!65 &8825616039627896464
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5477119573425674753}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07424817, y: 0.34358814, z: 0.08686768}
+  m_Center: {x: 0.004682269, y: -0.05186771, z: 0.000790637}
 --- !u!1 &6929038949417833085
 GameObject:
   m_ObjectHideFlags: 0
