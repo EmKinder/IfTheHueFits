@@ -9,12 +9,13 @@ public class car : MonoBehaviour
     Rigidbody car1;
     public float carSpeed;
    // PlayerHealth playerHealth;
-    GameObject Mcar;
+  public  GameObject Mcar;
     Collider collid;
     bool moving = false;
     void Start()
     {
-        Mcar = GameObject.FindWithTag("Car");
+       // Mcar = GameObject.FindWithTag("Car");
+       
         collid = Mcar.GetComponent<Collider>();
         car1 = Mcar.GetComponent<Rigidbody>();
       
@@ -29,7 +30,9 @@ public class car : MonoBehaviour
     {
         if (moving == true)
         {
+            
             car1.velocity = Mcar.transform.forward * carSpeed;
+
         }
 
         
@@ -42,6 +45,10 @@ public class car : MonoBehaviour
         {
             moving = true;
             // playerHealth.DealDamage(5.0f);
+        }
+        if(other.tag == "Wall")
+        {
+            car1.transform.Rotate(0f, 90f, 0f);
         }
     }
 

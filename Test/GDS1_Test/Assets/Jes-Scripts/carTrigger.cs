@@ -6,7 +6,8 @@ public class carTrigger : MonoBehaviour
 {
     PlayerHealth playerHealth;
    
-    //GameObject col;
+    public GameObject col;
+    public float Y;
     void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
@@ -28,6 +29,9 @@ public class carTrigger : MonoBehaviour
             playerHealth.DealDamage(5.0f);
 
         }
-
+        if (other.tag == "Wall")
+        {
+            col.transform.Rotate(0f, Y, 0f);
+        }
     }
 }
