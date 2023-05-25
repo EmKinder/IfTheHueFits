@@ -1175,6 +1175,7 @@ GameObject:
   - component: {fileID: 597519042118881948}
   - component: {fileID: 3936482041748724901}
   - component: {fileID: 22460013165520134}
+  - component: {fileID: 3170711089906867106}
   m_Layer: 0
   m_Name: TumbleWeed_GRP
   m_TagString: Car
@@ -1225,7 +1226,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   col: {fileID: 7569072847988449605}
-  Y: 270
+  Y: 90
 --- !u!135 &597519042118881948
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -1268,6 +1269,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.0851811
   m_Center: {x: -0.00089019537, y: 0.009533539, z: -0.00089867413}
+--- !u!114 &3170711089906867106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7569072847988449605}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20340d6b9b2db8549a071a66971f065e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 100
 --- !u!1 &8227937786419834418
 GameObject:
   m_ObjectHideFlags: 0
