@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ManagingSceneChanges : MonoBehaviour
 {
-   Canvas InventoryCanvas;
+ //  Canvas InventoryCanvas;
   //  public Canvas LevelSelectCanvas;
   //  public Canvas JLevelSelectCanvas;
     private void Awake()
@@ -22,7 +22,7 @@ public class ManagingSceneChanges : MonoBehaviour
     {
         //  LevelSelectCanvas.enabled = false;
         //   JLevelSelectCanvas.enabled = false;
-        InventoryCanvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
+    //    InventoryCanvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
     }
 
     // Update is called once per frame
@@ -92,7 +92,7 @@ public class ManagingSceneChanges : MonoBehaviour
 
     public void LevelSelectLoad()
     {
-        InventoryCanvas.enabled = false;
+       // InventoryCanvas.enabled = false;
      //   LevelSelectCanvas.enabled = true;
 
          SceneManager.LoadScene("LevelSelect");
@@ -101,7 +101,7 @@ public class ManagingSceneChanges : MonoBehaviour
     public void JaimiesLevelSelect()
 
     {
-           InventoryCanvas.enabled = false;
+         //  InventoryCanvas.enabled = false;
           
         SceneManager.LoadScene("JLevelSelect");
 

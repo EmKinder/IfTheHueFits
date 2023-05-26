@@ -23,7 +23,7 @@ public class LevelSelectScript : MonoBehaviour
     
     public void BackButton()
     {
-        scene.GoBackToCrafting();
+        SceneManager.LoadSceneAsync(0);
    
     }
 
