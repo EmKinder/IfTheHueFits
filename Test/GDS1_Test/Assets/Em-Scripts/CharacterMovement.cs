@@ -20,6 +20,11 @@ public class CharacterMovement : MonoBehaviour
     bool managersFound;
     public bool testing;
     Vector3 pointToLook;
+    GameObject planePosition;
+    //GameObject trackingSphere;
+    Plane groundPlane;
+    //GameObject ptl;
+    bool planePositionFound;
 
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed = 720f;
@@ -31,6 +36,7 @@ public class CharacterMovement : MonoBehaviour
         canShoot = true;
         canHit = true;
         managersFound = false;
+        planePositionFound = false;
        if(SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1))
         {
             moveSpeed = 5f;
@@ -56,6 +62,35 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.rotation = Quaternion.Euler(0, transform.eulerAngles.y, 0);
+
+        if (!planePositionFound && SceneManagerBool())
+        {
+            planePosition = GameObject.FindGameObjectWithTag("groundPlane");
+            groundPlane = new Plane(Vector3.up, planePosition.transform.position);
+
+            //Aiming Testing
+            //trackingSphere = GameObject.FindGameObjectWithTag("trackingSphere");
+            //ptl = GameObject.FindGameObjectWithTag("pointToLookSphere");
+
+
+            planePositionFound = true;
+        }
+
+
+        //Aiming Testing
+        /*
+        if (SceneManagerBool())
+        {
+            Ray trackingRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+            float trackingLength;
+
+            if (groundPlane.Raycast(trackingRay, out trackingLength))
+            {
+                trackingSphere.transform.position = trackingRay.GetPoint(trackingLength);
+            }
+        }
+        */
 
         //For when not testing, normal player Movement
         // - testing variable in player movement set for true (Testing) or false (Game scenes)
@@ -77,7 +112,7 @@ public class CharacterMovement : MonoBehaviour
     //Player Movement in regular levels
     public void PlayerMovementRegular()
     {
-        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0) && !managersFound)
+        if (SceneManagerBool() && !managersFound)
         {
             ac = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoCount>();
             asw = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoSwitching>();
@@ -97,6 +132,7 @@ public class CharacterMovement : MonoBehaviour
             if (moveVector != Vector3.zero)
             {
                 Quaternion toRotation = Quaternion.LookRotation(moveVector, Vector3.up);
+                Debug.Log("Aim Rotation = " + toRotation);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
             }
         }
@@ -113,7 +149,7 @@ public class CharacterMovement : MonoBehaviour
 
 
         //Right click to long range attack
-        if (Input.GetMouseButtonDown(1) && canShoot == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
+        if (Input.GetMouseButtonDown(1) && canShoot == true && SceneManagerBool())
         {
             if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
                 || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
@@ -126,17 +162,32 @@ public class CharacterMovement : MonoBehaviour
                 var moveVelocity = moveInput * moveSpeed;
 
                 Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
                 float rayLength;
 
                 if (groundPlane.Raycast(cameraRay, out rayLength))
                 {
-                    float hypoternuse = 0.1518f / Mathf.Sin(Camera.main.transform.rotation.eulerAngles.x);
-                    pointToLook = cameraRay.GetPoint(rayLength - hypoternuse);
-                    pointToLook = cameraRay.GetPoint(rayLength);
-                    Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
+                    float opposite = Camera.main.transform.position.y - cameraRay.GetPoint(rayLength).y;
+                    Vector2 cam = new Vector2(Camera.main.transform.position.x, Camera.main.transform.position.z);
+                    Vector2 poin = new Vector2(cameraRay.GetPoint(rayLength).x, cameraRay.GetPoint(rayLength).z);
+                    float adjacent = Vector2.Distance(cam, poin);
+                    float ratio = opposite / 0.1518f;
+                    float hypoternuse = rayLength / ratio;
+                    float aimingPoint = rayLength - hypoternuse;
+                    pointToLook = cameraRay.GetPoint(aimingPoint);
+                    transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
 
-                    transform.LookAt(new Vector3(pointToLook.x, 0.1518f, pointToLook.z));
+                    //Debugging Aiming
+                    /*
+                    Debug.Log("cam = " + cam + "    poin = " + poin);
+                    Debug.Log("<color=red>Ratio: </color>" + ratio);
+                    Debug.Log("<color=green>Hypoternuse: </color>" + hypoternuse);
+                    Debug.Log("<color=blue>Point to Look: </color>" + pointToLook);
+                    Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
+                    Debug.Log("<color=blue>Tracking Sphere: </color>" + cameraRay.GetPoint(rayLength));
+
+                    //Aiming Testing
+                    ptl.transform.position = pointToLook;
+                    */
                 }
 
                 currentPaintShooting = asw.GetAmmoType();
@@ -146,12 +197,11 @@ public class CharacterMovement : MonoBehaviour
                 shooting.ShootPaint(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
                 canShoot = false;
                 Debug.Log("Should Not be able to shoot now");
-
             }
         }
 
         //left click melee attack
-        if (Input.GetMouseButtonDown(0) && canHit == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
+        if (Input.GetMouseButtonDown(0) && canHit == true && SceneManagerBool())
         {
             if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
                 || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
@@ -164,17 +214,34 @@ public class CharacterMovement : MonoBehaviour
                 var moveVelocity = moveInput * moveSpeed;
 
                 Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
                 float rayLength;
 
                 if (groundPlane.Raycast(cameraRay, out rayLength))
                 {
-                    float hypoternuse = 0.1518f / Mathf.Sin(Camera.main.transform.rotation.eulerAngles.x);
-                    pointToLook = cameraRay.GetPoint(rayLength - hypoternuse);
-                    pointToLook = cameraRay.GetPoint(rayLength);
+                    float opposite = Camera.main.transform.position.y - cameraRay.GetPoint(rayLength).y;
+                    Vector2 cam = new Vector2(Camera.main.transform.position.x, Camera.main.transform.position.z);
+                    Vector2 poin = new Vector2(cameraRay.GetPoint(rayLength).x, cameraRay.GetPoint(rayLength).z);
+                    float adjacent = Vector2.Distance(cam, poin);
+
+                    float ratio = opposite / 0.1518f;
+                    float hypoternuse = rayLength / ratio;
+                    float aimingPoint = rayLength - hypoternuse;
+                    pointToLook = cameraRay.GetPoint(aimingPoint);
+
+                    //Debugging Aiming
+                    /*
+                    Debug.Log("cam = " + cam + "    poin = " + poin);
+                    Debug.Log("<color=red>Ratio: </color>" + ratio);
+                    Debug.Log("<color=green>Hypoternuse: </color>" + hypoternuse);
+                    Debug.Log("<color=blue>Point to Look: </color>" + pointToLook);
                     Debug.DrawLine(cameraRay.origin, pointToLook, Color.cyan);
 
-                    transform.LookAt(new Vector3(pointToLook.x, 0.1518f, pointToLook.z));
+                    //Aiming Testing
+                    ptl.transform.position = pointToLook;
+                    */
+
+                    transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
+
                 }
 
                 currentPaintShooting = asw.GetAmmoType();
@@ -212,7 +279,7 @@ public class CharacterMovement : MonoBehaviour
     //Player Movement When Testing
     public void PlayerMovementTesting()
     {
-        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0) && !managersFound)
+        if (SceneManagerBool() && !managersFound)
         {
             ac = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoCount>();
             asw = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoSwitching>();
@@ -248,7 +315,7 @@ public class CharacterMovement : MonoBehaviour
 
 
         //Right click to long range attack
-        if (Input.GetMouseButtonDown(1) && canShoot == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
+        if (Input.GetMouseButtonDown(1) && canShoot == true && SceneManagerBool())
         {
             if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
                 || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
@@ -261,7 +328,6 @@ public class CharacterMovement : MonoBehaviour
                 var moveVelocity = moveInput * moveSpeed;
 
                 Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
                 float rayLength;
 
                 if (groundPlane.Raycast(cameraRay, out rayLength))
@@ -284,7 +350,7 @@ public class CharacterMovement : MonoBehaviour
         }
 
         //left click melee attack
-        if (Input.GetMouseButtonDown(0) && canHit == true && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0))
+        if (Input.GetMouseButtonDown(0) && canHit == true && SceneManagerBool())
         {
             if (asw.GetAmmoType() == "Red" && ac.getAmmoCount("Red") > 0
                 || asw.GetAmmoType() == "Orange" && ac.getAmmoCount("Orange") > 0
@@ -297,7 +363,6 @@ public class CharacterMovement : MonoBehaviour
                 var moveVelocity = moveInput * moveSpeed;
 
                 Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
                 float rayLength;
 
                 if (groundPlane.Raycast(cameraRay, out rayLength))
@@ -344,5 +409,19 @@ public class CharacterMovement : MonoBehaviour
     public bool IsHitting()
     {
         return canHit;
+    }
+
+    public bool SceneManagerBool()
+    {
+        if (SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(0)
+            && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(1)
+            && SceneManager.GetActiveScene() != SceneManager.GetSceneByBuildIndex(2))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
     }
 }

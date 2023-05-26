@@ -32,10 +32,9 @@ public class Shooting : MonoBehaviour
     IEnumerator CanShootPaint(Vector3 aimPoint)
     {
         yield return new WaitForSeconds(0.5f);
-        Transform aiming = transform;
-        aiming.LookAt(new Vector3(aimPoint.x, 0.1518f, aimPoint.z));
-        GameObject paintballClone = Instantiate(paintball, paintPos.position, aiming.rotation);
-        paintballClone.transform.LookAt(aimPoint);
+        Transform aim = transform;
+        aim.Rotate(new Vector3(0f, 2f, 0f));
+        GameObject paintballClone = Instantiate(paintball, paintPos.position, aim.rotation);
         Destroy(paintballClone, 1.5f);
     }
 
