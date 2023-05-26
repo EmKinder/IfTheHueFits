@@ -7,12 +7,14 @@ public class LighTimer : MonoBehaviour
     public float timerCounter;
     public bool timerCounterOn = false;
     Light lightobj;
+    public Canvas imagecanvas;
 
     // Start is called before the first frame update
     void Start()
     {
         timerCounterOn = true;
         lightobj = GameObject.FindWithTag("theLight").GetComponent<Light>();;
+        imagecanvas.enabled = false;
 
     }
 
@@ -25,14 +27,16 @@ public class LighTimer : MonoBehaviour
             Debug.Log(timerCounter);
             if (timerCounter >= 0)
             {
-                lightobj.intensity = 1.0f;
+                imagecanvas.enabled = false;
+                //  lightobj.intensity = 1.0f;
                 timerCounter = timerCounter + Time.deltaTime;
                 timerCounter = timerCounter + 1 / 60;
               
 
                 if(timerCounter >= 10 && timerCounter <= 15)
                 {
-                    lightobj.intensity = 0.0f;
+                    imagecanvas.enabled = true;
+                  //  lightobj.intensity = 0.0f;
                    // lightobj.enabled = false;
                  //   lightobj.color = new Color(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
 
