@@ -11686,6 +11686,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4442321843559190666}
   - component: {fileID: 5579133010349901435}
+  - component: {fileID: 1383998687443245202}
   m_Layer: 0
   m_Name: Workshop_Finish
   m_TagString: finish
@@ -11743,6 +11744,19 @@ MonoBehaviour:
   enemiesRemaining: 0
   winscene: {fileID: 2985089493806899838}
   huemansRemainingUI: {fileID: 5126580224907944239}
+--- !u!65 &1383998687443245202
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 820332616422738815}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &823456552417842268
 GameObject:
   m_ObjectHideFlags: 0
@@ -69296,7 +69310,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5003470503590543407}
   m_LocalRotation: {x: -0.010060642, y: 0.9664556, z: 0.004872713, w: 0.25659055}
-  m_LocalPosition: {x: -8.85, y: 13.46, z: -4.34}
+  m_LocalPosition: {x: -8.37, y: 13.47, z: -5.18}
   m_LocalScale: {x: 9.551149, y: 2.7290888, z: 1.3925294}
   m_ConstrainProportionsScale: 0
   m_Children: []

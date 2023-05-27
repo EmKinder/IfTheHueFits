@@ -96397,6 +96397,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4787242033736881490}
   - component: {fileID: 8331218340274731321}
+  - component: {fileID: 2616747398193716157}
   m_Layer: 0
   m_Name: Workshop_Finish
   m_TagString: finish
@@ -96454,6 +96455,19 @@ MonoBehaviour:
   enemiesRemaining: 0
   winscene: {fileID: 2300713534612334149}
   huemansRemainingUI: {fileID: 5699411650639221882}
+--- !u!65 &2616747398193716157
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8406979435826384551}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8409516928328132779
 GameObject:
   m_ObjectHideFlags: 0

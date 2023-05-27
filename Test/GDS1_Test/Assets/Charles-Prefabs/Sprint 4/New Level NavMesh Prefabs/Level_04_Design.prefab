@@ -58161,6 +58161,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1090355851861607851}
   - component: {fileID: 5623775400019878851}
+  - component: {fileID: 996384305267457131}
   m_Layer: 0
   m_Name: Workshop_Finish
   m_TagString: finish
@@ -58218,6 +58219,19 @@ MonoBehaviour:
   enemiesRemaining: 0
   winscene: {fileID: 2502211736975359977}
   huemansRemainingUI: {fileID: 8238510130755096925}
+--- !u!65 &996384305267457131
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4171913098472218206}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &4172033375780509224
 GameObject:
   m_ObjectHideFlags: 0
@@ -131168,6 +131182,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintPuddle_03 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 5053280766838572757, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
+      propertyPath: puddlePaint
+      value: 
+      objectReference: {fileID: 3660024410050104422}
     - target: {fileID: 8720801629227062563, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
       propertyPath: m_RootOrder
       value: 22
@@ -131214,6 +131232,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
+--- !u!65 &3660024410050104422 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3805830763824602111, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
+  m_PrefabInstance: {fileID: 439666272889690009}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9159337329217061562 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8720801629227062563, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
@@ -132108,6 +132131,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8674005881144752796}
     m_Modifications:
+    - target: {fileID: 702276665065821600, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+      propertyPath: puddlePaint
+      value: 
+      objectReference: {fileID: 4063495400747353578}
     - target: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
       propertyPath: m_RootOrder
       value: 18
@@ -132118,7 +132145,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.133
+      value: 0.0999
       objectReference: {fileID: 0}
     - target: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -132161,6 +132188,11 @@ PrefabInstance:
 --- !u!4 &892489924469002659 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+  m_PrefabInstance: {fileID: 1551885898865358212}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &4063495400747353578 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3309309586551631982, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
   m_PrefabInstance: {fileID: 1551885898865358212}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1564424343885095944
@@ -133269,6 +133301,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintPuddle_03 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 5053280766838572757, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
+      propertyPath: puddlePaint
+      value: 
+      objectReference: {fileID: 4063495400747353578}
     - target: {fileID: 8720801629227062563, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -133490,6 +133526,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintPuddle_03 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 5053280766838572757, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
+      propertyPath: puddlePaint
+      value: 
+      objectReference: {fileID: 1794952749406441623}
     - target: {fileID: 8720801629227062563, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
       propertyPath: m_RootOrder
       value: 24
@@ -133536,6 +133576,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
+--- !u!65 &1794952749406441623 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3805830763824602111, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
+  m_PrefabInstance: {fileID: 3186845296466299752}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6142751601171209803 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8720801629227062563, guid: 6c5b5dbcde95d41acb7ead8b6d3ab720, type: 3}
@@ -133618,6 +133663,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8674005881144752796}
     m_Modifications:
+    - target: {fileID: 702276665065821600, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+      propertyPath: puddlePaint
+      value: 
+      objectReference: {fileID: 227614664888206563}
     - target: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
       propertyPath: m_RootOrder
       value: 19
@@ -133668,6 +133717,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+--- !u!65 &227614664888206563 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3309309586551631982, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+  m_PrefabInstance: {fileID: 3370277870883615885}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3976127645107163306 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
@@ -134344,6 +134398,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8674005881144752796}
     m_Modifications:
+    - target: {fileID: 702276665065821600, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+      propertyPath: puddlePaint
+      value: 
+      objectReference: {fileID: 7821160624939904212}
     - target: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
       propertyPath: m_RootOrder
       value: 23
@@ -134397,6 +134455,11 @@ PrefabInstance:
 --- !u!4 &6380744652231637149 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+  m_PrefabInstance: {fileID: 4712840742352247994}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &7821160624939904212 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3309309586551631982, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
   m_PrefabInstance: {fileID: 4712840742352247994}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4757828675775308825
@@ -135128,6 +135191,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8674005881144752796}
     m_Modifications:
+    - target: {fileID: 702276665065821600, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+      propertyPath: puddlePaint
+      value: 
+      objectReference: {fileID: 8134398369825760221}
     - target: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -135183,6 +135250,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
   m_PrefabInstance: {fileID: 6705358129503097779}
   m_PrefabAsset: {fileID: 0}
+--- !u!65 &8134398369825760221 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3309309586551631982, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+  m_PrefabInstance: {fileID: 6705358129503097779}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7106158902798132282
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -135190,6 +135262,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8674005881144752796}
     m_Modifications:
+    - target: {fileID: 702276665065821600, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+      propertyPath: puddlePaint
+      value: 
+      objectReference: {fileID: 5724957304767861844}
     - target: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
       propertyPath: m_RootOrder
       value: 25
@@ -135240,6 +135316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+--- !u!65 &5724957304767861844 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3309309586551631982, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+  m_PrefabInstance: {fileID: 7106158902798132282}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8896173886729256989 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
@@ -135454,6 +135535,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8674005881144752796}
     m_Modifications:
+    - target: {fileID: 702276665065821600, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+      propertyPath: puddlePaint
+      value: 
+      objectReference: {fileID: 5219778558717592564}
     - target: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
       propertyPath: m_RootOrder
       value: 21
@@ -135504,6 +135589,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+--- !u!65 &5219778558717592564 stripped
+BoxCollider:
+  m_CorrespondingSourceObject: {fileID: 3309309586551631982, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
+  m_PrefabInstance: {fileID: 7322122336828945306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8968581811089037245 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1867774328659616807, guid: 4ccb0bce18ba74ad2b5ad55f7b8927c4, type: 3}
@@ -135716,7 +135806,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5000085860801645593, guid: b5cb6ff6e157ee74491864e8f4c5cad4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.135
+      value: 0.1043
       objectReference: {fileID: 0}
     - target: {fileID: 5000085860801645593, guid: b5cb6ff6e157ee74491864e8f4c5cad4, type: 3}
       propertyPath: m_LocalPosition.z

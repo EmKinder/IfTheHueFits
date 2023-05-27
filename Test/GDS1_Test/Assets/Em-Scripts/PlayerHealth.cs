@@ -35,4 +35,11 @@ public class PlayerHealth : MonoBehaviour
             SceneManager.LoadScene("GameOver");
         }
     }
+
+    public void DealHealth(float health)
+    {
+        playerHealth += health;
+        healthBar.fillAmount = playerHealth / 100;
+
+    }
 }
