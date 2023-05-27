@@ -5,7 +5,7 @@ using UnityEngine;
 public class puddle : MonoBehaviour
 {
     PlayerHealth playerHealth;
-   public Collider puddlePaint; 
+   public GameObject puddlePaint; 
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +30,7 @@ public class puddle : MonoBehaviour
             //   playerHealth.DealDamage(0.5f);
 
             playerHealth.DealHealth(20f);
-            puddlePaint.isTrigger = false;
-
+            Destroy(puddlePaint);
         }
     }
 }

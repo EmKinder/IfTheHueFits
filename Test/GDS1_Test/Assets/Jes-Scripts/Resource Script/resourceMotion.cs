@@ -26,9 +26,9 @@ public class resourceMotion : MonoBehaviour
         {
             if (canDisappear == false)
 
-                if(transform.position.y < 4f)
+                if(transform.position.y < 1f)
             {
-                gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime *10f, transform.position.z);
+                gameObject.transform.position = new Vector3(transform.position.x, transform.position.y + Time.deltaTime *1f, transform.position.z);
                     
                             }
             if (canDisappear == true)
