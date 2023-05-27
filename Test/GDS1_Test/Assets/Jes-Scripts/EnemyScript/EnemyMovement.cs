@@ -76,16 +76,16 @@ public class EnemyMovement : MonoBehaviour
         }
         OriginalHealth = enemyHealth;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
-      //  healthBarCanvas.worldCamera = Camera.main;
-     //   healthBar.fillAmount = enemyHealth / OriginalHealth;
+        healthBarCanvas.worldCamera = Camera.main;
+        healthBar.fillAmount = enemyHealth / OriginalHealth;
     }
 
 
     // Update is called once per frames
     void Update()
     {
-      //  healthBar.fillAmount = enemyHealth / OriginalHealth;
-     //   rotHealthBar.transform.LookAt(mainCamera.transform);
+        healthBar.fillAmount = enemyHealth / OriginalHealth;
+        rotHealthBar.transform.LookAt(mainCamera.transform);
         if (canMove)
         {
             anim.SetBool("isWalking", true);

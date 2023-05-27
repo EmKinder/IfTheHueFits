@@ -156,7 +156,7 @@ public class HuemanHit : MonoBehaviour
 
     private void Cured()
     {
-       // enemyMovement.healthBar.fillAmount = 0.0f;
+        enemyMovement.healthBar.fillAmount = 0.0f;
 
         if(thisType == "PurpleHueman")
         {
