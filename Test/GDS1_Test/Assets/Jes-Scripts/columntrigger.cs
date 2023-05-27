@@ -38,12 +38,12 @@ public class columntrigger : MonoBehaviour
                     timerCounter = timerCounter + 1 / 60;
 
 
-                    if (timerCounter >= 0 && timerCounter <= 0.1)
+                    if (timerCounter >= 0 && timerCounter <= 0.01)
                     {
                         playerHealth.DealDamage(5.0f);
 
                     }
-                    if (timerCounter > 0.1)
+                    if (timerCounter > 0.01)
                     {
                         timerCounterOn = false;
                         collid.isTrigger = false;
