@@ -15,6 +15,16 @@ public class puddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        playerHealth.DealDamage(0.5f);
+    
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+
+            playerHealth.DealDamage(0.5f);
+
+        }
     }
 }

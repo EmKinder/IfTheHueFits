@@ -18,38 +18,40 @@ public class columntrigger : MonoBehaviour
        // col = GameObject.FindWithTag("COL");
         CTrigger = col.GetComponent<Animator>();
         collid = col.GetComponent<Collider>();
-
+        playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(hasfallen == true)
-        if (timerCounterOn == true)
+        if (hasfallen == true)
         {
-
-            Debug.Log(timerCounter);
-            if (timerCounter >= 0)
+            if (timerCounterOn == true)
             {
 
-                timerCounter = timerCounter + Time.deltaTime;
-                timerCounter = timerCounter + 1 / 60;
-
-
-                if (timerCounter >= 0 && timerCounter <= 1)
+                Debug.Log(timerCounter);
+                if (timerCounter >= 0)
                 {
-                    playerHealth.DealDamage(5.0f);
 
-                }
-                if (timerCounter > 1)
-                {
-                    timerCounterOn = false;
+                    timerCounter = timerCounter + Time.deltaTime;
+                    timerCounter = timerCounter + 1 / 60;
+
+
+                    if (timerCounter >= 0 && timerCounter <= 0.1)
+                    {
+                        playerHealth.DealDamage(5.0f);
+
+                    }
+                    if (timerCounter > 0.1)
+                    {
+                        timerCounterOn = false;
                         collid.isTrigger = false;
+                    }
+
                 }
 
             }
-
         }
         
         if(hasfallen == false)
