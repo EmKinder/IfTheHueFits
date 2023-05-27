@@ -24,7 +24,7 @@ public class PlantSeeds : MonoBehaviour
     //UI
     //public Image timerUI;
     public Text timerText;
-    public Text noResources;
+    public Image noResources;
 
     //Buttons
     public Button redFarmButton;

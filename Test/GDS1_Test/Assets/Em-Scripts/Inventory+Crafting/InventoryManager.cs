@@ -30,6 +30,9 @@ public class InventoryManager : MonoBehaviour
     public Button PurpleCraftButton;
     AudioSource audio;
     public AudioClip craftedSound;
+    public Image cannotCraft;
+    bool cannotCraftBool;
+    float timer = 0.0f;
 
  
 
@@ -69,6 +72,8 @@ public class InventoryManager : MonoBehaviour
 
         redCrafted = false;
         blueCrafted = false;
+        cannotCraftBool = false;
+        cannotCraft.enabled = false;
 
     }
 
@@ -104,6 +109,19 @@ public class InventoryManager : MonoBehaviour
             else
             {
                 BeginItemMove_Half();
+            }
+        }
+
+        if (cannotCraftBool)
+        {
+            cannotCraft.enabled = true;
+            timer += Time.deltaTime;
+            if(timer >= 1.0f)
+            {
+                cannotCraft.enabled = false;
+                timer = 0;
+                cannotCraftBool = false;
+                
             }
         }
     }
@@ -527,6 +545,7 @@ public class InventoryManager : MonoBehaviour
         }
         else
         {
+            cannotCraftBool = true;
             Debug.Log("Cannot craft that item");
         }
     }
