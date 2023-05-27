@@ -30,6 +30,9 @@ public class SwitchPages : MonoBehaviour
     public Sprite blackSprite;
     float timer;
 
+    AudioSource audio;
+    public AudioClip pageTurning;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -58,6 +61,7 @@ public class SwitchPages : MonoBehaviour
         firstTimeRedPage = false;
         whiteSpriteEnabled = false;
         blackSpriteEnabled = true;
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
 
     }
 
@@ -104,14 +108,17 @@ public class SwitchPages : MonoBehaviour
                 timer = 0;
             }
         }
-        else
+        if (firstTimeRedPage && currentPage == "Cover")
         {
             coverButton.sprite = blackSprite;
+            blackSpriteEnabled = true;
         }
     }
 
     public void CoverForward()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         coverPage.SetActive(false);
         redPage.SetActive(true);
         currentPage = "Red";
@@ -120,13 +127,17 @@ public class SwitchPages : MonoBehaviour
     }
     public void RedBack()
         {
-            coverPage.SetActive(true);
+        audio.clip = pageTurning;
+        audio.Play();
+        coverPage.SetActive(true);
         redPage.SetActive(false);
         currentPage = "Cover";
     }
 
     public void RedForward()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         redPage.SetActive(false);
         yellowPage.SetActive(true);
         currentPage = "Yellow";
@@ -135,6 +146,8 @@ public class SwitchPages : MonoBehaviour
 
     public void YellowBack()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         redPage.SetActive(true);
         yellowPage.SetActive(false);
         currentPage = "Red";
@@ -142,6 +155,8 @@ public class SwitchPages : MonoBehaviour
 
     public void YellowForward()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         yellowPage.SetActive(false);
         bluePage.SetActive(true);
         currentPage = "Blue";
@@ -149,6 +164,8 @@ public class SwitchPages : MonoBehaviour
 
     public void BlueBack()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         bluePage.SetActive(false);
         yellowPage.SetActive(true);
         currentPage = "Yellow";
@@ -157,6 +174,8 @@ public class SwitchPages : MonoBehaviour
 
     public void BlueForward()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         bluePage.SetActive(false);
         orangePage.SetActive(true);
         currentPage = "Orange";
@@ -165,6 +184,8 @@ public class SwitchPages : MonoBehaviour
 
     public void OrangeBack()
         {
+        audio.clip = pageTurning;
+        audio.Play();
         bluePage.SetActive(true);
         orangePage.SetActive(false);
         currentPage = "Blue";
@@ -172,6 +193,8 @@ public class SwitchPages : MonoBehaviour
 
     public void OrangeForward()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         greenPage.SetActive(true);
         orangePage.SetActive(false);
         currentPage = "Green";
@@ -180,6 +203,8 @@ public class SwitchPages : MonoBehaviour
 
     public void GreenBack()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         greenPage.SetActive(false);
         orangePage.SetActive(true);
         currentPage = "Orange";
@@ -188,6 +213,8 @@ public class SwitchPages : MonoBehaviour
 
     public void GreenForward()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         greenPage.SetActive(false);
         purplePage.SetActive(true);
         currentPage = "Purple";
@@ -196,6 +223,8 @@ public class SwitchPages : MonoBehaviour
 
     public void PurpleBack()
     {
+        audio.clip = pageTurning;
+        audio.Play();
         greenPage.SetActive(true);
         purplePage.SetActive(false);
         currentPage = "Green";

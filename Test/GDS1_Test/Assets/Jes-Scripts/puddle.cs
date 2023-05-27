@@ -5,12 +5,15 @@ using UnityEngine;
 public class puddle : MonoBehaviour
 {
     PlayerHealth playerHealth;
-   public GameObject puddlePaint; 
+   public GameObject puddlePaint;
+    AudioSource audio;
+    public AudioClip puddleSound;
 
     // Start is called before the first frame update
     void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
      //   puddlePaint = GetComponent<Collider>();
 
         
@@ -28,7 +31,8 @@ public class puddle : MonoBehaviour
         {
 
             //   playerHealth.DealDamage(0.5f);
-
+            audio.clip = puddleSound;
+            audio.Play();
             playerHealth.DealHealth(20f);
             Destroy(puddlePaint);
         }

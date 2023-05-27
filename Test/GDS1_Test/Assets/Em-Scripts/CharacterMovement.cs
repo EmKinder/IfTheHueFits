@@ -29,6 +29,9 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed = 720f;
 
+    AudioSource audio;
+    public AudioClip shootingSound;
+
 
     void Start()
     {
@@ -45,6 +48,8 @@ public class CharacterMovement : MonoBehaviour
         {
             moveSpeed = 1f;
         }
+
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
 
 
        //For Disabling Inventory Manager requirments
@@ -190,6 +195,8 @@ public class CharacterMovement : MonoBehaviour
                     */
                 }
 
+                audio.clip = shootingSound;
+                audio.Play();
                 currentPaintShooting = asw.GetAmmoType();
                 ac.subAmmoCount(currentPaintShooting, 1);
                 anim.ResetTrigger("isAttacking");
@@ -243,7 +250,8 @@ public class CharacterMovement : MonoBehaviour
                     transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
 
                 }
-
+                audio.clip = shootingSound;
+                audio.Play();
                 currentPaintShooting = asw.GetAmmoType();
                 ac.subAmmoCount(currentPaintShooting, 1);
                 anim.ResetTrigger("isAttacking");

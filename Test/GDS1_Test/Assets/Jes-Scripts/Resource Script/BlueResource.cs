@@ -11,10 +11,13 @@ public class BlueResource : MonoBehaviour
         public ResourcePickUP resourcePickUP;
         public GameObject gem;
         public ItemClass blueResource;
+    AudioSource audio;
+    public AudioClip pickupSound;
    // public int sceneload;
     // Start is called before the first frame update
     void Start()
         {
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
         }
 
         // Update is called once per frame
@@ -28,7 +31,9 @@ public class BlueResource : MonoBehaviour
         {
             if (other.tag == "Player")
             {
-                resourcePickUP.AddResourceSystem(pickup, blueResource);
+            audio.clip = pickupSound;
+            audio.Play();
+            resourcePickUP.AddResourceSystem(pickup, blueResource);
                 // Destroy(gem);
                 resourcePickUP.AddToBlueResource(pickup);
                 Debug.Log(pickup);

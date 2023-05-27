@@ -7,13 +7,16 @@ public class LighTimer : MonoBehaviour
     public float timerCounter;
     public bool timerCounterOn = false;
     Light lightobj;
+    AudioSource audio;
+    public AudioClip lightSwitch;
    // public Canvas imagecanvas;
 
     // Start is called before the first frame update
     void Start()
     {
         timerCounterOn = true;
-        lightobj = GameObject.FindWithTag("theLight").GetComponent<Light>();;
+        lightobj = GameObject.FindWithTag("theLight").GetComponent<Light>();
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
      //   imagecanvas.enabled = false;
 
     }
@@ -31,14 +34,18 @@ public class LighTimer : MonoBehaviour
                   lightobj.intensity = 1.0f;
                 timerCounter = timerCounter + Time.deltaTime;
                 timerCounter = timerCounter + 1 / 60;
+                audio.clip = lightSwitch;
+                audio.Play();
               
 
                 if(timerCounter >= 10 && timerCounter <= 15)
                 {
                   //  imagecanvas.enabled = true;
                   lightobj.intensity = 0.0f;
-                   // lightobj.enabled = false;
-                 //   lightobj.color = new Color(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
+                    audio.clip = lightSwitch;
+                    audio.Play();
+                    // lightobj.enabled = false;
+                    //   lightobj.color = new Color(Random.Range(0, 10), Random.Range(0, 10), Random.Range(0, 10));
 
                 }
                 if(timerCounter > 15)

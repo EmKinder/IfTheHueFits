@@ -8,9 +8,12 @@ public class YellowResource : MonoBehaviour
    public ResourcePickUP resourcePickUP;
     public GameObject gem;
     public ItemClass yellowResource;
+    AudioSource audio;
+    public AudioClip pickupSound;
     // Start is called before the first frame update
     void Start()
     {
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -24,6 +27,8 @@ public class YellowResource : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            audio.clip = pickupSound;
+            audio.Play();
             resourcePickUP.AddResourceSystem(pickup, yellowResource);
             // Destroy(gem);
             resourcePickUP.AddToYellowResource(pickup);

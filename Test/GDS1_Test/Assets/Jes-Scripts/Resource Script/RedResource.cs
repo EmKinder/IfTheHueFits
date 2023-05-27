@@ -8,10 +8,13 @@ public class RedResource : MonoBehaviour
      public  ResourcePickUP resourcePickUP;
     public GameObject gem;
     public ItemClass redResource;
+    AudioSource audio;
+    public AudioClip pickupSound;
 
     private void Start()
     {
-     //   resourcePickUP = GameObject.FindGameObjectWithTag("RedResource").GetComponent<ResourcePickUP>();
+        //   resourcePickUP = GameObject.FindGameObjectWithTag("RedResource").GetComponent<ResourcePickUP>();
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -21,6 +24,8 @@ public class RedResource : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            audio.clip = pickupSound;
+            audio.Play();
             resourcePickUP.AddResourceSystem(pickup, redResource);
             resourcePickUP.AddToRedResource(pickup);
            // Destroy(gem);

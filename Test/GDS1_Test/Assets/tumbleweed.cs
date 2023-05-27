@@ -5,11 +5,16 @@ using UnityEngine;
 public class tumbleweed : MonoBehaviour
 {
     PlayerHealth playerHealth;
+    AudioSource audio;
+    public AudioClip tumbleweedSound;
 
     // Start is called before the first frame update
     void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
+      //  audio.clip = tumbleweedSound;
+     //   audio.Play();
     }
 
     // Update is called once per frame

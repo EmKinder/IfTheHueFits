@@ -50,6 +50,10 @@ public class PlantSeeds : MonoBehaviour
     public GameObject yellowFlowers;
     public GameObject blueFlowers;
 
+    public AudioClip plantSeeds;
+    public AudioClip harvestSeeds;
+    AudioSource audio;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -72,6 +76,8 @@ public class PlantSeeds : MonoBehaviour
         redFlowers.SetActive(false);
         yellowFlowers.SetActive(false);
         blueFlowers.SetActive(false);
+
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -166,22 +172,29 @@ public class PlantSeeds : MonoBehaviour
             {
                 inventory.Add(redResource, 4);
                 redFlowers.SetActive(false);
-                
+                audio.clip = harvestSeeds;
+                audio.Play();
+
             }
             if (currentGrowingItemName == "Yellow")
             {
                 inventory.Add(yellowResource, 4);
                 yellowFlowers.SetActive(false);
+                audio.clip = harvestSeeds;
+                audio.Play();
             }
             if (currentGrowingItemName == "Blue")
             {
                 inventory.Add(blueResource, 4);
                 blueFlowers.SetActive(false);
+                audio.clip = harvestSeeds;
+                audio.Play();
             }
             plantHarvested = true;
            // grown.SetActive(false);
             plantGrown = false;
             plantGrowing = false;
+            
         
         }
     }
@@ -213,6 +226,8 @@ public class PlantSeeds : MonoBehaviour
             redFarmButton.gameObject.SetActive(false);
             yellowFarmButton.gameObject.SetActive(false);
             blueFarmButton.gameObject.SetActive(false);
+            audio.clip = plantSeeds;
+            audio.Play();
         }
 
     }
@@ -231,6 +246,8 @@ public class PlantSeeds : MonoBehaviour
             redFarmButton.gameObject.SetActive(false);
             yellowFarmButton.gameObject.SetActive(false);
             blueFarmButton.gameObject.SetActive(false);
+            audio.clip = plantSeeds;
+            audio.Play();
         }
     }
 
@@ -248,6 +265,8 @@ public class PlantSeeds : MonoBehaviour
             redFarmButton.gameObject.SetActive(false);
             yellowFarmButton.gameObject.SetActive(false);
             blueFarmButton.gameObject.SetActive(false);
+            audio.clip = plantSeeds;
+            audio.Play();
         }
     }
 

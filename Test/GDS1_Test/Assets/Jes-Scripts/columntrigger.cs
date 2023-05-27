@@ -12,6 +12,8 @@ public class columntrigger : MonoBehaviour
     bool timerCounterOn = false;
     float timerCounter;
     bool hasfallen = false;
+    AudioSource audio;
+    public AudioClip fallingSound;
     
     void Start()
     {
@@ -19,6 +21,7 @@ public class columntrigger : MonoBehaviour
         CTrigger = col.GetComponent<Animator>();
         collid = col.GetComponent<Collider>();
         playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
 
     }
 
@@ -65,11 +68,17 @@ public class columntrigger : MonoBehaviour
     {
         if(other.tag == "Player")
         {
+            if (!hasfallen)
+            {
+                audio.clip = fallingSound;
+                audio.Play();
+            }
             CTrigger.SetTrigger("Fall");
             timerCounterOn = true;
             hasfallen = true;
             
 
         }
+        
     }
 }

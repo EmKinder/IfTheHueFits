@@ -74,6 +74,10 @@ public class EnemyMovement : MonoBehaviour
         {
             enemyHealth = 50.0f;
         }
+        else if (gameObject.CompareTag("BlueHueman"))
+        {
+            enemyHealth = 60.0f;
+        }
         OriginalHealth = enemyHealth;
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         healthBarCanvas.worldCamera = Camera.main;

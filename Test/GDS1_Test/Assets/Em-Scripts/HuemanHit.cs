@@ -35,6 +35,10 @@ public class HuemanHit : MonoBehaviour
     public SkinnedMeshRenderer[] innerClothesArray;
     public SkinnedMeshRenderer[] outerClothesArray;
 
+    AudioSource audio;
+    public AudioClip cured;
+
+
 
     void Start()
     {
@@ -52,6 +56,7 @@ public class HuemanHit : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
         }
         outsideWorkshop = GameObject.FindGameObjectWithTag("finish").GetComponent<OutsideWorkshopTrigger>();
+        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -157,6 +162,8 @@ public class HuemanHit : MonoBehaviour
     private void Cured()
     {
         enemyMovement.healthBar.fillAmount = 0.0f;
+        audio.clip = cured;
+        audio.Play();
 
         if(thisType == "PurpleHueman")
         {
