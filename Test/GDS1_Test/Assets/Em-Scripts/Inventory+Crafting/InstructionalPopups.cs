@@ -138,7 +138,7 @@ public class InstructionalPopups : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if(SceneManager.GetActiveScene().buildIndex == 2 && !firstLevelOpen)
+        if(SceneManager.GetActiveScene().buildIndex == 3 && !firstLevelOpen)
         {
             firstLevelOpen = true;
             image.enabled = true;
@@ -146,7 +146,7 @@ public class InstructionalPopups : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if(SceneManager.GetActiveScene().buildIndex == 0 && !firstLevelComplete && PlayerPrefs.GetInt("Current") == 3)
+        if(SceneManager.GetActiveScene().buildIndex == 1 && !firstLevelComplete && PlayerPrefs.GetInt("Current") == 4)
         {
                 firstLevelComplete = true;
                 image.enabled = true;
@@ -154,7 +154,7 @@ public class InstructionalPopups : MonoBehaviour
                 Time.timeScale = 0;
         }
 
-        if (!firstTimePurpleCrafted && im.purpleCrafted && PlayerPrefs.GetInt("Current") == 3)
+        if (!firstTimePurpleCrafted && im.purpleCrafted && PlayerPrefs.GetInt("Current") == 4)
         {
             firstTimePurpleCrafted = true;
             image.enabled = true;
@@ -162,7 +162,7 @@ public class InstructionalPopups : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 0 && !secondLevelComplete && PlayerPrefs.GetInt("Current") == 4)
+        if (SceneManager.GetActiveScene().buildIndex == 1 && !secondLevelComplete && PlayerPrefs.GetInt("Current") == 5)
         {
             secondLevelComplete = true;
             image.enabled = true;
@@ -170,7 +170,7 @@ public class InstructionalPopups : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 0 && !thirdLevelComplete && PlayerPrefs.GetInt("Current") == 5)
+        if (SceneManager.GetActiveScene().buildIndex == 1 && !thirdLevelComplete && PlayerPrefs.GetInt("Current") == 6)
         {
             thirdLevelComplete = true;
             image.enabled = true;

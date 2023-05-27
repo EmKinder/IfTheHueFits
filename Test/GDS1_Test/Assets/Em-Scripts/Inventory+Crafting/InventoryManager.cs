@@ -133,7 +133,7 @@ public class InventoryManager : MonoBehaviour
     }
     void YellowCraftClick()
     {
-        if (PlayerPrefs.GetInt("Current") >= 4)
+        if (PlayerPrefs.GetInt("Current") >= 5)
         {
             Craft(craftingRecipies[1]);
         }
@@ -146,21 +146,21 @@ public class InventoryManager : MonoBehaviour
     }
     void OrangeCraftClick()
     {
-        if (PlayerPrefs.GetInt("Current") >= 5)
+        if (PlayerPrefs.GetInt("Current") >= 6)
         {
             Craft(craftingRecipies[3]);
         }
     }
     void GreenCraftClick()
     {
-        if (PlayerPrefs.GetInt("Current") >= 5)
+        if (PlayerPrefs.GetInt("Current") >= 6)
         {
             Craft(craftingRecipies[4]);
         }
     }
     void PurpleCraftClick()
     {
-        if(PlayerPrefs.GetInt("Current") >= 3) { 
+        if(PlayerPrefs.GetInt("Current") >= 4) { 
             Craft(craftingRecipies[5]);
         }
 

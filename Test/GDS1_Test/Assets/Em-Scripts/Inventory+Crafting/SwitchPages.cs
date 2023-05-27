@@ -104,6 +104,10 @@ public class SwitchPages : MonoBehaviour
                 timer = 0;
             }
         }
+        else
+        {
+            coverButton.sprite = blackSprite;
+        }
     }
 
     public void CoverForward()
@@ -205,7 +209,7 @@ public class SwitchPages : MonoBehaviour
         yellowLock.enabled = false;
         orangeLock.enabled = false;
         orangeLock.enabled = false;
-        if (PlayerPrefs.GetInt("Current") <= 2)
+        if (PlayerPrefs.GetInt("Current") <= 3)
         {
             purpleLock.enabled = true;
         }
@@ -221,7 +225,7 @@ public class SwitchPages : MonoBehaviour
         yellowLock.enabled = false;
         orangeLock.enabled = false;
         orangeLock.enabled = false;
-        if (PlayerPrefs.GetInt("Current") <= 3)
+        if (PlayerPrefs.GetInt("Current") <= 4)
         {
             yellowLock.enabled = true;
         }
@@ -237,7 +241,7 @@ public class SwitchPages : MonoBehaviour
         yellowLock.enabled = false;
         orangeLock.enabled = false;
         orangeLock.enabled = false;
-        if (PlayerPrefs.GetInt("Current") <= 4)
+        if (PlayerPrefs.GetInt("Current") <= 5)
         {
             orangeLock.enabled = true;
         }
@@ -252,7 +256,7 @@ public class SwitchPages : MonoBehaviour
         yellowLock.enabled = false;
         orangeLock.enabled = false;
         orangeLock.enabled = false;
-        if (PlayerPrefs.GetInt("Current") <= 4)
+        if (PlayerPrefs.GetInt("Current") <= 5)
         {
             greenLock.enabled = true;
         }
