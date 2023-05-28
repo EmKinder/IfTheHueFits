@@ -2,25 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class car : MonoBehaviour
+public class TumbleWeedLevel5 : MonoBehaviour
 {
     // Start is called before the first frame update
 
     Rigidbody car1;
-     float carSpeed = 3;
-   // PlayerHealth playerHealth;
-  public  GameObject Mcar;
+    float carSpeed = 2.5f;
+    // PlayerHealth playerHealth;
+    public GameObject Mcar;
     Collider collid;
     bool moving = false;
     void Start()
     {
-       // Mcar = GameObject.FindWithTag("Car");
-       
+        // Mcar = GameObject.FindWithTag("Car");
+
         collid = Mcar.GetComponent<Collider>();
         car1 = Mcar.GetComponent<Rigidbody>();
-      
-      //  playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
-       
+
+        //  playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
+
 
 
     }
@@ -30,12 +30,12 @@ public class car : MonoBehaviour
     {
         if (moving == true)
         {
-            
-            car1.velocity = Mcar.transform.right * carSpeed;
+
+            car1.velocity = Mcar.transform.forward * carSpeed;
 
         }
 
-        
+
     }
 
 
@@ -46,7 +46,7 @@ public class car : MonoBehaviour
             moving = true;
             // playerHealth.DealDamage(5.0f);
         }
-      
+
     }
 
 }
