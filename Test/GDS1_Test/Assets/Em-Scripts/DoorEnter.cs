@@ -14,6 +14,7 @@ public class DoorEnter : MonoBehaviour
     public Material emmisive;
     public Material normal;
     public GameObject door;
+    CheckForJaimesLevel jaime;
 
     private void Awake()
     {
@@ -29,7 +30,8 @@ public class DoorEnter : MonoBehaviour
     {
         enterDoor = false;
         //  add = 1;
-     //   sceneload = 6;
+        //   sceneload = 6;
+        jaime = GameObject.FindGameObjectWithTag("Jaime").GetComponent<CheckForJaimesLevel>();
         
     }
 
@@ -44,7 +46,15 @@ public class DoorEnter : MonoBehaviour
                 canvas.enabled = false;
                 // sceneload = PlayerPrefs.GetInt("Current", add);
                 // SceneManager.LoadScene(sceneload);
-                SceneManager.LoadScene("LevelSelect");
+                if (!jaime.GetBool())
+                {
+                    SceneManager.LoadScene("LevelSelect");
+                }
+                else
+                {
+                    SceneManager.LoadScene("JLevelSelect");
+                }
+               
                 enterDoor = false;
                 
             }

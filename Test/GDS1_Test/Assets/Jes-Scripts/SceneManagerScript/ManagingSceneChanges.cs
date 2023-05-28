@@ -7,13 +7,15 @@ using UnityEngine.UI;
 
 public class ManagingSceneChanges : MonoBehaviour
 {
- //  Canvas InventoryCanvas;
-  //  public Canvas LevelSelectCanvas;
-  //  public Canvas JLevelSelectCanvas;
+    //  Canvas InventoryCanvas;
+    //  public Canvas LevelSelectCanvas;
+    //  public Canvas JLevelSelectCanvas;
+
+  
+    CheckForJaimesLevel jaime;
     private void Awake()
     {
         // DontDestroyOnLoad(this.gameObject);
-        
 
 
     }
@@ -22,7 +24,9 @@ public class ManagingSceneChanges : MonoBehaviour
     {
         //  LevelSelectCanvas.enabled = false;
         //   JLevelSelectCanvas.enabled = false;
-    //    InventoryCanvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
+        //    InventoryCanvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
+
+        jaime = GameObject.FindGameObjectWithTag("Jaime").GetComponent<CheckForJaimesLevel>();
     }
 
     // Update is called once per frame
@@ -108,7 +112,8 @@ public class ManagingSceneChanges : MonoBehaviour
 
     public void JaimiesInventory()
     {
-        SceneManager.LoadScene("JamiesInventory");
+        jaime.SetBool(true);
+        SceneManager.LoadScene("InventoryAndCrafting");
     }
 
     public void returnbutton()
@@ -121,6 +126,7 @@ public class ManagingSceneChanges : MonoBehaviour
     public void newGame()
     {
         PlayerPrefs.DeleteAll();
+        jaime.SetBool(false);
         SceneManager.LoadScene("InventoryAndCrafting");
     }
 }
