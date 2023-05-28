@@ -7,7 +7,7 @@ public class car : MonoBehaviour
     // Start is called before the first frame update
 
     Rigidbody car1;
-    public float carSpeed;
+     float carSpeed = 1;
    // PlayerHealth playerHealth;
   public  GameObject Mcar;
     Collider collid;
@@ -31,7 +31,7 @@ public class car : MonoBehaviour
         if (moving == true)
         {
             
-            car1.velocity = Mcar.transform.forward * carSpeed;
+            car1.velocity = Mcar.transform.right * carSpeed;
 
         }
 

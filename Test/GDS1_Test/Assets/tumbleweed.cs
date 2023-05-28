@@ -20,7 +20,7 @@ public class tumbleweed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Rotate(0, 0, 90);
+        transform.RotateAround(transform.position, Vector2.right, 20*(Time.deltaTime/60));
     }
 
     private void OnTriggerEnter(Collider other)

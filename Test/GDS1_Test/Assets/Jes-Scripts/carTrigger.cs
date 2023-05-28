@@ -31,7 +31,8 @@ public class carTrigger : MonoBehaviour
         }
         if (other.tag == "Wall")
         {
-            col.transform.Rotate(0f, Y, 0f);
+            col.transform.Rotate(0f, 0f, 0f);
+           
         }
     }
 }
