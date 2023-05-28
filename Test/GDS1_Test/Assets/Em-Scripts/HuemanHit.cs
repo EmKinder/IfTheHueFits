@@ -38,13 +38,15 @@ public class HuemanHit : MonoBehaviour
     AudioSource audio;
     public AudioClip cured;
 
+    bool hasBeenCured;
+
 
 
     void Start()
     {
         managersFound = false;
         thisType = this.tag;
-        meleeDamage = 10.0f;
+        meleeDamage = 5.0f;
         paintballDamage = 5.0f;
         enemyMovement = this.GetComponent<EnemyMovement>();
         //   if (enemyCounter == null)
@@ -57,6 +59,8 @@ public class HuemanHit : MonoBehaviour
         }
         outsideWorkshop = GameObject.FindGameObjectWithTag("finish").GetComponent<OutsideWorkshopTrigger>();
         audio = GameObject.FindGameObjectWithTag("CuredSound").GetComponent<AudioSource>();
+
+        hasBeenCured = false;
     }
 
     // Update is called once per frame
@@ -161,6 +165,7 @@ public class HuemanHit : MonoBehaviour
 
     private void Cured()
     {
+        if (!hasBeenCured) { 
         enemyMovement.healthBar.fillAmount = 0.0f;
         audio.clip = cured;
         audio.Play();
@@ -210,8 +215,10 @@ public class HuemanHit : MonoBehaviour
         this.GetComponent<EnemyMovement>().enabled = false;
         enemyMovement.SetCured();
         outsideWorkshop.EnemyCuredCount();
-        // enemyCounter.EnemyCured();
+            // enemyCounter.EnemyCured();
+            hasBeenCured = true;
         Destroy(this.gameObject, 2.5f);
+        }
     }
 }
 
