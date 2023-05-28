@@ -101,10 +101,14 @@ public class ManagingSceneChanges : MonoBehaviour
     public void JaimiesLevelSelect()
 
     {
-         //  InventoryCanvas.enabled = false;
-          
-        SceneManager.LoadScene("JLevelSelect");
+        //  InventoryCanvas.enabled = false;
+       SceneManager.LoadScene("JLevelSelect");
 
+    }
+
+    public void JaimiesInventory()
+    {
+        SceneManager.LoadScene("JamiesInventory");
     }
 
     public void returnbutton()
