@@ -16,7 +16,7 @@ public class LighTimer : MonoBehaviour
     {
         timerCounterOn = true;
         lightobj = GameObject.FindWithTag("theLight").GetComponent<Light>();
-        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
+        audio = GameObject.FindGameObjectWithTag("LightSound").GetComponent<AudioSource>();
      //   imagecanvas.enabled = false;
 
     }
@@ -34,8 +34,8 @@ public class LighTimer : MonoBehaviour
                   lightobj.intensity = 1.0f;
                 timerCounter = timerCounter + Time.deltaTime;
                 timerCounter = timerCounter + 1 / 60;
-                audio.clip = lightSwitch;
-                audio.Play();
+               // audio.clip = lightSwitch;
+             //   audio.Play();
               
 
                 if(timerCounter >= 10 && timerCounter <= 15)

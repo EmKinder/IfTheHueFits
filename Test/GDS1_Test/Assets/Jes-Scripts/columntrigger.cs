@@ -21,7 +21,7 @@ public class columntrigger : MonoBehaviour
         CTrigger = col.GetComponent<Animator>();
         collid = col.GetComponent<Collider>();
         playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
-        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
+        audio = GameObject.FindGameObjectWithTag("ColumnSound").GetComponent<AudioSource>();
 
     }
 

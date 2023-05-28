@@ -49,7 +49,7 @@ public class CharacterMovement : MonoBehaviour
             moveSpeed = 1f;
         }
 
-        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
+        audio = GameObject.FindGameObjectWithTag("ShootingSound").GetComponent<AudioSource>();
 
 
        //For Disabling Inventory Manager requirments

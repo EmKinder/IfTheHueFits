@@ -17,7 +17,7 @@ public class BlueResource : MonoBehaviour
     // Start is called before the first frame update
     void Start()
         {
-        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
+        audio = GameObject.FindGameObjectWithTag("ResourceSound").GetComponent<AudioSource>();
         }
 
         // Update is called once per frame

@@ -14,7 +14,7 @@ public class RedResource : MonoBehaviour
     private void Start()
     {
         //   resourcePickUP = GameObject.FindGameObjectWithTag("RedResource").GetComponent<ResourcePickUP>();
-        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
+        audio = GameObject.FindGameObjectWithTag("ResourceSound").GetComponent<AudioSource>();
     }
     private void Update()
     {

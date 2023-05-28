@@ -13,7 +13,7 @@ public class puddle : MonoBehaviour
     void Start()
     {
         playerHealth = GameObject.FindGameObjectWithTag("HealthManager").GetComponent<PlayerHealth>();
-        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
+        audio = GameObject.FindGameObjectWithTag("PuddleSound").GetComponent<AudioSource>();
      //   puddlePaint = GetComponent<Collider>();
 
         

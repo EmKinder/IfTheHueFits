@@ -56,7 +56,7 @@ public class HuemanHit : MonoBehaviour
             player = GameObject.FindGameObjectWithTag("Player");
         }
         outsideWorkshop = GameObject.FindGameObjectWithTag("finish").GetComponent<OutsideWorkshopTrigger>();
-        audio = GameObject.FindGameObjectWithTag("SoundEffects").GetComponent<AudioSource>();
+        audio = GameObject.FindGameObjectWithTag("CuredSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
