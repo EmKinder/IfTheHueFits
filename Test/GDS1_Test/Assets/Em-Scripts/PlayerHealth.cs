@@ -27,7 +27,7 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         CheckHealth();
      //   if(playerHealth <= 0)
@@ -61,10 +61,12 @@ public class PlayerHealth : MonoBehaviour
             //    {
            // moving.PlayerMovementRegular();
             moving.enabled = false;
+            player.mass = 1000;
+
             //    }
             // RigidbodyConstraints.FreezePositionX = true;
 
-            player.isKinematic = true;
+       //     player.isKinematic = true;
             Invoke("GameOver", 5);
             
              // StartCoroutine(waitforme());
