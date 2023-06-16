@@ -65,7 +65,7 @@ public class PlayerHealth : MonoBehaviour
 
             //    }
             // RigidbodyConstraints.FreezePositionX = true;
-
+            anim.SetBool("isDead", true);
        //     player.isKinematic = true;
             Invoke("GameOver", 5);
             
