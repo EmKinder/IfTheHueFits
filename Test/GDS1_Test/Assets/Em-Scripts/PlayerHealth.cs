@@ -8,6 +8,10 @@ public class PlayerHealth : MonoBehaviour
 {
     public Image healthBar;
     public float playerHealth;
+    Rigidbody player;
+  //  Input inputmanager;
+    CharacterMovement moving;
+    
   
     Animator anim;
     // Start is called before the first frame update
@@ -15,7 +19,11 @@ public class PlayerHealth : MonoBehaviour
     {
         playerHealth = 100.0f;
         anim = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
-       // anim.Play("StandingReactDeathBackward");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
+        moving = GameObject.FindGameObjectWithTag("Player").GetComponent<CharacterMovement>();
+       // inputmanager = GetComponent<Input>();
+        
+        // anim.Play("StandingReactDeathBackward");
     }
 
     // Update is called once per frame
@@ -36,6 +44,8 @@ public class PlayerHealth : MonoBehaviour
         
     }
 
+  
+
     public void CheckHealth()
     {
         if(playerHealth <= 0)
@@ -44,7 +54,19 @@ public class PlayerHealth : MonoBehaviour
 
              
             anim.Play("StandingReactDeathBackward");
+
+            // player.constraints = RigidbodyConstraints.FreezePosition;
+            //  player.velocity = Vector3.zero;
+            //  if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.UpArrow) || Input.GetKeyDown(KeyCode.DownArrow))
+            //    {
+           // moving.PlayerMovementRegular();
+            moving.enabled = false;
+            //    }
+            // RigidbodyConstraints.FreezePositionX = true;
+
+            player.isKinematic = true;
             Invoke("GameOver", 5);
+            
              // StartCoroutine(waitforme());
            //  SceneManager.LoadScene("GameOver");
         }
@@ -61,4 +83,7 @@ public class PlayerHealth : MonoBehaviour
     {
         SceneManager.LoadScene("GameOver");
     }
+
+
+
 }
