@@ -160,7 +160,7 @@ public class CharacterMovement : MonoBehaviour
                 anim.SetTrigger("isAttacking");
                 shooting.ShootPaint(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
                 canShoot = false;
-                canMove = false;
+               // canMove = false; //Jes changed so that player can move when shooting
                 Debug.Log("Should Not be able to shoot now");
             }
         }
