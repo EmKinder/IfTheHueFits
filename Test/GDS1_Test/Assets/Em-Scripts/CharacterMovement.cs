@@ -7,7 +7,7 @@ public class CharacterMovement : MonoBehaviour
 {
     Animator anim;
     float moveTimerLength = 1.0f;
-    float shootTimerLength = 1.5f;
+    float shootTimerLength = 0.8f;
     float hitTimerLength = 1f;
 
     float shootTimer = 0;
