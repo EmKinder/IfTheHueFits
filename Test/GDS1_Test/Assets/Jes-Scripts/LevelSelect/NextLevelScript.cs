@@ -33,4 +33,9 @@ public class NextLevelScript : MonoBehaviour
        
     }
 
+    public void CreditButton()
+    {
+        SceneManager.LoadScene("Credits");
+    }
+
 }
