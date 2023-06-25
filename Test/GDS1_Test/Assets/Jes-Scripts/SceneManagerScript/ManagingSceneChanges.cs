@@ -10,8 +10,9 @@ public class ManagingSceneChanges : MonoBehaviour
     //  Canvas InventoryCanvas;
     //  public Canvas LevelSelectCanvas;
     //  public Canvas JLevelSelectCanvas;
+    public int loading;
+    
 
-  
     CheckForJaimesLevel jaime;
     private void Awake()
     {
@@ -25,7 +26,6 @@ public class ManagingSceneChanges : MonoBehaviour
         //  LevelSelectCanvas.enabled = false;
         //   JLevelSelectCanvas.enabled = false;
         //    InventoryCanvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
-
         jaime = GameObject.FindGameObjectWithTag("Jaime").GetComponent<CheckForJaimesLevel>();
     }
 
@@ -57,7 +57,13 @@ public class ManagingSceneChanges : MonoBehaviour
     {
         Time.timeScale = 1f;
         //   SceneManager.LoadScene("InventoryAndCrafting");
+        PlayerPrefs.SetInt("Continuing", 1);
         SceneManager.LoadScene("MainMenu");
+       
+
+
+
+        //  SceneManager.LoadScene("MainMenu");
     }
 
     public void GoBackToCrafting()
@@ -127,6 +133,12 @@ public class ManagingSceneChanges : MonoBehaviour
     {
         PlayerPrefs.DeleteAll();
         jaime.SetBool(false);
+    
         SceneManager.LoadScene("InventoryAndCrafting");
+    }
+
+    public void CreditScene()
+    {
+        SceneManager.LoadScene("Credits");
     }
 }
