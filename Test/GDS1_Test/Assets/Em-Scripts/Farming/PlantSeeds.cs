@@ -5,6 +5,9 @@ using UnityEngine.UI;
 
 public class PlantSeeds : MonoBehaviour
 {
+
+    CheckForJaimesLevel jaime;
+
     InventoryManager inventory;
     bool canPlant;
   //  public GameObject growing;
@@ -57,6 +60,7 @@ public class PlantSeeds : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        jaime = GameObject.FindGameObjectWithTag("Jaime").GetComponent<CheckForJaimesLevel>();
 
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
         redFarmButton.gameObject.SetActive(false);
@@ -83,6 +87,10 @@ public class PlantSeeds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(jaime.GetGameRestartBool() == true)
+        {
+            plantGrown = false;
+        }
         if (timerActive)
         {
             timerText.enabled = true;

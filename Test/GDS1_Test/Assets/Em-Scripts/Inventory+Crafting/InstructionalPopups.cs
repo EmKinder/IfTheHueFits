@@ -8,6 +8,8 @@ public class InstructionalPopups : MonoBehaviour
 {
     // Start is called before the first frame update
     public NextLevelScript nextLevelScript;
+    CheckForJaimesLevel jaime;
+
     public PlantSeeds ps1;
     public PlantSeeds ps2;
     public PlantSeeds ps3;
@@ -52,6 +54,8 @@ public class InstructionalPopups : MonoBehaviour
 
     void Start()
     {
+        jaime = GameObject.FindGameObjectWithTag("Jaime").GetComponent<CheckForJaimesLevel>();
+
         firstPlantHasBeenHarvested = false;
         firstPlantHasBeenGrown = false;
         firstLevelOpen = false;
@@ -69,6 +73,13 @@ public class InstructionalPopups : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (jaime.GetGameRestartBool() == true)
+        {
+            ResetUI();
+            jaime.SetGameRestartBool(false);
+        }
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (complementaryTutorialFinished)
@@ -177,5 +188,21 @@ public class InstructionalPopups : MonoBehaviour
             image.sprite = orangeGreenUI;
             Time.timeScale = 0;
         }
+    }
+
+    void ResetUI()
+    {
+        firstPlantHasBeenHarvested = false;
+        firstPlantHasBeenGrown = false;
+        firstLevelOpen = false;
+        complementaryTutorialFinished = false;
+        firstLevelComplete = false;
+        secondLevelComplete = false;
+        thirdLevelComplete = false;
+        firstTimePurpleCrafted = false;
+        redPageFirstSeen = false;
+        image.sprite = plantingUI;
+        image.enabled = true;
+        Time.timeScale = 0;
     }
 }
