@@ -6,6 +6,7 @@ public class CheckForJaimesLevel : MonoBehaviour
 {
     private static GameObject sampleInstance;
     private bool jaimesLevel;
+    private bool gameRestart;
     void Awake()
     {
         //check that this instance exists
@@ -45,4 +46,15 @@ public class CheckForJaimesLevel : MonoBehaviour
     {
         return jaimesLevel;
     }
+
+    public void SetGameRestartBool(bool clicked)
+    {
+        gameRestart = clicked;
+    }
+
+    public bool GetGameRestartBool()
+    {
+        return gameRestart;
+    }
+
 }

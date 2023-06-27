@@ -126,6 +126,7 @@ public class ManagingSceneChanges : MonoBehaviour
     public void newGame()
     {
         PlayerPrefs.DeleteAll();
+        jaime.SetGameRestartBool(true);
         jaime.SetBool(false);
         SceneManager.LoadScene("InventoryAndCrafting");
     }
