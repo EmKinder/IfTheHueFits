@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class OpeningSequence : MonoBehaviour
 {
-    float animationTime = 2.0f;
+    float animationTime = 31.5f;
     float timer = 0.0f;
     // Start is called before the first frame update
     void Start()
