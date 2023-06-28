@@ -13,8 +13,10 @@ public class DoorEnter : MonoBehaviour
     //public NextLevelScript script;
     public Material emmisive;
     public Material normal;
-    public GameObject door;
+   // public GameObject door;
     CheckForJaimesLevel jaime;
+    public Animator doorLeft;
+    public Animator doorRight;
 
     private void Awake()
     {
@@ -28,18 +30,20 @@ public class DoorEnter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         enterDoor = false;
         //  add = 1;
         //   sceneload = 6;
         jaime = GameObject.FindGameObjectWithTag("Jaime").GetComponent<CheckForJaimesLevel>();
+      //  doorLeft.anima
         
     }
 
     // Update is called once per frame
     void Update()
     { 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
+       // if (Input.GetKeyDown(KeyCode.E))
+      //  {
             if (enterDoor)
             {
                 Debug.Log("Door Entered");
@@ -58,19 +62,19 @@ public class DoorEnter : MonoBehaviour
                 enterDoor = false;
                 
             }
-        }
+     //   }
 
-       
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            door.GetComponent<MeshRenderer>().material = emmisive;
+
             enterDoor = true;
-          //  add++;
-            
+         /*   doorLeft.SetTrigger("doorOpen");
+            doorRight.SetTrigger("doorOpen"); */
+
 
         }
     }
@@ -79,9 +83,12 @@ public class DoorEnter : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            door.GetComponent<MeshRenderer>().material = normal;
+
             enterDoor = false;
-         //   add = add + 1;
+          /*  doorLeft.SetTrigger("doorClose");
+            doorRight.SetTrigger("doorClose"); */
+
+
         }
     }
 

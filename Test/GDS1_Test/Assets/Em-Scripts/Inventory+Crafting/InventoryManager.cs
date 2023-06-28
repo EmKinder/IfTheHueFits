@@ -125,6 +125,18 @@ public class InventoryManager : MonoBehaviour
             }
         }
     }
+
+    public void gameReset()
+    {
+        for(int i = 0; i < slots.Length; i++)
+        {
+            items[i].Clear();
+        }
+        Add(onStartRedResource, 2);
+        Add(onStartBlueResource, 2);
+        RefreshUI();
+
+    }
     #region Crafting
     void RedCraftClick()
     {
