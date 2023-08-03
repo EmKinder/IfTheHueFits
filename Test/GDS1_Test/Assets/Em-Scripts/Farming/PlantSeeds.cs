@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class PlantSeeds : MonoBehaviour
 {
     InventoryManager inventory;
+    public Canvas canvas;
     bool canPlant;
   //  public GameObject growing;
     float timer;
@@ -30,6 +31,9 @@ public class PlantSeeds : MonoBehaviour
     public Button redFarmButton;
     public Button yellowFarmButton;
     public Button blueFarmButton;
+    public Text redText;
+    public Text blueText;
+    public Text yellowText;
 
     //Items
     public ItemClass redResource;
@@ -59,12 +63,19 @@ public class PlantSeeds : MonoBehaviour
     {
 
         inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
+        redText = GameObject.FindGameObjectWithTag("RedSeed").GetComponent<Text>();
+        blueText= GameObject.FindGameObjectWithTag("BlueSeed").GetComponent<Text>();
+        yellowText = GameObject.FindGameObjectWithTag("YellowSeed").GetComponent<Text>();
         redFarmButton.gameObject.SetActive(false);
         yellowFarmButton.gameObject.SetActive(false);
         blueFarmButton.gameObject.SetActive(false);
-      //  grown.SetActive(false);
-      //  growing.SetActive(false);
-      //  timerUI.gameObject.SetActive(false);
+        redText.enabled = false; //jes
+        blueText.enabled = false; //jes
+        yellowText.enabled = false; //jes
+
+        //  grown.SetActive(false);
+        //  growing.SetActive(false);
+        //  timerUI.gameObject.SetActive(false);
         canPlant = false;
         plantGrown = false;
         timerActive = false;
@@ -159,6 +170,11 @@ public class PlantSeeds : MonoBehaviour
                     redFarmButton.gameObject.SetActive(true);
                     yellowFarmButton.gameObject.SetActive(true);
                     blueFarmButton.gameObject.SetActive(true);
+
+                    redText.enabled = true; //jes
+                    blueText.enabled = true; //jes
+                    yellowText.enabled = true; //jes
+
                 }
             }
 
@@ -207,6 +223,10 @@ public class PlantSeeds : MonoBehaviour
             redFarmButton.gameObject.SetActive(false);
             yellowFarmButton.gameObject.SetActive(false);
             blueFarmButton.gameObject.SetActive(false);
+
+            redText.enabled = false; //jes
+            blueText.enabled = false; //jes
+            yellowText.enabled = false; //jes
         }
         canPlant = false;
         ChangeMaterial(pots, normal);
@@ -221,11 +241,18 @@ public class PlantSeeds : MonoBehaviour
            // growing.SetActive(true);
           //  ChangeMaterial(growing, redMat);
             inventory.Remove(redSeed, 1);
+           // inventory.Remove1(redSeed, 1);
             timerActive = true;
             canPlant = false;
             redFarmButton.gameObject.SetActive(false);
             yellowFarmButton.gameObject.SetActive(false);
             blueFarmButton.gameObject.SetActive(false);
+
+            redText.enabled = false; //jes
+            blueText.enabled = false; //jes
+            yellowText.enabled = false; //jes
+
+
             audio.clip = plantSeeds;
             audio.Play();
         }
@@ -241,11 +268,17 @@ public class PlantSeeds : MonoBehaviour
          //   growing.SetActive(true);
           //  ChangeMaterial(growing, yellowMat);
             inventory.Remove(yellowSeed, 1);
+       //     inventory.Remove1(yellowSeed, 1); //jes
             timerActive = true;
             canPlant = false;
             redFarmButton.gameObject.SetActive(false);
             yellowFarmButton.gameObject.SetActive(false);
             blueFarmButton.gameObject.SetActive(false);
+
+            redText.enabled = false; //jes
+            blueText.enabled = false; //jes
+            yellowText.enabled = false; //jes
+
             audio.clip = plantSeeds;
             audio.Play();
         }
@@ -260,11 +293,17 @@ public class PlantSeeds : MonoBehaviour
           //  growing.SetActive(true);
          //   ChangeMaterial(growing, blueMat);
             inventory.Remove(blueSeed, 1);
+         //   inventory.Remove1(blueSeed, 1); //jes
             timerActive = true;
             canPlant = false;
             redFarmButton.gameObject.SetActive(false);
             yellowFarmButton.gameObject.SetActive(false);
             blueFarmButton.gameObject.SetActive(false);
+
+            redText.enabled = false; //jes
+            blueText.enabled = false; //jes
+            yellowText.enabled = false; //jes
+
             audio.clip = plantSeeds;
             audio.Play();
         }

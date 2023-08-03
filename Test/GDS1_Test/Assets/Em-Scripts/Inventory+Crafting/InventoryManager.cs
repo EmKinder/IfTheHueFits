@@ -8,8 +8,11 @@ public class InventoryManager : MonoBehaviour
     [SerializeField] private List<CraftingRecipeClass> craftingRecipies = new List<CraftingRecipeClass>();
     [SerializeField] private GameObject itemCursor;
     [SerializeField] private GameObject slotHolder;
+    [SerializeField] private GameObject seedmeed;
     [SerializeField] private SlotClass[] startingItems;
     [SerializeField] private SlotClass[] items;
+
+
     private GameObject[] slots;
     private SlotClass movingSlot;
     private SlotClass tempSlot;
@@ -34,7 +37,8 @@ public class InventoryManager : MonoBehaviour
     bool cannotCraftBool;
     float timer = 0.0f;
 
- 
+    //jes trying something out:
+    public SeedCount seedCount;
 
     private void Start()
     {
@@ -206,6 +210,7 @@ public class InventoryManager : MonoBehaviour
     {
 
         SlotClass slot = Contains(item);
+        
         if (slot != null && slot.GetItem().isStackable)
         {
             slot.AddQuantity(quantity);
@@ -241,6 +246,25 @@ public class InventoryManager : MonoBehaviour
                 {
                     ammoCount.addAmmoCount("Purple", quantity);
                     Debug.Log(ammoCount.getAmmoCount("Purple"));
+                }
+            }
+            //jes trying something out
+            if(seedCount != null)
+            {
+                if (slot.GetItem().itemName == "RedSeed")
+                {
+                    seedCount.addSeedCount("Red", quantity);
+                    Debug.Log(seedCount.getSeedCount("Red"));
+                }
+                if (slot.GetItem().itemName == "BlueSeed")
+                {
+                    seedCount.addSeedCount("Blue", quantity);
+                    Debug.Log(seedCount.getSeedCount("Blue"));
+                }
+                if (slot.GetItem().itemName == "YellowSeed")
+                {
+                    seedCount.addSeedCount("Yellow", quantity);
+                    Debug.Log(seedCount.getSeedCount("Yellow"));
                 }
             }
         }
@@ -281,6 +305,24 @@ public class InventoryManager : MonoBehaviour
                         ammoCount.addAmmoCount("Purple", quantity);
                         Debug.Log(ammoCount.getAmmoCount("Purple"));
                     }
+                    //jes trying something 
+                    if (item.GetItem().itemName == "RedSeed")
+                    {
+                        seedCount.addSeedCount("Red", quantity);
+                        Debug.Log(seedCount.getSeedCount("Red"));
+                    }
+                    if (item.GetItem().itemName == "BlueSeed")
+                    {
+                        seedCount.addSeedCount("Blue", quantity);
+                        Debug.Log(seedCount.getSeedCount("Blue"));
+                    }
+                    if (item.GetItem().itemName == "YellowSeed")
+                    {
+                        seedCount.addSeedCount("Yellow", quantity);
+                        Debug.Log(seedCount.getSeedCount("Yellow"));
+                    }
+                    //
+
                     break;
                 }
             }
@@ -288,6 +330,8 @@ public class InventoryManager : MonoBehaviour
         RefreshUI();
         return true;
     }
+
+   
 
     public bool Remove(ItemClass item)
     {
@@ -322,6 +366,8 @@ public class InventoryManager : MonoBehaviour
         RefreshUI();
         return true;
     }
+
+    
 
     public bool Remove(ItemClass item, int quantity)
     {
@@ -358,6 +404,7 @@ public class InventoryManager : MonoBehaviour
         return true;
     }
 
+    
     public SlotClass Contains(ItemClass item)
     {
         if (slotHolder != null)
@@ -374,6 +421,8 @@ public class InventoryManager : MonoBehaviour
     }
         return null;
     }
+
+   
     public bool Contains(ItemClass item, int quantity)
     {
         for (int i = 0; i < items.Length; i++)
