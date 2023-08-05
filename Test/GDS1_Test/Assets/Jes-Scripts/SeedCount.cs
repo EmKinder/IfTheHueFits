@@ -75,19 +75,19 @@ public class SeedCount : MonoBehaviour
         {
             RedSeedCount = RedSeedCount - quantity; //amount being taken away each time. 
             Inventory.Remove(RedSeed); //taking it away from the inventory scene. 
-            redText.text = RedSeed.ToString();
+            redText.text = RedSeedCount.ToString();
         }
         if (type == "Blue")
         {
             BlueSeedCount = BlueSeedCount - quantity;
-            Inventory.Remove(BlueSeed);
+           Inventory.Remove(BlueSeed);
             blueText.text = BlueSeedCount.ToString();
         }
         if (type == "Yellow")
         {
             YellowSeedCount = YellowSeedCount - quantity;
             Inventory.Remove(YellowSeed);
-            yellowText.text = YellowSeed.ToString();
+            yellowText.text = YellowSeedCount.ToString();
         }
     }
 

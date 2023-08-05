@@ -31,9 +31,16 @@ public class PlantSeeds : MonoBehaviour
     public Button redFarmButton;
     public Button yellowFarmButton;
     public Button blueFarmButton;
+
+    //Jes adding text
     public Text redText;
     public Text blueText;
     public Text yellowText;
+
+    //Jes adding text backgrounds
+    public Image redCircle;
+    public Image blueCircle;
+    public Image yellowCircle;
 
     //Items
     public ItemClass redResource;
@@ -66,13 +73,19 @@ public class PlantSeeds : MonoBehaviour
         redText = GameObject.FindGameObjectWithTag("RedSeed").GetComponent<Text>();
         blueText= GameObject.FindGameObjectWithTag("BlueSeed").GetComponent<Text>();
         yellowText = GameObject.FindGameObjectWithTag("YellowSeed").GetComponent<Text>();
+        redCircle = GameObject.FindGameObjectWithTag("RedCircle").GetComponent<Image>();
+        blueCircle = GameObject.FindGameObjectWithTag("BlueCircle").GetComponent<Image>();
+        yellowCircle = GameObject.FindGameObjectWithTag("YellowCircle").GetComponent<Image>();
+
         redFarmButton.gameObject.SetActive(false);
         yellowFarmButton.gameObject.SetActive(false);
         blueFarmButton.gameObject.SetActive(false);
         redText.enabled = false; //jes
         blueText.enabled = false; //jes
         yellowText.enabled = false; //jes
-
+        redCircle.enabled = false; //jes
+        blueCircle.enabled = false; //jes
+        yellowCircle.enabled = false; //jes
         //  grown.SetActive(false);
         //  growing.SetActive(false);
         //  timerUI.gameObject.SetActive(false);
@@ -174,6 +187,9 @@ public class PlantSeeds : MonoBehaviour
                     redText.enabled = true; //jes
                     blueText.enabled = true; //jes
                     yellowText.enabled = true; //jes
+                    redCircle.enabled = true; //jes
+                    blueCircle.enabled = true; //jes
+                    yellowCircle.enabled = true; //jes
 
                 }
             }
@@ -227,6 +243,9 @@ public class PlantSeeds : MonoBehaviour
             redText.enabled = false; //jes
             blueText.enabled = false; //jes
             yellowText.enabled = false; //jes
+            redCircle.enabled = false; //jes
+            blueCircle.enabled = false; //jes
+            yellowCircle.enabled = false; //jes
         }
         canPlant = false;
         ChangeMaterial(pots, normal);
@@ -251,7 +270,9 @@ public class PlantSeeds : MonoBehaviour
             redText.enabled = false; //jes
             blueText.enabled = false; //jes
             yellowText.enabled = false; //jes
-
+            redCircle.enabled = false; //jes
+            blueCircle.enabled = false; //jes
+            yellowCircle.enabled = false; //jes
 
             audio.clip = plantSeeds;
             audio.Play();
@@ -278,6 +299,9 @@ public class PlantSeeds : MonoBehaviour
             redText.enabled = false; //jes
             blueText.enabled = false; //jes
             yellowText.enabled = false; //jes
+            redCircle.enabled = false; //jes
+            blueCircle.enabled = false; //jes
+            yellowCircle.enabled = false; //jes
 
             audio.clip = plantSeeds;
             audio.Play();
@@ -303,6 +327,9 @@ public class PlantSeeds : MonoBehaviour
             redText.enabled = false; //jes
             blueText.enabled = false; //jes
             yellowText.enabled = false; //jes
+            redCircle.enabled = false; //jes
+            blueCircle.enabled = false; //jes
+            yellowCircle.enabled = false; //jes
 
             audio.clip = plantSeeds;
             audio.Play();

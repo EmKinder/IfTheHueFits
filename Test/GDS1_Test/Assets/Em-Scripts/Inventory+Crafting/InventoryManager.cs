@@ -374,19 +374,51 @@ public class InventoryManager : MonoBehaviour
         SlotClass temp = Contains(item);
         if (temp != null)
         {
+            
             if (temp.GetQuantity() > 1)
             {
                 temp.SubQuantity(quantity);
+                if (item.GetItem().itemName == "RedSeed")
+                {
+                    seedCount.subSeedCount("Red", quantity);
+                    Debug.Log(seedCount.getSeedCount("Red"));
+                }
+                if (item.GetItem().itemName == "BlueSeed")
+                {
+                    seedCount.subSeedCount("Blue", quantity);
+                    Debug.Log(seedCount.getSeedCount("Blue"));
+                }
+                if (item.GetItem().itemName == "YellowSeed")
+                {
+                    seedCount.subSeedCount("Yellow", quantity);
+                    Debug.Log(seedCount.getSeedCount("Yellow"));
+                }
             }
             else
             {
                 int slotToRemoveIndex = 0;
+                if (item.GetItem().itemName == "RedSeed")
+                {
+                    seedCount.subSeedCount("Red", quantity);
+                    Debug.Log(seedCount.getSeedCount("Red"));
+                }
+                if (item.GetItem().itemName == "BlueSeed")
+                {
+                    seedCount.subSeedCount("Blue", quantity);
+                    Debug.Log(seedCount.getSeedCount("Blue"));
+                }
+                if (item.GetItem().itemName == "YellowSeed")
+                {
+                    seedCount.subSeedCount("Yellow", quantity);
+                    Debug.Log(seedCount.getSeedCount("Yellow"));
+                }
 
                 for (int i = 0; i < items.Length; i++)
                 {
                     if (items[i].GetItem() == item)
                     {
                         slotToRemoveIndex = i;
+                        
                         break;
                     }
                 }
