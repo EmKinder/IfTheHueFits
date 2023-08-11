@@ -202,7 +202,7 @@ public class PlantSeeds : MonoBehaviour
         {
             if(currentGrowingItemName == "Red")
             {
-                inventory.Add(redResource, 4);
+                inventory.Add(redResource, 2);
                 redFlowers.SetActive(false);
                 audio.clip = harvestSeeds;
                 audio.Play();
@@ -210,14 +210,14 @@ public class PlantSeeds : MonoBehaviour
             }
             if (currentGrowingItemName == "Yellow")
             {
-                inventory.Add(yellowResource, 4);
+                inventory.Add(yellowResource, 2);
                 yellowFlowers.SetActive(false);
                 audio.clip = harvestSeeds;
                 audio.Play();
             }
             if (currentGrowingItemName == "Blue")
             {
-                inventory.Add(blueResource, 4);
+                inventory.Add(blueResource, 2);
                 blueFlowers.SetActive(false);
                 audio.clip = harvestSeeds;
                 audio.Play();
