@@ -19,6 +19,7 @@ public class DoorEnter : MonoBehaviour
     public Animator doorRight;
     InstructionalPopups ip;
     bool canDoorOpen;
+    public GameObject collider;
 
     private void Awake()
     {
@@ -49,9 +50,14 @@ public class DoorEnter : MonoBehaviour
     {
         // if (Input.GetKeyDown(KeyCode.E))
         //  {
+        
             if (ip.firstTimeBlueCrafted == true)
             {
                 canDoorOpen = true;
+                if (collider)
+                {
+                Destroy(collider);
+                }
             }
             else
             {
@@ -84,6 +90,7 @@ public class DoorEnter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log(ip.firstTimeBlueCrafted);
         Debug.Log("collisiondetected");
         if(other.tag == "Player" )
         {
