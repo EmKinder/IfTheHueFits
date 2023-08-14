@@ -26,6 +26,8 @@ public class CharacterMovement : MonoBehaviour
     Plane groundPlane;
     //GameObject ptl;
     bool planePositionFound;
+    public GameObject ps;
+    ParticleSystem.MainModule main;
 
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed = 720f;
@@ -36,6 +38,8 @@ public class CharacterMovement : MonoBehaviour
 
     void Start()
     {
+        main = ps.gameObject.GetComponent<ParticleSystem>().main;
+        ps.gameObject.GetComponent<ParticleSystem>().Stop();
         anim = GetComponent<Animator>();
         canShoot = true;
         canHit = true;
@@ -152,8 +156,11 @@ public class CharacterMovement : MonoBehaviour
                     */
                 }
 
+                ps.gameObject.GetComponent<ParticleSystem>().Stop();
                 audio.clip = shootingSound;
                 audio.Play();
+                ChangeParticleColour();
+                ps.gameObject.GetComponent<ParticleSystem>().Play();
                 currentPaintShooting = asw.GetAmmoType();
                 ac.subAmmoCount(currentPaintShooting, 1);
                 anim.ResetTrigger("isAttacking");
@@ -208,8 +215,11 @@ public class CharacterMovement : MonoBehaviour
                     transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
 
                 }
+                ps.gameObject.GetComponent<ParticleSystem>().Stop();
                 audio.clip = shootingSound;
                 audio.Play();
+                ChangeParticleColour();
+                ps.gameObject.GetComponent<ParticleSystem>().Play();
                 currentPaintShooting = asw.GetAmmoType();
                 ac.subAmmoCount(currentPaintShooting, 1);
                 anim.ResetTrigger("isMeleeAttacking");
@@ -264,6 +274,35 @@ public class CharacterMovement : MonoBehaviour
         else
         {
             return false;
+        }
+    }
+
+    void ChangeParticleColour()
+    {
+        
+        if (asw.GetAmmoType() == "Red")
+        {
+            main.startColor = Color.red;
+        }
+        else if (asw.GetAmmoType() == "Orange")
+        {
+            main.startColor = new Color(255, 119, 0);
+        }
+        else if(asw.GetAmmoType() == "Yellow")
+        {
+            main.startColor = new Color(255, 229, 0);
+        }
+        else if (asw.GetAmmoType() == "Green")
+        {
+            main.startColor = new Color(18, 255, 0);
+        }
+        else if (asw.GetAmmoType() == "Blue")
+        {
+            main.startColor = new Color(0, 111, 255);
+        }
+        else if (asw.GetAmmoType() == "Purple")
+        {
+            main.startColor = new Color(155, 0, 255);
         }
     }
 
