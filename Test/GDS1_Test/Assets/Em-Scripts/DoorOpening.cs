@@ -7,21 +7,32 @@ public class DoorOpening : MonoBehaviour
 
     public Animator doorLeft;
     public Animator doorRight;
+    bool canDoorOpen;
+    InstructionalPopups ip;
     // Start is called before the first frame update
     void Start()
     {
-        
+        ip = GameObject.FindGameObjectWithTag("IPPopup").GetComponent<InstructionalPopups>();
+        canDoorOpen = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+            if (ip.firstTimeBlueCrafted == true)
+            {
+                canDoorOpen = true;
+            }
+        else
+        {
+            canDoorOpen = false;
+
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && canDoorOpen)
         {
 
 
@@ -34,7 +45,7 @@ public class DoorOpening : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && canDoorOpen)
         {
 
 
@@ -44,4 +55,5 @@ public class DoorOpening : MonoBehaviour
 
         }
     }
+
 }
