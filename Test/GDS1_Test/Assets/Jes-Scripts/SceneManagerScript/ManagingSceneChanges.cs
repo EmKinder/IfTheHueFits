@@ -135,7 +135,7 @@ public class ManagingSceneChanges : MonoBehaviour
         jaime.SetGameRestartBool(true);
         jaime.SetBool(false);
     
-        SceneManager.LoadScene("OpeningSequence");
+        SceneManager.LoadScene("InventoryAndCrafting");
     }
 
     public void CreditScene()

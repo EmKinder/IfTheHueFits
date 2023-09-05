@@ -44,7 +44,6 @@ public class Shooting : MonoBehaviour
         //  Instantiate(paintball, transform.position, Quaternion.identity);
         //  paintball.transform.forward = transform.forward;
         StartCoroutine(CanShootPaint(aimPoint));
-
         
     }
 }

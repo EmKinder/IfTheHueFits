@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public class DontDeleteManagers : MonoBehaviour
 {
@@ -23,13 +22,5 @@ public class DontDeleteManagers : MonoBehaviour
         //set this instance as protected
         DontDestroyOnLoad(gameObject);
 
-    }
-
-    private void Update()
-    {
-        if (SceneManager.GetActiveScene().buildIndex == 17)
-        {
-            Destroy(gameObject);
-        }
     }
 }

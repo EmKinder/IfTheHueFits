@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 
 public class AmmoSwitching : MonoBehaviour
 {
@@ -72,7 +71,7 @@ public class AmmoSwitching : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (paintTip == null && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 17) { 
+        if (paintTip == null) { 
             paintTip = GameObject.FindGameObjectWithTag("PlayerAttackPoint").GetComponent<MeshRenderer>();
             if (paintTip) { 
                 Debug.Log("Paint Tip Found");
@@ -138,92 +137,89 @@ public class AmmoSwitching : MonoBehaviour
 
     private string SelectAmmo(int thisSelectedAmmo)
     {
-        if (SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 17)
+        if (selectedAmmo == 0)
         {
-            if (selectedAmmo == 0)
+            ammoBackground.sprite = redBackground;
+            PurpleCheck.enabled = false;
+            RedCheck.enabled = true;
+            RedCheck.text = ammoCount.getAmmoCount("Red").ToString();
+            OrangeCheck.enabled = false;
+            YellowCheck.enabled = false;
+            GreenCheck.enabled = false;
+            BlueCheck.enabled = false;
+            PurpleCheck.enabled = false;
+            if (redMat != null)
             {
-                ammoBackground.sprite = redBackground;
-                PurpleCheck.enabled = false;
-                RedCheck.enabled = true;
-                RedCheck.text = ammoCount.getAmmoCount("Red").ToString();
-                OrangeCheck.enabled = false;
-                YellowCheck.enabled = false;
-                GreenCheck.enabled = false;
-                BlueCheck.enabled = false;
-                PurpleCheck.enabled = false;
-                if (redMat != null)
-                {
-                    paintTip.material = redMat;
-                }
-                return "Red";
+                paintTip.material = redMat;
             }
-            if (selectedAmmo == 1)
-            {
-                ammoBackground.sprite = orangeBackground;
-                RedCheck.enabled = false;
-                OrangeCheck.enabled = true;
-                OrangeCheck.text = ammoCount.getAmmoCount("Orange").ToString();
-                YellowCheck.enabled = false;
-                GreenCheck.enabled = false;
-                BlueCheck.enabled = false;
-                PurpleCheck.enabled = false;
-                paintTip.material = orangeMat;
+            return "Red";
+        }
+        if (selectedAmmo == 1)
+        {
+            ammoBackground.sprite = orangeBackground;
+            RedCheck.enabled = false;
+            OrangeCheck.enabled = true;
+            OrangeCheck.text = ammoCount.getAmmoCount("Orange").ToString();
+            YellowCheck.enabled = false;
+            GreenCheck.enabled = false;
+            BlueCheck.enabled = false;
+            PurpleCheck.enabled = false;
+            paintTip.material = orangeMat;
 
 
-                return "Orange";
-            }
-            if (selectedAmmo == 2)
-            {
-                ammoBackground.sprite = yellowBackground;
-                RedCheck.enabled = false;
-                OrangeCheck.enabled = false;
-                YellowCheck.enabled = true;
-                YellowCheck.text = ammoCount.getAmmoCount("Yellow").ToString();
-                GreenCheck.enabled = false;
-                BlueCheck.enabled = false;
-                PurpleCheck.enabled = false;
-                paintTip.material = yellowMat;
-                return "Yellow";
-            }
-            if (selectedAmmo == 3)
-            {
-                ammoBackground.sprite = greenBackground;
-                RedCheck.enabled = false;
-                OrangeCheck.enabled = false;
-                YellowCheck.enabled = false;
-                GreenCheck.enabled = true;
-                GreenCheck.text = ammoCount.getAmmoCount("Green").ToString();
-                BlueCheck.enabled = false;
-                PurpleCheck.enabled = false;
-                paintTip.material = greenMat;
-                return "Green";
-            }
-            if (selectedAmmo == 4)
-            {
-                ammoBackground.sprite = blueBackground;
-                RedCheck.enabled = false;
-                OrangeCheck.enabled = false;
-                YellowCheck.enabled = false;
-                GreenCheck.enabled = false;
-                BlueCheck.enabled = true;
-                BlueCheck.text = ammoCount.getAmmoCount("Blue").ToString();
-                PurpleCheck.enabled = false;
-                paintTip.material = blueMat;
-                return "Blue";
-            }
-            if (selectedAmmo == 5)
-            {
-                ammoBackground.sprite = purpleBackground;
-                OrangeCheck.enabled = false;
-                YellowCheck.enabled = false;
-                GreenCheck.enabled = false;
-                BlueCheck.enabled = false;
-                PurpleCheck.enabled = true;
-                PurpleCheck.text = ammoCount.getAmmoCount("Purple").ToString();
-                RedCheck.enabled = false;
-                paintTip.material = purpleMat;
-                return "Purple";
-            }
+            return "Orange";
+        }
+        if (selectedAmmo == 2)
+        {
+            ammoBackground.sprite = yellowBackground;
+            RedCheck.enabled = false;
+            OrangeCheck.enabled = false;
+            YellowCheck.enabled = true;
+            YellowCheck.text = ammoCount.getAmmoCount("Yellow").ToString();
+            GreenCheck.enabled = false;
+            BlueCheck.enabled = false;
+            PurpleCheck.enabled = false;
+            paintTip.material = yellowMat;
+            return "Yellow";
+        }
+        if (selectedAmmo == 3)
+        {
+            ammoBackground.sprite = greenBackground;
+            RedCheck.enabled = false;
+            OrangeCheck.enabled = false;
+            YellowCheck.enabled = false;
+            GreenCheck.enabled = true;
+            GreenCheck.text = ammoCount.getAmmoCount("Green").ToString();
+            BlueCheck.enabled = false;
+            PurpleCheck.enabled = false;
+            paintTip.material = greenMat;
+            return "Green";
+        }
+        if (selectedAmmo == 4)
+        {
+            ammoBackground.sprite = blueBackground;
+            RedCheck.enabled = false;
+            OrangeCheck.enabled = false;
+            YellowCheck.enabled = false;
+            GreenCheck.enabled = false;
+            BlueCheck.enabled = true;
+            BlueCheck.text = ammoCount.getAmmoCount("Blue").ToString();
+            PurpleCheck.enabled = false;
+            paintTip.material = blueMat;
+            return "Blue";
+        }
+        if (selectedAmmo == 5)
+        {
+            ammoBackground.sprite = purpleBackground;
+            OrangeCheck.enabled = false;
+            YellowCheck.enabled = false;
+            GreenCheck.enabled = false;
+            BlueCheck.enabled = false;
+            PurpleCheck.enabled = true;
+            PurpleCheck.text = ammoCount.getAmmoCount("Purple").ToString();
+            RedCheck.enabled = false;
+            paintTip.material = purpleMat;
+            return "Purple";
         }
         return null;
     }

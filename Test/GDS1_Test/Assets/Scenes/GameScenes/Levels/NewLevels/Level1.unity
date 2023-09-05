@@ -238,7 +238,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 46c4d6d41dd31f8428482c28c1bdc256, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f24f97887c2e9174782aedba4c869207, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -288,7 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 77b81265c61ced84aa2ce78677aec827, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceUI: {fileID: 21300000, guid: 4e1c12060f2696d4888a285ced5dc642, type: 3}
+  resourceUI: {fileID: 21300000, guid: 966e72e974e58a144adf35ff8837428c, type: 3}
 --- !u!65 &1201448013
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ce9243847d48484889e014fdf720bb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resourceUI: {fileID: 21300000, guid: 87a8fdb3fe0e26644ba785697a48e24e, type: 3}
+  resourceUI: {fileID: 21300000, guid: 0a504cd4bc41b994eb1307efce7b6e23, type: 3}
 --- !u!65 &1624305102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -709,105 +709,9 @@ PrefabInstance:
       propertyPath: m_TagString
       value: MainCamera
       objectReference: {fileID: 0}
-    - target: {fileID: 4476498967227931191, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.0153
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476498967227931191, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.0067
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476498967227931191, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476498967227931191, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 4476498967227931191, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: looping
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: lengthInSec
-      value: 0.95
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: ShapeModule.type
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: SizeModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: TrailModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: ShapeModule.arc.mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: SizeModule.curve.scalar
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: SizeModule.separateAxes
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: SizeModule.y.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: SizeModule.z.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: SizeModule.curve.minScalar
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: TrailModule.lifetime.scalar
-      value: 0.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: SizeModule.curve.minMaxState
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 0.11
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: TrailModule.widthOverTrail.scalar
-      value: 0.001
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: EmissionModule.rateOverTime.scalar
-      value: 7.48
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: InitialModule.gravityModifier.scalar
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 5400820831910713920, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: ShapeModule.sphericalDirectionAmount
-      value: 0.31
-      objectReference: {fileID: 0}
     - target: {fileID: 6330357888377705176, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
       propertyPath: m_TagString
       value: finish
-      objectReference: {fileID: 0}
-    - target: {fileID: 7691428629988913310, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
-      propertyPath: m_Materials.Array.size
-      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
