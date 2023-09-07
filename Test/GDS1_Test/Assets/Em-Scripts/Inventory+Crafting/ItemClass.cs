@@ -8,6 +8,7 @@ public class ItemClass  : ScriptableObject
     public string itemName;
     public Sprite itemIcon;
     public bool isStackable = true;
+    public Sprite itemCraftingIcon;
 
     public virtual ItemClass GetItem()
     {
