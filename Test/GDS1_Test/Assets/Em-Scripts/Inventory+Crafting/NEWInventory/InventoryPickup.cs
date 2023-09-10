@@ -8,11 +8,11 @@ public class InventoryPickup : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 {
     bool isHolding;
     ItemClass thisItem;
+
     // Start is called before the first frame update
     void Start()
     {
         isHolding = false;
-      //  this.gameObject.get
     }
 
     // Update is called once per frame
@@ -41,8 +41,10 @@ public class InventoryPickup : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     public void AddToBowl(InBowl thisBowl)
     {
-        if (thisBowl.PutInBowlPositions(thisItem))
+       // Debug.Log(thisItem);
+        if (thisBowl.CanAddToBowl())
         {
+            thisBowl.PutInBowlPositions(thisItem);
             Destroy(this.gameObject);
         }
         else
