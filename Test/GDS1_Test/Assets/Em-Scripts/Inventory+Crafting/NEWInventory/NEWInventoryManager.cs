@@ -5,7 +5,7 @@ using UnityEngine;
 public class NEWInventoryManager : MonoBehaviour
 {
 
-    public Dictionary<ItemClass, int> itemsInInventory = new Dictionary<ItemClass, int>();
+    [SerializeField] public Dictionary<ItemClass, int> itemsInInventory = new Dictionary<ItemClass, int>();
     // Start is called before the first frame update
    [SerializeField] ItemClass startingRedResource;
    [SerializeField] ItemClass startingBlueResource;
@@ -25,6 +25,7 @@ public class NEWInventoryManager : MonoBehaviour
         {
             itemsInInventory[item] += quantity;
         }
+        Debug.Log(quantity + "x " + item.ToString() + " added to inventory");
     }
 
     public void RemoveItem(ItemClass item, int quantity)
@@ -41,6 +42,7 @@ public class NEWInventoryManager : MonoBehaviour
         {
             itemsInInventory[item] -= quantity;
         }
+        Debug.Log(quantity + "x " + item.ToString() + " removed from inventory");
     }
 
     public int GetItemCount(ItemClass item)
