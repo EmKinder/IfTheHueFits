@@ -7,10 +7,12 @@ using UnityEngine.EventSystems;
 public class InventoryPickup : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 {
     bool isHolding;
+    ItemClass thisItem;
     // Start is called before the first frame update
     void Start()
     {
         isHolding = false;
+      //  this.gameObject.get
     }
 
     // Update is called once per frame
@@ -24,7 +26,6 @@ public class InventoryPickup : MonoBehaviour, IPointerDownHandler, IPointerUpHan
 
     private void OnMouseDown()
     {
-
     }
 
     public void OnPointerUp(PointerEventData eventData)
@@ -38,13 +39,26 @@ public class InventoryPickup : MonoBehaviour, IPointerDownHandler, IPointerUpHan
         isHolding = true;
     }
 
-    public void AddToBowl()
+    public void AddToBowl(InBowl thisBowl)
     {
-        Destroy(this.gameObject);
+        if (thisBowl.PutInBowlPositions(thisItem))
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Debug.Log("Bowl Full");
+        }
+
     }
 
     public bool GetHoldingState()
     {
         return isHolding;
+    }
+
+    public void SetThisItem(ItemClass item)
+    {
+        thisItem = item;
     }
 }

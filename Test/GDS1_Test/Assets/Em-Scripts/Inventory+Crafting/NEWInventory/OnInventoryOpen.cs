@@ -62,6 +62,7 @@ public class OnInventoryOpen : MonoBehaviour
                     si.transform.parent = gameObject.transform;
                     si.transform.Rotate(0, 0, Random.Range(0, 360));
                     si.transform.localScale = new Vector3(2, 2, 2);
+                    si.GetComponent<InventoryPickup>().SetThisItem(thisItemClass);
                 }
             }
         }

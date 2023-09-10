@@ -10,7 +10,7 @@ public class CraftingRecipeClass : ScriptableObject
     public SlotClass outputItem;
     public AmmoCount ammoCount;
 
-    public bool CanCraft(InventoryManager inventory)
+   /* public bool CanCraft(NEWInventoryManager inventory)
     {
         if (inventory.isFull())
         {
@@ -24,17 +24,17 @@ public class CraftingRecipeClass : ScriptableObject
             }
         }
         return true;
-    }
+    }*/
 
-    public void Craft(InventoryManager inventory)
+    public void Craft(NEWInventoryManager inventory, ItemClass[] inputItems)
     {
         //remove the input items from the inventory 
         for (int i = 0; i < inputItems.Length; i++)
         {
-            inventory.Remove(inputItems[i].GetItem(), inputItems[i].GetQuantity());
+       //     inventory.Remove(inputItems[i].GetItem(), inputItems[i].GetQuantity());
         }
         //add the output item to the inventory 
-        inventory.Add(outputItem.GetItem(), outputItem.GetQuantity());
+        inventory.AddItem(outputItem.GetItem(), outputItem.GetQuantity());
 
 
 

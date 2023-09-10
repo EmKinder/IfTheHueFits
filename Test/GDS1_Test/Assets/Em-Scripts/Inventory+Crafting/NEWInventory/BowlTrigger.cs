@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class BowlTrigger : MonoBehaviour
 {
+    InBowl inBowl;
     // Start is called before the first frame update
     void Start()
     {
-        
+        inBowl = this.gameObject.transform.GetChild(0).GetComponent<InBowl>();
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class BowlTrigger : MonoBehaviour
             InventoryPickup thisObject = collision.GetComponent<InventoryPickup>();
             if (!thisObject.GetHoldingState())
             {
-                thisObject.AddToBowl();
+                thisObject.AddToBowl(inBowl);
             }
         }
     }
