@@ -33,6 +33,14 @@ public class EnemyMovement : MonoBehaviour
     GameObject mainCamera;
     public Animator anim;
 
+    float rangeTime = 4.0f;
+    float rangeTimer = 0.0f;
+    public GameObject paintball;
+    public GameObject paintballPos;
+    bool CanRangeAttack;
+
+    public Material thisMat;
+
 
     // Start is called before the first frame update
     void Start()
@@ -82,6 +90,16 @@ public class EnemyMovement : MonoBehaviour
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         healthBarCanvas.worldCamera = Camera.main;
         healthBar.fillAmount = enemyHealth / OriginalHealth;
+
+        if(this.gameObject.tag == "YellowHueman" || this.gameObject.tag == "BlueHueman" || this.gameObject.tag == "RedHueman")
+        {
+            CanRangeAttack = true;
+            paintball.GetComponent<MeshRenderer>().material = thisMat;
+        }
+        else
+        {
+            CanRangeAttack = false;
+        }
     }
 
 
@@ -128,6 +146,16 @@ public class EnemyMovement : MonoBehaviour
             anim.SetBool("isWalking", false);
         }
 
+        if (WithinRange() && CanRangeAttack)
+        {
+            rangeTimer += Time.deltaTime;
+            if(rangeTimer >= rangeTime)
+            {
+                StartCoroutine(CanShootPaint());
+              //  GameObject paintballClone = Instantiate(paintball, paintballPos.transform.position, this.transform.rotation);
+                rangeTimer = 0.0f;
+            }
+        }
 
 
     }
@@ -232,7 +260,20 @@ public class EnemyMovement : MonoBehaviour
     {
         cured = true;
     }
+    IEnumerator CanShootPaint()
+    {
+        anim.SetBool("isWalking", false);
+        anim.SetTrigger("isAttacking");
+        SetCanFollow(false);
+        yield return new WaitForSeconds(2.0f);
+        
+        GameObject paintballClone = Instantiate(paintball, paintballPos.transform.position, this.transform.rotation);
 
+        yield return new WaitForSeconds(0.5f);
+        SetCanFollow(true);
+        anim.SetBool("isWalking", true);
+        Destroy(paintballClone, 1.5f);
+    }
 }
 
 

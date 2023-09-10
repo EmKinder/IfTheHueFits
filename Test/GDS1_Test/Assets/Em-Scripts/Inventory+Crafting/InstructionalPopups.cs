@@ -26,9 +26,9 @@ public class InstructionalPopups : MonoBehaviour
     bool inventoryOpenFirstTime;
     bool firstPlantHasBeenHarvested;
     bool firstTimeRedCrafted;
-    bool firstTimeBlueCrafted;
+    public bool firstTimeBlueCrafted;
     bool firstTimePurpleCrafted;
-    bool complementaryTutorialFinished;
+    public bool complementaryTutorialFinished;
     bool firstLevelOpen;
     bool firstResourceSeen;
     bool firstLevelComplete;

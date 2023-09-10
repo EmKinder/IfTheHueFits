@@ -159,8 +159,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 29.615, y: -903.96204}
-  m_SizeDelta: {x: 1860.8, y: 2769.917}
+  m_AnchoredPosition: {x: -67, y: -896}
+  m_SizeDelta: {x: 1646.0981, y: 2769.917}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &306263803
 Animator:
@@ -215,16 +215,16 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\t\t\t\t\t\t\t\t\t\t\tCredits:\r\nEmily Kinder\t\t\t\t\t\t\t\t\t\t\t\t\t\tProgramming\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tUser
-    Interface Design \r\n\r\nJesica Nikolovska\t\t\t\t\t\t\t\t\t\t\t\tProgramming\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tLevel
-    Design\r\n\r\nDonna Eve Tanner \t\t\t\t\t\t\t\t\t\t\tLevel Design\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t3D
-    Models\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tUser Interface Design\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tCharacter
-    and \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tEnvironment Design\r\n\r\nGeorgia Athanasopoulos
-    \t\t\t\t\t\t\t\t\tProgramming\r\n\r\nCharles Pearse\t\t\t\t\t\t\t\t\t\t\t\tProgramming\r\n\r\nNaomi
-    Little\t\t\t\t\t\t\t\t\t\t\t\t\t\tComic Design\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\t\tAudio:\r
-    \t\t\t\t\t\n\t\tAll sounds outsourced through royalty free websites. \r\n\r\n\t\t\t\t\t\t\t\t\tSpecial
-    Thanks:\n\t\t\t\t\t\t\t\t\tJaimie Garcia\r\n\t\t\t\t\t\tGame Design Studio 1
-    Students\r\n\t\t\t\t\t\t\t\tFamily and Friends\r\n\r\n\r\n"
+  m_Text: "\t\t\t\t\t\t\t\t\tCredits:\r\nEmily Kinder\t\t\t\t\t\t\t\t\t\t\tProgramming\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tUser
+    Interface Design \r\n\r\nJesica Nikolovska\t\t\t\t\t\t\t\t\tProgramming\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tLevel
+    Design\r\n\r\nDonna Eve Tanner \t\t\t\t\t\t\t\tLevel Design\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t3D
+    Models\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tUser Interface Design\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tCharacter
+    and \n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\tEnvironment Design\r\n\r\nGeorgia Athanasopoulos
+    \t\t\t\t\t\tProgramming\r\n\r\nCharles Pearse\t\t\t\t\t\t\t\t\tProgramming\r\n\r\nNaomi
+    Little\t\t\t\t\t\t\t\t\t\t\tComic Design\r\n\r\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\t\t\t\t\t\t\tAudio:\r
+    \t\t\t\t\t\nAll sounds outsourced through royalty free websites. \r\n\r\n\t\t\t\t\t\t\tSpecial
+    Thanks:\n\t\t\t\t\t\t\tJaimie Garcia\r\n\t\t\t\tGame Design Studio 1 Students\r\n\t\t\t\t\t\tFamily
+    and Friends\r\n\r\n\r\n"
 --- !u!222 &306263805
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -349,7 +349,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
@@ -366,6 +366,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 306263802}
+  - {fileID: 1126624535}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -552,6 +553,152 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1126624534
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1126624535}
+  - component: {fileID: 1126624538}
+  - component: {fileID: 1126624537}
+  - component: {fileID: 1126624536}
+  - component: {fileID: 1126624539}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1126624535
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126624534}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: -1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 470241550}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 848, y: 458}
+  m_SizeDelta: {x: 187.1087, y: 106.0562}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1126624536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126624534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_WrapAround: 0
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 2
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 21300000, guid: 256c3b40e121ad3419198b0b6870f5c3, type: 3}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_SelectedTrigger: Selected
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1126624537}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1126624539}
+        m_TargetAssemblyTypeName: returnfromcredits, Assembly-CSharp
+        m_MethodName: GoBackToOpeningScene
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &1126624537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126624534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: b62a7e17bd1a3b443b927dd3e8c8a5b8, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1126624538
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126624534}
+  m_CullTransparentMesh: 1
+--- !u!114 &1126624539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126624534}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191d3fd5910189845834549146261dec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1846920812
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,13 +13,20 @@ public class DoorEnter : MonoBehaviour
     //public NextLevelScript script;
     public Material emmisive;
     public Material normal;
-    public GameObject door;
+   // public GameObject door;
     CheckForJaimesLevel jaime;
+    public Animator doorLeft;
+    public Animator doorRight;
+    InstructionalPopups ip;
+    bool canDoorOpen;
+    public GameObject collider;
 
     private void Awake()
     {
         // enterDoor = true;
+        
         canvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
+        
     }
 
 
@@ -28,20 +35,39 @@ public class DoorEnter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ip = GameObject.FindGameObjectWithTag("IPPopup").GetComponent<InstructionalPopups>();
         enterDoor = false;
+        canDoorOpen = false;
         //  add = 1;
         //   sceneload = 6;
         jaime = GameObject.FindGameObjectWithTag("Jaime").GetComponent<CheckForJaimesLevel>();
+      //  doorLeft.anima
         
     }
 
     // Update is called once per frame
     void Update()
-    { 
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            if (enterDoor)
+    {
+        // if (Input.GetKeyDown(KeyCode.E))
+        //  {
+        
+            if (ip.firstTimeBlueCrafted == true)
             {
+                canDoorOpen = true;
+                if (collider)
+                {
+                Destroy(collider);
+                }
+            }
+            else
+            {
+            canDoorOpen = false;
+        
+            }
+        if (enterDoor && canDoorOpen)
+            {
+
+            Debug.Log(ip.firstTimeBlueCrafted == true);
                 Debug.Log("Door Entered");
                 canvas.enabled = false;
                 // sceneload = PlayerPrefs.GetInt("Current", add);
@@ -58,19 +84,21 @@ public class DoorEnter : MonoBehaviour
                 enterDoor = false;
                 
             }
-        }
+     //   }
 
-       
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
+        Debug.Log(ip.firstTimeBlueCrafted);
+        Debug.Log("collisiondetected");
+        if(other.tag == "Player" )
         {
-            door.GetComponent<MeshRenderer>().material = emmisive;
-            enterDoor = true;
-          //  add++;
-            
+            Debug.Log("playercollisiondetected");
+            enterDoor = true; 
+         /*   doorLeft.SetTrigger("doorOpen");
+            doorRight.SetTrigger("doorOpen"); */
+
 
         }
     }
@@ -79,9 +107,12 @@ public class DoorEnter : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            door.GetComponent<MeshRenderer>().material = normal;
+
             enterDoor = false;
-         //   add = add + 1;
+          /*  doorLeft.SetTrigger("doorClose");
+            doorRight.SetTrigger("doorClose"); */
+
+
         }
     }
 
