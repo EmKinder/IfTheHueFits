@@ -13,7 +13,7 @@ public class ResourcePickUP : MonoBehaviour
     public int Br;
     public Text BrText;
     public ItemClass redResource;
-    InventoryManager inventory;
+    NEWInventoryManager inventory;
 
     void Start()
     {
@@ -22,8 +22,16 @@ public class ResourcePickUP : MonoBehaviour
         redResourceText();
         BlueResourceText();
         YellowResourceText();
-        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
+       
 
+    }
+
+    private void Update()
+    {
+        if(inventory == null)
+        {
+            inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<NEWInventoryManager>();
+        }
     }
 
 
@@ -32,7 +40,7 @@ public class ResourcePickUP : MonoBehaviour
     {
         resource = resource + pickup;
 
-         inventory.Add(item, 1);
+         inventory.AddItem(item, 1);
          Debug.Log(resource);
         
 

@@ -11,7 +11,7 @@ public class AmmoCount : MonoBehaviour
     public int greenAmmoCount;
     public int blueAmmoCount;
     public int purpleAmmoCount;
-    public InventoryManager inventory;
+    public NEWInventoryManager inventory;
     public ItemClass redAmmo;
     public ItemClass orangeAmmo;
     public ItemClass yellowAmmo;
@@ -49,7 +49,10 @@ public class AmmoCount : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(inventory == null)
+        {
+            inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<NEWInventoryManager>();
+        }
     }
 
     public int getAmmoCount(string type)
@@ -115,33 +118,35 @@ public class AmmoCount : MonoBehaviour
         if (type == "Red")
         {
             redAmmoCount -= quantity;
-            inventory.Remove(redAmmo);
-            
+            if(inventory != null) { 
+                inventory.RemoveItem(orangeAmmo, quantity);
+            }
+
         }
         if (type == "Orange")
         {
             orangeAmmoCount -= quantity;
-            inventory.Remove(orangeAmmo);
+            inventory.RemoveItem(orangeAmmo, quantity);
         }
         if (type == "Yellow")
         {
             yellowAmmoCount -= quantity;
-            inventory.Remove(yellowAmmo);
+            inventory.RemoveItem(orangeAmmo, quantity);
         }
         if (type == "Green")
         {
             greenAmmoCount -= quantity;
-            inventory.Remove(greenAmmo);
+            inventory.RemoveItem(orangeAmmo, quantity);
         }
         if (type == "Blue")
         {
             blueAmmoCount -= quantity;
-            inventory.Remove(blueAmmo);
+            inventory.RemoveItem(orangeAmmo, quantity);
         }
         if (type == "Purple")
         {
             purpleAmmoCount -= quantity;
-            inventory.Remove(purpleAmmo);
+            inventory.RemoveItem(orangeAmmo, quantity);
         }
 
     }

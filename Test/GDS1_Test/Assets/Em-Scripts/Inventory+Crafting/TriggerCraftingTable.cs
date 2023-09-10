@@ -12,12 +12,14 @@ public class TriggerCraftingTable : MonoBehaviour
     public Material emmisive;
     public Material normal;
     public GameObject desk;
+    [SerializeField] GameObject craftingCanvas;
+    GameObject thisCraftingCanvas;
 
     // Start is called before the first frame update
     void Start()
     {
-        inventoryCanvas = GameObject.FindWithTag("InventoryCanvas").GetComponent<Canvas>();
-        inventoryCanvas.enabled = false;
+      //  inventoryCanvas = GameObject.FindWithTag("InventoryCanvas").GetComponent<Canvas>();
+      //  inventoryCanvas.enabled = false;
         inventoryOpen = false;
     }
 
@@ -30,20 +32,23 @@ public class TriggerCraftingTable : MonoBehaviour
             if (standingAtDesk && !inventoryOpen)
             {
                 Debug.Log("Inventory open");
-                inventoryCanvas.enabled = true;
+                thisCraftingCanvas = Instantiate(craftingCanvas);
+             //   inventoryCanvas.enabled = true;
                 inventoryOpen = true;
 
             }
             else if (inventoryOpen)
             {
                 Debug.Log("Inventory close");
-                inventoryCanvas.enabled = false;
+                Destroy(thisCraftingCanvas);
+           //     inventoryCanvas.enabled = false;
                 inventoryOpen = false;
             }
         }
         if (!standingAtDesk)
         {
-            inventoryCanvas.enabled = false;
+            Destroy(thisCraftingCanvas);
+            //  inventoryCanvas.enabled = false;
             inventoryOpen = false;
         }
             

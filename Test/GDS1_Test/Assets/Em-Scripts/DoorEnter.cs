@@ -25,7 +25,7 @@ public class DoorEnter : MonoBehaviour
     {
         // enterDoor = true;
         
-        canvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
+       // canvas = GameObject.FindGameObjectWithTag("InventoryCanvas").GetComponent<Canvas>();
         
     }
 
@@ -69,7 +69,7 @@ public class DoorEnter : MonoBehaviour
 
             Debug.Log(ip.firstTimeBlueCrafted == true);
                 Debug.Log("Door Entered");
-                canvas.enabled = false;
+               // canvas.enabled = false;
                 // sceneload = PlayerPrefs.GetInt("Current", add);
                 // SceneManager.LoadScene(sceneload);
                 if (!jaime.GetBool())

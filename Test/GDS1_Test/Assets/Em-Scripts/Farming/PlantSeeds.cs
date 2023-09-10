@@ -8,7 +8,7 @@ public class PlantSeeds : MonoBehaviour
 
     CheckForJaimesLevel jaime;
 
-    InventoryManager inventory;
+    NEWInventoryManager inventory;
     public Canvas canvas;
     bool canPlant;
   //  public GameObject growing;
@@ -73,7 +73,7 @@ public class PlantSeeds : MonoBehaviour
     {
         jaime = GameObject.FindGameObjectWithTag("Jaime").GetComponent<CheckForJaimesLevel>();
 
-        inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
+        inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<NEWInventoryManager>();
         redText = GameObject.FindGameObjectWithTag("RedSeed").GetComponent<Text>();
         blueText= GameObject.FindGameObjectWithTag("BlueSeed").GetComponent<Text>();
         yellowText = GameObject.FindGameObjectWithTag("YellowSeed").GetComponent<Text>();
@@ -117,6 +117,7 @@ public class PlantSeeds : MonoBehaviour
         }
         if (timerActive)
         {
+            plantGrown = false;
             timerText.enabled = true;
             if(currentGrowingItemName == "Red")
             {
@@ -136,7 +137,7 @@ public class PlantSeeds : MonoBehaviour
             if(timer >= 5)
             {
                 plantGrown = true;
-             //   growing.SetActive(false);
+              // growing.SetActive(false);
            //     grown.SetActive(true);
                 if(currentGrowingItemName == "Red")
                 {
@@ -160,8 +161,9 @@ public class PlantSeeds : MonoBehaviour
 
     public bool EnoughSeeds(ItemClass item)
     {
-        SlotClass temp = inventory.Contains(item);
-        if(temp != null)
+        // int temp =;
+        Debug.Log(inventory.GetItemCount(item));
+        if (inventory.GetItemCount(item) > 0)
         {
             return true;
         }
@@ -180,14 +182,14 @@ public class PlantSeeds : MonoBehaviour
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player") {
-            Debug.Log("Farmland stepped on");
+          //  Debug.Log("Farmland stepped on");
             ChangeMaterial(pots, emmisive);
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Debug.Log("Farming E Pressed");
+             //   Debug.Log("Farming E Pressed");
                 if (!plantGrowing)
                 {
-                    Debug.Log("Buttons Appear");
+            //        Debug.Log("Buttons Appear");
                     redFarmButton.gameObject.SetActive(true);
                     yellowFarmButton.gameObject.SetActive(true);
                     blueFarmButton.gameObject.SetActive(true);
@@ -210,7 +212,7 @@ public class PlantSeeds : MonoBehaviour
         {
             if(currentGrowingItemName == "Red")
             {
-                inventory.Add(redResource, 3);
+                inventory.AddItem(redResource, 3);
                 redFlowers.SetActive(false);
                 audio.clip = harvestSeeds;
                 audio.Play();
@@ -218,14 +220,14 @@ public class PlantSeeds : MonoBehaviour
             }
             if (currentGrowingItemName == "Yellow")
             {
-                inventory.Add(yellowResource, 3);
+                inventory.AddItem(yellowResource, 3);
                 yellowFlowers.SetActive(false);
                 audio.clip = harvestSeeds;
                 audio.Play();
             }
             if (currentGrowingItemName == "Blue")
             {
-                inventory.Add(blueResource, 3);
+                inventory.AddItem(blueResource, 3);
                 blueFlowers.SetActive(false);
                 audio.clip = harvestSeeds;
                 audio.Play();
@@ -267,7 +269,7 @@ public class PlantSeeds : MonoBehaviour
             currentGrowingItemName = "Red";
            // growing.SetActive(true);
           //  ChangeMaterial(growing, redMat);
-            inventory.Remove(redSeed, 1);
+            inventory.RemoveItem(redSeed, 1);
            // inventory.Remove1(redSeed, 1);
             timerActive = true;
             canPlant = false;
@@ -296,7 +298,7 @@ public class PlantSeeds : MonoBehaviour
             currentGrowingItemName = "Yellow";
          //   growing.SetActive(true);
           //  ChangeMaterial(growing, yellowMat);
-            inventory.Remove(yellowSeed, 1);
+            inventory.RemoveItem(yellowSeed, 1);
        //     inventory.Remove1(yellowSeed, 1); //jes
             timerActive = true;
             canPlant = false;
@@ -324,7 +326,7 @@ public class PlantSeeds : MonoBehaviour
             currentGrowingItemName = "Blue";
           //  growing.SetActive(true);
          //   ChangeMaterial(growing, blueMat);
-            inventory.Remove(blueSeed, 1);
+            inventory.RemoveItem(blueSeed, 1);
          //   inventory.Remove1(blueSeed, 1); //jes
             timerActive = true;
             canPlant = false;

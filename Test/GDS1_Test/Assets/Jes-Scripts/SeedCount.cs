@@ -10,7 +10,7 @@ public class SeedCount : MonoBehaviour
     public int RedSeedCount;
     public int BlueSeedCount;
     public int YellowSeedCount;
-    public InventoryManager Inventory;
+    public NEWInventoryManager Inventory;
     public ItemClass YellowSeed;
     public ItemClass RedSeed;
     public ItemClass BlueSeed;

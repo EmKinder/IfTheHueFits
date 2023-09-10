@@ -7,7 +7,7 @@ public class Shooting : MonoBehaviour
 {
     public GameObject paintball;
     public Transform paintPos;
-    public InventoryManager inventory;
+    public NEWInventoryManager inventory; //is this necessary???
     AmmoCount ammoCount;
     bool managersFound;
    
@@ -17,6 +17,7 @@ public class Shooting : MonoBehaviour
     void Start()
     {
         managersFound = false;
+        inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<NEWInventoryManager>();
     }
 
     // Update is called once per frame
@@ -24,7 +25,7 @@ public class Shooting : MonoBehaviour
     {
         if (SceneManager.GetActiveScene() == SceneManager.GetSceneByBuildIndex(1) && !managersFound)
         {
-            inventory = GameObject.FindGameObjectWithTag("Inventory").GetComponent<InventoryManager>();
+            inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<NEWInventoryManager>();
             managersFound = true;
         }
     }

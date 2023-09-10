@@ -116,38 +116,41 @@ public class InstructionalPopups : MonoBehaviour
             Time.timeScale = 0;
         }
 
-        if(sp.firstTimeRedPage && !redPageFirstSeen)
+     /*   if(sp.firstTimeRedPage && !redPageFirstSeen)
         {
             redPageFirstSeen = true;
             image.enabled = true;
             image.sprite = mixPaintUI;
             Time.timeScale = 0;
-        }
+        }*/
 
         if (!inventoryOpenFirstTime && ct.inventoryOpen)
         {
             inventoryOpenFirstTime = true;
+            firstTimeRedCrafted = true;
+            firstTimeBlueCrafted = true;
+            complementaryTutorialFinished = true;
             image.enabled = true;
             image.sprite = redPaintUI;
             Time.timeScale = 0;
         }
 
-        if (!firstTimeRedCrafted && im.redCrafted)
+   /*     if (!firstTimeRedCrafted && im.redCrafted)
         {
             firstTimeRedCrafted = true;
             image.enabled = true;
             image.sprite = bluePaintUI;
             Time.timeScale = 0;
-        }
+        }*/
 
-        if(!firstTimeBlueCrafted && im.blueCrafted)
+        /*if(!firstTimeBlueCrafted && im.blueCrafted)
         {
             complementaryTutorialFinished = true;
             firstTimeBlueCrafted = true;
             image.enabled = true;
             image.sprite = complementaryUI;
             Time.timeScale = 0;
-        }
+        }*/
 
         if(SceneManager.GetActiveScene().buildIndex == 3 && !firstLevelOpen)
         {
@@ -165,13 +168,13 @@ public class InstructionalPopups : MonoBehaviour
                 Time.timeScale = 0;
         }
 
-        if (!firstTimePurpleCrafted && im.purpleCrafted && PlayerPrefs.GetInt("Current") == 4)
+     /*   if (!firstTimePurpleCrafted && im.purpleCrafted && PlayerPrefs.GetInt("Current") == 4)
         {
             firstTimePurpleCrafted = true;
             image.enabled = true;
             image.sprite = varietyUI;
             Time.timeScale = 0;
-        }
+        }*/
 
         if (SceneManager.GetActiveScene().buildIndex == 1 && !secondLevelComplete && PlayerPrefs.GetInt("Current") == 5)
         {

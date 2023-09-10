@@ -280,7 +280,7 @@ public class CharacterMovement : MonoBehaviour
     void ChangeParticleColour()
     {
         
-        if (asw.GetAmmoType() == "Red")
+     /*   if (asw.GetAmmoType() == "Red")
         {
             main.startColor = Color.red;
         }
@@ -303,7 +303,7 @@ public class CharacterMovement : MonoBehaviour
         else if (asw.GetAmmoType() == "Purple")
         {
             main.startColor = new Color(155, 0, 255);
-        }
+        }*/
     }
 
 
