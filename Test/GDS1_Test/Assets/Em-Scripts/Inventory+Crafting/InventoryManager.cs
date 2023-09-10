@@ -61,12 +61,12 @@ public class InventoryManager : MonoBehaviour
             RefreshUI();
         }
 
-        RedCraftButton.onClick.AddListener(RedCraftClick);
+    /*    RedCraftButton.onClick.AddListener(RedCraftClick);
         OrangeCraftButton.onClick.AddListener(OrangeCraftClick);
         YellowCraftButton.onClick.AddListener(YellowCraftClick);
         GreenCraftButton.onClick.AddListener(GreenCraftClick);
         BlueCraftButton.onClick.AddListener(BlueCraftClick);
-        PurpleCraftButton.onClick.AddListener(PurpleCraftClick);
+        PurpleCraftButton.onClick.AddListener(PurpleCraftClick);*/
 
         audio = this.GetComponent<AudioSource>();
 
@@ -126,7 +126,7 @@ public class InventoryManager : MonoBehaviour
         }
     }
     #region Crafting
-    void RedCraftClick()
+ /*   void RedCraftClick()
     {
         Craft(craftingRecipies[0]);
 
@@ -164,7 +164,7 @@ public class InventoryManager : MonoBehaviour
             Craft(craftingRecipies[5]);
         }
 
-    }
+    }*/
     #endregion
 
     #region Inventory Utils
@@ -522,7 +522,7 @@ public class InventoryManager : MonoBehaviour
         return true;
     }
 
-    private void Craft(CraftingRecipeClass recipe)
+  /*  private void Craft(CraftingRecipeClass recipe)
     {
         if (recipe.CanCraft(this))
         {
@@ -548,7 +548,7 @@ public class InventoryManager : MonoBehaviour
             cannotCraftBool = true;
             Debug.Log("Cannot craft that item");
         }
-    }
+    }*/
 
  
 }
