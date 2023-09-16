@@ -724,7 +724,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af81fb85dc65fd144824af6200b85a30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  white: {fileID: 2100000, guid: 8a429d5302040a545880eeae3e3b294a, type: 2}
+  enemyMovement: {fileID: 0}
+  anim: {fileID: 0}
+  bodyMat: {fileID: 0}
+  clothesMat: {fileID: 0}
+  bodyArray: []
+  clothesArray: []
+  flowerMat: {fileID: 0}
+  hairMat: {fileID: 0}
+  flowerArray: []
+  hairArray: []
+  innerClothesMat: {fileID: 0}
+  outerClothesMat: {fileID: 0}
+  innerClothesArray: []
+  outerClothesArray: []
+  cured: {fileID: 0}
 --- !u!114 &3064888088658997469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -740,9 +754,14 @@ MonoBehaviour:
   collisionDetect: {fileID: 3064888088658997471}
   wanderingTimer: 5
   wanderingRadius: 4
+  lineOfSightRadius: 0
   healthBarCanvas: {fileID: 2172155122040789155}
   rotHealthBar: {fileID: 8165801302078373657}
   healthBar: {fileID: 2737110811668993276}
+  anim: {fileID: 0}
+  paintball: {fileID: 0}
+  paintballPos: {fileID: 0}
+  thisMat: {fileID: 0}
 --- !u!195 &393687200163976807
 NavMeshAgent:
   m_ObjectHideFlags: 0
