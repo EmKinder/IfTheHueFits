@@ -38,8 +38,8 @@ public class CharacterMovement : MonoBehaviour
 
     void Start()
     {
-        main = ps.gameObject.GetComponent<ParticleSystem>().main;
-        ps.gameObject.GetComponent<ParticleSystem>().Stop();
+       // main = ps.gameObject.GetComponent<ParticleSystem>().main;
+       // ps.gameObject.GetComponent<ParticleSystem>().Stop();
         anim = GetComponent<Animator>();
         canShoot = true;
         canHit = true;
@@ -156,11 +156,11 @@ public class CharacterMovement : MonoBehaviour
                     */
                 }
 
-                ps.gameObject.GetComponent<ParticleSystem>().Stop();
+             //   ps.gameObject.GetComponent<ParticleSystem>().Stop();
                 audio.clip = shootingSound;
                 audio.Play();
-                ChangeParticleColour();
-                ps.gameObject.GetComponent<ParticleSystem>().Play();
+           //     ChangeParticleColour();
+            //    ps.gameObject.GetComponent<ParticleSystem>().Play();
                 currentPaintShooting = asw.GetAmmoType();
                 ac.subAmmoCount(currentPaintShooting, 1);
                 anim.ResetTrigger("isAttacking");
@@ -215,11 +215,11 @@ public class CharacterMovement : MonoBehaviour
                     transform.LookAt(new Vector3(pointToLook.x, pointToLook.y, pointToLook.z));
 
                 }
-                ps.gameObject.GetComponent<ParticleSystem>().Stop();
+          //      ps.gameObject.GetComponent<ParticleSystem>().Stop();
                 audio.clip = shootingSound;
                 audio.Play();
-                ChangeParticleColour();
-                ps.gameObject.GetComponent<ParticleSystem>().Play();
+           //     ChangeParticleColour();
+            //    ps.gameObject.GetComponent<ParticleSystem>().Play();
                 currentPaintShooting = asw.GetAmmoType();
                 ac.subAmmoCount(currentPaintShooting, 1);
                 anim.ResetTrigger("isMeleeAttacking");
