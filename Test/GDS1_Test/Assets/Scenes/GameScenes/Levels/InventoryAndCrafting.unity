@@ -16698,6 +16698,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: RoomAndDoor_Sprint5
       objectReference: {fileID: 0}
+    - target: {fileID: 2080826338670778277, guid: e2a0f5d8735506446b074492aaf006f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7914ffeed939a04d8df2cd77a41bf91, type: 2}
+    - target: {fileID: 4550760795782893411, guid: e2a0f5d8735506446b074492aaf006f8, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: f7914ffeed939a04d8df2cd77a41bf91, type: 2}
     - target: {fileID: 8552153070450956073, guid: e2a0f5d8735506446b074492aaf006f8, type: 3}
       propertyPath: m_LocalRotation.w
       value: 1
@@ -51984,7 +51992,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2968115998187771939, guid: bb314d9955a2d7542baf9e7cadfbb547, type: 3}
+  - {fileID: 2100000, guid: 277b790c2b362f34e8121f1e89c448ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -59488,7 +59496,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2968115998187771939, guid: bb314d9955a2d7542baf9e7cadfbb547, type: 3}
+  - {fileID: 2100000, guid: 277b790c2b362f34e8121f1e89c448ca, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -65561,7 +65569,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: b1dba7c42d11b444cb567c2ace1af7c7, type: 2}
+  - {fileID: 2100000, guid: 2e5ae51af123050498221e689eb3daab, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -71889,9 +71897,21 @@ PrefabInstance:
     m_TransformParent: {fileID: 1234051520}
     m_Modifications:
     - target: {fileID: 4267049317127413587, guid: 04fad82ab82ff0f4ab023e585aa6709c, type: 3}
+      propertyPath: redMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 01726533365d8e64e9b29f9fbec68fb5, type: 2}
+    - target: {fileID: 4267049317127413587, guid: 04fad82ab82ff0f4ab023e585aa6709c, type: 3}
+      propertyPath: blueMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 0383bac955995c84da30fc6bbaad63b5, type: 2}
+    - target: {fileID: 4267049317127413587, guid: 04fad82ab82ff0f4ab023e585aa6709c, type: 3}
       propertyPath: RedCheck
       value: 
       objectReference: {fileID: 1745293864}
+    - target: {fileID: 4267049317127413587, guid: 04fad82ab82ff0f4ab023e585aa6709c, type: 3}
+      propertyPath: greenMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 9afe444d7ee563b42b68c6b9957904df, type: 2}
     - target: {fileID: 4267049317127413587, guid: 04fad82ab82ff0f4ab023e585aa6709c, type: 3}
       propertyPath: BlueCheck
       value: 
@@ -71900,6 +71920,18 @@ PrefabInstance:
       propertyPath: inventory
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4267049317127413587, guid: 04fad82ab82ff0f4ab023e585aa6709c, type: 3}
+      propertyPath: orangeMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 3d73ab7873ea5ef4183e2f0a769a0e02, type: 2}
+    - target: {fileID: 4267049317127413587, guid: 04fad82ab82ff0f4ab023e585aa6709c, type: 3}
+      propertyPath: purpleMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 2f04fe268de2a564e827f338623fd112, type: 2}
+    - target: {fileID: 4267049317127413587, guid: 04fad82ab82ff0f4ab023e585aa6709c, type: 3}
+      propertyPath: yellowMat
+      value: 
+      objectReference: {fileID: 2100000, guid: 1357b2148aba1154b990a142a4f4ee62, type: 2}
     - target: {fileID: 4267049317127413587, guid: 04fad82ab82ff0f4ab023e585aa6709c, type: 3}
       propertyPath: GreenCheck
       value: 

@@ -8,10 +8,10 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Blue_ColourBase_Ai 1
-  m_Shader: {fileID: 0}
-  m_ValidKeywords: []
-  m_InvalidKeywords:
+  m_Shader: {fileID: 4800000, guid: 915c70eeb5d7e16478c593d0a5d50fdf, type: 3}
+  m_ValidKeywords:
   - _EMISSION
+  m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -70,16 +70,24 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
+    - _HighlightThreshold: 0.92
     - _Metallic: 0
     - _Mode: 0
+    - _NbrShades: 3
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _ShadowThreshold: 0.5
     - _SmoothnessTextureChannel: 0
+    - _SpecCoef: 0.06
+    - _SpecPower: 20
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
+    - _UseShadows: 1
     - _ZWrite: 1
     m_Colors:
+    - _BaseColor: {r: 0.7311321, g: 0.94622636, b: 1, a: 1}
     - _Color: {r: 0.24269366, g: 0.63070554, b: 0.880825, a: 1}
     - _EmissionColor: {r: 0, g: 0.43888855, b: 1, a: 1}
+    - _HighlightColor: {r: 1, g: 1, b: 1, a: 1}
   m_BuildTextureStacks: []
