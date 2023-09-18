@@ -5123,6 +5123,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5097370190579632962, guid: a4731d7c653cfbe4b9f59a6492f71f48, type: 3}
   m_PrefabInstance: {fileID: 4821498006408031218}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1406235024179910243 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 5866666021909216657, guid: a4731d7c653cfbe4b9f59a6492f71f48, type: 3}
+  m_PrefabInstance: {fileID: 4821498006408031218}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2205990898106097202 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6661993645609039296, guid: a4731d7c653cfbe4b9f59a6492f71f48, type: 3}
@@ -5192,6 +5197,7 @@ MonoBehaviour:
   paintball: {fileID: 7906828116022804255, guid: 70051fabb90d8d54eb8a9f582ae26506, type: 3}
   paintPos: {fileID: 9063929140430648080}
   inventory: {fileID: 0}
+  shootingSound: {fileID: 8300000, guid: 9c1bfdfbc61345148b0436ad9dce6e24, type: 3}
 --- !u!114 &3707872701207551899
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5204,13 +5210,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12581008358333348911f1449e788db2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 1406235024179910243}
   shooting: {fileID: 3707872701207551896}
   ac: {fileID: 0}
   asw: {fileID: 0}
   ps: {fileID: 3740665556097506728}
   moveSpeed: 1
   rotationSpeed: 720
-  shootingSound: {fileID: 8300000, guid: 9c1bfdfbc61345148b0436ad9dce6e24, type: 3}
 --- !u!1 &8682245329347187985 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4221261277705338595, guid: a4731d7c653cfbe4b9f59a6492f71f48, type: 3}

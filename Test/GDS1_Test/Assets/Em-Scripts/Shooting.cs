@@ -10,6 +10,8 @@ public class Shooting : MonoBehaviour
     public NEWInventoryManager inventory; //is this necessary???
     AmmoCount ammoCount;
     bool managersFound;
+    [SerializeField] AudioClip shootingSound;
+    AudioSource audioS;
    
 
 
@@ -18,6 +20,7 @@ public class Shooting : MonoBehaviour
     {
         managersFound = false;
         inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<NEWInventoryManager>();
+        audioS = GameObject.FindGameObjectWithTag("ShootingSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -32,10 +35,12 @@ public class Shooting : MonoBehaviour
 
     IEnumerator CanShootPaint(Vector3 aimPoint)
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.75f);
         Transform aim = transform;
         aim.Rotate(new Vector3(0f, 2f, 0f));
         GameObject paintballClone = Instantiate(paintball, paintPos.position, aim.rotation);
+        audioS.clip = shootingSound;
+        audioS.Play();
         Destroy(paintballClone, 1.5f);
     }
 

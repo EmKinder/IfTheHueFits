@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
-    Animator anim;
+    public Animator anim;
     float moveTimerLength = 1.0f;
     float shootTimerLength = 0.8f;
     float hitTimerLength = 1f;
@@ -32,15 +32,15 @@ public class CharacterMovement : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float rotationSpeed = 720f;
 
-    AudioSource audio;
-    public AudioClip shootingSound;
+ //   AudioSource audio;
+   // public AudioClip shootingSound;
 
 
     void Start()
     {
        // main = ps.gameObject.GetComponent<ParticleSystem>().main;
        // ps.gameObject.GetComponent<ParticleSystem>().Stop();
-        anim = GetComponent<Animator>();
+     //   anim = GetComponent<Animator>();
         canShoot = true;
         canHit = true;
         canMove = true;
@@ -55,7 +55,7 @@ public class CharacterMovement : MonoBehaviour
             moveSpeed = 1f;
         }
 
-        audio = GameObject.FindGameObjectWithTag("ShootingSound").GetComponent<AudioSource>();
+   //     audio = GameObject.FindGameObjectWithTag("ShootingSound").GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -157,8 +157,8 @@ public class CharacterMovement : MonoBehaviour
                 }
 
              //   ps.gameObject.GetComponent<ParticleSystem>().Stop();
-                audio.clip = shootingSound;
-                audio.Play();
+            //    audio.clip = shootingSound;
+             //   audio.Play();
            //     ChangeParticleColour();
             //    ps.gameObject.GetComponent<ParticleSystem>().Play();
                 currentPaintShooting = asw.GetAmmoType();
@@ -216,8 +216,8 @@ public class CharacterMovement : MonoBehaviour
 
                 }
           //      ps.gameObject.GetComponent<ParticleSystem>().Stop();
-                audio.clip = shootingSound;
-                audio.Play();
+           //     audio.clip = shootingSound;
+        //        audio.Play();
            //     ChangeParticleColour();
             //    ps.gameObject.GetComponent<ParticleSystem>().Play();
                 currentPaintShooting = asw.GetAmmoType();
