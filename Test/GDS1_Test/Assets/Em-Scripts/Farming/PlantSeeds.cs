@@ -111,7 +111,10 @@ public class PlantSeeds : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(jaime.GetGameRestartBool() == true)
+        redText.text = inventory.GetItemCount(redSeed).ToString();
+        blueText.text = inventory.GetItemCount(blueSeed).ToString();
+        yellowText.text = inventory.GetItemCount(yellowSeed).ToString();
+        if (jaime.GetGameRestartBool() == true)
         {
             plantGrown = false;
         }
@@ -195,12 +198,12 @@ public class PlantSeeds : MonoBehaviour
                     blueFarmButton.gameObject.SetActive(true);
 
                  //  inventory.PrintItems();
-                    Debug.Log(redSeed.itemName);
-                    Debug.Log(blueSeed.itemName);
+                 //   Debug.Log(redSeed.itemName);
+                //    Debug.Log(blueSeed.itemName);
                     redText.enabled = true; //jes
-                    blueText.text = inventory.BlueSeedAmount().ToString();
-                    blueText.enabled = true; //jes2
-                    yellowText.text = inventory.GetItemCount(yellowSeed).ToString();
+               //     blueText.text = inventory.BlueSeedAmount().ToString();
+                   blueText.enabled = true; //jes2
+                //    yellowText.text = inventory.GetItemCount(yellowSeed).ToString();
                     yellowText.enabled = true; //jes
                     redCircle.enabled = true; //jes
                     blueCircle.enabled = true; //jes

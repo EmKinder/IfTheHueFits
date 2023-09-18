@@ -52,7 +52,7 @@ public class NEWInventoryManager : MonoBehaviour
         if (itemsInInventory.ContainsKey(item)) 
             return itemsInInventory[item];
 
-        Debug.Log("Not found");
+     //   Debug.Log("Not found");
         return 0;
     }
 
