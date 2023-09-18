@@ -29,6 +29,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
     [SerializeField] ItemClass purplePaint;
 
     bool paintReady;
+    bool mouseHeld;
 
     [SerializeField] Sprite[] paintSprites = new Sprite[6];
     string thisPaint;
@@ -48,18 +49,17 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
         finalPaint.enabled = false;
         inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<NEWInventoryManager>();
         ac = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoCount>();
+        mouseHeld = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (canMix) {
-            if (Input.GetKey(KeyCode.Space))
-            {
+        if (canMix && Input.GetMouseButton(0)) {
                 this.gameObject.transform.Rotate(Vector3.back * 100 * Time.deltaTime);
                 mixingTimer += Time.deltaTime;
-                if(mixingTimer >= 4.5)
+                if(mixingTimer >= 3)
                 {
                     mixingTimer = 0;
                     canMix = false;
@@ -73,7 +73,6 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                     finalPaint.color = new Color(1, 1, 1, 1);
                     Craft();
                 }
-            }
         }
     }
 
@@ -91,7 +90,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
             petalPositions[0].sprite = item.itemCraftingIcon;
             currentItems.Add(item);
             petalPositions[0].color = new Color (1, 1, 1, 1);
-            canMix = true;
+            //canMix = true;
         }
         else if(petalPositions[1].sprite == null & !petal2Full)
         {
@@ -141,12 +140,13 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
+
         if (paintReady)
         {
             if(thisPaint == "Red")
             {
                 inventory.AddItem(redPaint, 5);
-                inventory.RemoveItem(red, 1);
+                inventory.RemoveItem(red, 2);
                 ac.addAmmoCount("Red", 5);
 
             }
@@ -161,7 +161,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
             if (thisPaint == "Yellow")
             {
                 inventory.AddItem(yellowPaint, 5);
-                inventory.RemoveItem(yellow, 1);
+                inventory.RemoveItem(yellow, 2);
                 ac.addAmmoCount("Yellow", 5);
 
             }
@@ -176,7 +176,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
             if (thisPaint == "Blue")
             {
                 inventory.AddItem(bluePaint, 5);
-                inventory.RemoveItem(blue, 1);
+                inventory.RemoveItem(blue, 2);
                 ac.addAmmoCount("Blue", 5);
 
             }
