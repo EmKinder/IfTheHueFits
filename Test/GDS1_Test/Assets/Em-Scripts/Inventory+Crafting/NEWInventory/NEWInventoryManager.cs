@@ -7,12 +7,12 @@ public class NEWInventoryManager : MonoBehaviour
 
     [SerializeField] public Dictionary<ItemClass, int> itemsInInventory = new Dictionary<ItemClass, int>();
     // Start is called before the first frame update
-   [SerializeField] ItemClass startingRedResource;
-   [SerializeField] ItemClass startingBlueResource;
+   [SerializeField] ItemClass redSeed;
+   [SerializeField] ItemClass blueSeed;
     void Awake()
     {
-        AddItem(startingRedResource, 2);
-        AddItem(startingBlueResource, 2);
+        AddItem(redSeed, 2);
+        AddItem(blueSeed, 2);
     }
 
     public void AddItem(ItemClass item, int quantity)
@@ -20,12 +20,14 @@ public class NEWInventoryManager : MonoBehaviour
         if (!itemsInInventory.ContainsKey(item))
         {
             itemsInInventory.Add(item, quantity);
+            Debug.Log(quantity + "x " + item.ToString() + " added to inventory");
         }
         else
         {
             itemsInInventory[item] += quantity;
+            Debug.Log(item.ToString() + "quantity increased");
         }
-        Debug.Log(quantity + "x " + item.ToString() + " added to inventory");
+       
     }
 
     public void RemoveItem(ItemClass item, int quantity)
@@ -52,5 +54,10 @@ public class NEWInventoryManager : MonoBehaviour
 
         Debug.Log("Not found");
         return 0;
+    }
+
+    public int BlueSeedAmount()
+    {
+        return itemsInInventory[blueSeed];
     }
 }

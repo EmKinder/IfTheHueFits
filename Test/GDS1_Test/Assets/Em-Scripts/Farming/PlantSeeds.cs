@@ -194,8 +194,13 @@ public class PlantSeeds : MonoBehaviour
                     yellowFarmButton.gameObject.SetActive(true);
                     blueFarmButton.gameObject.SetActive(true);
 
+                 //  inventory.PrintItems();
+                    Debug.Log(redSeed.itemName);
+                    Debug.Log(blueSeed.itemName);
                     redText.enabled = true; //jes
-                    blueText.enabled = true; //jes
+                    blueText.text = inventory.BlueSeedAmount().ToString();
+                    blueText.enabled = true; //jes2
+                    yellowText.text = inventory.GetItemCount(yellowSeed).ToString();
                     yellowText.enabled = true; //jes
                     redCircle.enabled = true; //jes
                     blueCircle.enabled = true; //jes

@@ -27,9 +27,12 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
     [SerializeField] ItemClass greenPaint;
     [SerializeField] ItemClass bluePaint;
     [SerializeField] ItemClass purplePaint;
+    [SerializeField] Text thisText;
+    bool displayText;
 
     bool paintReady;
     bool mouseHeld;
+    float textTimer = 0;
 
     [SerializeField] Sprite[] paintSprites = new Sprite[6];
     string thisPaint;
@@ -47,6 +50,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
         petal2Full = false;
         startRotation = this.gameObject.transform.rotation;
         finalPaint.enabled = false;
+        thisText.enabled = false;
         inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<NEWInventoryManager>();
         ac = GameObject.FindGameObjectWithTag("AmmoManager").GetComponent<AmmoCount>();
         mouseHeld = false;
@@ -73,6 +77,16 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                     finalPaint.color = new Color(1, 1, 1, 1);
                     Craft();
                 }
+        }
+        if (displayText)
+        {
+            Debug.Log("text should be displaying");
+            //thisText.enabled = true;
+            textTimer += Time.deltaTime;
+            if(textTimer >= 2.0f)
+            {
+                thisText.enabled = false;
+            }
         }
     }
 
@@ -148,6 +162,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.AddItem(redPaint, 5);
                 inventory.RemoveItem(red, 2);
                 ac.addAmmoCount("Red", 5);
+                thisText.text = "5x Red Paint Added to Inventory!";
 
             }
             if (thisPaint == "Orange")
@@ -156,6 +171,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.RemoveItem(red, 1);
                 inventory.RemoveItem(yellow, 1);
                 ac.addAmmoCount("Orange", 5);
+                thisText.text = "5x Orange Paint Added to Inventory!";
 
             }
             if (thisPaint == "Yellow")
@@ -163,6 +179,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.AddItem(yellowPaint, 5);
                 inventory.RemoveItem(yellow, 2);
                 ac.addAmmoCount("Yellow", 5);
+                thisText.text = "5x Yellow Paint Added to Inventory!";
 
             }
             if (thisPaint == "Green")
@@ -171,6 +188,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.RemoveItem(yellow, 1);
                 inventory.RemoveItem(blue, 1);
                 ac.addAmmoCount("Green", 5);
+                thisText.text = "5x Green Paint Added to Inventory!";
 
             }
             if (thisPaint == "Blue")
@@ -178,6 +196,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.AddItem(bluePaint, 5);
                 inventory.RemoveItem(blue, 2);
                 ac.addAmmoCount("Blue", 5);
+                thisText.text = "5x Blue Paint Added to Inventory!";
 
             }
             if (thisPaint == "Purple")
@@ -186,10 +205,14 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.RemoveItem(red, 1);
                 inventory.RemoveItem(blue, 1);
                 ac.addAmmoCount("Purple", 5);
+                thisText.text = "5x Purple Paint Added to Inventory!";
 
             }
-
-
+            thisText.enabled = false;
+            displayText = false;
+            textTimer = 0;
+            displayText = true;
+            thisText.enabled = true;
             finalPaint.sprite = null;
             finalPaint.color = new Color(1, 1, 1, 0);
             currentItems.Clear();
