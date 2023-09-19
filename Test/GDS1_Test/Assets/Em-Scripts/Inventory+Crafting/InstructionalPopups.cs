@@ -29,9 +29,16 @@ public class InstructionalPopups : MonoBehaviour
     bool[] speechBubbleSpritesComplete;
     [SerializeField] Text spaceToCloseText;
     [SerializeField] Sprite[] speechBubbleSprites;
+    [SerializeField] Image cornerImage1;
+    [SerializeField] Image cornerImage2;
+    [SerializeField] Image cornerImage3;
+   // [SerializeField] Animator cornerAnim;
+   // [SerializeField] AnimationClip[] cornerAnimClips;
+    int currentCornerAnim = 0;
 
     int currentSpeechInstruction = 0;
     Animator daveSpeakingAnim;
+    Animation cornerAnimation;
 
 
     int currentUIPopup;
@@ -52,6 +59,11 @@ public class InstructionalPopups : MonoBehaviour
 
         //speechBubbleImage.sprite = speechBubbleSprites[currentSpeechInstruction];
         DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
+        //cornerAnim = cornerImage.gameObject.GetComponent<Animator>();
+        cornerImage1.enabled = false;
+        cornerImage2.enabled = false;
+        cornerImage3.enabled = false;
+
     }
 
     // Update is called once per frame
@@ -73,12 +85,18 @@ public class InstructionalPopups : MonoBehaviour
                 speechBubbleSpritesComplete[currentSpeechInstruction] = true;
             }
 
-            else if (currentSpeechInstruction == 1 || currentSpeechInstruction == 2 || currentSpeechInstruction == 4 || currentSpeechInstruction == 5) 
+            else if (currentSpeechInstruction == 1 || currentSpeechInstruction == 2 || currentSpeechInstruction == 4) 
             {
                 CloseSpeechBubbleInstructions();
                 speechBubbleSpritesComplete[currentSpeechInstruction] = true;
                 currentSpeechInstruction++;
                 //currentSpeechInstruction++;
+            }
+            else if (currentSpeechInstruction == 5 && speechBubbleSpritesComplete[currentSpeechInstruction] == true)
+            {
+                CloseSpeechBubbleInstructions();
+                speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+                currentSpeechInstruction++;
             }
             else if (SceneManager.GetActiveScene().buildIndex == 3)
             {
@@ -107,7 +125,7 @@ public class InstructionalPopups : MonoBehaviour
 
         if ((ps1.plantGrown || ps2.plantGrown || ps3.plantGrown || ps4.plantGrown || ps5.plantGrown) && currentSpeechInstruction == 2)
         {
-            Debug.Log("HARVEST SPEECH BUBBLE SHOULD BE APPEARING");
+           
             DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
             speechBubbleSpritesComplete[currentSpeechInstruction] = true;
 
@@ -121,8 +139,14 @@ public class InstructionalPopups : MonoBehaviour
 
         if (currentSpeechInstruction == 5)
         {
-            ib = GameObject.FindGameObjectWithTag("InBowl").GetComponent<InBowl>();
-            if (ib.firstRedPaint && ib.firstBluePaint)
+            if(GameObject.FindGameObjectWithTag("InBowl").GetComponent<InBowl>() != null) { 
+                ib = GameObject.FindGameObjectWithTag("InBowl").GetComponent<InBowl>();
+            }
+            else
+            {
+                ib = null;
+            }
+            if (ib.firstRedPaint && ib.firstBluePaint && ib!= null)
             {
                 DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
                 speechBubbleSpritesComplete[currentSpeechInstruction] = true;
@@ -152,6 +176,48 @@ public class InstructionalPopups : MonoBehaviour
                 speechBubbleSpritesComplete[currentSpeechInstruction] = true;
             }
         }
+
+        if(currentSpeechInstruction == 2 && currentCornerAnim == 0)
+        {
+            cornerImage1.enabled = true;
+            //cornerAnim.Play(cornerAnimClips[0].ToString());
+            //cornerAnim.SetBool("isWASD", true);
+           
+            //cornerAnimation.Play();
+        }
+        if(currentCornerAnim == 1)
+        {
+            cornerImage2.enabled = true;
+            //  cornerAnim.Play(cornerAnimClips[1].ToString());
+           // cornerAnim.SetBool("isPlant", true);
+        }
+        if(currentSpeechInstruction == 3 && currentCornerAnim == 2)
+        {
+            cornerImage3.enabled = true;
+            //  cornerAnim.Play(cornerAnimClips[2].ToString());
+         //   cornerAnim.SetBool("isHarvest", true);
+        }
+
+        if((Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.S) || Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)) && currentCornerAnim == 0)
+        {
+            Destroy(cornerImage1.gameObject);
+            currentCornerAnim++;
+        }
+        if((ps1.triggeredFirstTime || ps2.triggeredFirstTime || ps3.triggeredFirstTime || ps4.triggeredFirstTime || ps5.triggeredFirstTime) && currentCornerAnim == 1)
+        {
+            Destroy(cornerImage2.gameObject);
+            // cornerAnim.SetBool("isPlant", false);
+            currentCornerAnim++;
+        }
+
+        if ((ps1.plantHarvested || ps2.plantHarvested || ps3.plantHarvested || ps4.plantHarvested || ps5.plantHarvested) && currentCornerAnim == 2)
+        {
+            Destroy(cornerImage3.gameObject);
+
+            //  cornerAnim.SetBool("isHarvest", false);
+            currentCornerAnim++;
+        }
+
     }
 
     void DisplaySpeechBubbleInstructions(Sprite thisSprite)

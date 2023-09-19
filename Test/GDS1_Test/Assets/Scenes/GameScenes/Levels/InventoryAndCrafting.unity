@@ -3760,6 +3760,7 @@ MonoBehaviour:
   blueFlowers: {fileID: 1582211274}
   plantSeeds: {fileID: 8300000, guid: ad6a8f064e4722e4e95f27e4083a0f29, type: 3}
   harvestSeeds: {fileID: 8300000, guid: cba9b48072e0a5841960a583d7a88e9f, type: 3}
+  triggeredFirstTime: 0
 --- !u!65 &207953568
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -8082,6 +8083,7 @@ MonoBehaviour:
   blueFlowers: {fileID: 806187181}
   plantSeeds: {fileID: 8300000, guid: ad6a8f064e4722e4e95f27e4083a0f29, type: 3}
   harvestSeeds: {fileID: 8300000, guid: cba9b48072e0a5841960a583d7a88e9f, type: 3}
+  triggeredFirstTime: 0
 --- !u!65 &422281102
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -10981,6 +10983,103 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 594605057}
   m_Mesh: {fileID: -2029242754424177778, guid: 0630d93b79b7cd24aaa2d7f1ca760a65, type: 3}
+--- !u!1 &595266830
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 595266831}
+  - component: {fileID: 595266833}
+  - component: {fileID: 595266832}
+  - component: {fileID: 595266834}
+  m_Layer: 0
+  m_Name: WASDControls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &595266831
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595266830}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1136892974}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -730, y: 235.1}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &595266832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595266830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 592e9eb4d499cef40bf357148ea48f86, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &595266833
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595266830}
+  m_CullTransparentMesh: 1
+--- !u!95 &595266834
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 595266830}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 403d888abd023614799e08bc8ba0d19f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &597525322
 GameObject:
   m_ObjectHideFlags: 0
@@ -13616,6 +13715,103 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 81cdb6a48f780dd41ab02899c9b7d92b, type: 3}
   m_PrefabInstance: {fileID: 788546859}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &796298805
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 796298806}
+  - component: {fileID: 796298809}
+  - component: {fileID: 796298808}
+  - component: {fileID: 796298807}
+  m_Layer: 0
+  m_Name: HarvestControls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &796298806
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796298805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1136892974}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -730, y: 235.1}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &796298807
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796298805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: efdf863a09bbba649bc2756d2ceff7a9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &796298808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796298805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 2eda39a8f75516046b32fde92f5245d3, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &796298809
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 796298805}
+  m_CullTransparentMesh: 1
 --- !u!4 &799206699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bb314d9955a2d7542baf9e7cadfbb547, type: 3}
@@ -19306,6 +19502,9 @@ RectTransform:
   - {fileID: 285618539}
   - {fileID: 35465709}
   - {fileID: 1990948571}
+  - {fileID: 595266831}
+  - {fileID: 1207246520}
+  - {fileID: 796298806}
   m_Father: {fileID: 1234051520}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19415,6 +19614,9 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8e36c35389c28dc4c92b566fc9241f01, type: 3}
   - {fileID: 21300000, guid: 1c7c385e57b66ba47a02162a359b0b5d, type: 3}
   - {fileID: 21300000, guid: 98ddcae37b12eca438befa0beaa8ed5f, type: 3}
+  cornerImage1: {fileID: 595266832}
+  cornerImage2: {fileID: 1207246522}
+  cornerImage3: {fileID: 796298808}
 --- !u!1 &1140493838
 GameObject:
   m_ObjectHideFlags: 0
@@ -19695,6 +19897,7 @@ MonoBehaviour:
   blueFlowers: {fileID: 951971712}
   plantSeeds: {fileID: 8300000, guid: ad6a8f064e4722e4e95f27e4083a0f29, type: 3}
   harvestSeeds: {fileID: 8300000, guid: cba9b48072e0a5841960a583d7a88e9f, type: 3}
+  triggeredFirstTime: 0
 --- !u!65 &1182877292
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20359,6 +20562,7 @@ MonoBehaviour:
   blueFlowers: {fileID: 1454905182}
   plantSeeds: {fileID: 8300000, guid: ad6a8f064e4722e4e95f27e4083a0f29, type: 3}
   harvestSeeds: {fileID: 8300000, guid: cba9b48072e0a5841960a583d7a88e9f, type: 3}
+  triggeredFirstTime: 0
 --- !u!65 &1203724483
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -20523,6 +20727,103 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1206646232}
   m_Mesh: {fileID: 7595542528838623718, guid: 0630d93b79b7cd24aaa2d7f1ca760a65, type: 3}
+--- !u!1 &1207246519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1207246520}
+  - component: {fileID: 1207246523}
+  - component: {fileID: 1207246522}
+  - component: {fileID: 1207246521}
+  m_Layer: 0
+  m_Name: PlantControls
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1207246520
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207246519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 1136892974}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -730, y: 235.1}
+  m_SizeDelta: {x: 1920, y: 1080}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &1207246521
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207246519}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e125349a0ad6e544a8756c2c125c60ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1207246522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207246519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 1eff399bed5273c4692d04bd42805ca4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1207246523
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1207246519}
+  m_CullTransparentMesh: 1
 --- !u!1 &1209101805
 GameObject:
   m_ObjectHideFlags: 0
@@ -23453,6 +23754,7 @@ MonoBehaviour:
   blueFlowers: {fileID: 1890192775}
   plantSeeds: {fileID: 8300000, guid: ad6a8f064e4722e4e95f27e4083a0f29, type: 3}
   harvestSeeds: {fileID: 8300000, guid: cba9b48072e0a5841960a583d7a88e9f, type: 3}
+  triggeredFirstTime: 0
 --- !u!65 &1376257699
 BoxCollider:
   m_ObjectHideFlags: 0

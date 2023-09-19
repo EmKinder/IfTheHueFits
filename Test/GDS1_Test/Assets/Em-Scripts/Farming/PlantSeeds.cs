@@ -68,6 +68,8 @@ public class PlantSeeds : MonoBehaviour
     public AudioClip harvestSeeds;
     AudioSource audio;
 
+    public bool triggeredFirstTime = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -189,6 +191,7 @@ public class PlantSeeds : MonoBehaviour
             ChangeMaterial(pots, emmisive);
             if (Input.GetKeyDown(KeyCode.E))
             {
+                triggeredFirstTime = true;
              //   Debug.Log("Farming E Pressed");
                 if (!plantGrowing)
                 {
