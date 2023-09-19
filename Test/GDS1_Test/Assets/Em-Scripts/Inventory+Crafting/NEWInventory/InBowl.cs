@@ -39,6 +39,9 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
     [SerializeField] Sprite[] paintSprites = new Sprite[6];
     string thisPaint;
     AmmoCount ac;
+    [SerializeField] OnInventoryOpen io;
+    string petal1name;
+    string petal2name;
 
     // Start is called before the first frame update
     void Start()
@@ -62,32 +65,53 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
     // Update is called once per frame
     void Update()
     {
-        if (canMix && Input.GetMouseButton(0)) {
+        if (CanCraft()) { 
+            if (canMix && Input.GetMouseButton(0)) {
                 this.gameObject.transform.Rotate(Vector3.back * 100 * Time.deltaTime);
                 mixingTimer += Time.deltaTime;
-                if(mixingTimer >= 3)
+                if (mixingTimer >= 3)
                 {
                     mixingTimer = 0;
                     canMix = false;
-                    foreach(Image petal in petalPositions)
+                    foreach (Image petal in petalPositions)
                     {
                         petal.sprite = null;
                         petal.color = new Color(1, 1, 1, 0);
-                       // petal.enabled = false;
+                        // petal.enabled = false;
                     }
                     finalPaint.enabled = true;
                     finalPaint.color = new Color(1, 1, 1, 1);
                     Craft();
                 }
+            }
+        }
+        if (canMix) {
+            if (CanCraft() == false) { 
+                Debug.Log("Is this getting called at all??");
+                io.AddBackToPots(petal1name);
+                
+                io.AddBackToPots(petal2name);
+                currentItems.Clear();
+                petalPositions[0].sprite = null;
+                petalPositions[1].sprite = null;
+                petalPositions[0].color = new Color(1, 1, 1, 0);
+                petalPositions[1].color = new Color(1, 1, 1, 0);
+                thisText.text = "Cannot craft that yet...";
+                thisText.enabled = true;
+                displayText = true;
+                canMix = false;
+             }
+
         }
         if (displayText)
         {
-            Debug.Log("text should be displaying");
+           // Debug.Log("text should be displaying");
             //thisText.enabled = true;
             textTimer += Time.deltaTime;
             if(textTimer >= 2.0f)
             {
                 thisText.enabled = false;
+                displayText = false;
             }
         }
     }
@@ -99,6 +123,19 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
 
     public void PutInBowlPositions(ItemClass item)
     {
+        string thisPetalName = null;
+        if(item == red)
+        {
+            thisPetalName = "Red";
+        }
+        else if(item == yellow)
+        {
+            thisPetalName = "Yellow";
+        }
+        else if(item == blue)
+        {
+            thisPetalName = "Blue";
+        }
 
         if(petalPositions[0].sprite == null && !petal1Full)
         {
@@ -106,6 +143,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
             petalPositions[0].sprite = item.itemCraftingIcon;
             currentItems.Add(item);
             petalPositions[0].color = new Color (1, 1, 1, 1);
+            petal1name = thisPetalName;
             //canMix = true;
         }
         else if(petalPositions[1].sprite == null & !petal2Full)
@@ -115,7 +153,29 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
             currentItems.Add(item);
             petalPositions[1].color = new Color(1, 1, 1, 1);
             canMix = true;
+            petal2name = thisPetalName;
         }
+    }
+
+    private bool CanCraft()
+    {
+        if (currentItems.Contains(red) && currentItems.Contains(blue))
+        {
+            if (PlayerPrefs.GetInt("Current") < 4)
+                return false;
+        }
+        else if (currentItems.Contains(red) && currentItems.Contains(yellow))
+        {
+            if (PlayerPrefs.GetInt("Current") < 6)
+                return false;
+        }
+        else if (currentItems.Contains(blue) && currentItems.Contains(yellow))
+        {
+            if (PlayerPrefs.GetInt("Current") < 6)
+                return false;
+        }
+
+        return true;
     }
 
     private void Craft()

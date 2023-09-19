@@ -41,6 +41,42 @@ public class OnInventoryOpen : MonoBehaviour
         
     }
 
+    public void AddBackToPots(string colour)
+    {
+        ItemClass itemToAdd = null;
+        Image potToAddToo = null;
+        if(colour == "Red")
+        {
+            itemToAdd = redFlower;
+            potToAddToo = pots[0];
+        }
+        else if(colour == "Yellow")
+        {
+            itemToAdd = yellowFlower;
+            potToAddToo = pots[1];
+        }
+        else if(colour == "Blue")
+        {
+            itemToAdd = blueFlower;
+            potToAddToo = pots[2];
+        }
+
+        if (itemToAdd != null && potToAddToo != null)
+        {
+            Vector3 thisPosition = new Vector3(potToAddToo.transform.position.x + Random.Range(-20, 20),
+                                                       potToAddToo.transform.position.y + Random.Range(-20, 20),
+                                                       potToAddToo.transform.position.z);
+            Image si = Instantiate(selectableItems, thisPosition, Quaternion.identity) as Image;
+            si.gameObject.name = itemToAdd.name + "SelectableItem";
+            si.sprite = itemToAdd.itemCraftingIcon;
+            si.transform.parent = gameObject.transform;
+            si.transform.Rotate(0, 0, Random.Range(0, 360));
+            si.transform.localScale = new Vector3(2, 2, 2);
+            si.GetComponent<InventoryPickup>().SetThisItem(itemToAdd);
+        }
+
+    } 
+
     public void FillPots()
     {
         Debug.Log("Fill Pots Called");
