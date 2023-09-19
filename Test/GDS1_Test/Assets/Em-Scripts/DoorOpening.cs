@@ -19,7 +19,7 @@ public class DoorOpening : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-            if (ip.firstTimeBlueCrafted == true)
+            if (ip.doorCanOpen == true)
             {
                 canDoorOpen = true;
             }

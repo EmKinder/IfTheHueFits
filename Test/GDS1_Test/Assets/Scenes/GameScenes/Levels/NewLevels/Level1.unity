@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1902,6 +1902,31 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 215386322}
   m_Mesh: {fileID: 1681952263258048870, guid: 0630d93b79b7cd24aaa2d7f1ca760a65, type: 3}
+--- !u!1 &215921938 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1704260145433246149, guid: 5b42a83a2db51254b8c51079d7970601, type: 3}
+  m_PrefabInstance: {fileID: 1285378808383441219}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &215921939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 215921938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Version: 1
+  m_UsePipelineSettings: 1
+  m_AdditionalLightsShadowResolutionTier: 2
+  m_LightLayerMask: 1
+  m_CustomShadowLayers: 0
+  m_ShadowLayerMask: 1
+  m_LightCookieSize: {x: 1, y: 1}
+  m_LightCookieOffset: {x: 0, y: 0}
 --- !u!1 &228736942
 GameObject:
   m_ObjectHideFlags: 0
@@ -8040,7 +8065,7 @@ GameObject:
   - component: {fileID: 1201448012}
   m_Layer: 0
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: FirstHealthTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11995,7 +12020,7 @@ GameObject:
   - component: {fileID: 1624305101}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: FirstResourceTrigger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12013,6 +12038,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   resourceUI: {fileID: 21300000, guid: 87a8fdb3fe0e26644ba785697a48e24e, type: 3}
+  firstTimeResource: 0
 --- !u!65 &1624305102
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -7,12 +7,13 @@ public class FirstResourcePickup : MonoBehaviour
 {
     public Sprite resourceUI;
     Image image;
-    bool firstTimeResource;
+    public bool firstTimeResource;
 
     // Start is called before the first frame update
     void Start()
     {
         firstTimeResource = false;
+
     }
 
     // Update is called once per frame
@@ -25,11 +26,7 @@ public class FirstResourcePickup : MonoBehaviour
     {
         if(other.tag == "Player" && !firstTimeResource)
         {
-            image = GameObject.FindGameObjectWithTag("InstructionalUI").GetComponent<Image>();
-            image.enabled = true;
-            image.sprite = resourceUI;
             firstTimeResource = true;
-            Time.timeScale = 0;
         }
     }
 }

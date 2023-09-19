@@ -13,6 +13,8 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
     bool petal2Full;
     Quaternion startRotation;
     bool canMix;
+    public bool firstRedPaint;
+    public bool firstBluePaint;
     Image finalPaint;
     float mixingTimer = 0.0f;
     List<ItemClass> currentItems = new List<ItemClass>();
@@ -163,6 +165,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.RemoveItem(red, 2);
                 ac.addAmmoCount("Red", 5);
                 thisText.text = "5x Red Paint Added to Inventory!";
+                firstRedPaint = true;
 
             }
             if (thisPaint == "Orange")
@@ -197,6 +200,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.RemoveItem(blue, 2);
                 ac.addAmmoCount("Blue", 5);
                 thisText.text = "5x Blue Paint Added to Inventory!";
+                firstBluePaint = true;
 
             }
             if (thisPaint == "Purple")

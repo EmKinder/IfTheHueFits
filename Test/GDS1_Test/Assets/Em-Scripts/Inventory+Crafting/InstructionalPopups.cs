@@ -10,6 +10,7 @@ public class InstructionalPopups : MonoBehaviour
     public NextLevelScript nextLevelScript;
     CheckForJaimesLevel jaime;
 
+    public bool doorCanOpen = false;
     public PlantSeeds ps1;
     public PlantSeeds ps2;
     public PlantSeeds ps3;
@@ -20,54 +21,37 @@ public class InstructionalPopups : MonoBehaviour
     public InventoryManager im;
     public SwitchPages sp;
 
-    public Image image;
-    bool instructionsOpen;
-    bool firstPlantHasBeenGrown;
-    bool inventoryOpenFirstTime;
-    bool firstPlantHasBeenHarvested;
-    bool firstTimeRedCrafted;
-    public bool firstTimeBlueCrafted;
-    bool firstTimePurpleCrafted;
-    public bool complementaryTutorialFinished;
-    bool firstLevelOpen;
-    bool firstResourceSeen;
-    bool firstLevelComplete;
-    bool secondLevelComplete;
-    bool thirdLevelComplete;
-    bool redPageFirstSeen;
+    [SerializeField] Image daveImage;
+    [SerializeField] Image speechBubbleImage;
+    [SerializeField] Image topCornerAnimations;
+    [SerializeField] Image background;
 
-    public Sprite plantingUI;
-    public Sprite grownUI;
-    public Sprite inventoryUI;
-    public Sprite redPaintUI;
-    public Sprite mixPaintUI;
-    public Sprite bluePaintUI;
-    public Sprite complementaryUI;
-    public Sprite doorUI;
-    public Sprite controlsUI;
-    public Sprite purpleUI;
-    public Sprite varietyUI;
-    public Sprite yellowUI;
-    public Sprite orangeGreenUI;
+    bool[] speechBubbleSpritesComplete;
+    [SerializeField] Text spaceToCloseText;
+    [SerializeField] Sprite[] speechBubbleSprites;
+
+    int currentSpeechInstruction = 0;
+    Animator daveSpeakingAnim;
+
 
     int currentUIPopup;
+
+    InBowl ib;
+    FirstResourcePickup firstResource;
+    FirstHealthUI firstHealth;
 
     void Start()
     {
         jaime = GameObject.FindGameObjectWithTag("Jaime").GetComponent<CheckForJaimesLevel>();
+        daveSpeakingAnim = daveImage.gameObject.GetComponent<Animator>();
+        daveSpeakingAnim.enabled = false;
 
-        firstPlantHasBeenHarvested = false;
-        firstPlantHasBeenGrown = false;
-        firstLevelOpen = false;
-        complementaryTutorialFinished = false;
-        firstLevelComplete = false;
-        secondLevelComplete = false;
-        thirdLevelComplete = false;
-        firstTimePurpleCrafted = false;
-        redPageFirstSeen = false;
-        image.sprite = plantingUI;
-        Time.timeScale = 0;
-        
+        speechBubbleSpritesComplete = new bool[speechBubbleSprites.Length];
+        for (int i = 0; i < speechBubbleSpritesComplete.Length; i++)
+            speechBubbleSpritesComplete[i] = false;
+
+        //speechBubbleImage.sprite = speechBubbleSprites[currentSpeechInstruction];
+        DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
     }
 
     // Update is called once per frame
@@ -82,130 +66,127 @@ public class InstructionalPopups : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (complementaryTutorialFinished)
+            if (currentSpeechInstruction == 0 || (currentSpeechInstruction == 3 && ct.inventoryOpen))
             {
-                image.enabled = true;
-                image.sprite = doorUI;
-                Time.timeScale = 0;
-
-
+                currentSpeechInstruction++;
+                DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
+                speechBubbleSpritesComplete[currentSpeechInstruction] = true;
             }
-            else
+
+            else if (currentSpeechInstruction == 1 || currentSpeechInstruction == 2 || currentSpeechInstruction == 4 || currentSpeechInstruction == 5) 
             {
-                image.enabled = false;
-                Time.timeScale = 1;
+                CloseSpeechBubbleInstructions();
+                speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+                currentSpeechInstruction++;
+                //currentSpeechInstruction++;
             }
-            complementaryTutorialFinished = false;
+            else if (SceneManager.GetActiveScene().buildIndex == 3)
+            {
+
+                if (currentSpeechInstruction == 6 || currentSpeechInstruction == 7 || currentSpeechInstruction == 8)
+                {
+                    currentSpeechInstruction++;
+                    DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
+                    speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+                }
+                else if(currentSpeechInstruction == 9 || currentSpeechInstruction == 10)
+                {
+                    CloseSpeechBubbleInstructions();
+                    speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+                    currentSpeechInstruction++;
+                }
+                else if (currentSpeechInstruction == 11)
+                {
+                    CloseSpeechBubbleInstructions();
+                    speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+                    currentSpeechInstruction++;
+                }
+            }
+
         }
 
-        if((ps1.plantGrown || ps2.plantGrown || ps3.plantGrown || ps4.plantGrown || ps5.plantGrown) && !firstPlantHasBeenGrown)
+        if ((ps1.plantGrown || ps2.plantGrown || ps3.plantGrown || ps4.plantGrown || ps5.plantGrown) && currentSpeechInstruction == 2)
         {
-           
-            firstPlantHasBeenGrown = true;
-            image.enabled = true;
-            image.sprite = grownUI;
-            Time.timeScale = 0;
+            Debug.Log("HARVEST SPEECH BUBBLE SHOULD BE APPEARING");
+            DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
+            speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+
         }
 
-        if ((ps1.plantHarvested || ps2.plantHarvested || ps3.plantHarvested || ps4.plantHarvested || ps5.plantHarvested) && !firstPlantHasBeenHarvested)
+        if (ct.inventoryOpen && currentSpeechInstruction == 3)
         {
-
-            firstPlantHasBeenHarvested = true;
-            image.enabled = true;
-            image.sprite = inventoryUI;
-            Time.timeScale = 0;
+            DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
+            speechBubbleSpritesComplete[currentSpeechInstruction] = true;
         }
 
-     /*   if(sp.firstTimeRedPage && !redPageFirstSeen)
+        if (currentSpeechInstruction == 5)
         {
-            redPageFirstSeen = true;
-            image.enabled = true;
-            image.sprite = mixPaintUI;
-            Time.timeScale = 0;
-        }*/
+            ib = GameObject.FindGameObjectWithTag("InBowl").GetComponent<InBowl>();
+            if (ib.firstRedPaint && ib.firstBluePaint)
+            {
+                DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
+                speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+                doorCanOpen = true;
+            }
 
-        if (!inventoryOpenFirstTime && ct.inventoryOpen)
-        {
-            inventoryOpenFirstTime = true;
-            firstTimeRedCrafted = true;
-            firstTimeBlueCrafted = true;
-            complementaryTutorialFinished = true;
-            image.enabled = true;
-            image.sprite = redPaintUI;
-            Time.timeScale = 0;
         }
 
-   /*     if (!firstTimeRedCrafted && im.redCrafted)
+        if (SceneManager.GetActiveScene().buildIndex == 3)
         {
-            firstTimeRedCrafted = true;
-            image.enabled = true;
-            image.sprite = bluePaintUI;
-            Time.timeScale = 0;
-        }*/
-
-        /*if(!firstTimeBlueCrafted && im.blueCrafted)
-        {
-            complementaryTutorialFinished = true;
-            firstTimeBlueCrafted = true;
-            image.enabled = true;
-            image.sprite = complementaryUI;
-            Time.timeScale = 0;
-        }*/
-
-        if(SceneManager.GetActiveScene().buildIndex == 3 && !firstLevelOpen)
-        {
-            firstLevelOpen = true;
-            image.enabled = true;
-            image.sprite = controlsUI;
-            Time.timeScale = 0;
+            firstResource = GameObject.FindGameObjectWithTag("FirstResourceTrigger").GetComponent<FirstResourcePickup>();
+            firstHealth = GameObject.FindGameObjectWithTag("FirstHealthTrigger").GetComponent<FirstHealthUI>();
+            if (currentSpeechInstruction == 6)
+            {
+                DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
+                speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+            }
+            else if (firstResource.firstTimeResource && currentSpeechInstruction == 10)
+            {
+                DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
+                speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+            }
+            else if (firstHealth.firstTimeHealth && currentSpeechInstruction == 11)
+            {
+                Debug.Log("Current Speech Instruction: " + currentSpeechInstruction);
+                DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
+                speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+            }
         }
+    }
 
-        if(SceneManager.GetActiveScene().buildIndex == 1 && !firstLevelComplete && PlayerPrefs.GetInt("Current") == 4)
-        {
-                firstLevelComplete = true;
-                image.enabled = true;
-                image.sprite = purpleUI;
-                Time.timeScale = 0;
-        }
+    void DisplaySpeechBubbleInstructions(Sprite thisSprite)
+    {
+        background.enabled = true;
+        daveImage.enabled = true;
+        speechBubbleImage.enabled = true;
+        speechBubbleImage.sprite = thisSprite;
+        spaceToCloseText.enabled = true;
+        Debug.Log(currentSpeechInstruction);
+        daveSpeakingAnim.enabled = true;
+        Time.timeScale = 0;
 
-     /*   if (!firstTimePurpleCrafted && im.purpleCrafted && PlayerPrefs.GetInt("Current") == 4)
-        {
-            firstTimePurpleCrafted = true;
-            image.enabled = true;
-            image.sprite = varietyUI;
-            Time.timeScale = 0;
-        }*/
 
-        if (SceneManager.GetActiveScene().buildIndex == 1 && !secondLevelComplete && PlayerPrefs.GetInt("Current") == 5)
-        {
-            secondLevelComplete = true;
-            image.enabled = true;
-            image.sprite = yellowUI;
-            Time.timeScale = 0;
-        }
+    }
 
-        if (SceneManager.GetActiveScene().buildIndex == 1 && !thirdLevelComplete && PlayerPrefs.GetInt("Current") == 6)
-        {
-            thirdLevelComplete = true;
-            image.enabled = true;
-            image.sprite = orangeGreenUI;
-            Time.timeScale = 0;
-        }
+    void CloseSpeechBubbleInstructions()
+    {
+        background.enabled = false;
+        daveImage.enabled = false;
+        speechBubbleImage.enabled = false;
+        spaceToCloseText.enabled = false;
+        daveSpeakingAnim.enabled = false;
+        Time.timeScale = 1;
+    }
+
+    void DisplayControlsInstructions(Sprite thisSprite)
+    {
+        //anim play stuff
     }
 
     void ResetUI()
     {
-        firstPlantHasBeenHarvested = false;
-        firstPlantHasBeenGrown = false;
-        firstLevelOpen = false;
-        complementaryTutorialFinished = false;
-        firstLevelComplete = false;
-        secondLevelComplete = false;
-        thirdLevelComplete = false;
-        firstTimePurpleCrafted = false;
-        redPageFirstSeen = false;
-        image.sprite = plantingUI;
-        image.enabled = true;
-        Time.timeScale = 0;
+        currentSpeechInstruction = 0;
+        for (int i = 0; i < speechBubbleSpritesComplete.Length; i++)
+            speechBubbleSpritesComplete[i] = false;
     }
 }

@@ -7,7 +7,7 @@ public class FirstHealthUI : MonoBehaviour
 {
     public Sprite resourceUI;
     Image image;
-    bool firstTimeHealth;
+    public bool firstTimeHealth;
 
     // Start is called before the first frame update
     void Start()
@@ -25,11 +25,7 @@ public class FirstHealthUI : MonoBehaviour
     {
         if (other.tag == "Player" && !firstTimeHealth)
         {
-            image = GameObject.FindGameObjectWithTag("InstructionalUI").GetComponent<Image>();
-            image.enabled = true;
-            image.sprite = resourceUI;
             firstTimeHealth = true;
-            Time.timeScale = 0;
         }
     }
 }

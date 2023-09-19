@@ -51,7 +51,7 @@ public class DoorEnter : MonoBehaviour
         // if (Input.GetKeyDown(KeyCode.E))
         //  {
         
-            if (ip.firstTimeBlueCrafted == true)
+            if (ip.doorCanOpen == true)
             {
                 canDoorOpen = true;
                 if (collider)
@@ -67,7 +67,7 @@ public class DoorEnter : MonoBehaviour
         if (enterDoor && canDoorOpen)
             {
 
-            Debug.Log(ip.firstTimeBlueCrafted == true);
+            Debug.Log(ip.doorCanOpen == true);
                 Debug.Log("Door Entered");
                // canvas.enabled = false;
                 // sceneload = PlayerPrefs.GetInt("Current", add);
@@ -90,7 +90,7 @@ public class DoorEnter : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(ip.firstTimeBlueCrafted);
+        Debug.Log(ip.doorCanOpen);
         Debug.Log("collisiondetected");
         if(other.tag == "Player" )
         {
