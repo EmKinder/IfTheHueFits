@@ -72,6 +72,7 @@ public class AmmoSwitching : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        
         if (paintTip == null && SceneManager.GetActiveScene().buildIndex != 0 && SceneManager.GetActiveScene().buildIndex != 17) { 
             paintTip = GameObject.FindGameObjectWithTag("PlayerAttackPoint").GetComponent<MeshRenderer>();
             if (paintTip) { 
@@ -183,7 +184,9 @@ public class AmmoSwitching : MonoBehaviour
                 BlueCheck.enabled = false;
                 PurpleCheck.enabled = false;
                 paintTip.material = yellowMat;
+                Debug.Log(paintTip.material.name);
                 return "Yellow";
+                
             }
             if (selectedAmmo == 3)
             {

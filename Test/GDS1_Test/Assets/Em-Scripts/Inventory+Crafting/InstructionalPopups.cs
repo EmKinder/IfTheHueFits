@@ -32,13 +32,24 @@ public class InstructionalPopups : MonoBehaviour
     [SerializeField] Image cornerImage1;
     [SerializeField] Image cornerImage2;
     [SerializeField] Image cornerImage3;
-   // [SerializeField] Animator cornerAnim;
+    [SerializeField] Image attackImage1;
+    [SerializeField] Image attackImage2;
+    [SerializeField] Image attackImage3;
+    [SerializeField] Animator attackAnim1;
+    [SerializeField] Animator attackAnim2;
+    [SerializeField] Animator attackAnim3;
+    [SerializeField] Text attackText1;
+    [SerializeField] Text attackText2;
+    [SerializeField] Text attackText3;
+    int currentAttackAnim = 0;
+    // [SerializeField] Animator cornerAnim;
    // [SerializeField] AnimationClip[] cornerAnimClips;
     int currentCornerAnim = 0;
 
     int currentSpeechInstruction = 0;
     Animator daveSpeakingAnim;
     Animation cornerAnimation;
+    bool firstTimeAttack = false;
 
 
     int currentUIPopup;
@@ -46,6 +57,7 @@ public class InstructionalPopups : MonoBehaviour
     InBowl ib;
     FirstResourcePickup firstResource;
     FirstHealthUI firstHealth;
+    bool attackimages = false;
 
     void Start()
     {
@@ -58,17 +70,25 @@ public class InstructionalPopups : MonoBehaviour
             speechBubbleSpritesComplete[i] = false;
 
         //speechBubbleImage.sprite = speechBubbleSprites[currentSpeechInstruction];
+        
         DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
         //cornerAnim = cornerImage.gameObject.GetComponent<Animator>();
         cornerImage1.enabled = false;
         cornerImage2.enabled = false;
         cornerImage3.enabled = false;
+        attackImage1.enabled = false;
+        attackImage2.enabled = false;
+        attackImage3.enabled = false;
+        attackText1.enabled = false;
+        attackText2.enabled = false;
+        attackText3.enabled = false;
 
     }
 
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("Current Dialogue: " + currentSpeechInstruction);
 
         if (jaime.GetGameRestartBool() == true)
         {
@@ -85,7 +105,7 @@ public class InstructionalPopups : MonoBehaviour
                 speechBubbleSpritesComplete[currentSpeechInstruction] = true;
             }
 
-            else if (currentSpeechInstruction == 1 || currentSpeechInstruction == 2 || currentSpeechInstruction == 4) 
+            else if (currentSpeechInstruction == 1 || currentSpeechInstruction == 2 || currentSpeechInstruction == 4)
             {
                 CloseSpeechBubbleInstructions();
                 speechBubbleSpritesComplete[currentSpeechInstruction] = true;
@@ -98,6 +118,42 @@ public class InstructionalPopups : MonoBehaviour
                 speechBubbleSpritesComplete[currentSpeechInstruction] = true;
                 currentSpeechInstruction++;
             }
+            else if (attackimages)
+            {
+                if (currentAttackAnim == 0)
+                {
+                    attackAnim1.enabled = false;
+                    attackImage1.color = new Color(1, 1, 1, 0.4f);
+                    attackText1.enabled = false;
+                    attackAnim2.enabled = true;
+                    attackImage2.color = new Color(1, 1, 1, 1);
+                    attackText2.enabled = true;
+                    currentAttackAnim++;
+                }
+                else if (currentAttackAnim == 1)
+                {
+                    attackAnim2.enabled = false;
+                    attackImage2.color = new Color(1, 1, 1, 0.4f);
+                    attackText2.enabled = false;
+                    attackAnim3.enabled = true;
+                    attackImage3.color = new Color(1, 1, 1, 1);
+                    attackText3.enabled = true;
+                    currentAttackAnim++;
+                }
+                else if (currentAttackAnim == 2)
+                {
+                    Destroy(attackImage1.gameObject);
+                    Destroy(attackImage2.gameObject);
+                    Destroy(attackImage3.gameObject);
+                    Destroy(attackText1.gameObject);
+                    Destroy(attackText2.gameObject);
+                    Destroy(attackText3.gameObject);
+                    background.enabled = false;
+                    attackimages = false;
+                    Time.timeScale = 1;
+                }
+            }
+
             else if (SceneManager.GetActiveScene().buildIndex == 3)
             {
 
@@ -107,22 +163,29 @@ public class InstructionalPopups : MonoBehaviour
                     DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
                     speechBubbleSpritesComplete[currentSpeechInstruction] = true;
                 }
-                else if(currentSpeechInstruction == 9 || currentSpeechInstruction == 10)
+                else if (currentSpeechInstruction == 10 && speechBubbleSpritesComplete[10])
                 {
                     CloseSpeechBubbleInstructions();
                     speechBubbleSpritesComplete[currentSpeechInstruction] = true;
                     currentSpeechInstruction++;
                 }
-                else if (currentSpeechInstruction == 11)
+                else if (currentSpeechInstruction == 9 && speechBubbleSpritesComplete[9] && !firstTimeAttack)
+                {
+                    CloseSpeechBubbleInstructions();
+                    speechBubbleSpritesComplete[currentSpeechInstruction] = true;
+                    DisplayAttackImages();
+                    currentSpeechInstruction++;
+                }
+                else if (currentSpeechInstruction == 11 && speechBubbleSpritesComplete[11])
                 {
                     CloseSpeechBubbleInstructions();
                     speechBubbleSpritesComplete[currentSpeechInstruction] = true;
                     currentSpeechInstruction++;
                 }
+
             }
-
         }
-
+            
         if ((ps1.plantGrown || ps2.plantGrown || ps3.plantGrown || ps4.plantGrown || ps5.plantGrown) && currentSpeechInstruction == 2)
         {
            
@@ -254,5 +317,24 @@ public class InstructionalPopups : MonoBehaviour
         currentSpeechInstruction = 0;
         for (int i = 0; i < speechBubbleSpritesComplete.Length; i++)
             speechBubbleSpritesComplete[i] = false;
+    }
+
+    void DisplayAttackImages()
+    {
+        background.enabled = true;
+        attackImage1.enabled = true;
+        attackAnim1.enabled = true;
+        attackText1.enabled = true;
+        attackImage2.enabled = true;
+        
+        attackImage2.color = new Color(1, 1, 1, 0.4f);
+        attackAnim2.enabled = false;
+        attackImage3.enabled = true;
+
+        attackAnim3.enabled = false;
+        attackImage3.color = new Color(1, 1, 1, 0.4f);
+        attackimages = true;
+        firstTimeAttack = true;
+        Time.timeScale = 0;
     }
 }

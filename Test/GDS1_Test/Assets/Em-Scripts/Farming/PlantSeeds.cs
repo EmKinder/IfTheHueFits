@@ -172,17 +172,17 @@ public class PlantSeeds : MonoBehaviour
         {
             return true;
         }
-        StopAllCoroutines();
-        StartCoroutine(ResourceText());
+      //  StopAllCoroutines();
+       // StartCoroutine(ResourceText());
         return false;
     }
 
-    IEnumerator ResourceText()
-    {
-        noResources.enabled = true;
-        yield return new WaitForSeconds(1.5f);
-        noResources.enabled = false;
-    }
+   // IEnumerator ResourceText()
+    //{
+      //  noResources.enabled = true;
+       // yield return new WaitForSeconds(1.5f);
+        //noResources.enabled = false;
+    //}
 
     private void OnTriggerStay(Collider other)
     {
