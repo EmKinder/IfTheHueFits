@@ -232,7 +232,7 @@ public class InstructionalPopups : MonoBehaviour
 
         }
 
-        if (SceneManager.GetActiveScene().buildIndex == 3)
+        if (SceneManager.GetActiveScene().name == "Level1")
         {
             firstResource = GameObject.FindGameObjectWithTag("FirstResourceTrigger").GetComponent<FirstResourcePickup>();
             firstHealth = GameObject.FindGameObjectWithTag("FirstHealthTrigger").GetComponent<FirstHealthUI>();
