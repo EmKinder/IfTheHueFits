@@ -51,6 +51,9 @@ public class InstructionalPopups : MonoBehaviour
     Animation cornerAnimation;
     bool firstTimeAttack = false;
 
+    bool firstRedCrafted = false;
+    bool firstBlueCrafted = false;
+
 
     int currentUIPopup;
 
@@ -88,6 +91,23 @@ public class InstructionalPopups : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (GameObject.FindGameObjectWithTag("InBowl"))
+        {
+            ib = GameObject.FindGameObjectWithTag("InBowl").GetComponent<InBowl>();
+            if (!firstRedCrafted) {
+                firstRedCrafted = ib.firstRedPaint;
+            }
+            if (!firstBlueCrafted) { 
+            firstBlueCrafted = ib.firstBluePaint;
+             }
+
+        }
+        else
+        {
+            ib = null;
+        }
+
         Debug.Log("Current Dialogue: " + currentSpeechInstruction);
 
         if (jaime.GetGameRestartBool() == true)
@@ -202,14 +222,8 @@ public class InstructionalPopups : MonoBehaviour
 
         if (currentSpeechInstruction == 5)
         {
-            if(GameObject.FindGameObjectWithTag("InBowl").GetComponent<InBowl>() != null) { 
-                ib = GameObject.FindGameObjectWithTag("InBowl").GetComponent<InBowl>();
-            }
-            else
-            {
-                ib = null;
-            }
-            if (ib.firstRedPaint && ib.firstBluePaint && ib!= null)
+            
+            if (firstRedCrafted && firstBlueCrafted)
             {
                 DisplaySpeechBubbleInstructions(speechBubbleSprites[currentSpeechInstruction]);
                 speechBubbleSpritesComplete[currentSpeechInstruction] = true;
