@@ -69,7 +69,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
             if (canMix && Input.GetMouseButton(0)) {
                 this.gameObject.transform.Rotate(Vector3.back * 100 * Time.deltaTime);
                 mixingTimer += Time.deltaTime;
-                if (mixingTimer >= 3)
+                if (mixingTimer >= 1.5)
                 {
                     mixingTimer = 0;
                     canMix = false;

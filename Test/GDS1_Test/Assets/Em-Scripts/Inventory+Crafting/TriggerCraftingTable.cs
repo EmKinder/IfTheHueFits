@@ -14,58 +14,44 @@ public class TriggerCraftingTable : MonoBehaviour
     public GameObject desk;
     [SerializeField] GameObject craftingCanvas;
     GameObject thisCraftingCanvas;
+    Material deskMat;
 
     // Start is called before the first frame update
     void Start()
     {
-      //  inventoryCanvas = GameObject.FindWithTag("InventoryCanvas").GetComponent<Canvas>();
-      //  inventoryCanvas.enabled = false;
         inventoryOpen = false;
+        deskMat = desk.GetComponent<MeshRenderer>().material;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0) && !inventoryOpen)
         {
-            Debug.Log("E pressed");
             if (standingAtDesk && !inventoryOpen)
             {
-                Debug.Log("Inventory open");
                 thisCraftingCanvas = Instantiate(craftingCanvas);
-             //   inventoryCanvas.enabled = true;
                 inventoryOpen = true;
 
             }
             else if (inventoryOpen)
             {
-                Debug.Log("Inventory close");
                 Destroy(thisCraftingCanvas);
-           //     inventoryCanvas.enabled = false;
                 inventoryOpen = false;
             }
         }
         if (!standingAtDesk)
         {
             Destroy(thisCraftingCanvas);
-            //  inventoryCanvas.enabled = false;
             inventoryOpen = false;
         }
-            
-           /* else if (inventoryOpen)
-            {
-                Debug.Log("Inventory close");
-                inventoryCanvas.enabled = false;
-                inventoryOpen = false;
-            }*/
-        
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player")
         {
-            desk.GetComponent<MeshRenderer>().material = emmisive;
+            deskMat = emmisive;
             standingAtDesk = true;
             Debug.Log("Triggering Desk");
         }
@@ -75,9 +61,8 @@ public class TriggerCraftingTable : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            desk.GetComponent<MeshRenderer>().material = normal;
+            deskMat = normal;
             standingAtDesk = false;
-            //Debug.Log("Triggering Desk");
         }
     }
 }
