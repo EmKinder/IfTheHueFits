@@ -69,7 +69,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
             if (canMix && Input.GetMouseButton(0)) {
                 this.gameObject.transform.Rotate(Vector3.back * 100 * Time.deltaTime);
                 mixingTimer += Time.deltaTime;
-                if (mixingTimer >= 3)
+                if (mixingTimer >= 1.5)
                 {
                     mixingTimer = 0;
                     canMix = false;
@@ -221,54 +221,54 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
         {
             if(thisPaint == "Red")
             {
-                inventory.AddItem(redPaint, 5);
+                inventory.AddItem(redPaint, 8);
                 inventory.RemoveItem(red, 2);
-                ac.addAmmoCount("Red", 5);
+                ac.addAmmoCount("Red", 8);
                 thisText.text = "5x Red Paint Added to Inventory!";
                 firstRedPaint = true;
 
             }
             if (thisPaint == "Orange")
             {
-                inventory.AddItem(orangePaint, 5);
+                inventory.AddItem(orangePaint, 8);
                 inventory.RemoveItem(red, 1);
                 inventory.RemoveItem(yellow, 1);
-                ac.addAmmoCount("Orange", 5);
+                ac.addAmmoCount("Orange", 8);
                 thisText.text = "5x Orange Paint Added to Inventory!";
 
             }
             if (thisPaint == "Yellow")
             {
-                inventory.AddItem(yellowPaint, 5);
+                inventory.AddItem(yellowPaint, 8);
                 inventory.RemoveItem(yellow, 2);
-                ac.addAmmoCount("Yellow", 5);
+                ac.addAmmoCount("Yellow", 8);
                 thisText.text = "5x Yellow Paint Added to Inventory!";
 
             }
             if (thisPaint == "Green")
             {
-                inventory.AddItem(greenPaint, 5);
+                inventory.AddItem(greenPaint, 8);
                 inventory.RemoveItem(yellow, 1);
                 inventory.RemoveItem(blue, 1);
-                ac.addAmmoCount("Green", 5);
+                ac.addAmmoCount("Green", 8);
                 thisText.text = "5x Green Paint Added to Inventory!";
 
             }
             if (thisPaint == "Blue")
             {
-                inventory.AddItem(bluePaint, 5);
+                inventory.AddItem(bluePaint, 8);
                 inventory.RemoveItem(blue, 2);
-                ac.addAmmoCount("Blue", 5);
+                ac.addAmmoCount("Blue", 8);
                 thisText.text = "5x Blue Paint Added to Inventory!";
                 firstBluePaint = true;
 
             }
             if (thisPaint == "Purple")
             {
-                inventory.AddItem(purplePaint, 5);
+                inventory.AddItem(purplePaint, 8);
                 inventory.RemoveItem(red, 1);
                 inventory.RemoveItem(blue, 1);
-                ac.addAmmoCount("Purple", 5);
+                ac.addAmmoCount("Purple", 8);
                 thisText.text = "5x Purple Paint Added to Inventory!";
 
             }
