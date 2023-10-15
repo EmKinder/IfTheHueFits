@@ -53,6 +53,7 @@ public class AmmoCount : MonoBehaviour
         {
             inventory = GameObject.FindGameObjectWithTag("InventoryManager").GetComponent<NEWInventoryManager>();
         }
+        levelEnd();
     }
 
     public int getAmmoCount(string type)
@@ -151,5 +152,49 @@ public class AmmoCount : MonoBehaviour
 
     }
 
+    public void levelEnd()
+    {
+        if (SceneManager.GetSceneByName("Level1").isLoaded)
+        {
+            if (yellowAmmoCount == 0 && purpleAmmoCount == 0 && blueAmmoCount == 0 && greenAmmoCount == 0 && orangeAmmoCount == 0 && redAmmoCount == 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+
+        }
+        if (SceneManager.GetSceneByName("Level2").isLoaded)
+        {
+            if (yellowAmmoCount == 0 && purpleAmmoCount == 0 && blueAmmoCount == 0 && greenAmmoCount == 0 && orangeAmmoCount == 0 && redAmmoCount == 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+
+        }
+        if (SceneManager.GetSceneByName("Level3").isLoaded)
+        {
+            if (yellowAmmoCount == 0 && purpleAmmoCount == 0 && blueAmmoCount == 0 && greenAmmoCount == 0 && orangeAmmoCount == 0 && redAmmoCount == 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+
+        }
+        if (SceneManager.GetSceneByName("Level4").isLoaded)
+        {
+            if (yellowAmmoCount == 0 && purpleAmmoCount == 0 && blueAmmoCount == 0 && greenAmmoCount == 0 && orangeAmmoCount == 0 && redAmmoCount == 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+
+        }
+        if (SceneManager.GetSceneByName("Level5").isLoaded)
+        {
+            if (yellowAmmoCount == 0 && purpleAmmoCount == 0 && blueAmmoCount == 0 && greenAmmoCount == 0 && orangeAmmoCount == 0 && redAmmoCount == 0)
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+
+        }
+
+    }
 
 }
