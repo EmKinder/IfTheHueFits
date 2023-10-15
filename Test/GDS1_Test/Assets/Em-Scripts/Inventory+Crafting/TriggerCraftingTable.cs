@@ -40,10 +40,9 @@ public class TriggerCraftingTable : MonoBehaviour
                 inventoryOpen = false;
             }
         }
-        if (!standingAtDesk)
+        if (!standingAtDesk || Input.GetKeyDown(KeyCode.Escape))
         {
-            Destroy(thisCraftingCanvas);
-            inventoryOpen = false;
+            CloseInventory();
         }
     }
 
@@ -64,5 +63,11 @@ public class TriggerCraftingTable : MonoBehaviour
             deskMat = normal;
             standingAtDesk = false;
         }
+    }
+
+    public void CloseInventory()
+    {
+        Destroy(thisCraftingCanvas);
+        inventoryOpen = false;
     }
 }

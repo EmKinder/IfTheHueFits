@@ -87,7 +87,6 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
         }
         if (canMix) {
             if (CanCraft() == false) { 
-                Debug.Log("Is this getting called at all??");
                 io.AddBackToPots(petal1name);
                 
                 io.AddBackToPots(petal2name);

@@ -136,14 +136,13 @@ public class PlantSeeds : MonoBehaviour
             {
                 timerText.color = Color.blue;
             }
-            // timerUI.gameObject.SetActive(true);
+
             timer += Time.deltaTime;
             timerText.text = (5 - timer).ToString("f0");
             if(timer >= 5)
             {
                 plantGrown = true;
-              // growing.SetActive(false);
-           //     grown.SetActive(true);
+
                 if(currentGrowingItemName == "Red")
                 {
                     redFlowers.SetActive(true);
@@ -159,30 +158,21 @@ public class PlantSeeds : MonoBehaviour
                 timer = 0;
                 timerActive = false;
                 timerText.enabled = false;
-              //  timerUI.gameObject.SetActive(false);
+
             }
         }
     }
 
     public bool EnoughSeeds(ItemClass item)
     {
-        // int temp =;
+
         Debug.Log(inventory.GetItemCount(item));
         if (inventory.GetItemCount(item) > 0)
         {
             return true;
         }
-      //  StopAllCoroutines();
-       // StartCoroutine(ResourceText());
         return false;
     }
-
-   // IEnumerator ResourceText()
-    //{
-      //  noResources.enabled = true;
-       // yield return new WaitForSeconds(1.5f);
-        //noResources.enabled = false;
-    //}
 
     private void OnTriggerStay(Collider other)
     {
@@ -204,10 +194,9 @@ public class PlantSeeds : MonoBehaviour
         {
             plantGrowing = true;
             currentGrowingItemName = "Red";
-           // growing.SetActive(true);
-          //  ChangeMaterial(growing, redMat);
+
             inventory.RemoveItem(redSeed, 1);
-           // inventory.Remove1(redSeed, 1);
+
             timerActive = true;
             canPlant = false;
             redFarmButton.gameObject.SetActive(false);
@@ -295,22 +284,17 @@ public class PlantSeeds : MonoBehaviour
 
     public void PlantTriggerOptions()
     {
-        //  Debug.Log("Farmland stepped on");
 
-        //if (Input.GetKeyDown(KeyCode.E))
-       // {
             triggeredFirstTime = true;
-            //   Debug.Log("Farming E Pressed");
+
             if (!plantGrowing)
             {
-                //        Debug.Log("Buttons Appear");
+
                 redFarmButton.gameObject.SetActive(true);
                 yellowFarmButton.gameObject.SetActive(true);
                 blueFarmButton.gameObject.SetActive(true);
 
-                //  inventory.PrintItems();
-                //   Debug.Log(redSeed.itemName);
-                //    Debug.Log(blueSeed.itemName);
+
                 redText.enabled = true; //jes
                                         //     blueText.text = inventory.BlueSeedAmount().ToString();
                 blueText.enabled = true; //jes2
