@@ -34,15 +34,15 @@ public class OnInstructionsOpen : MonoBehaviour, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData pointerEventData)
     {
-        if (PlayerPrefs.GetInt("Current") >= 4)
-            OpenInstructions(3);
-        else if (PlayerPrefs.GetInt("Current") >= 5)
-            OpenInstructions(4);
-        else if (PlayerPrefs.GetInt("Current") >= 6)
+       if (PlayerPrefs.GetInt("Current") > 5)
             OpenInstructions(6);
+        else if (PlayerPrefs.GetInt("Current") > 4)
+            OpenInstructions(4);
+        else if (PlayerPrefs.GetInt("Current") > 3)
+            OpenInstructions(3);
         else
             OpenInstructions(2);
-
+        Debug.Log(PlayerPrefs.GetInt("Current"));
     }
 
     public void OpenInstructions(int num)

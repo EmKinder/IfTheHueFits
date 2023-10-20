@@ -64,14 +64,6 @@ public class InventoryManager : MonoBehaviour
             Add(onStartBlueResource, 2);
             RefreshUI();
         }
-
-    /*    RedCraftButton.onClick.AddListener(RedCraftClick);
-        OrangeCraftButton.onClick.AddListener(OrangeCraftClick);
-        YellowCraftButton.onClick.AddListener(YellowCraftClick);
-        GreenCraftButton.onClick.AddListener(GreenCraftClick);
-        BlueCraftButton.onClick.AddListener(BlueCraftClick);
-        PurpleCraftButton.onClick.AddListener(PurpleCraftClick);*/
-
         audio = this.GetComponent<AudioSource>();
 
         redCrafted = false;

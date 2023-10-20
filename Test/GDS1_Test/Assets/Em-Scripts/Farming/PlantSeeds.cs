@@ -136,14 +136,13 @@ public class PlantSeeds : MonoBehaviour
             {
                 timerText.color = Color.blue;
             }
-            // timerUI.gameObject.SetActive(true);
+
             timer += Time.deltaTime;
             timerText.text = (5 - timer).ToString("f0");
             if(timer >= 5)
             {
                 plantGrown = true;
-              // growing.SetActive(false);
-           //     grown.SetActive(true);
+
                 if(currentGrowingItemName == "Red")
                 {
                     redFlowers.SetActive(true);
@@ -159,117 +158,34 @@ public class PlantSeeds : MonoBehaviour
                 timer = 0;
                 timerActive = false;
                 timerText.enabled = false;
-              //  timerUI.gameObject.SetActive(false);
+
             }
         }
     }
 
     public bool EnoughSeeds(ItemClass item)
     {
-        // int temp =;
+
         Debug.Log(inventory.GetItemCount(item));
         if (inventory.GetItemCount(item) > 0)
         {
             return true;
         }
-      //  StopAllCoroutines();
-       // StartCoroutine(ResourceText());
         return false;
     }
-
-   // IEnumerator ResourceText()
-    //{
-      //  noResources.enabled = true;
-       // yield return new WaitForSeconds(1.5f);
-        //noResources.enabled = false;
-    //}
 
     private void OnTriggerStay(Collider other)
     {
         if (other.tag == "Player") {
-          //  Debug.Log("Farmland stepped on");
             ChangeMaterial(pots, emmisive);
-            if (Input.GetKeyDown(KeyCode.E))
-            {
-                triggeredFirstTime = true;
-             //   Debug.Log("Farming E Pressed");
-                if (!plantGrowing)
-                {
-            //        Debug.Log("Buttons Appear");
-                    redFarmButton.gameObject.SetActive(true);
-                    yellowFarmButton.gameObject.SetActive(true);
-                    blueFarmButton.gameObject.SetActive(true);
-
-                 //  inventory.PrintItems();
-                 //   Debug.Log(redSeed.itemName);
-                //    Debug.Log(blueSeed.itemName);
-                    redText.enabled = true; //jes
-               //     blueText.text = inventory.BlueSeedAmount().ToString();
-                   blueText.enabled = true; //jes2
-                //    yellowText.text = inventory.GetItemCount(yellowSeed).ToString();
-                    yellowText.enabled = true; //jes
-                    redCircle.enabled = true; //jes
-                    blueCircle.enabled = true; //jes
-                    yellowCircle.enabled = true; //jes
-
-                }
-            }
-
-        }
-    
-
-
-        if (Input.GetKeyDown(KeyCode.E) && plantGrown)
-        {
-            if(currentGrowingItemName == "Red")
-            {
-                inventory.AddItem(redResource, 3);
-                redFlowers.SetActive(false);
-                audio.clip = harvestSeeds;
-                audio.Play();
-
-            }
-            if (currentGrowingItemName == "Yellow")
-            {
-                inventory.AddItem(yellowResource, 3);
-                yellowFlowers.SetActive(false);
-                audio.clip = harvestSeeds;
-                audio.Play();
-            }
-            if (currentGrowingItemName == "Blue")
-            {
-                inventory.AddItem(blueResource, 3);
-                blueFlowers.SetActive(false);
-                audio.clip = harvestSeeds;
-                audio.Play();
-            }
-            plantHarvested = true;
-           // grown.SetActive(false);
-            plantGrown = false;
-            plantGrowing = false;
-            
-        
+            if (Input.GetKeyDown(KeyCode.E) || Input.GetMouseButtonDown(0)) 
+                PlantTriggerOptions();
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-
-        if (redFarmButton != null)
-        {
-            redFarmButton.gameObject.SetActive(false);
-            yellowFarmButton.gameObject.SetActive(false);
-            blueFarmButton.gameObject.SetActive(false);
-
-            redText.enabled = false; //jes
-            blueText.enabled = false; //jes
-            yellowText.enabled = false; //jes
-            redCircle.enabled = false; //jes
-            blueCircle.enabled = false; //jes
-            yellowCircle.enabled = false; //jes
-        }
-        canPlant = false;
-        ChangeMaterial(pots, normal);
+        PlantExitOptions();
     }
 
     public void PlantRed()
@@ -278,10 +194,9 @@ public class PlantSeeds : MonoBehaviour
         {
             plantGrowing = true;
             currentGrowingItemName = "Red";
-           // growing.SetActive(true);
-          //  ChangeMaterial(growing, redMat);
+
             inventory.RemoveItem(redSeed, 1);
-           // inventory.Remove1(redSeed, 1);
+
             timerActive = true;
             canPlant = false;
             redFarmButton.gameObject.SetActive(false);
@@ -365,5 +280,80 @@ public class PlantSeeds : MonoBehaviour
         {
             children[i].material = mat;
         }
+    }
+
+    public void PlantTriggerOptions()
+    {
+
+            triggeredFirstTime = true;
+
+            if (!plantGrowing)
+            {
+
+                redFarmButton.gameObject.SetActive(true);
+                yellowFarmButton.gameObject.SetActive(true);
+                blueFarmButton.gameObject.SetActive(true);
+
+
+                redText.enabled = true; //jes
+                                        //     blueText.text = inventory.BlueSeedAmount().ToString();
+                blueText.enabled = true; //jes2
+                                         //    yellowText.text = inventory.GetItemCount(yellowSeed).ToString();
+                yellowText.enabled = true; //jes
+                redCircle.enabled = true; //jes
+                blueCircle.enabled = true; //jes
+                yellowCircle.enabled = true; //jes
+
+            }
+        //}
+        if (plantGrown)
+        {
+            if (currentGrowingItemName == "Red")
+            {
+                inventory.AddItem(redResource, 3);
+                redFlowers.SetActive(false);
+                audio.clip = harvestSeeds;
+                audio.Play();
+
+            }
+            if (currentGrowingItemName == "Yellow")
+            {
+                inventory.AddItem(yellowResource, 3);
+                yellowFlowers.SetActive(false);
+                audio.clip = harvestSeeds;
+                audio.Play();
+            }
+            if (currentGrowingItemName == "Blue")
+            {
+                inventory.AddItem(blueResource, 3);
+                blueFlowers.SetActive(false);
+                audio.clip = harvestSeeds;
+                audio.Play();
+            }
+            plantHarvested = true;
+            // grown.SetActive(false);
+            plantGrown = false;
+            plantGrowing = false;
+        }
+            
+    }
+
+    public void PlantExitOptions()
+    {
+        if (redFarmButton != null)
+        {
+            redFarmButton.gameObject.SetActive(false);
+            yellowFarmButton.gameObject.SetActive(false);
+            blueFarmButton.gameObject.SetActive(false);
+
+            redText.enabled = false; //jes
+            blueText.enabled = false; //jes
+            yellowText.enabled = false; //jes
+            redCircle.enabled = false; //jes
+            blueCircle.enabled = false; //jes
+            yellowCircle.enabled = false; //jes
+        }
+        canPlant = false;
+        ChangeMaterial(pots, normal);
     }
 }
