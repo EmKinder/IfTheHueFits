@@ -223,7 +223,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.AddItem(redPaint, 8);
                 inventory.RemoveItem(red, 2);
                 ac.addAmmoCount("Red", 8);
-                thisText.text = "5x Red Paint Added to Inventory!";
+                thisText.text = "8x Red Paint Added to Inventory!";
                 firstRedPaint = true;
 
             }
@@ -233,7 +233,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.RemoveItem(red, 1);
                 inventory.RemoveItem(yellow, 1);
                 ac.addAmmoCount("Orange", 8);
-                thisText.text = "5x Orange Paint Added to Inventory!";
+                thisText.text = "8x Orange Paint Added to Inventory!";
 
             }
             if (thisPaint == "Yellow")
@@ -241,7 +241,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.AddItem(yellowPaint, 8);
                 inventory.RemoveItem(yellow, 2);
                 ac.addAmmoCount("Yellow", 8);
-                thisText.text = "5x Yellow Paint Added to Inventory!";
+                thisText.text = "8x Yellow Paint Added to Inventory!";
 
             }
             if (thisPaint == "Green")
@@ -250,7 +250,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.RemoveItem(yellow, 1);
                 inventory.RemoveItem(blue, 1);
                 ac.addAmmoCount("Green", 8);
-                thisText.text = "5x Green Paint Added to Inventory!";
+                thisText.text = "8x Green Paint Added to Inventory!";
 
             }
             if (thisPaint == "Blue")
@@ -258,7 +258,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.AddItem(bluePaint, 8);
                 inventory.RemoveItem(blue, 2);
                 ac.addAmmoCount("Blue", 8);
-                thisText.text = "5x Blue Paint Added to Inventory!";
+                thisText.text = "8x Blue Paint Added to Inventory!";
                 firstBluePaint = true;
 
             }
@@ -268,7 +268,7 @@ public class InBowl : MonoBehaviour, IPointerDownHandler
                 inventory.RemoveItem(red, 1);
                 inventory.RemoveItem(blue, 1);
                 ac.addAmmoCount("Purple", 8);
-                thisText.text = "5x Purple Paint Added to Inventory!";
+                thisText.text = "8x Purple Paint Added to Inventory!";
 
             }
             thisText.enabled = false;
